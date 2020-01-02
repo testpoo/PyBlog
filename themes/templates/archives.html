@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='category archives'>
+    <ul>
+        {% for article in articles %}
+        <li>{{ article.date[0:10] }} <a href="{{ sitename }}/post/{{ article.title | b64encode }}.html" class="post-title-link">{{ article.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

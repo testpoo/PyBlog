@@ -1,0 +1,38 @@
+{% if pag.count and pag.total_record > 0 %}
+<div class="pagination">
+    <ul>
+		<li class="prev total">{{ pag.total_record }}</li>
+		<li class="prev first"><a href="{{ SITEURL }}/index.html">&laquo;</a></li>
+        {% if pag.current_page > 2 %}
+            <li class="prev"><a href="{{ SITEURL }}/index{{ pag.current_page - 1  }}.html">&lt;</a></li>
+		{% elif pag.current_page == 2 %}
+		    <li class="prev"><a href="{{ SITEURL }}/index.html">&lt;</a></li>
+        {% else %}
+            <li class="prev disabled"><a href="#">&lt;</a></li>
+        {% endif %}
+		{% if pag.page_total < pag.range_num*2 + 1 %}
+            {% for num in range( 1, 1+pag.page_total ) %}
+                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+        {% endfor %}
+		{% elif pag.current_page > pag.range_num and pag.current_page < pag.page_total - pag.range_num +1 %}
+            {% for num in range( pag.current_page-pag.range_num, 1+pag.current_page+pag.range_num ) %}
+                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+            {% endfor %}
+		{% elif pag.current_page > pag.page_total - pag.range_num %}
+            {% for num in range( pag.page_total-pag.range_num*2, 1+pag.page_total ) %}
+                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+            {% endfor %}
+		{% else %}
+            {% for num in range( 1, 2+pag.range_num*2 ) %}
+                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+            {% endfor %}
+		{% endif %}	
+        {% if pag.current_page < pag.page_total %}
+            <li class="next"><a href="{{ SITEURL }}/index{{ pag.current_page + 1 }}.html">&gt;</a></li>
+        {% else %}
+            <li class="next disabled"><a href="#">&gt;</a></li>
+        {% endif %}
+		<li class="next end"><a href="{{ SITEURL }}/index{{ pag.page_total if pag.page_total!=1 else '' }}.html">&raquo;</a></li>
+	</ul>
+</div>
+{% endif %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="">
+
+    <meta name="keywords" content="{{ words.keywords }}">
+    <meta name="description" content="{{ words.description }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>{{ words.title }}</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    {% if postcss or aboutcss %}
+    <link rel="stylesheet" type="text/css" href="{{ words.sitename }}/themes/css/markdown.css">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ words.sitename }}/themes/css/style.css">
+</head>
+
+<body>
+    <nav class="headNav">
+        <span class="menu-item"><a href="{{ words.sitename }}">{{ words.title }}</a></span>
+        <span class="menu-item">|</span>
+        {% for nav in navs %}
+            <span class="menu-item"><a href="{{ words.sitename }}/{{ nav[1] }}">{{ nav[0] }}</a></span>
+        {% endfor %}
+    </nav>
+    {% if not postcss %}
+    <div class="whitewords">
+        <ul>
+            <li class="bigWord">致力于测试开发技术</li>
+            <li class="smallWord">一个80后老人，专注测试领域。</li>
+        </ul>
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+    <footer id="footer">
+        <span>&copy; 2019 <a href="{{ words.sitename }}/">TestPoo</a> |</span>
+        <span><a href="{{ words.github }}">GitHub</a> | <a href="mailto:{{ words.mail }}">邮箱</a> | <a
+                href="{{ words.sitename }}/rss.xml">RSS</a></span>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    var div = document.getElementById("footer");
+    var contentHeight = document.body.scrollHeight;//网页正文全文高度
+    var winHeight = document.documentElement.clientHeight;//可视窗口高度，不包括浏览器顶部工具栏
+    
+    if (contentHeight < winHeight) {
+        div.style.position = 'fixed';
+        div.style.bottom = '-60';
+    }
+</script>

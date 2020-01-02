@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss>  
+  <channel> 
+    <title>{{ words.title }}</title>  
+    <atom:link href="{{ words.sitename }}/rss.xml" rel="self" type="application/rss+xml"/>  
+    <link>{{ words.sitename }}</link>  
+    <description>{{ words.description }}</description>  
+    <lastBuildDate>{{ lastBuildDate }}</lastBuildDate>   
+    {% for article in articles %}
+      {% if article.title != 'about' %}
+        <item> 
+        <post-title>{{ article.title }}</post-title>  
+        <post-link>{{ words.sitename }}/post/{{ article.title }}.html</post-link>  
+        <comments>{{ words.sitename }}/post/{{ article.title }}.html#comments</comments>  
+        <pubDate>{{ article.date }}</pubDate>  
+        <dc:creator>{{ author }}</dc:creator>  
+        {% if 'category' in article %}
+          <category>
+          {% for category in article.category %}
+            {{ category }}
+          {% endfor %}
+          </category>  
+        {% endif %}
+        <description>{{ article.content|safe }}</description>  
+        <wfw:commentRss>{{ words.sitename }}/post/{{ article.title }}.xml</wfw:commentRss>  
+        <slash:comments>0</slash:comments> 
+        </item> 
+      {% endif %}
+    {% endfor %}
+  </channel> 
+</rss>

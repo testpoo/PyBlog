@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='category-items'>
+    <ul>
+        {% for ca in cas.keys() %}
+        <li class="category-item"><a href="{{ words.sitename }}/categories/{{ ca }}.html">{{ ca }}</a><span class="count">{{ cas[ca] }}</span></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
