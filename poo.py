@@ -16,12 +16,13 @@ from parameters import *
 jinja_environment = jinja2.Environment(autoescape=True,
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'themes/templates')))
 
-def b64encode(base64temp):
-    b64str=str(base64.b64encode(bytes(base64temp,encoding='utf8')),encoding = "utf8")
-    return b64str
+#def b64encode(base64temp):
+#    b64str=str(base64.b64encode(bytes(base64temp,encoding='utf8')),encoding = "utf8")
+#    return b64str
 
-jinja_environment.filters['b64encode'] = b64encode
+#jinja_environment.filters['b64encode'] = b64encode
 
+# 常量
 lastBuildDate = datetime.datetime.now()
 year = lastBuildDate.year
 
@@ -45,14 +46,12 @@ def file_name(file_dir):
         #print(files) #当前路径下所有非目录子文件
     for files in os.walk(file_dir): 
         files = files[2]
-        if 'about.md' in files:
-            files.remove('about.md')
         #files.reverse(key=file)
         return files
 
 # 生成markdown
 def md(filename):
-
+    # 导入markdown额外插件
     exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.tables','markdown.extensions.toc']
 
     articles = []
@@ -77,23 +76,6 @@ def md(filename):
     articles =  sorted(articles,key=lambda d:d['date'],reverse=True)
     return articles
 
-#生成简介
-def summary(html):
-    summary = re.compile(r'<[^>]+>',re.S).sub('',html)[0:200]
-    return summary
-'''
-#生成网页
-def make_html():
-    for i in range(len(template_file)):
-        template = jinja_environment.get_template(template_file[i][0])
-        if not os.path.exists(template_file[i][1]):
-            os.makedirs(template_file[i][1])
-        f = open(template_file[i][1]+"index.html", "w",encoding="utf-8")
-        f.write(template.render(words=words,current=template_file[i][0],abouts=abouts,navs=navs,year=year))
-        f.close()
-'''
-articles = md(file_name(pulldir))
-
 # 类别/标签
 def params(articles,param):
 
@@ -106,20 +88,17 @@ def params(articles,param):
         count[par] = params.count(par)
     return count
 
-
 #生成文章列表
-def home(articles,path):
+def home(articles,path,categroies):
 
-    cates = params(articles,'category')
+    cate = list(params(articles,'category').keys())
+    if len(cate) < 2:
+        cate = cate[0]
     
     files = file_name(pulldir)
 
     total_record = len(articles)
     
-    articles_summary = copy.deepcopy(articles)  # 赋值一个新的list,防止articles被截断
-
-    for i in range(total_record):
-        articles_summary[i]['content']=summary(articles[i]['content'])
     page_total = int(math.ceil(total_record / count))
 
     template = jinja_environment.get_template('index.html')
@@ -130,20 +109,8 @@ def home(articles,path):
         end = start + count
         paginator = {'count':count,'current_page':current_page,'total_record':total_record,'page_total':page_total,'start':start,'end':end,'range_num':range_num}
         f = open(pushdir+"/"+path+str(current_page if current_page > 1 else '')+".html", "w",encoding="utf-8")   
-        f.write(template.render(articles=articles_summary[start:end],pag=paginator,words=words,navs=navs,year=year,cates=cates,current='index.html',knowledge=knowledge))
+        f.write(template.render(articles=articles[start:end],pag=paginator,words=words,year=year,current='index.html',categroies=categroies,cate=cate))
         f.close()
-
-# 生成标签列表
-def tags_home(articles):
-
-    ts = params(articles,'tag')
-
-    template = jinja_environment.get_template('tags.html')
-    if not os.path.exists(pushdir+"/"):
-        os.makedirs(pushdir+"/")
-    f = open(pushdir+"/tags.html", "w",encoding="utf-8")
-    f.write(template.render(ts=ts,words=words,navs=navs,year=year))
-    f.close()
 
 # 生成类别列表
 def categories_home(articles):
@@ -154,21 +121,11 @@ def categories_home(articles):
     if not os.path.exists(pushdir+"/"):
         os.makedirs(pushdir+"/")
     f = open(pushdir+"/categories.html", "w",encoding="utf-8")
-    f.write(template.render(cas=cas,words=words,navs=navs,year=year))
-    f.close()
-
-# 生成归档列表
-def archives_home(articles):
-
-    template = jinja_environment.get_template('archives.html')
-    if not os.path.exists(pushdir+"/"):
-        os.makedirs(pushdir+"/")
-    f = open(pushdir+"/archives.html", "w",encoding="utf-8")   
-    f.write(template.render(articles=articles,words=words,navs=navs,year=year))
+    f.write(template.render(cas=cas,words=words,year=year))
     f.close()
 
 # 生成类别文章
-def category(articles):
+def category(articles,categroies):
     
     temp = []
 
@@ -180,24 +137,8 @@ def category(articles):
         for j in range(len(articles)):
             if 'category' in articles[j] and cates[i] in articles[j]['category']:
                 temp.append(articles[j])
-        home(temp,'categories/'+cates[i].lower())
-        temp = []
-
-# 生成标签文章
-def tag(articles):
-    
-    temp = []
-
-    if not os.path.exists(pushdir+'/tags'):
-        os.makedirs(pushdir+'/tags')
-
-    cates = list(params(articles,'tag').keys())
-    for i in range(len(cates)):
-        for j in range(len(articles)):
-            if 'tag' in articles[j] and cates[i] in articles[j]['tag']:
-                temp.append(articles[j])
-        home(temp,'tags/'+cates[i].lower())
-        temp = []
+        home(temp,'categories/'+cates[i].lower(),categroies)
+        temp.clear()
 
 # 生成文章
 def posts(articles):
@@ -215,8 +156,9 @@ def posts(articles):
             next = ''
         else:
             next = articles[i+1]
-        f = open(pushdir+"/post/"+str(base64.b64encode(bytes(articles[i]['title'],encoding='utf8')),encoding = "utf8")+".html", "w", encoding="utf-8")
-        f.write(template.render(article = articles[i],words=words,previous=previous,next=next,navs=navs,year=year,postcss='true'))
+        #f = open(pushdir+"/post/"+str(base64.b64encode(bytes(articles[i]['title'],encoding='utf8')),encoding = "utf8")+".html", "w", encoding="utf-8")
+        f = open(pushdir+"/post/"+articles[i]['title']+".html", "w", encoding="utf-8")
+        f.write(template.render(article = articles[i],words=words,previous=previous,next=next,year=year))
         f.close()
 
 # 生成RSS
@@ -226,27 +168,15 @@ def rss(articles):
     if not os.path.exists(pushdir+"/"):
         os.makedirs(pushdir+"/")
     f = open(pushdir+"/rss.xml", "w",encoding="utf-8")   
-    f.write(template.render(articles=articles,words=words,navs=navs,year=year))
-    f.close()
-
-# 生成导航
-def navigation():
-
-    template = jinja_environment.get_template('links.html')
-    if not os.path.exists(pushdir+"/"):
-        os.makedirs(pushdir+"/")
-    f = open(pushdir+"/links.html", "w",encoding="utf-8")   
-    f.write(template.render(links=links,words=words,navs=navs,year=year))
+    f.write(template.render(articles=articles,words=words,year=year))
     f.close()
 
 #about
 def about():
 
-    about = md(['about.md'])
-
     template = jinja_environment.get_template('about.html')
     f = open(pushdir+"/about.html", "w", encoding="utf-8")
-    f.write(template.render(about = about[0],words=words,navs=navs,year=year,aboutcss='true'))
+    f.write(template.render(introduction=introduction,infos=infos,works=works,links=links,words=words,year=year))
     f.close()
 
 #拷贝静态文件
@@ -276,18 +206,16 @@ def copyFiles(src, dst):
 
 #函数调用
 def makehtml():
+
+    articles = md(file_name(pulldir))
+    categroies = params(articles,'category')
+
     delfile()
-    #make_html()
-    home(articles,'index')
-    tags_home(articles)
-    categories_home(articles)
-    archives_home(articles)
-    category(articles)
-    tag(articles)
+    home(articles,'index',categroies)
+    category(articles,categroies)
     posts(articles)
     about()
     rss(articles)
-    navigation()
     copyFiles(src, dst)
     copyFiles(static, output)
 

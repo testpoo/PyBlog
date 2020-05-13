@@ -15,47 +15,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>{{ words.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ words.sitename }}/themes/css/markdown.css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ words.sitename }}/themes/css/style.css" media="all">
     <link rel="icon" type="image/png" href="favicon.png">
-    {% if postcss or aboutcss %}
-    <link rel="stylesheet" type="text/css" href="{{ words.sitename }}/themes/css/markdown.css">
-    {% endif %}
-    <link rel="stylesheet" type="text/css" href="{{ words.sitename }}/themes/css/style.css">
 </head>
 
 <body>
-    <nav class="headNav">
-        <span class="menu-item"><a href="{{ words.sitename }}">{{ words.title }}</a></span>
-        <span class="menu-item">|</span>
-        {% for nav in navs %}
-            <span class="menu-item"><a href="{{ words.sitename }}/{{ nav[1] }}">{{ nav[0] }}</a></span>
-        {% endfor %}
-    </nav>
-    {% if not postcss %}
-    <div class="whitewords">
-        <ul>
-            <li class="bigWord">致力于测试开发技术</li>
-            <li class="smallWord">一个80后老人，专注测试领域。</li>
-        </ul>
+    <div class='nav'>
+        <div class='sitename'><a href="{{ sitename }}/">{{ words.title }}</a></div>
+        <div class='about'><a href="{{ sitename }}/about.html">关于</a></div>
     </div>
-    {% endif %}
-    {% block content %}
-    {% endblock %}
-    <footer id="footer">
-        <span>&copy; 2019 <a href="{{ words.sitename }}/">TestPoo</a> |</span>
-        <span><a href="{{ words.github }}">GitHub</a> | <a href="mailto:{{ words.mail }}">邮箱</a> | <a
-                href="{{ words.sitename }}/rss.xml">RSS</a></span>
-    </footer>
+    <div class='main'>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class='footer'>
+        <span class="save">授权协议 <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh'>(CC) BY-NC-SA</a> <span class="del">|</span><span class="save"> 订阅 <a href="{{ sitename }}/rss.xml">RSS</a> <span class="del">|</span><span class="save"> 邮箱 <a href="mailto:pu_yaweis@qq.com">pu_yaweis@qq.com</a></span>
+    </div>
 </body>
 
 </html>
-
-<script>
-    var div = document.getElementById("footer");
-    var contentHeight = document.body.scrollHeight;//网页正文全文高度
-    var winHeight = document.documentElement.clientHeight;//可视窗口高度，不包括浏览器顶部工具栏
-    
-    if (contentHeight < winHeight) {
-        div.style.position = 'fixed';
-        div.style.bottom = '-60';
-    }
-</script>

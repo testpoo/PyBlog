@@ -74,7 +74,7 @@ blockquote {
 	border-left: 4px solid #D5D5D5;
 	margin-left: 0;
 	margin-right: 0;
-	margin-bottom: 1.5rem;
+	margin: 1.5rem 0;
 }
 
 a {

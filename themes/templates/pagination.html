@@ -1,38 +1,36 @@
 {% if pag.count and pag.total_record > 0 %}
 <div class="pagination">
-    <ul>
-		<li class="prev total">{{ pag.total_record }}</li>
-		<li class="prev first"><a href="{{ SITEURL }}/index.html">&laquo;</a></li>
+		<span class="prev total">共{{ pag.total_record }}篇</span>
+		<span class="prev first"><a href="{{ SITEURL }}/index.html">首页</a></span>
         {% if pag.current_page > 2 %}
-            <li class="prev"><a href="{{ SITEURL }}/index{{ pag.current_page - 1  }}.html">&lt;</a></li>
+            <span class="prev"><a href="{{ SITEURL }}/index{{ pag.current_page - 1  }}.html">上一页</a></span>
 		{% elif pag.current_page == 2 %}
-		    <li class="prev"><a href="{{ SITEURL }}/index.html">&lt;</a></li>
+		    <span class="prev"><a href="{{ SITEURL }}/index.html">上一页</a></span>
         {% else %}
-            <li class="prev disabled"><a href="#">&lt;</a></li>
+            <span class="prev disabled"><a href="#">上一页</a></span>
         {% endif %}
 		{% if pag.page_total < pag.range_num*2 + 1 %}
             {% for num in range( 1, 1+pag.page_total ) %}
-                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+                <span class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></span>
         {% endfor %}
 		{% elif pag.current_page > pag.range_num and pag.current_page < pag.page_total - pag.range_num +1 %}
             {% for num in range( pag.current_page-pag.range_num, 1+pag.current_page+pag.range_num ) %}
-                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+                <span class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></span>
             {% endfor %}
 		{% elif pag.current_page > pag.page_total - pag.range_num %}
             {% for num in range( pag.page_total-pag.range_num*2, 1+pag.page_total ) %}
-                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+                <span class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></span>
             {% endfor %}
 		{% else %}
             {% for num in range( 1, 2+pag.range_num*2 ) %}
-                <li class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+                <span class="{{ 'active' if num == pag.current_page else '' }}"><a href="{{ SITEURL }}/index{{ num if num > 1 else '' }}.html">{{ num }}</a></span>
             {% endfor %}
 		{% endif %}	
         {% if pag.current_page < pag.page_total %}
-            <li class="next"><a href="{{ SITEURL }}/index{{ pag.current_page + 1 }}.html">&gt;</a></li>
+            <span class="next"><a href="{{ SITEURL }}/index{{ pag.current_page + 1 }}.html">下一页</a></span>
         {% else %}
-            <li class="next disabled"><a href="#">&gt;</a></li>
+            <span class="next disabled"><a href="#">下一页</a></span>
         {% endif %}
-		<li class="next end"><a href="{{ SITEURL }}/index{{ pag.page_total if pag.page_total!=1 else '' }}.html">&raquo;</a></li>
-	</ul>
+		<span class="next end"><a href="{{ SITEURL }}/index{{ pag.page_total if pag.page_total!=1 else '' }}.html">末页</a></span>
 </div>
 {% endif %}

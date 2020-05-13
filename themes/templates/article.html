@@ -1,61 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class='post post-margin'>
-    <header class="post-header">
-        <h2 class="post-title">
-            <a href="{{ words.sitename }}/post/{{ article.title | b64encode }}.html" class="post-title-link">{{ article.title }}</a>
-        </h2>
-        <div class="post-meta">
-            <span class="post-meta-item">
-                    <span class="post-meta-item-text">发表于</span> <time title="{{ '创建时间:'+article.date if 'date' in article else '' }}"
-                    datetime="{{ article.date if 'date' in article else '' }}">{{ article.date[0:10] if 'date' in article else '' }}</time></span>
-            {% if 'category' in article %}
-            <span class="post-meta-item-text">分类</span>
-            <span class="leancloud-visitors-count">
-                {% for category in article.category %}
-                <a href="{{ words.sitename }}/categories/{{ category }}.html">{{ category }}</a>&nbsp;
-                {% endfor %}
-            </span>
-            {% endif %}
-            </span>
-            <br>
-        </div>
-    </header>
+<div class='article'>
+    <div class="post-title">
+        <h2>{{ article.title }}</h2>
+    </div>
+    <div class="post-date">
+        {{ article.date }} | 类别：
+        {% for category in article.category %}
+            {{ category }}
+        {% endfor %}
+    </div>
     <div class="post-body">
         {{ article.content|safe }}
     </div>
-    <div class="post-meta">
-        {% if 'tag' in article %}
-        <span class="post-meta-item-text">标签</span>
-        <span class="leancloud-visitors-count">
-            {% for tag in article.tag %}
-            <a href="{{ words.sitename }}/tags/{{ tag }}.html">{{ tag }}</a>&nbsp;
-            {% endfor %}
-        </span>
-        {% endif %}
-    </div>
-    <div class="post-copyright">
-        <ul>
-            <li>本文作者：{{ words.author }}</li>
-            <li>本文链接：{{ words.sitename }}/post/{{ article.title }}.html</li>
-            <li>版权： 本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！</li>
-        </ul>
-    </div>
+</div>
+<div class="post-meta">
+    {% if 'tag' in article %}
+    <span class="post-meta-item-text">标签 ：
+    {% for tag in article.tag %}
+        {{ tag }}
+    {% endfor %}
+    </span>
+    {% endif %}
 </div>
 <div class="prenex">
     <div class="previous">
         {% if previous == '' %}
         <a href="{{ words.sitename }}">{{ '已经是第一篇了' }}</a>
         {% else %}
-        <a href="{{ words.sitename }}/post/{{ previous.title | b64encode }}.html">{{ previous.title }}</a>
+        <a href="{{ words.sitename }}/post/{{ previous.title }}.html">{{ previous.title }}</a>
         {% endif %}
     </div>
     <div class="nexts">
         {% if next == '' %}
         <a href="{{ words.sitename }}">{{ '已经是最后一篇了' }}</a>
         {% else %}
-        <a href="{{ words.sitename }}/post/{{ next.title | b64encode }}.html">{{ next.title }}</a>
+        <a href="{{ words.sitename }}/post/{{ next.title }}.html">{{ next.title }}</a>
         {% endif %}
     </div>
 </div>

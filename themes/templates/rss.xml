@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<rss>  
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">  
   <channel> 
     <title>{{ words.title }}</title>  
-    <atom:link href="{{ words.sitename }}/rss.xml" rel="self" type="application/rss+xml"/>  
-    <link>{{ words.sitename }}</link>  
     <description>{{ words.description }}</description>  
-    <lastBuildDate>{{ lastBuildDate }}</lastBuildDate>   
+    <link>{{ words.title }}</link>  
+    <atom:link href="{{ words.sitename }}/feed.xml" rel="self" type="application/rss+xml"/>  
+    <pubDate>{{ lastBuildDate }}</pubDate>  
+    <lastBuildDate>{{ lastBuildDate }}</lastBuildDate>  
+    <generator>PyBlog v0.0.1</generator> 
     {% for article in articles %}
-      {% if article.title != 'about' %}
-        <item> 
-        <post-title>{{ article.title }}</post-title>  
-        <post-link>{{ words.sitename }}/post/{{ article.title }}.html</post-link>  
-        <comments>{{ words.sitename }}/post/{{ article.title }}.html#comments</comments>  
-        <pubDate>{{ article.date }}</pubDate>  
-        <dc:creator>{{ author }}</dc:creator>  
-        {% if 'category' in article %}
-          <category>
-          {% for category in article.category %}
-            {{ category }}
-          {% endfor %}
-          </category>  
-        {% endif %}
-        <description>{{ article.content|safe }}</description>  
-        <wfw:commentRss>{{ words.sitename }}/post/{{ article.title }}.xml</wfw:commentRss>  
-        <slash:comments>0</slash:comments> 
-        </item> 
-      {% endif %}
+    {% if article.title != 'about' %}
+    <item> 
+      <title>{{ article.title }}</title>  
+      <description>{{ article.content|safe }}</description>  
+      <pubDate>{{ lastBuildDate }}</pubDate>  
+      <link>{{ words.sitename }}/post/{{ article.title }}.html</link>  
+      <guid isPermaLink="true">{{ words.sitename }}/post/{{ article.title }}.html</guid>
+      {% for category in article.category %} 
+      <category>{{ category }}</category> 
+      {% endfor %}
+    </item>
+    {% endif %}
     {% endfor %}
   </channel> 
 </rss>

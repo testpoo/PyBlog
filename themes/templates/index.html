@@ -1,55 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="category">
-    <div class="title"><i class="fa fa-code"></i>&nbsp;&nbsp;技术栈专栏</div>
-    <div class="row">
-        {% for know in knowledge %}
-        <div class="tag-card">
-            <a href="{{ words.sitename }}/categories/{{ know | lower }}.html" title="{{ know }}">{{ know }}</a>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-<div class="items">
-    {% for article in articles %}
-    <div class="item">
-        <div class="card">
-            <a
-                href="{{ words.sitename }}/post/{{ article.title | b64encode }}.html">
-                <span class="card-title">{{ article.title }}</span>
-            </a>
-        </div>
-        <div class="summary">
-            {{ article.content|safe }}
-        </div>
-        <div class="publish-info">
-            <span class="publish-date">
-                <i class="fa fa-clock-o fa-fw icon-date"></i>{{ article.date[0:10] if 'date' in article else '' }}
-            </span>
-            {% if 'category' in article %}
-            <span class="publish-category">
-                {% for category in article.category %}
-                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                <a href="{{ words.sitename }}/categories/{{ category }}.html" class="post-category"
-                    target="_blank">
-                    {{ category }}
-                </a>
-                {% endfor %}
-            </span>
-            {% endif %}
-        </div>
-        {% if 'tag' in article %}
-        <div class="article-tags">
-            {% for tag in article.tag %}
-            <a href="{{ words.sitename }}/tags/{{ tag }}.html" target="_blank">
-                <span class="chip bg-color">{{ tag }}</span>
-            </a>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </div>
+<div class='cateitem'>分类</div>
+<div class='categroies'>
+    {% for categroy in categroies %}
+    <span class="categroy {{ 'current' if categroy == cate else '' }}"><a href="{{ words.sitename }}/categories/{{ categroy | lower }}.html">{{ categroy }}</a></span>
     {% endfor %}
+</div>
+<div>
+    <ul>
+        {% for article in articles %}
+        <li class='post'><span class='date'>{{ article.date[0:10] if 'date' in article else '' }}</span>&emsp;<span class='title'><a href="{{ words.sitename }}/post/{{ article.title }}.html">{{ article.title }}</a></span></li>
+        {% endfor %}
+    </ul>
 </div>
 {% include 'pagination.html' %}
 {% endblock %}
