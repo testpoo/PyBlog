@@ -174,9 +174,15 @@ def rss(articles):
 #about
 def about():
 
+    # 导入markdown额外插件
+    exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.tables','markdown.extensions.toc']
+
+    with open('about/about.md', "r", encoding='utf-8') as file:
+        ret=file.read()
+    about = markdown.markdown(ret,extensions=exts,encoding='utf-8')
     template = jinja_environment.get_template('about.html')
     f = open(pushdir+"/about.html", "w", encoding="utf-8")
-    f.write(template.render(introduction=introduction,infos=infos,works=works,links=links,words=words,year=year))
+    f.write(template.render(about=about,words=words,year=year))
     f.close()
 
 #拷贝静态文件

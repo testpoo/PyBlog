@@ -5,10 +5,6 @@
     margin: 0px;
 }
 
-li {
-    list-style-type:none;
-}
-
 a {
     color: #999;
     text-decoration: none;
@@ -32,7 +28,7 @@ body{
     height: 100%;
     min-height: 100%;
     margin: 0;
-    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    font-family: "Georgia","Arial","Microsoft YaHei","黑体","宋体",sans-serif;
     font-size: 16px\9;
     font-size: 1rem;
     background: #efefef;
@@ -98,8 +94,8 @@ body{
 }
 
 .main .categroies .categroy {
-    padding: 10px;
-    border-radius: 15px;
+    padding: 5px 10px;
+    border-radius: 10px;
     border: 1px solid #ddd;
     color: rgb(220, 0, 0);
     background: #eff1f7;
@@ -141,8 +137,9 @@ body{
     text-align: center;
 }
 
-.main .article .workexperience table tr,.main .article .workexperience table td {
-    border: 0px;
+li.post {
+    list-style-type: none;
+    margin-left: 0px;
 }
 
 .prenex {

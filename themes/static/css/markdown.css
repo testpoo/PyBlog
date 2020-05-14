@@ -1,7 +1,7 @@
 h1,h2,h3,h4,h5,h6 {
-	font-family: "PT Sans","SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;
+	/*font-family: "PT Sans","SF UI Display", ".PingFang SC","PingFang SC", "Neue Haas Grotesk Text Pro", "Arial Nova", "Segoe UI", "Microsoft YaHei", "Microsoft JhengHei", "Helvetica Neue", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "Hiragino Sans GB", sans-serif;*/
 	text-rendering: optimizelegibility;
-	margin-bottom: 1em;
+	margin: 1em 0;
 	font-weight: bold;
 	line-height: 1.8rem;
 }
@@ -41,6 +41,10 @@ h5 {
 
 h6 {
 	font-size: 0.9rem;
+}
+
+li {
+    margin-left: 20px;
 }
 
 table {

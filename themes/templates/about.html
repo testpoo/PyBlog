@@ -2,42 +2,8 @@
 
 {% block content %}
 <div class='article'>
-    <div class="introduct">
-        <h3>{{ words.title }}</h3>
-        <p>{{ introduction }}</p>
-        <p>邮箱：<a href="{{ infos.email }}">{{ infos.email }}</a></p>
-        <p>微信：{{ infos.wechat }}</p>
-    </div>
-    <div class="workexperience">
-        <h3>工作经历</h3>
-    <!--    {% for work in works %}
-        <p>
-            <span class='worktime'>{{ work.worktime }}</span>
-            <sapn class='company'><a href='{{ work.url }}' target="view_window">{{ work.company }}</a></sapn>
-            <sapn class='position'>{{ work.position }}</sapn>
-            <sapn class='jobdescription'><strong>{{ work.jobdescription }}</strong></sapn>
-            <sapn class='adress'>{{ work.adress }}</sapn>
-        </p>
-        {% endfor %}-->
-        <table>
-            {% for work in works %}
-            <tr>
-                <td>{{ work.worktime }}</td>
-                <td><a href='{{ work.url }}' target="view_window">{{ work.company }}</a></td>
-                <td>{{ work.position }}</td>
-                <td><strong>{{ work.jobdescription }}</strong></td>
-                <td>{{ work.adress }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-    <div class="aboutsite">
-        <h3>关于本站</h3>
-        <p>本站<a href="{{ infos.staticblog }}">自研</a>。托管在 Github。</p>
-    </div>
-    <div class="links">
-        <h3>链接</h3>
-        <p>个人：<a href="{{ infos.github }}">Github</a></p>
+    <div class="about-body">
+        {{ about|safe }}
     </div>
 </div>
 {% endblock %}
