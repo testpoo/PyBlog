@@ -185,6 +185,15 @@ def about():
     f.write(template.render(about=about,words=words,year=year))
     f.close()
 
+def nonexistent():
+    with open('about/about.md', "r", encoding='utf-8') as file:
+        nonexistent=file.read()
+    template = jinja_environment.get_template('404.html')
+    f = open(pushdir+"/404.html", "w", encoding="utf-8")
+    f.write(template.render(nonexistent=nonexistent,words=words,year=year))
+    f.close()
+        
+
 #拷贝静态文件
 def copyFiles(src, dst):
     if not os.path.exists(dst):
@@ -215,12 +224,12 @@ def makehtml():
 
     articles = md(file_name(pulldir))
     categroies = params(articles,'category')
-
     delfile()
     home(articles,'index',categroies)
     category(articles,categroies)
     posts(articles)
     about()
+    nonexistent()
     rss(articles)
     copyFiles(src, dst)
     copyFiles(static, output)

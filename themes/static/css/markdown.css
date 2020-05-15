@@ -103,6 +103,8 @@ pre {
 	color: #586e75;
 	overflow: auto;
 	background-color: #f7f7f7;
+	white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 p code,li code {
