@@ -1,4 +1,4 @@
-title:SQLite 基本操作--查看数据表信息
+title:SQLite基本操作
 date:2020-01-02
 category:sqlite
 tag:sqlite, 笔记

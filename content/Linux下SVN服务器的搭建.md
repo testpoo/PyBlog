@@ -1,4 +1,4 @@
-title:Linux下SVN服务器的配置及搭建
+title:Linux下SVN服务器的搭建
 date:2020-01-01
 category:svn
 tag:svn, linux
