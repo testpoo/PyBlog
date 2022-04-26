@@ -13,7 +13,7 @@
     {% if article.title != 'about' %}
     <item> 
       <title>{{ article.title }}</title>  
-      <description>{{ article.content|safe }}</description>  
+      <description>{{ article.content }}</description>  
       <pubDate>{{ lastBuildDate }}</pubDate>  
       <link>{{ words.sitename }}/post/{{ article.title }}.html</link>  
       <guid isPermaLink="true">{{ words.sitename }}/post/{{ article.title }}.html</guid>

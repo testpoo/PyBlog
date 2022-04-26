@@ -1,0 +1,59 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ words['sitename'] }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="{{ words.siteurl }}/themes/img/favicon.ico">
+
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="{{ words.siteurl }}">
+            <img src="{{ words.siteurl }}/themes/img/title.jpg">
+            <div class="linkbutton testpoo">{{ words['sitename'] }}</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            {% for category,title in categories.items() %}
+            <li><a href="{{ words.siteurl }}/{{ title }}.html"><label style="color: #ffba48"></label>&nbsp;{{ category }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="github"><a href="{{ words['github'] }}" target="_blank" title="GitHub:{{ words['author'] }}"></a><a href="#" title="微信号：{{ words['wechat'] }}"></a><a href="#" title="邮箱：{{ words['mail'] }}"></a><a href="{{ words['siteurl'] }}/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：{{ article['category'][0] }}</div>
+        <div class="scrollheight">
+          <ul>
+            {% for article in cate_posts %}
+            <li><a href="{{ words.siteurl }}/{{ article[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ article[0] }}</span><span>{{ article[1] }}&nbsp;&nbsp;共{{ article[2]|length }}个字</span></a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="item-num">总共{{ cate_posts|length }}项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>{{ article['title'] }}</span><span>{{ words['description'] }}<br />最后编辑于{{ lastBuildDate }}</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts">{{ article['content']|safe }}</div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        {% for post in posts %}
+        <li><a href="{{ words.siteurl }}/{{ post }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ post }}</span></a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+
+  </html>
