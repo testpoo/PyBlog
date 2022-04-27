@@ -8,21 +8,29 @@ tag: i3
 ### 1. 连接wifi
 
 - 查看网卡：`ip a`
+
 - 先安装 `wpa_supplicant`
+
 - 配置网络参数：`su -l -c "wpa_passphrase WIFI名字 WIFI密码 > /etc/wpa_supplicant/wpa_supplicant.conf"`
+
 - 配置接口
+  
   - 查看WIFI网卡名称
   - 编辑文件/etc/network/interfaces
+
 - 添加接口参数如下：
+  
 ```
 auto wlp1s0 #(wlp1s0 为网卡名)
 iface wlp1s0 inet dhcp
-      wpa-deriver wext
-      wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+    wpa-deriver wext
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
+
 - 启动网卡：`ifup wlp1s0`
 
 ### 2. 安装软件
+
 ```
 apt install i3 xinit sakura rofi thunar feh fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman thunar-archive-plugin deepin-screenshot neofetch ristretto intel-microcode fonts-noto-cjk
 
@@ -46,6 +54,7 @@ apt install i3 xinit sakura rofi thunar feh fcitx-rime librime-data-wubi lxappea
 ### 3. 启动i3
 
 编辑（不存在即新建）文件~/.bash_profile（在tty下登录是不会执行.bashrc的），新增一行内容如下：
+
 ```
 if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ];then`
     startx
@@ -55,12 +64,14 @@ echo $(tty)
 ```
 
 ### 4. 配置文件地址
+
 ```
 ~./config/i3/config
 ~./config/i3status/config
 ```
 
 ### 5. rofi配置
+
 ```
 mkdir -p ~/.config/rofi
 rofi -dump-config > ~/.config/rofi/config.rasi
@@ -68,6 +79,7 @@ drun-icon-theme: "MY_ICON_THEME";
 ```
 
 ### 6. 亮度调节
+
 ```
 # xorg-xbacklight 亮度调节
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
@@ -79,6 +91,7 @@ bindsym XF86MonBrightnessDown exec light -U 10 && killall -SIGUSR1 i3status
 ```
 
 ### 7. 触摸板修改
+
 ```
 /usr/share/X11/xrog.conf.d/40-libinput.conf
 
@@ -96,11 +109,13 @@ EndSection
 ```
 
 ### 8. 字符图标
+
 ```
 http://www.fontawesome.com.cn/cheatsheet/
 ```
 
 ### 9. 设置dpi
+
 ```
 nano .Xresources
 
@@ -110,24 +125,28 @@ reboot
 ```
 
 ### 10. 添加休眠和锁屏
+
 ```
 exec --no-startup-id xset dpms 333 666
 系统闲置333秒后灭屏，666秒后系统挂起。
 ```
 
 ### 11. 设置锁屏背景
+
 ```
 bindsym l exec --no-startup-id i3lock i3clock -i ~/.poo/i3lock.png
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/.poo/i3lock.png
 ```
 
 ### 12. 消息通知和蓝牙
+
 ```
 exec --no-startup-id dunst
 exec --no-startup-id blueman-applet
 ```
 
 ### 13. 分配到某个虚拟空间
+
 ```
 for_windwo [title="poo@debian: ~"] move to workspace 1
 assign [class="X-terminal-emulator"] 1
@@ -140,6 +159,7 @@ assign [class="X-terminal-emulator"] 1
 <https://github.com/testpoo/i3config>
 
 ### 99.桌面插件Conky
+
 ```
 https://www.cnblogs.com/LungGiyo/p/6019412.html
 https://www.lifewire.com/beginners-guide-to-conky-4043352

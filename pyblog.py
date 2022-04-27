@@ -2,14 +2,11 @@
 
 import os
 import jinja2
-import shutil
-import math
 import markdown
-import html
-import re
 import copy
 import datetime
 import base64
+import shutil
 
 ###############################
 #           配置参数
@@ -18,13 +15,14 @@ import base64
 words = {
     "siteurl":"https://testpoo.github.io",
     #"siteurl":"http://127.0.0.1:8000",
-    "sitename":"测试窝",
+    "sitename":"测试铺",
     "keywords":"Poo's Notes",
     "description":"一个80后老人，专注测试领域",
     "author":"TestPoo",
     "github":"https://github.com/testpoo",
     "mail":"pu_yawei@qq.com",
-    "wechat":"puyaweis"
+    "wechat":"puyaweis",
+    "jump":"关于我"
 }
 
 #静态路径
@@ -102,8 +100,7 @@ def posts(articles):
 
     categories = {}
     for category in articles:
-        if category['category'][0] != '关于我':
-            categories[category['category'][0]] = category['title']
+        categories[category['category'][0]] = category['title']
 
     template = jinja_environment.get_template('article.html')
     counts = len(articles)
@@ -115,10 +112,7 @@ def posts(articles):
         for article in articles:
             if article['category'] == category:
                 cate_posts.append([article['title'],article['date'],article['content']])
-        if articles[i]['title'] == '关于我':
-            f = open(pushdir+"/index.html", "w", encoding="utf-8")
-        else:
-            f = open(pushdir+"/"+articles[i]['title']+".html", "w", encoding="utf-8")
+        f = open(pushdir+"/"+articles[i]['title']+".html", "w", encoding="utf-8")
         f.write(template.render(article = articles[i],words=words,categories=categories,cate_posts=cate_posts,posts=posts,lastBuildDate=lastBuildDate))
         f.close()
 
@@ -130,6 +124,16 @@ def rss(articles):
         os.makedirs(pushdir+"/")
     f = open(pushdir+"/rss.xml", "w",encoding="utf-8")   
     f.write(template.render(articles=articles,words=words,lastBuildDate=lastBuildDate))
+    f.close()
+
+# 生成首页
+def home():
+
+    template = jinja_environment.get_template('index.html')
+    if not os.path.exists(pushdir+"/"):
+        os.makedirs(pushdir+"/")
+    f = open(pushdir+"/index.html", "w",encoding="utf-8")   
+    f.write(template.render(words=words,lastBuildDate=lastBuildDate))
     f.close()
 
 #拷贝静态文件
@@ -158,7 +162,9 @@ def copyFiles(src, dst):
     return filesCopiedNum
 
 if __name__ == '__main__':
+    delfile()
     articles = md(file_name(pulldir))
     posts(articles)
     rss(articles)
+    home()
     copyFiles(src, dst)

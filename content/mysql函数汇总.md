@@ -609,8 +609,6 @@ mysql> select FROM_UNIXTIME(1650347304);
 1 row in set (0.00 sec)0 sec)
 ```
 
-
-
 ### MONTH函数：获取指定日期的月份
 
 `MONTH(date)` 函数返回指定 date 对应的月份，范围为 1～12。

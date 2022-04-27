@@ -530,8 +530,6 @@ Options:
                         only, don't run any tests.  [COLLECT_ONLY]
 ```
 
-
-
 > 
 
 ### 4. 基本用法
@@ -570,236 +568,236 @@ result = nose.run()
 
 - **函数形式的测试用例**
 
-  ```
-  #coding:utf-8
-  
-  def setUp():
-      print("test_setUp")
-  
-  def test_task_1():
-      print("test_task_1")
-  
-  def test_task_2():
-      print("test_task_2")
-      
-  def test_task_3():
-      print("test_task_3")    
-      
-  def tearDown():
-      print("test_teardown")
-  
-  test_task_1.teardown=test_task_3.teardown= tearDown
-  ```
+```
+#coding:utf-8
 
-  运行的结果如下：
+def setUp():
+    print("test_setUp")
 
-  ```
-  PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_1
-  test_setUp
-  test_case_1.test_task_1 ... test_task_1
-  test_teardown
-  ok
-  test_case_1.test_task_2 ... test_task_2
-  ok
-  test_case_1.test_task_3 ... test_task_3
-  test_teardown
-  ok
-  test_teardown
-  
-  ----------------------------------------------------------------------
-  Ran 3 tests in 0.002s
-  
-  OK
-  ```
+def test_task_1():
+    print("test_task_1")
 
-  最后面加了一句`test_task_1.teardown=test_task_3.teardown= tearDown`，说明在运行完成后就执行tearDown操作，所以这里的执行顺序是：`setUp-->test_task_1-->teardown-->test_task_2-->test_task_3-->teardown-->teardown`
+def test_task_2():
+    print("test_task_2")
 
-  因次，在函数或者函数式的用例组织中，setUp和tearDown只会执行一次，分别是开始及结束。
+def test_task_3():
+    print("test_task_3")    
+
+def tearDown():
+    print("test_teardown")
+
+test_task_1.teardown=test_task_3.teardown= tearDown
+```
+
+运行的结果如下：
+
+```
+PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_1
+test_setUp
+test_case_1.test_task_1 ... test_task_1
+test_teardown
+ok
+test_case_1.test_task_2 ... test_task_2
+ok
+test_case_1.test_task_3 ... test_task_3
+test_teardown
+ok
+test_teardown
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
+```
+
+最后面加了一句`test_task_1.teardown=test_task_3.teardown= tearDown`，说明在运行完成后就执行tearDown操作，所以这里的执行顺序是：`setUp-->test_task_1-->teardown-->test_task_2-->test_task_3-->teardown-->teardown`
+
+因次，在函数或者函数式的用例组织中，setUp和tearDown只会执行一次，分别是开始及结束。
 
 - **类形式的测试用例**
 
-  ```
-  # coding=utf-8
-  
-  class TestClass():
-      
-      def setUpClass():
-          print("TestClass.setUpClass")
-  
-      def setUp(self):
-          print("TestClass.setup")
-          
-      def Testfunc1(self):
-          print("TestClass.Testfunc1")
-      
-      def test_func1(self):
-          print("TestClass.test_func1")
-      
-      def Testfunc2(self):
-          print("TestClass.Testfunc2")
-      
-      def test_func2(self):
-          print("TestClass.test_func2")
-  
-      def tearDown(self):
-          print("TestClass_setup_teardown")
-  
-      def tearDownClass():
-          print("TestClass.tearDownClass")
-  ```
+```
+# coding=utf-8
 
-  运行结果：
+class TestClass():
 
-  ```
-  PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_2
-  TestClass.setUpClass
-  test_case_2.TestClass.Testfunc1 ... TestClass.setup
-  TestClass.Testfunc1
-  TestClass_setup_teardown
-  ok
-  test_case_2.TestClass.Testfunc2 ... TestClass.setup
-  TestClass.Testfunc2
-  TestClass_setup_teardown
-  ok
-  test_case_2.TestClass.test_func1 ... TestClass.setup
-  TestClass.test_func1
-  TestClass_setup_teardown
-  ok
-  test_case_2.TestClass.test_func2 ... TestClass.setup
-  TestClass.test_func2
-  TestClass_setup_teardown
-  ok
-  TestClass.tearDownClass
-  
-  ----------------------------------------------------------------------
-  Ran 4 tests in 0.003s
-  
-  OK
-  ```
+    def setUpClass():
+        print("TestClass.setUpClass")
 
-  从运行结果中可以看出，每个用例都会分别执行`setUp`及`tearDown`，但是与unittest一样，在类中的测试用例顺序变更了，由字母排序了。而`setUpClass`和`tearDownClass`两个函数功能，只运行一次。
+    def setUp(self):
+        print("TestClass.setup")
+
+    def Testfunc1(self):
+        print("TestClass.Testfunc1")
+
+    def test_func1(self):
+        print("TestClass.test_func1")
+
+    def Testfunc2(self):
+        print("TestClass.Testfunc2")
+
+    def test_func2(self):
+        print("TestClass.test_func2")
+
+    def tearDown(self):
+        print("TestClass_setup_teardown")
+
+    def tearDownClass():
+        print("TestClass.tearDownClass")
+```
+
+运行结果：
+
+```
+PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_2
+TestClass.setUpClass
+test_case_2.TestClass.Testfunc1 ... TestClass.setup
+TestClass.Testfunc1
+TestClass_setup_teardown
+ok
+test_case_2.TestClass.Testfunc2 ... TestClass.setup
+TestClass.Testfunc2
+TestClass_setup_teardown
+ok
+test_case_2.TestClass.test_func1 ... TestClass.setup
+TestClass.test_func1
+TestClass_setup_teardown
+ok
+test_case_2.TestClass.test_func2 ... TestClass.setup
+TestClass.test_func2
+TestClass_setup_teardown
+ok
+TestClass.tearDownClass
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.003s
+
+OK
+```
+
+从运行结果中可以看出，每个用例都会分别执行`setUp`及`tearDown`，但是与unittest一样，在类中的测试用例顺序变更了，由字母排序了。而`setUpClass`和`tearDownClass`两个函数功能，只运行一次。
 
 - 包形式运行
-
-  我们创建包的时候需要同时新建`__init__.py`，添加内容如下：
-
-  ```
-  def setUp():
-      print("全部开始")
-      
-  def tearDown():
-      print("全部结束")
-  ```
-
-  然后再次执行包文件，结果如下：
-
-  ```
-  PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_2
-  全部开始
-  TestClass.setUpClass
-  test_case.test_case_2.TestClass.Testfunc1 ... TestClass.setup
-  TestClass.Testfunc1
-  TestClass_setup_teardown
-  ok
-  test_case.test_case_2.TestClass.Testfunc2 ... TestClass.setup
-  TestClass.Testfunc2
-  TestClass_setup_teardown
-  ok
-  test_case.test_case_2.TestClass.test_func1 ... TestClass.setup
-  TestClass.test_func1
-  TestClass_setup_teardown
-  ok
-  test_case.test_case_2.TestClass.test_func2 ... TestClass.setup
-  TestClass.test_func2
-  TestClass_setup_teardown
-  ok
-  TestClass.tearDownClass
-  全部结束
   
-  ----------------------------------------------------------------------
-  Ran 4 tests in 0.002s
-  
-  OK
-  ```
+我们创建包的时候需要同时新建`__init__.py`，添加内容如下：
 
-  从结果中可以看出，在执行前执行了`__init__.py`中的setUp函数，在执行最后执行了teardown函数。
+```
+def setUp():
+    print("全部开始")
+
+def tearDown():
+    print("全部结束")
+```
+
+然后再次执行包文件，结果如下：
+
+```
+PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_2
+全部开始
+TestClass.setUpClass
+test_case.test_case_2.TestClass.Testfunc1 ... TestClass.setup
+TestClass.Testfunc1
+TestClass_setup_teardown
+ok
+test_case.test_case_2.TestClass.Testfunc2 ... TestClass.setup
+TestClass.Testfunc2
+TestClass_setup_teardown
+ok
+test_case.test_case_2.TestClass.test_func1 ... TestClass.setup
+TestClass.test_func1
+TestClass_setup_teardown
+ok
+test_case.test_case_2.TestClass.test_func2 ... TestClass.setup
+TestClass.test_func2
+TestClass_setup_teardown
+ok
+TestClass.tearDownClass
+全部结束
+  
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+  
+OK
+```
+  
+从结果中可以看出，在执行前执行了`__init__.py`中的setUp函数，在执行最后执行了teardown函数。
 
 - with_setup修饰器
-
-  nose支持在每个用例前使用with_setup来自定义测试用例的setUp及tearDown功能，如下：
-
-  ```
-  # coding=utf-8
   
-  from nose.tools import with_setup
+nose支持在每个用例前使用with_setup来自定义测试用例的setUp及tearDown功能，如下：
   
-  def setup_func():
-      print("set up test fixtures")
+```
+# coding=utf-8
   
-  def teardown_func():
-      print("tear down test fixtures")
+from nose.tools import with_setup
   
-  @with_setup(setup_func, teardown_func)
-  def test_1():
-      print("test_1")
-      
-  def test_2():
-      print("test_2")
-      
-  test_2.setup = setup_func
-  test_2.teardown = teardown_func
-  ```
-
-  运行结果：
-
-  ```
-  PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_3
-  全部开始
-  test_case.test_case_3.test_1 ... set up test fixtures
-  test_1
-  tear down test fixtures
-  ok
-  test_case.test_case_3.test_2 ... set up test fixtures
-  test_2
-  tear down test fixtures
-  ok
-  全部结束
+def setup_func():
+    print("set up test fixtures")
   
-  ----------------------------------------------------------------------
-  Ran 2 tests in 0.002s
+def teardown_func():
+    print("tear down test fixtures")
   
-  OK
-  ```
-
-  除了`with_setup`的方法`@with_setup(setup_func, teardown_func)`，还可以这样写
-
-  ```
-  test_2.setup = setup_func
-  test_2.teardown = teardown_func
-  ```
+@with_setup(setup_func, teardown_func)
+def test_1():
+    print("test_1")
+  
+def test_2():
+    print("test_2")
+  
+test_2.setup = setup_func
+test_2.teardown = teardown_func
+```
+  
+运行结果：
+  
+```
+PS C:\Users\dell\Desktop\test\nose> nosetests -v -s test_case.test_case_3
+全部开始
+test_case.test_case_3.test_1 ... set up test fixtures
+test_1
+tear down test fixtures
+ok
+test_case.test_case_3.test_2 ... set up test fixtures
+test_2
+tear down test fixtures
+ok
+全部结束
+  
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+  
+OK
+```
+  
+除了`with_setup`的方法`@with_setup(setup_func, teardown_func)`，还可以这样写
+  
+```
+test_2.setup = setup_func
+test_2.teardown = teardown_func
+```
 
 - **多文件执行nose**
-
-  如下，有三个可执行的文件
-
-  ```
-  test_case
-  |--__init__.py
-  |--test_case_1.py
-  |--test_case_2.py
-  |--test_case_3.py
-  ```
-
-  运行结果：
-
-  ```
-  PS C:\Users\dell\Desktop\test\nose> nosetests -w test_case test_case_2
-  ....
-  ----------------------------------------------------------------------
-  Ran 4 tests in 0.001s
   
-  OK
-  ```
+如下，有三个可执行的文件
+  
+```
+test_case
+|--__init__.py
+|--test_case_1.py
+|--test_case_2.py
+|--test_case_3.py
+```
+  
+运行结果：
+  
+```
+PS C:\Users\dell\Desktop\test\nose> nosetests -w test_case test_case_2
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+  
+OK
+```
 
 #### 4.2 **nose运行方式**
 
@@ -810,27 +808,27 @@ result = nose.run()
 `nose` 也支持执行指定用例：
 
 - 指定测试模块
-
+  
   `nosetests test_case.test_case_1`
 
 - 指定测试类
-
+  
   `nosetests test_case.test_case_2:TestClass`
 
 - 指定测试方法
-
+  
   `nosetests test_case.test_case_2:TestClass.Testfunc1`
 
 - 指定测试文件路径
-
+  
   `nosetests C:/Users/dell/Desktop/test/nose/test_case/test_case_1.py`
 
 - 指定测试文件路径+测试类或测试函数（这是 `unittest` 所不支持的）
-
+  
   `nosetests C:/Users/dell/Desktop/test/nose/test_case/test_case_2.py:TestClass`
-
+  
   `nosetests C:/Users/dell/Desktop/test/nose/test_case/test_case_2.py:TestClass.Testfunc1`
-
+  
   `nosetests C:/Users/dell/Desktop/test/nose/test_case/test_case_1.py:test_task_1`
 
 ### 5. 子测试/测试生成器
@@ -1136,36 +1134,37 @@ FAILED (failures=1)
 #### 6.6 nose.tools.*
 
 nose.tools中还有很多assert的函数工具，不一一介绍了，列出表如下，需要的时候可以使用。
+
 |函数|描述|
-| ------------------------------------------------------------ | ------------------------------ |
-| assert_equal(first, second, msg=None)                        | 两个对像对比，使用"=="操作对比 |
-| assert_not_equal(first, second, msg=None)                    | 不相等                         |
-| assert_true(expr, msg=None)                                  | 判定表达式是否为真             |
-| assert_false(expr, msg=None)                                 | 判定表达式是否为假             |
-| assert_is(expr1, expr2, msg=None)                            | expr1 is expr2                 |
-| assert_is_not(expr1, expr2, msg=None)                        |                                |
-| assert_is_none(obj, msg=None)                                | 为空                           |
-| assert_is_not_none(obj, msg=None)                            | 不为空                         |
-| assert_in(member, container, msg=None)                       | merber in container判断        |
-| assert_not_in(member, container, msg=None)                   | 不包含判断                     |
-| assert_is_instance(obj, cls, msg=None)                       |                                |
-| assert_not_is_instance(obj, cls, msg=None)                   |                                |
-| assert_raises_regexp(expected_exception, expected_regexp, callable_obj=None, *args, **kwargs) |                                |
-| assert_almost_equal(first, second, places=None, msg=None, delta=None) |                                |
-| assert_greater(a, b, msg=None)                               |                                |
-| assert_greater_equal(a, b, msg=None)                         |                                |
-| assert_less(a, b, msg=None)                                  |                                |
-| assert_less_equal(a, b, msg=None)                            |                                |
-| assert_regexp_matches(text, expected_regexp, msg=None)       |                                |
-| assert_not_regexp_matches(text, unexpected_regexp, msg=None) |                                |
-| assert_items_equal(expected_seq, actual_seq, msg=None)       |                                |
-| assert_dict_contains_subset(expected, actual, msg=None)      |                                |
-| assert_multi_line_equal(first, second, msg=None)             |                                |
-| assert_sequence_equal(seq1, seq2, msg=None, seq_type=None)   |                                |
-| assert_list_equal(list1, list2, msg=None)                    |                                |
-| assert_tuple_equal(tuple1, tuple2, msg=None)                 |                                |
-| assert_set_equal(set1, set2, msg=None)                       |                                |
-| assert_dict_equal(d1, d2, msg=None)                          |                                |
+|:--:|:--:|
+|assert_equal(first,second,msg=None)|两个对像对比，使用"=="操作对比|
+|assert_not_equal(first,second,msg=None)|不相等|
+|assert_true(expr,msg=None)|判定表达式是否为真|
+|assert_false(expr,msg=None)|判定表达式是否为假|
+|assert_is(expr1,expr2,msg=None)|expr1isexpr2|
+|assert_is_not(expr1,expr2,msg=None)||
+|assert_is_none(obj,msg=None)|为空|
+|assert_is_not_none(obj,msg=None)|不为空|
+|assert_in(member,container,msg=None)|merberincontainer判断|
+|assert_not_in(member,container,msg=None)|不包含判断|
+|assert_is_instance(obj,cls,msg=None)||
+|assert_not_is_instance(obj,cls,msg=None)||
+|assert_raises_regexp(expected_exception,expected_regexp,callable_obj=None,*args,**kwargs)||
+|assert_almost_equal(first,second,places=None,msg=None,delta=None)||
+|assert_greater(a,b,msg=None)||
+|assert_greater_equal(a,b,msg=None)||
+|assert_less(a,b,msg=None)||
+|assert_less_equal(a,b,msg=None)||
+|assert_regexp_matches(text,expected_regexp,msg=None)||
+|assert_not_regexp_matches(text,unexpected_regexp,msg=None)||
+|assert_items_equal(expected_seq,actual_seq,msg=None)||
+|assert_dict_contains_subset(expected,actual,msg=None)||
+|assert_multi_line_equal(first,second,msg=None)||
+|assert_sequence_equal(seq1,seq2,msg=None,seq_type=None)||
+|assert_list_equal(list1,list2,msg=None)||
+|assert_tuple_equal(tuple1,tuple2,msg=None)||
+|assert_set_equal(set1,set2,msg=None)||
+|assert_dict_equal(d1,d2,msg=None)||
 
 ### 7. 插件
 
@@ -1193,4 +1192,3 @@ nose.tools中还有很多assert的函数工具，不一一介绍了，列出表�
 还有很多第三方库，如用来生成 HTML 格式测试报告的 [nose-htmloutput](https://github.com/ionelmc/nose-htmloutput) 等，这里不再赘述。
 
  `nose` 得益于丰富的插件生态，当 `nose` 本身不能够完全满足我们的测试需求时，可以通过安装插件，并在 `nosetests` 命令行指定该插件所提供的特定参数即可非常容易的使用插件。 相较于 `unittest`，就能省去很多自己开发额外测试逻辑的精力。
-

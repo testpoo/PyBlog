@@ -1,6 +1,6 @@
 title: Git简介
 date: 2021-09-15
-category: git
+category: 笔记
 tag: git
 
 [TOC]
@@ -595,7 +595,7 @@ $ git commit --amend
 ```console
 $ git reset HEAD CONTRIBUTING.md
 Unstaged changes after reset:
-M	CONTRIBUTING.md
+M    CONTRIBUTING.md
 $ git status
 On branch master
 Changes to be committed:
@@ -649,8 +649,8 @@ origin
 
 ```console
 $ git remote -v
-origin	https://github.com/schacon/ticgit (fetch)
-origin	https://github.com/schacon/ticgit (push)
+origin    https://github.com/schacon/ticgit (fetch)
+origin    https://github.com/schacon/ticgit (push)
 ```
 
 如果你的远程仓库不止一个，该命令会将它们全部列出。 例如，与几个协作者合作的，拥有多个远程仓库的仓库看起来像下面这样：
@@ -679,10 +679,10 @@ $ git remote
 origin
 $ git remote add pb https://github.com/paulboone/ticgit
 $ git remote -v
-origin	https://github.com/schacon/ticgit (fetch)
-origin	https://github.com/schacon/ticgit (push)
-pb	https://github.com/paulboone/ticgit (fetch)
-pb	https://github.com/paulboone/ticgit (push)
+origin    https://github.com/schacon/ticgit (fetch)
+origin    https://github.com/schacon/ticgit (push)
+pb    https://github.com/paulboone/ticgit (fetch)
+pb    https://github.com/paulboone/ticgit (push)
 ```
 
 现在你可以在命令行中使用字符串 `pb` 来代替整个 URL。 例如，如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 `git fetch pb`：

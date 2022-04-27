@@ -44,18 +44,21 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main 
 ```
 
 ### 7. 安装软件
+
 ```
 # sudo apt install filezilla stacer meld uget aria2 intel-microcode fonts-noto-cjk arc-theme moka-icon-theme
 sudo apt install filezilla stacer meld intel-microcode fonts-noto-cjk arc-theme git fcitx-rime librime-data-wubi gvfs-backends papirus-icon-theme blueman catfish drawing
 ```
+
 ### 8. 删除软件
+
 ```
 # sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic --purge
 sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
 ```
 
 ### 9. 设置
-   
+
 - 快捷键设置:设置-->键盘-->应用程度快捷键
 - 窗口样式设置：设置-->窗口管理器-->样式+按钮布局
 - 窗口管理器微调：设置-->窗口管理器微调-->辅助功能  最大化窗口时隐藏标题
@@ -63,6 +66,7 @@ sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
 - 设置时钟格式：%A %F %H:%M 第%V周  %F%n%H:%M
 
 ### 10. 安装第三方软件
+
 ```
 wps:https://linux.wps.cn/
 baidu网盘:https://pan.baidu.com/download 需要依赖:https://blog.csdn.net/weixin_45447477/article/details/115188938
@@ -75,16 +79,20 @@ Motrix: https://motrix.app/
 ```
 
 ### 11. 缺少驱动
+
 ```
-https://packages.debian.org/bullseye/firmware-misc-nonfree  解决提供少驱动的问题
+# 添加驱动
+https://packages.debian.org/bullseye/firmware-misc-nonfree
 ```
 
 ### 12. 图片路径
+
 ```
 /usr/share/backgrounds
 ```
 
 ### 13. lightdm设置
+
 ```
 /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
@@ -103,6 +111,7 @@ greeter-hide-users=false 前的#去掉
 ```
 
 ### 14. 安装输入法
+
 ```
 # sudo apt install ibus-rime librime-data-wubi
 # /home/poo/.config/ibus/rime/default.custom.yaml
@@ -123,6 +132,7 @@ patch:
 - 安装gvfs-backends
 
 ### 16. 设置关闭按钮
+
 ```
 安装xdotool
 [Desktop Entry]
@@ -154,12 +164,14 @@ xdotool getwindowfocus windowkill
 ```
 
 ### 17. 启动gtk编辑器
+
 ```
 xfce4-panel -q && GTK_DEBUG=interactive xfce4-panel
 重启xfce-panel:xfce4-panel -r
 ```
 
 ### 18. 设置xfce样式
+
 ```
 ~/.config/gtk-3.0/gtk.css
 #pulseaudio-button image,#xfce4-power-manager-plugin image,#xfce4-notification-plugin image,#showdesktop-button image{
@@ -168,6 +180,7 @@ xfce4-panel -q && GTK_DEBUG=interactive xfce4-panel
 ```
 
 ### 19. 修改grub背景
+
 ```
 /usr/share/desktop-base/homeworld-theme/grub/grub_background.sh
 WALLPAPER=/usr/share/backgrounds/background.png
@@ -175,6 +188,7 @@ WALLPAPER=/usr/share/backgrounds/background.png
 ```
 
 ### 20. 添加右键
+
 ```
 ln -s %f 'Link to %n'
 Create a Link
@@ -200,6 +214,7 @@ Search for Files
 - 点击文件右键`send to-->Side Panel`
 
 ### 22. 启动花屏
+
 ```
 xfwm4-->vblank_mode=off
 ```

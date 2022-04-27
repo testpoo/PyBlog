@@ -8,28 +8,39 @@ tag:mysql, 笔记
 ### 创建用户
 
 非本地登录
+
 ```
 CREATE USER 'test'@'%' IDENTIFIED BY 'test';
 ```
+
 本地登录
+
 ```
 CREATE USER 'test'@'127.0.0.1' IDENTIFIED BY 'test';
 CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';
 ```
+
 创建数据库
+
 ```
 CREATE database testrcb default character set utf8 collate utf8_general_ci;
 ```
+
 给用户授权
+
 ```
 grant select,delete,update,create,drop on testrcb.* to test@"%" identified by "test"; -- 增删改查
 grant all privileges on testrcb.* to test@localhost identified by 'test'; -- all
 ```
+
 修改密码
+
 ```
 UPDATE mysql.user SET PASSWORD=PASSWORD('test') WHERE User = 'test'
 ```
+
 ### MYSQL配置
+
 ```
 [mysql]
 
@@ -60,6 +71,7 @@ Access denied for user 'test'@'localhost' (using password: YES)
 ```
 
 ### 字段增加删除修改
+
 ```
 添加字段的语法：alter table tablename add (column datatype [default value][null/not null],….);
 修改字段的语法：alter table tablename modify (column datatype [default value][null/not null],….);
@@ -70,9 +82,9 @@ mysql修改字段类型：
 --对某字段进行修改
 ALTER  TABLE 表名 MODIFY COLUMN 字段名 新数据类型 新类型长度  新默认值  新注释; -- COLUMN可以省略
 alter  table table1 modify  column column1  decimal(10,1) DEFAULT NULL COMMENT '注释'; -- 正常，能修改字段类型、类型长度、默认值、注释
- 
+
 mysql修改字段名：
-ALTER  TABLE 表名 CHANGE 旧字段名 新字段名 新数据类型;	 
+ALTER  TABLE 表名 CHANGE 旧字段名 新字段名 新数据类型;     
 alter  table table1 change column1 column1 varchar(100) DEFAULT 1.2 COMMENT '注释'; -- 正常，此时字段名称没有改变，能修改字段类型、类型长度、默认值、注释
 alter  table table1 change column1 column2 decimal(10,1) DEFAULT NULL COMMENT '注释' -- 正常，能修改字段名、字段类型、类型长度、默认值、注释
 alter  table table1 change column2 column1 decimal(10,1) DEFAULT NULL COMMENT '注释' -- 正常，能修改字段名、字段类型、类型长度、默认值、注释
@@ -80,28 +92,39 @@ alter  table table1 change column1 column2; -- 报错
 ```
 
 ### 替换特定字段的值
+
 ```
 update hoyi_zfb_activity_enroll set shop_name = replace(shop_name,'Test',''); 
 ```
+
 ### 查找库中含有特定字段的表
+
 ```
 SELECT * FROM information_schema.columns WHERE column_name='shop_name' AND table_schema = 'tyrcb14'; 
 SELECT * FROM information_schema.tables WHERE TABLE_NAME LIKE '%shop%' AND table_schema = 'tyrcb14'; 
 ```
+
 ### 修改auto_increment
+
 ```
 alter table hoyi_etc_order auto_increment=38;
 ```
+
 ### 查询FOREIGN_KEY_CHECKS的值
+
 ```
 SELECT @@FOREIGN_KEY_CHECKS; 
 ```
+
 ### 备份数据库
+
 ```
 mysqldump -utest -p123 --databases test  > testdp.sql
 mysqldump -utest -p123 --databases test  < testdp.sql
 ```
+
 ### MYSQL卡死了就这样搞
+
 ```
 SHOW PROCESSLIST;
 SELECT * FROM information_schema.innodb_trx;
@@ -110,6 +133,7 @@ KILL XXX;
 ```
 
 ### Mysql复制表结构、表数据的方法
+
 ```
 1、复制表结构及数据到新表（不包含主键、索引、分区等）
 
@@ -147,6 +171,7 @@ INSERT INTO 新表(字段1,字段2,.......) SELECT 字段1,字段2,...... FROM �
 ```
 
 ### 导出表结构和数据
+
 ```
 1.导出结构不导出数据
 mysqldump -d 数据库名 -uroot -p > xxx.sql

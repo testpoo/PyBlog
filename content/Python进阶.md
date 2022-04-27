@@ -15,9 +15,9 @@ tag: python
 
 ```
 def test_var_args(f_arg, *args):
-	print("第一个普通的参数：", f_arg)
-	for arg in args:
-		print("另外一些通过*argv传递的参数:", arg)
+    print("第一个普通的参数：", f_arg)
+    for arg in args:
+        print("另外一些通过*argv传递的参数:", arg)
 
 test_var_args('苹果','香蕉','梨子','葡萄')
 ```
@@ -37,8 +37,8 @@ test_var_args('苹果','香蕉','梨子','葡萄')
 
 ```
 def greet_me(**kwargs):
-	for key, value in kwargs.items():
-		print("{0} == {1}".format(key, value))
+    for key, value in kwargs.items():
+        print("{0} == {1}".format(key, value))
 
 greet_me(name="苹果")
 ```
@@ -57,9 +57,9 @@ name == 苹果
 
 ```
 def test_args_kwargs(arg1, arg2, arg3): 
-	print("arg1:", arg1) 
-	print("arg2:", arg2) 
-	print("arg3:", arg3)
+    print("arg1:", arg1) 
+    print("arg2:", arg2) 
+    print("arg3:", arg3)
 ```
 
 你可以使用`*args`和`**kwargs`来给这个函数传递参数，如下：
@@ -96,9 +96,9 @@ arg3: 3
 
 那么如果你想在函数⾥同时使⽤所有这三种参数， 顺序是这样的： 
 
-````
+```
 some_func(fargs, *args, **kwargs)
-````
+```
 
 ### 调试Debugging
 
@@ -123,8 +123,8 @@ python -m pdb my_script.py
 ```
 import pdb 
 def make_bread(): 
-	pdb.set_trace() 
-	return "I don't have time" 
+    pdb.set_trace() 
+    return "I don't have time" 
 
 print(make_bread())
 ```
@@ -140,7 +140,7 @@ print(make_bread())
 - s：执行当前代码行，并停在第一个能停的地方（相当于单步进入）
 
 - n：继续执行到当前函数的下一行，或者当前行直接返回（单步跳过）
-
+  
   单步路过和单步进入的区别在于，单步进入会进入当前行调用的函数内部停在里面，而单步跳过会全速执行完成当前调用的函数，并停在当前函数的下一行。
 
 ### 生成器Generators
@@ -171,11 +171,11 @@ Python中任意的对象，只要它定义了可以返回一个迭代器`__iter_
 
 ```
 def generator_function():
-	for i in range(10):
-		yield i
+    for i in range(10):
+        yield i
 
 for item in generator_function():
-	print(item)
+    print(item)
 ```
 
 执行结果：
@@ -199,33 +199,33 @@ for item in generator_function():
 
 ```
 def fibon(n):
-	a = b = 1
-	for i in range(n):
-		yield a
-		a, b = b, a + b
+    a = b = 1
+    for i in range(n):
+        yield a
+        a, b = b, a + b
 
 for x in fibon(1000000):
-	print(x)
+    print(x)
 ```
 
 用这种方式，我们可以不用担心它会使用大量资源。然而，之前如果我们这样实现的话：
 
 ```
 def fibon(n):
-	a = b = 1
-	result = []
-	for i in range(n):
-		result.append(a)
-		a, b = b, a + b
-	return result
+    a = b = 1
+    result = []
+    for i in range(n):
+        result.append(a)
+        a, b = b, a + b
+    return result
 ```
 
 这个会在计算很大的输入参数时，占用大量的资源。我们现在来测试一下生成器使用一次迭代，我们使用python的内置函数：`next()`，它可以获取一个序列的下一个元素。如下：
 
 ```
 def generator_function():
-	for i in range(3):
-		yield i
+    for i in range(3):
+        yield i
 
 gen = generator_function()
 
@@ -285,7 +285,7 @@ map(function_to_apply, list_of_inputs)
 items = [1, 2, 3, 4, 5]
 squared = []
 for i in items:
-	squared.append(i**2)
+    squared.append(i**2)
 ```
 
 Map可以用一种简单得多的方式来实现。如下：
@@ -299,15 +299,15 @@ squared = list(map(lambda x:x**2, items))
 
 ```
 def multiply(x):
-	return (x*x)
+    return (x*x)
 
 def add(x):
-	return (x+x)
+    return (x+x)
 
 funcs = [multiply, add]
 for i in range(5):
-	value = list(map(lambda x:x(i), funcs))
-	print(value)
+    value = list(map(lambda x:x(i), funcs))
+    print(value)
 ```
 
 执行结果：
@@ -478,15 +478,15 @@ ZeroDivisionError: division by zero
 ```
 def a_new_decorator(a_func):
 
-	def wrapTheFunction():
-		print("在执行a_func函数之前我正在干一些无趣的事情")
-		a_func()
-		print("在执行a_func函数之后我正在干一些无趣的事情")
+    def wrapTheFunction():
+        print("在执行a_func函数之前我正在干一些无趣的事情")
+        a_func()
+        print("在执行a_func函数之后我正在干一些无趣的事情")
 
-	return wrapTheFunction
+    return wrapTheFunction
 
 def a_function_requiring_decoration():
-	print("我需要一些装饰来掩饰我的伤口")
+    print("我需要一些装饰来掩饰我的伤口")
 ```
 
 执行1及结果：
@@ -514,17 +514,17 @@ a_function_requiring_decoration()
 ```
 def a_new_decorator(a_func):
 
-	def wrapTheFunction():
-		print("在执行a_func函数之前我正在干一些无趣的事情")
-		a_func()
-		print("在执行a_func函数之后我正在干一些无趣的事情")
+    def wrapTheFunction():
+        print("在执行a_func函数之前我正在干一些无趣的事情")
+        a_func()
+        print("在执行a_func函数之后我正在干一些无趣的事情")
 
-	return wrapTheFunction
+    return wrapTheFunction
 
 @a_new_decorator
 def a_function_requiring_decoration():
-	# 装饰
-	print("我需要一些装饰来掩饰我的伤口")
+    # 装饰
+    print("我需要一些装饰来掩饰我的伤口")
 
 a_function_requiring_decoration()
 ```
@@ -557,18 +557,18 @@ wrapTheFunction
 from functools import wraps
 
 def a_new_decorator(a_func):
-	@wraps(a_func)
-	def wrapTheFunction():
-		print("在执行a_func函数之前我正在干一些无趣的事情")
-		a_func()
-		print("在执行a_func函数之后我正在干一些无趣的事情")
+    @wraps(a_func)
+    def wrapTheFunction():
+        print("在执行a_func函数之前我正在干一些无趣的事情")
+        a_func()
+        print("在执行a_func函数之后我正在干一些无趣的事情")
 
-	return wrapTheFunction
+    return wrapTheFunction
 
 @a_new_decorator
 def a_function_requiring_decoration():
-	# 装饰
-	print("我需要一些装饰来掩饰我的伤口")
+    # 装饰
+    print("我需要一些装饰来掩饰我的伤口")
 
 print(a_function_requiring_decoration.__name__)
 ```
@@ -625,13 +625,13 @@ Function is not running
 from functools import wraps
 
 def requires_auth(f):
-	@wraps(f)
-	def decorated(*args, **kwargs):
-		auth = request.authorization
-		if not auth or not check_auth(auth.username, auth.password):
-			authenticate()
-		return f(*args, **kwargs)
-	return decorated
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            authenticate()
+        return f(*args, **kwargs)
+    return decorated
 ```
 
 **日志(Logging)**
@@ -641,15 +641,15 @@ def requires_auth(f):
 ```
 from functools import wraps
 def logit(func):
-	@wraps(func)
-	def with_logging(*args, **kwargs):
-		print(func.__name__ + "被调用")
-		return func(*args, **kwargs)
-	return with_logging
+    @wraps(func)
+    def with_logging(*args, **kwargs):
+        print(func.__name__ + "被调用")
+        return func(*args, **kwargs)
+    return with_logging
 
 @logit
 def addition_func(x):
-	return x + x
+    return x + x
 
 result = addition_func(4)
 ```
@@ -670,16 +670,16 @@ addition_func被调用
 from functools import wraps
 
 def logit(logfile="out.log"):
-	def logging_decorator(func):
-		@wraps(func)
-		def wrapped_function(*args, **kwargs):
-			lgo_string = func.__name__ + "被调用"
-			print(lgo_string)
-			with open(logfile, 'a') as opened_file:
-				opened_file.write(lgo_string + '\n')
-			return func(*args, **kwargs)
-		return wrapped_function
-	return logging_decorator
+    def logging_decorator(func):
+        @wraps(func)
+        def wrapped_function(*args, **kwargs):
+            lgo_string = func.__name__ + "被调用"
+            print(lgo_string)
+            with open(logfile, 'a') as opened_file:
+                opened_file.write(lgo_string + '\n')
+            return func(*args, **kwargs)
+        return wrapped_function
+    return logging_decorator
 ```
 
 执行1及结果：
@@ -687,7 +687,7 @@ def logit(logfile="out.log"):
 ```
 @logit()
 def myfunc1():
-	pass
+    pass
 
 myfunc1()
 # 执行结果
@@ -700,7 +700,7 @@ myfunc1被调用
 ```
 @logit(logfile="func2.log")
 def myfunc2():
-	pass
+    pass
 
 myfunc2()
 # 执行结果
@@ -716,23 +716,23 @@ myfunc2被调用
 from functools import wraps
 
 class logit(object):
-	def __init__(self, logfile='out.log'):
-		self.logfile = logfile
+    def __init__(self, logfile='out.log'):
+        self.logfile = logfile
 
-	def __call__(self, func):
-		@wraps(func)
-		def wrapped_function(*args, **kwargs):
-			log_string = func.__name__ + "被调用"
-			print(log_string)
-			with open(self.logfile, 'a') as opened_file:
-				opened_file.write(log_string + '\n')
-			self.notify()
-			return func(*args, **kwargs)
-		return wrapped_function
+    def __call__(self, func):
+        @wraps(func)
+        def wrapped_function(*args, **kwargs):
+            log_string = func.__name__ + "被调用"
+            print(log_string)
+            with open(self.logfile, 'a') as opened_file:
+                opened_file.write(log_string + '\n')
+            self.notify()
+            return func(*args, **kwargs)
+        return wrapped_function
 
-	def notify(self):
-	    # 只用于日志
-		pass
+    def notify(self):
+        # 只用于日志
+        pass
 ```
 
 执行及结果：
@@ -740,7 +740,7 @@ class logit(object):
 ```
 @logit()
 def myfunc1():
-	pass
+    pass
 
 myfunc1()
 # 执行结果
@@ -752,13 +752,13 @@ myfunc1被调用
 
 ```
 class email_logit(logit):
-	def __init__(self, email="test@test.cn", *args, **kwargs):
-		self.email = email
-		super(logit, self).__init__(*args, **kwargs)
+    def __init__(self, email="test@test.cn", *args, **kwargs):
+        self.email = email
+        super(logit, self).__init__(*args, **kwargs)
 
-	def notify(self):
-		# 邮件功能实现略
-		pass
+    def notify(self):
+        # 邮件功能实现略
+        pass
 ```
 
 现在`@email_logit`在打日志的基础上，还有发邮件的功能。
@@ -769,7 +769,7 @@ return和global的作用，如下：
 
 ```
 def add(value1, value2):
-	return value1 +  value2
+    return value1 +  value2
 
 result = add(3, 5)
 print(result)
@@ -785,8 +785,8 @@ return<函数把值赋给了调用它的变量。
 
 ```
 def add(value1,value2):
-	global result
-	result = value1 + value2
+    global result
+    result = value1 + value2
 
 add(3,5)
 print(result)
@@ -802,7 +802,7 @@ global的作用是在函数以外的区域都能访问这个变量。举个例�
 
 ```
 def add(value1, value2):
-	result = value1 + value2
+    result = value1 + value2
 
 add(2, 4)
 print(result)
@@ -825,9 +825,9 @@ NameError: name 'result' is not defined
 
 ```
 def profile():
-	name = "Tester"
-	age = 30
-	return name, age
+    name = "Tester"
+    age = 30
+    return name, age
 
 print("name:",profile()[0])
 print("age:",profile()[1])
@@ -864,8 +864,8 @@ print(poo)
 
 ```
 def add_to(num, target=[]):
-	target.append(num)
-	return target
+    target.append(num)
+    return target
 
 print(add_to(1))
 print(add_to(2))
@@ -884,10 +884,10 @@ print(add_to(3))
 
 ```
 def add_to(element, target=None):
-	if target is None:
-		target = []
-	target.append(element)
-	return target
+    if target is None:
+        target = []
+    target.append(element)
+    return target
 
 print(add_to(1))
 print(add_to(2))
@@ -972,18 +972,18 @@ defaultdict，与dict类型不同，不需要检查key是否存在，举例如�
 from collections import defaultdict
 
 colours = (
-	('张三', '黄色'),
-	('李四', '蓝色'),
-	('王五', '绿色'),
-	('李四', '黑色'),
-	('张三', '红色'),
-	('赵六', '紫色'),
-	)
+    ('张三', '黄色'),
+    ('李四', '蓝色'),
+    ('王五', '绿色'),
+    ('李四', '黑色'),
+    ('张三', '红色'),
+    ('赵六', '紫色'),
+    )
 
 favourite_colours = defaultdict(list)
 
 for name, colour in colours:
-	favourite_colours[name].append(colour)
+    favourite_colours[name].append(colour)
 
 print(favourite_colours)
 ```
@@ -1037,13 +1037,13 @@ Counter是一个计数器，它可以帮助我们针对某项数据进行计数�
 from collections import Counter
 
 colours = (
-	('张三', '黄色'),
-	('李四', '蓝色'),
-	('王五', '绿色'),
-	('李四', '黑色'),
-	('张三', '红色'),
-	('赵六', '紫色'),
-	)
+    ('张三', '黄色'),
+    ('李四', '蓝色'),
+    ('王五', '绿色'),
+    ('李四', '黑色'),
+    ('张三', '红色'),
+    ('赵六', '紫色'),
+    )
 
 favs = Counter(name for name, colour in colours)
 print(favs)
@@ -1220,19 +1220,19 @@ from collections import namedtuple
 from enum import Enum
 
 class Species(Enum):
-	cat = 1
-	dog = 2
-	horse = 3
-	aardvark = 4
-	butterfly = 5
-	owl = 6
-	platypus = 7
-	dragon = 8
-	unicorn = 9
-	# ……
+    cat = 1
+    dog = 2
+    horse = 3
+    aardvark = 4
+    butterfly = 5
+    owl = 6
+    platypus = 7
+    dragon = 8
+    unicorn = 9
+    # ……
 
-	kitten = 1
-	puppy = 2
+    kitten = 1
+    puppy = 2
 
 Animal = namedtuple('Animal', 'name age type')
 perry = Animal(name="Perry", age=31, type=Species.cat)
@@ -1268,7 +1268,7 @@ Species.cat
 ```
 some_list = ['苹果', '香蕉', '葡萄', '梨子']
 for counter, value in enumerate(some_list):
-	print(counter, value)
+    print(counter, value)
 ```
 
 执行结果：
@@ -1285,7 +1285,7 @@ for counter, value in enumerate(some_list):
 ```
 some_list = ['苹果', '香蕉', '葡萄', '梨子']
 for counter, value in enumerate(some_list,2):   # 计数从2开始
-	print(counter, value)
+    print(counter, value)
 ```
 
 执行结果：
@@ -1418,7 +1418,7 @@ print(multiples)
 ```
 squared = []
 for x in range(10):
-	squared.append(x**2)
+    squared.append(x**2)
 ```
 
 这个用推导式就可以简化为：
@@ -1443,8 +1443,8 @@ squared = [x**2 for x in range(10)]
 mcase = {'a': 10, 'b': 34, 'A': 7, 'Z': 3}
 
 mcase_frequency = {
-	k.lower():mcase.get(k.lower(), 0) + mcase.get(k.upper(), 0)
-	for k in mcase.keys()
+    k.lower():mcase.get(k.lower(), 0) + mcase.get(k.upper(), 0)
+    for k in mcase.keys()
 }
 
 print(mcase_frequency)
@@ -1476,9 +1476,9 @@ squared = {x**2 for x in [1, 1, 2]}
 
 ```
 try:
-	file = open('test.txe', 'rb')
+    file = open('test.txe', 'rb')
 except IOError as e:
-	print("一个读写错误发生:{}".format(e.args[-1]))
+    print("一个读写错误发生:{}".format(e.args[-1]))
 ```
 
 执行结果：
@@ -1492,37 +1492,37 @@ except IOError as e:
 有三种方法可以用来处理多个异常。
 
 1. 需要把所有可能发生的异常放到一个元组里面。如下：
-
+   
    ```
    try:
-   	file = open('test.txe', 'rb')
+       file = open('test.txe', 'rb')
    except (IOError, EOFError) as e:
-   	print("一个读写错误发生:{}".format(e.args[-1]))
+       print("一个读写错误发生:{}".format(e.args[-1]))
    ```
 
 2. 对每个单独的异常在单独的except语句块中处理。如下：
-
+   
    ```
    try:
-   	file = open('test.txe', 'rb')
+       file = open('test.txe', 'rb')
    except EOFError as e:
-   	print("一个EOF错误发生。")
-   	raise e
+       print("一个EOF错误发生。")
+       raise e
    except IOError as e:
-   	print("一个读写错误发生。")
-   	raise e
+       print("一个读写错误发生。")
+       raise e
    ```
 
 3. 直接捕获所有异常
-
+   
    ```
    try:
-   	file = open('test.txe', 'rb')
+       file = open('test.txe', 'rb')
    except Exception:
-   	# 打印一些想要的异常日志
-   	raise
+       # 打印一些想要的异常日志
+       raise
    ```
-
+   
    当你不知道程序会抛什么异常的时候，第三种方法比较好用。
 
 #### finally从句
@@ -1531,11 +1531,11 @@ except IOError as e:
 
 ```
 try:
-	file = open('test.txe', 'rb')
+    file = open('test.txe', 'rb')
 except (IOError, EOFError) as e:
-	print("一个读写错误发生:{}".format(e.args[-1]))
+    print("一个读写错误发生:{}".format(e.args[-1]))
 finally:
-	print("不管是否触发异常都会执行。")
+    print("不管是否触发异常都会执行。")
 ```
 
 执行结果：
@@ -1551,15 +1551,15 @@ finally:
 
 ```
 try:
-	print("我确信没有异常发生。")
+    print("我确信没有异常发生。")
 except Exception:
-	print("exception.")
+    print("exception.")
 else:
-	# 这里的代码只会在try语句没有触发异常时运行
-	# 但这里的异常将不会被捕获
-	print("这里的代码只会在try语句没有触发异常时运行,异常将不会被捕获。")
+    # 这里的代码只会在try语句没有触发异常时运行
+    # 但这里的异常将不会被捕获
+    print("这里的代码只会在try语句没有触发异常时运行,异常将不会被捕获。")
 finally:
-	print("这里将一直被执行。")
+    print("这里将一直被执行。")
 ```
 
 执行结果：
@@ -1598,20 +1598,20 @@ print(add(3, 5))
 lambda表达式，可以在一些特殊的情况下使用：
 
 - 列表排序
-
+  
   ```
   a = [(1, 2), (4, 1), (9, 10), (13, -3)]
   a.sort(key=lambda x:x[1])
   ```
-
+  
   执行结果：
-
+  
   ```
   [(13, -3), (4, 1), (1, 2), (9, 10)]
   ```
 
 - 列表并行排序
-
+  
   ```
   list1 = [1,2,3]
   list2 = [4,5,6]
@@ -1622,15 +1622,10 @@ lambda表达式，可以在一些特殊的情况下使用：
   print(list1)
   print(list2)
   ```
-
+  
   执行结果：
-
+  
   ```
   [1, 2, 3]
   [4, 5, 6]
   ```
-
-
-
-
-

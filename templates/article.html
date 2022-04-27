@@ -4,12 +4,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>{{ words['sitename'] }}</title>
+    <title>{{ words.sitename }}</title>
     <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/xui.css">
     <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/markdown.css">
     <link rel="shortcut icon" type="image/ico" href="{{ words.siteurl }}/themes/img/favicon.ico">
-
+    <style>
+      pre>code {
+        white-space: pre-line;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,7 +22,7 @@
         <div class="title">
           <a href="{{ words.siteurl }}">
             <img src="{{ words.siteurl }}/themes/img/title.jpg">
-            <div class="linkbutton testpoo">{{ words['sitename'] }}</div>
+            <div class="linkbutton testpoo">{{ words.sitename }}</div>
           </a>
         </div>
         <div class="scrollheight">
@@ -28,10 +32,10 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="github"><a href="{{ words['github'] }}" target="_blank" title="GitHub:{{ words['author'] }}"></a><a href="#" title="微信号：{{ words['wechat'] }}"></a><a href="#" title="邮箱：{{ words['mail'] }}"></a><a href="{{ words['siteurl'] }}/rss.xml" target="_blank"></a></div>
+        <div class="github"><a href="{{ words.github }}" target="_blank" title="GitHub:{{ words.author }}"></a><a href="#" title="微信号：{{ words.wechat }}"></a><a href="#" title="邮箱：{{ words.mail }}"></a><a href="{{ words.siteurl }}/rss.xml" target="_blank"></a></div>
       </div>
       <div class="articles">
-        <div class="category">分类：{{ article['category'][0] }}</div>
+        <div class="category">分类：{{ article.category[0] }}</div>
         <div class="scrollheight">
           <ul>
             {% for article in cate_posts %}
@@ -43,9 +47,9 @@
       </div>
     </div>
     <div class="main">
-      <div class="header"><span>{{ article['title'] }}</span><span>{{ words['description'] }}<br />最后编辑于{{ lastBuildDate }}</span></div>
+      <div class="header"><span>{{ article.title }}</span><span>{{ words.description }}<br />最后编辑于{{ lastBuildDate }}</span></div>
       <input class="xswitch xonoff" type="checkbox" id="catalog">
-      <div class="posts">{{ article['content']|safe }}</div>
+      <div class="posts">{{ article.content|safe }}</div>
     </div>
     <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
     <div class="nav">

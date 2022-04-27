@@ -1,7 +1,9 @@
 title:Linux下SVN服务器的搭建
 date:2020-01-01
-category:svn
+category:笔记
 tag:svn, linux
+
+[TOC]
 
 ### Ubuntu下SVN服务器的配置及搭建
 
@@ -19,13 +21,17 @@ dpkg --get-selections|grep 'subversion'
 root@ubuntu:~$ dpkg --get-selections|grep 'subversion'
 subversion                                      install
 ```
+
 如果没有安装，使用以下命令安装
+
 ```
 apt install subversion
 ```
+
 #### 配置svn并启动svn服务
 
 可以使用svnserve --help查看启动帮助
+
 ```
 root@ubuntu:~# svnserve --help
 usage: svnserve [-d | -i | -t | -X] [options]
@@ -99,40 +105,55 @@ Valid options:
   --version                : 显示程序版本信息
   -q [--quiet]             : 在标准错误输出不显示进度 (仅错误)
 ```
+
 指定svn的数据存储路径
+
 ```
 mkdir -p /home/poo/svn/data
 ```
+
 指定svn的配置文件信息路径
+
 ```
 mkdir -p /home/poo/svn/passwd
 ```
+
 启动svn服务
+
 ```
 svnserve -d -r /home/poo/svn/data
 ```
+
 #### 检测svn服务是否正常启动
 
 第一通过进程检测
+
 ```
 root@ubuntu:~# ps -ef|grep svn
 root        76     1  0 21:15 ?        00:00:00 svnserve -d -r /home/poo/svn/data/
 root        78    52  0 21:15 tty1     00:00:00 grep --color=auto svn
 ```
+
 第二通过端口3690检测
+
 ```
 netstat -lntup | grep 3690
 ```
+
 第三通过文件检测
+
 ```
 lsof -i :3690
 ```
+
 #### 使用svnadmin建立svn项目版本库
 
 查看创建项目版本库命令
+
 ```
 svnadmin --help
 ```
+
 ```
 root@ubuntu:~# svnadmin --help
 general usage: svnadmin SUBCOMMAND REPOS_PATH  [ARGS & OPTIONS ...]
@@ -167,9 +188,11 @@ Available subcommands:
    upgrade
    verify
 ```
+
 ```
 svnadmin help create
 ```
+
 ```
 root@ubuntu:~# svnadmin help create
 create: 用法: svnadmin create REPOS_PATH
@@ -189,7 +212,9 @@ create: 用法: svnadmin create REPOS_PATH
   --pre-1.5-compatible     : 已经淘汰; 参见 --compatible-version
   --pre-1.6-compatible     : 已经淘汰; 参见 --compatible-version
 ```
+
 创建testdoc版本库
+
 ```
 root@ubuntu:~# svnadmin create /home/poo/svn/data/testdoc
 root@ubuntu:~# ll /home/poo/svn/data/testdoc/
@@ -201,21 +226,27 @@ drwxr-xr-x 0 root root 512 12月  9 21:26 hooks/
 drwxr-xr-x 0 root root 512 12月  9 21:26 locks/
 -rw-r--r-- 1 root root 246 12月  9 21:26 README.txt
 ```
+
 #### 配置testdoc版本可的权限
 
 进入testdoc版本库配置目录,并备份配置文件
+
 ```
 cd /home/poo/svn/data/testdoc/conf/
 cp -p svnserve.conf svnserve.conf.default
 ```
+
 进行详细配置
+
 ```
 anon-access = none //禁止匿名访问
 auth-access = write //认证后有读的权限
 password-db = /home/poo/svn/passwd/passwd //指定密码文件
 authz-db = /home/poo/svn/passwd/authz //指定权限认证文件
 ```
+
 svnserve.conf文件general的一部分
+
 ```
 [general]
 ### The anon-access and auth-access options control access to the
@@ -247,21 +278,27 @@ password-db = /home/poo/svn/passwd/passwd
 ### Uncomment the line below to use the default authorization file.
 authz-db = /home/poo/svn/passwdauthz
 ```
+
 复制passwd和authz文件到passwd目录并修改权限
+
 ```
 cp -p passwd authz /home/poo/svn/passwd/
 cd /home/poo/svn/passwd/
 chmod 700 authz passwd
 ```
+
 #### 为Svn版本库创建用户并授权访问指定项目版本库
 
 编辑passwd文件配置用户和密码
+
 ```
 vi passwd 
 xiaowei = 123456
 shenyi = 123456
 ```
+
 passwd文件
+
 ```
 ### This file is an example password file for svnserve.
 ### Its format is similar to that of svnserve.conf. As shown in the
@@ -281,13 +318,17 @@ test1 = 123456
 test2 = 123456
 test3 = 123456
 ```
+
 编辑authz文件配置读取权限
+
 ```
 [<版本库>:/项目/目录]
 @<用户组名> = <权限>
 <用户名>  = <权限>
 ```
+
 authz文件
+
 ```
 ### This file is an example authorization file for svnserve.
 ### Its format is identical to that of mod_authz_svn authorization
@@ -324,22 +365,29 @@ test = test1,test2,test3
 xiaowei = rw
 shenyi = r
 ```
+
 #### 重新启动svn服务进行验证
 
 杀死svn服务
+
 ```
 pkill svnserve
 ```
+
 启动svn
+
 ```
 svnserve -d -r /home/poo/svn/data/
 ```
+
 备注：修改passwd和authz文件不需要重启svn服务，而修改svnserve.conf则需要
 
 最后安装客户端进行testdoc的配置是否正确
+
 ```
 svn --username=xiaowei co svn://127.0.0.1/testdoc
 ```
+
 ```
 root@ubuntu:# svn --username=xiaowei co svn://127.0.0.1/testdoc
 认证领域: <svn://127.0.0.1:3690> f36acfd9-8e0c-4973-bd35-44e75440e1c3

@@ -290,7 +290,21 @@ a { text-decoration: none; color: #000 }
     display: none;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1600px) {
+    .main .posts {
+        padding: 20px 100px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    #nvacatalog {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
     .main .posts {
         padding: 20px;
     }
@@ -333,7 +347,7 @@ a { text-decoration: none; color: #000 }
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 200px;
+        width: 80%;
         height: 100%;
         overflow:auto;
         background: #f9fafb;
