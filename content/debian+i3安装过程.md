@@ -110,9 +110,8 @@ EndSection
 
 ### 8. 字符图标
 
-```
-http://www.fontawesome.com.cn/cheatsheet/
-```
+<http://www.fontawesome.com.cn/cheatsheet/>
+
 
 ### 9. 设置dpi
 
