@@ -7,6 +7,7 @@ import copy
 import datetime
 import base64
 import shutil
+import time
 
 ###############################
 #           配置参数
@@ -100,7 +101,8 @@ def posts(articles):
 
     categories = {}
     for category in articles:
-        categories[category['category'][0]] = category['title']
+        if category['category'][0] not in categories.keys():
+            categories[category['category'][0]] = category['title']
 
     template = jinja_environment.get_template('article.html')
     counts = len(articles)

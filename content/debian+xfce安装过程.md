@@ -11,7 +11,7 @@ https://www.debian.org/download
 
 ### 2. 下载驱动
 
-https://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/firmware/bullseye/current/firmware.zip
+https://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/firmware/bookworm/current/firmware.zip
 
 ### 3. 制作自启动U盘
 
@@ -33,14 +33,14 @@ sudo update-grub，该命令将刚才的修改更新至 /boot/grub/grub.cfg 文�
 
 ```
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-updates main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bullseye-backports main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free
 ```
 
 ### 7. 安装软件
@@ -82,7 +82,7 @@ Motrix: https://motrix.app/
 
 ```
 # 添加驱动
-https://packages.debian.org/bullseye/firmware-misc-nonfree
+https://packages.debian.org/bookworm/firmware-misc-nonfree
 ```
 
 ### 12. 图片路径
