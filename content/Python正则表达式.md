@@ -47,7 +47,8 @@ tag: 正则表达式
 | \w                             | 匹配包括下划线的任何单词字符。等价于“[A-Za-z0-9_]”。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | \W                             | 匹配任何非单词字符。等价于“[^A-Za-z0-9_]”。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | \Z                             | 只匹配字符串尾。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| 绝大部分Python的标准转义字符也被正则表达式分析器支持: |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+绝大部分Python的标准转义字符也被正则表达式分析器支持:
 
 ```
 \a，\b，\f，\n，\N，\r，\t，\u，\U，\v，\x，\\
@@ -62,7 +63,7 @@ tag: 正则表达式
 | 十六进制值 | /^#?([a-f0-9]{6}                                                                                                       |
 | 电子邮箱  | /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/<br />/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/ |
 | URL   | /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/                                                       |
-| IP 地址 | /((2[0-4]\d                                                                                                            |
+| IP 地址 | /((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)/<br />/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/|
 
 ### 二、re模块简介
 
@@ -82,18 +83,30 @@ re模块库源码：<https://github.com/python/cpython/blob/3.8/Lib/re.py>
 
 常量即表示不可更改的变量，一般用于做标记。
 
-re模块中有9个常量，如下图。
+re模块中有9个常量，如下。
+```
+ASCII = A = sre_compile.SRE_FLAG_ASCII # assume sacii "locale"
+IGNORECASE = I = sre_compile.SRE_FLAG_IGNORECASE # ignore case
+LOCALE = L = sre_compile.SRE_FLAG_LOCALE # assume current 8-bit locale
+UNICODE = U = sre_compile.SRE_FLAG_UNICODE # assume unicode "locale"
+MUJLTILINE = M = sre_compile.SRE_FLAG_MULTILINE # make anchors look for newline
+DOTALL = S = sre_compile.SRE_FLAG_DOTALL # make dot match newline
+VERBOSE = X = sre_compile.SRE_FLAG_VERBOSE # ignore whitespace and comments
+# sre extensions (experimental, don't rely on these)
+TEMPLATE = T = sre_compile.SRE_FLAG_TEMPLATE # disable backtracking
+DEBUG = sre_compile.SRE_FLAG_DEBUG # dump pattern after compilation
+```
 
 ```
-int(re.I) == 2 == 21
-int(re.A) == 256 == 28
-int(re.L) == 4 == 22
-int(re.U) == 32 == 25
-int(re.M) == 8 == 23
-int(re.S) == 16 == 24
-int(re.X) == 64 == 26
-int(re.T) == 1 == 20
-int(re.DEBUG) == 128  = 27
+int(re.I) == 2 == 2^1^
+int(re.A) == 256 == 2^8^
+int(re.L) == 4 == 2^2^
+int(re.U) == 32 == 2^5^
+int(re.M) == 8 == 2^3^
+int(re.S) == 16 == 2^4^
+int(re.X) == 64 == 2^6^
+int(re.T) == 1 == 2^0^
+int(re.DEBUG) == 128  = 2^7^
 ```
 
 下面我们来快速学习这些常量的作用及如何使用他们，按常用度排序！
@@ -695,10 +708,10 @@ Python 正则表达式知识基本讲解完毕，最后稍微给大家提一提�
 
 #### 3.正则查找函数 返回匹配对象
 
-查找一个匹配项（search、match、fullmatch）的函数返回值都是一个匹配对象Match ，需要通过match.group()获取匹配值，这个很容易忘记。
+查找一个匹配项`（search、match、fullmatch）`的函数返回值都是一个匹配对象Match ，需要通过match.group()获取匹配值，这个很容易忘记。
 
-另外还需要注意：match.group() 与match.groups() 函数的差别！
+另外还需要注意：`match.group()` 与`match.groups()` 函数的差别！
 
 #### 4.重复使用某个正则
 
-如果要重复使用某个正则表达式，推荐先使用 re.compile(pattern)函数 返回一个正则对象，然后复用这个正则对象，这样会更快！
+如果要重复使用某个正则表达式，推荐先使用 `re.compile(pattern)`函数 返回一个正则对象，然后复用这个正则对象，这样会更快！
