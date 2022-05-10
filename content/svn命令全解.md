@@ -10,7 +10,7 @@ tag:svn
 ```
 svn checkout path(path是服务器的目录)
 
-例如 ：svn checkout svn://192.168.####1/pro/domain
+例如 ：svn checkout svn://192.168.214.1/pro/domain
 ```
 
 #### 往版本库中添加新的文件

@@ -28,3 +28,9 @@ tag:软件, linux
 - [Motrix](https://motrix.app/)
 
 - [钉钉](https://alidocs.dingtalk.com/i/p/nb9XJlJ7QbxN8GyA/docs/ROGpvEna5YQWmaPgQ156W4ykmK3zoB27)
+
+- [ToDesk](http://www.hellodesk.cn/download.html)
+
+- [搜狗输入法](https://pinyin.sogou.com/linux/?r=pinyin)
+
+- [百度输入法](https://srf.baidu.com/site/guanwang_linux/index.html)

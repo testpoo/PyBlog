@@ -355,7 +355,7 @@ bash只支持一维数组，不支持多维数组
 - 赋值数组元素：array_name[0]="zhao";
 - 获取数组元素：
   
-  ```
+```
   array_name[0]="li"
   array_name[3]="zhang"
   echo ${array_name[0]} # 输出"li"
@@ -364,7 +364,7 @@ bash只支持一维数组，不支持多维数组
   echo ${array_name[@]} # 输出"li zhang" 输出数组所有元素，没有元素的下标省略
   取得元素个数：${#array_name[@]} 或者 ${#array_name}
   取得单个元素长度：${#array_name[1]}
-  ```
+```
 
 Shell变量就介绍到这里，下面来介绍Shell的变量运算。
 

@@ -1,5 +1,5 @@
 title: debian+xfce安装过程
-date: 2021-04-08
+date: 2021-05-10
 category: debian
 tag: xfce
 
@@ -7,11 +7,11 @@ tag: xfce
 
 ### 1. 下载链接
 
-https://www.debian.org/download
+<https://www.debian.org/download>
 
 ### 2. 下载驱动
 
-https://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/firmware/bookworm/current/firmware.zip
+<https://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/firmware/bookworm/current/firmware.zip>
 
 ### 3. 制作自启动U盘
 
@@ -45,10 +45,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 
 ### 7. 安装软件
 
-```
-# sudo apt install filezilla stacer meld uget aria2 intel-microcode fonts-noto-cjk arc-theme moka-icon-theme
-sudo apt install filezilla stacer meld intel-microcode fonts-noto-cjk arc-theme git fcitx-rime librime-data-wubi gvfs-backends papirus-icon-theme blueman catfish drawing
-```
+`# sudo apt install filezilla stacer meld uget aria2 intel-microcode fonts-noto-cjk arc-theme moka-icon-theme`
+
+`sudo apt install filezilla stacer meld intel-microcode fonts-noto-cjk arc-theme git fcitx-rime librime-data-wubi gvfs-backends papirus-icon-theme blueman catfish drawing`
 
 ### 8. 删除软件
 
@@ -222,3 +221,216 @@ xfwm4-->vblank_mode=off
 ### 23. 安装xfce4-docklike-plugin
 
 - 安装xfce4-docklike-plugin合并启动器和窗口管理器
+
+```
+# 编译使用到的软件
+apt install xfce4-dev-tools
+apt install libglib2.0-dev
+apt install libx11-dev
+apt install build-essential libgtk-3-dev pkg-config devhelp
+apt install libwnck-3-dev
+apt install libxfce4ui-2-dev
+apt install libxfce4panel-2-dev
+apt install libxfce4panel-2.0-dev
+```
+
+- 汉化内容如下(zh_CN.po)：
+
+放到`xfce4-docklike-plugin\po`目录中编译
+
+```
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <pu_yawei@qq.com>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-31 19:31-0700\n"
+"PO-Revision-Date: 2022-03-31 19:31+0800\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Last-Translator: \n"
+"Language: zh_CN\n"
+
+#: ../src/Wnck.cpp:198
+msgid "Pinned to Dock"
+msgstr "固定到任务栏"
+
+#: ../src/Wnck.cpp:198
+msgid "Pin to Dock"
+msgstr "固定到任务栏"
+
+#: ../src/Wnck.cpp:199
+msgid "Edit Launcher"
+msgstr "编辑启动器"
+
+#: ../src/Wnck.cpp:226
+msgid "Close All"
+msgstr "关闭全部"
+
+#: ../src/Wnck.cpp:245
+msgid "Remove"
+msgstr "移除"
+
+#: ../src/SettingsDialog.cpp:197
+#, c-format
+msgid "<b>Only the first %u hotkeys(s) are enabled.</b>\n"
+msgstr "<b>仅启用第一个 %u 热键。</b>\n"
+
+#: ../src/SettingsDialog.cpp:199
+#, c-format
+msgid ""
+"The &lt;SUPER&gt;+%u combination seems already in use by another process.\n"
+"Check your Xfce settings."
+msgstr ""
+"&lt;SUPER&gt;+%u组合似乎已被占用，\n"
+"检查您的 Xfce 设置。"
+
+#. namespace SettingsDialog
+#: ../src/docklike.desktop.in.h:1
+msgid "A modern, minimalist taskbar for Xfce"
+msgstr "适用于 Xfce 的现代简约任务栏"
+
+#: ../src/_dialogs.xml.h:1
+msgid "_Help"
+msgstr "_帮助"
+
+#: ../src/_dialogs.xml.h:2
+msgid "_Close"
+msgstr "_关闭"
+
+#: ../src/_dialogs.xml.h:3
+msgid "Don't show the window list for a single window"
+msgstr "不显示单个窗口的窗口列表"
+
+#: ../src/_dialogs.xml.h:4
+msgid "Only show applications on the current workspace"
+msgstr "仅显示当前工作区上的应用程序"
+
+#: ../src/_dialogs.xml.h:5
+msgid "Only show applications on the current display"
+msgstr "仅在当前显示屏上显示应用程序"
+
+#: ../src/_dialogs.xml.h:6
+msgid "Show preview thumbnails for open windows"
+msgstr "显示打开窗口的预览缩略图"
+
+#: ../src/_dialogs.xml.h:7
+msgid "Show the number of open windows (if more than 2)"
+msgstr "显示打开的窗口数（如果超过 2 个）"
+
+#: ../src/_dialogs.xml.h:8
+msgid "Behavior"
+msgstr "行为"
+
+#: ../src/_dialogs.xml.h:9
+msgid "Indicator style:"
+msgstr "指标样式："
+
+#: ../src/_dialogs.xml.h:10
+msgid "Bars"
+msgstr "条"
+
+#: ../src/_dialogs.xml.h:11
+msgid "Dots"
+msgstr "点"
+
+#: ../src/_dialogs.xml.h:12
+msgid "Ciliora"
+msgstr "细条"
+
+#: ../src/_dialogs.xml.h:13
+msgid "Circles"
+msgstr "圆形"
+
+#: ../src/_dialogs.xml.h:14
+msgid "Rectangles"
+msgstr "矩形"
+
+#: ../src/_dialogs.xml.h:15
+msgid "None"
+msgstr "无"
+
+#: ../src/_dialogs.xml.h:16
+msgid "Indicator orientation:"
+msgstr "指标方向："
+
+#: ../src/_dialogs.xml.h:17
+msgid "Automatic"
+msgstr "自动"
+
+#: ../src/_dialogs.xml.h:18
+msgid "Bottom"
+msgstr "底部"
+
+#: ../src/_dialogs.xml.h:19
+msgid "Right"
+msgstr "右边"
+
+#: ../src/_dialogs.xml.h:20
+msgid "Top"
+msgstr "顶部"
+
+#: ../src/_dialogs.xml.h:21
+msgid "Left"
+msgstr "左边"
+
+#: ../src/_dialogs.xml.h:22
+msgid "Active indicator:"
+msgstr "活动指标："
+
+#: ../src/_dialogs.xml.h:23
+msgid "Force icon size:"
+msgstr "强制图标大小："
+
+#: ../src/_dialogs.xml.h:24
+msgid "Inactive indicator:"
+msgstr "非活动指标："
+
+#: ../src/_dialogs.xml.h:25
+msgid "Appearance"
+msgstr "外观"
+
+#: ../src/_dialogs.xml.h:26
+msgid "Switch between applications with <SUPER>+[1, 2, ...]"
+msgstr "使用 <SUPER>+[1， 2， ...] 在应用程序之间切换"
+
+#: ../src/_dialogs.xml.h:27
+msgid "Switch to the last window with <SUPER>"
+msgstr "使用<SUPER>切换到最后一个窗口"
+
+#: ../src/_dialogs.xml.h:28
+msgid ""
+"<b>This feature is disabled.</b>\n"
+"It requires X11 XInput2.0 extension which is is not provided by your system."
+msgstr ""
+"<b>此功能已禁用。</b>\n"
+"它需要 X11 XInput2.0 扩展，而您的系统不提供该扩展。"
+
+#: ../src/_dialogs.xml.h:30
+msgid "Keyboard hotkeys"
+msgstr "键盘热键"
+
+#: ../src/_dialogs.xml.h:31
+msgid "Active indicator style:"
+msgstr "活动指标样式："
+
+#: ../src/_dialogs.xml.h:32
+msgid "Inactive indicator style:"
+msgstr "非活动指标样式："
+
+#: ../src/_dialogs.xml.h:33
+msgid "Get indicator color from theme"
+msgstr "从主题获取指示器颜色"
+
+#: ../src/_dialogs.xml.h:34
+msgid "Docklike Taskbar"
+msgstr "Docklike任务栏"
+```
