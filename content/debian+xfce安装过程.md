@@ -218,6 +218,28 @@ Search for Files
 xfwm4-->vblank_mode=off
 ```
 
+### 23. 添加gtk.css
+
+- 路径`~/config/gtk3.0/gtk.css`
+
+```
+#pulseaudio-button image,#xfce4-power-manager-plugin image,#xfce4-notification-plugin image{
+            -gtk-icon-transform: scale(0.4);
+}
+
+#clock-button {font-size: 14px;}
+
+#indicator-button* { -gtk-icon-transform: scale(1.2); }
+
+#whiskermenu-window {
+   background-color: #ffbba4;
+   background-image: linear-gradient(#e66465, #9198e5);
+   color: #ffffff; }
+
+calendar.highlight { color: red; }
+calendar {padding: 0 10px; font-weight: bold;}
+```
+
 ### 23. 安装xfce4-docklike-plugin
 
 - 安装xfce4-docklike-plugin合并启动器和窗口管理器
@@ -242,7 +264,7 @@ apt install libxfce4panel-2.0-dev
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <pu_yawei@qq.com>, YEAR.
+# FIRST AUTHOR <pu_yawei@qq.com>, YEAR 2022.
 #
 msgid ""
 msgstr ""
@@ -433,4 +455,18 @@ msgstr "从主题获取指示器颜色"
 #: ../src/_dialogs.xml.h:34
 msgid "Docklike Taskbar"
 msgstr "Docklike任务栏"
+```
+
+- 编译成功后，从系统提取可用文件，语言文件这里只提取了中文
+
+```
+#!/bin/bash
+
+mkdir -p ~/usr/share/xfce4/panel/plugins/
+mkdir -p ~/usr/lib/xfce4/panel/plugins/
+mkdir -p ~/usr/share/locale/zh_CN/LC_MESSAGES/
+cp /usr/share/xfce4/panel/plugins/docklike.desktop ~/usr/share/xfce4/panel/plugins/
+cp /usr/share/locale/zh_CN/LC_MESSAGES/xfce4-docklike-plugin.mo ~/usr/share/locale/zh_CN/LC_MESSAGES/
+cp /usr/lib/xfce4/panel/plugins/libdocklike.la ~/usr/lib/xfce4/panel/plugins/
+cp /usr/lib/xfce4/panel/plugins/libdocklike.so ~/usr/lib/xfce4/panel/plugins/
 ```
