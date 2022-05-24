@@ -169,16 +169,7 @@ xfce4-panel -q && GTK_DEBUG=interactive xfce4-panel
 重启xfce-panel:xfce4-panel -r
 ```
 
-### 18. 设置xfce样式
-
-```
-~/.config/gtk-3.0/gtk.css
-#pulseaudio-button image,#xfce4-power-manager-plugin image,#xfce4-notification-plugin image,#showdesktop-button image{
-    -gtk-icon-transform: scale(0.4);
-}
-```
-
-### 19. 修改grub背景
+### 18. 修改grub背景
 
 ```
 /usr/share/desktop-base/homeworld-theme/grub/grub_background.sh
@@ -186,7 +177,7 @@ WALLPAPER=/usr/share/backgrounds/background.png
 注：必须是png格式
 ```
 
-### 20. 添加右键
+### 19. 添加右键
 
 ```
 ln -s %f 'Link to %n'
@@ -208,17 +199,17 @@ Search for Files
 搜索文件
 ```
 
-### 21. thunar侧边栏添加位置
+### 20. thunar侧边栏添加位置
 
 - 点击文件右键`send to-->Side Panel`
 
-### 22. 启动花屏
+### 21. 启动花屏
 
 ```
 xfwm4-->vblank_mode=off
 ```
 
-### 23. 添加gtk.css
+### 22. 添加gtk.css
 
 - 路径`~/config/gtk3.0/gtk.css`
 
