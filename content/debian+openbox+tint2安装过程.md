@@ -59,13 +59,140 @@ pulseaudio-声音驱动
 blueman-蓝牙
 ```
 
-
-
 ### 8. 设置
 
 - openbox
+
+```
+# autostart.sh
+
+tint2 &
+fcitx &
+blueman-applet &
+feh --bg-scale "/home/poo/.poo/bg.jpg" &
+```
+```
+# keyboard中加入如下代码
+
+    <!--自定义-->
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <execute>pactl set-sink-mute @DEFAULT_SINK@ toggle</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <execute>pactl set-sink-volume @DEFAULT_SINK@ -5%</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <execute>pactl set-sink-volume @DEFAULT_SINK@ +5%</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <execute>light -A 5</execute>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <execute>light -U 5</execute>
+      </action>
+    </keybind>
+```
+
 - jgmenu
+
+```
+# jgmenurc
+
+stay_alive           = 1
+tint2_look           = 0
+position_mode        = fixed
+terminal_exec        = termite
+terminal_args        = -e
+menu_width           = 200
+menu_padding_top     = 40
+menu_padding_right   = 2
+menu_padding_bottom  = 5
+menu_padding_left    = 2
+menu_radius          = 0
+menu_border          = 1
+menu_halign          = left
+sub_hover_action     = 1
+item_margin_y        = 5
+item_height          = 30
+item_padding_x       = 8
+item_radius          = 0
+item_border          = 0
+sep_height           = 5
+font                 = Ubuntu 15px
+icon_size            = 30
+color_menu_bg        = #eeeeee 100
+color_norm_bg        = #2b303b 0
+color_norm_fg        = #000000 100
+color_sel_bg         = #8fa1b3 60
+color_sel_fg         = #2b303b 100
+color_sep_fg         = #8fa1b3 40
+```
+```
+# append.csv
+
+^sep()
+退出,^checkout(exit),system-shutdown
+^tag(exit)
+锁屏,slock,system-lock-screen
+退出,openbox --exit,system-log-out
+挂起,systemctl -i suspend,system-log-out
+休眠,systemctl -i hibernate,system-hibernate
+重启,systemctl -i reboot,system-reboot
+关机,systemctl -i poweroff,system-shutdown
+```
+```
+# prepend.csv
+
+@rect,,5,10,190,30,2,left,top,#000000 0,#656565 50,
+@search,,10,10,185,30,2,left,top,#eeeeee 80,#000000 0,
+^sep()
+终端,x-terminal-emulator,utilities-terminal
+文件,thunar,system-file-manager
+火狐,firefox-esr,firefox
+^sep()
+```
+
 - tint2
+
+```
+# 亮度
+echo "☀️$(light|cut --delimiter=. -f1)%"
+
+# 声音(volume.py)
+
+# coding=utf-8
+
+import os
+
+mute = os.popen('pactl get-sink-mute @DEFAULT_SINK@').read()
+volume = os.popen('pactl get-sink-volume @DEFAULT_SINK@').read()
+if mute[6] == "否":
+	print('🔊'+volume[29:32])
+else:
+	print('🔇'+volume[29:32])
+  
+# 网络(network.py)
+
+# coding=utf-8
+
+import os
+
+network = os.popen('hostname -I').read()
+
+if network == '\n':
+	print('📶Down')
+else:
+	print('📶Nokia')
+```
 
 ### 9. 安装第三方软件
 
