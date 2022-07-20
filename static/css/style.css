@@ -175,11 +175,10 @@ a { text-decoration: none; color: #000 }
 }
 
 .sider .articles li {
-    height: 80px;
     width: 260px;
     margin: 10px auto;
     text-align: left;
-    padding: 10px 0 0 20px;
+    padding: 10px 0 10px 20px;
     border-bottom: 1px solid #eceff4;
     list-style-type:none;
 }

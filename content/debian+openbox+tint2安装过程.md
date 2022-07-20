@@ -166,7 +166,8 @@ color_sep_fg         = #8fa1b3 40
 ```
 # 亮度
 echo "☀️$(light|cut --delimiter=. -f1)%"
-
+```
+```
 # 声音(volume.py)
 
 # coding=utf-8
@@ -179,7 +180,8 @@ if mute[6] == "否":
 	print('🔊'+volume[29:32])
 else:
 	print('🔇'+volume[29:32])
-  
+```
+```
 # 网络(network.py)
 
 # coding=utf-8
@@ -189,7 +191,7 @@ import os
 network = os.popen('hostname -I').read()
 
 if network == '\n':
-	print('📶Down')
+	print('🌐Down')
 else:
 	print('📶Nokia')
 ```
