@@ -91,75 +91,75 @@ Docker CE 的安装请参考官方文档。
 
 - 卸载老版本
   
-  老版本的Docker叫`docker` 或者`docker-engine`，如果它们安装了，需要先卸载它们以及相关的依赖，如下：
+老版本的Docker叫`docker` 或者`docker-engine`，如果它们安装了，需要先卸载它们以及相关的依赖，如下：
   
-  ```bash
-   sudo yum remove docker \
-                    docker-client \
-                    docker-client-latest \
-                    docker-common \
-                    docker-latest \
-                    docker-latest-logrotate \
-                    docker-logrotate \
-                    docker-engine
-  ```
+```
+sudo yum remove docker \
+                docker-client \
+                docker-client-latest \
+                docker-common \
+                docker-latest \
+                docker-latest-logrotate \
+                docker-logrotate \
+                docker-engine
+```
 
 - 安装方法
   
-  安装包含`yum-config-manager`程序的 `yum-utils`包，然后添加稳定源，如下：
+安装包含`yum-config-manager`程序的 `yum-utils`包，然后添加稳定源，如下：
   
-  ```bash
-   sudo yum install -y yum-utils
-   sudo yum-config-manager \
-      --add-repo \
-      https://download.docker.com/linux/centos/docker-ce.repo
-  ```
+```
+sudo yum install -y yum-utils
+sudo yum-config-manager \
+   --add-repo \
+   https://download.docker.com/linux/centos/docker-ce.repo
+```
 
 - 安装Docker引擎
   
-  1. 安装最新的Docker引擎和容器
+1. 安装最新的Docker引擎和容器
      
-     ```bash
-      sudo yum install docker-ce docker-ce-cli containerd.io
-     ```
+```
+sudo yum install docker-ce docker-ce-cli containerd.io
+```
      
-     该命令只安装Docker，但不会启动Docker。不过它会创建一个docker组，默认情况下不会向该组添加任何用户。
+该命令只安装Docker，但不会启动Docker。不过它会创建一个docker组，默认情况下不会向该组添加任何用户。
   
-  2. 安装一个特殊版本的Docker引擎，首先查出可用的版本，然后选择安装。如下：
+2. 安装一个特殊版本的Docker引擎，首先查出可用的版本，然后选择安装。如下：
      
-     ```bash
-     $ yum list docker-ce --showduplicates | sort -r
-     docker-ce.x86_64  3:18.09.1-3.el7                     docker-ce-stable
-     docker-ce.x86_64  3:18.09.0-3.el7                     docker-ce-stable
-     docker-ce.x86_64  18.06.1.ce-3.el7                    docker-ce-stable
-     docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable
-     ```
+```
+$ yum list docker-ce --showduplicates | sort -r
+docker-ce.x86_64  3:18.09.1-3.el7                     docker-ce-stable
+docker-ce.x86_64  3:18.09.0-3.el7                     docker-ce-stable
+docker-ce.x86_64  18.06.1.ce-3.el7                    docker-ce-stable
+docker-ce.x86_64  18.06.0.ce-3.el7                    docker-ce-stable
+```
      
-     选择一个版本安装，安装特殊版本需要写上全称，如`docker-ce-18.09.1`，如下：
+选择一个版本安装，安装特殊版本需要写上全称，如`docker-ce-18.09.1`，如下：
      
-     ```bash
-      sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
-     ```
+```
+sudo yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io
+```
      
-     该命令只安装Docker，但不会启动Docker。不过它会创建一个docker组，默认情况下不会向该组添加任何用户。
+该命令只安装Docker，但不会启动Docker。不过它会创建一个docker组，默认情况下不会向该组添加任何用户。
   
-  3. 启动docker
+3. 启动docker
      
-     ```bash
-      sudo systemctl start docker
-     ```
+```
+sudo systemctl start docker
+```
   
-  安装完成后，运行下面的命令，验证是否安装成功。
+安装完成后，运行下面的命令，验证是否安装成功。
   
-  ```bash
-  $ docker version
-  # 或者
-  $ docker info
-  ```
+```
+$ docker version
+# 或者
+$ docker info
+```
 
 Docker 需要用户具有 sudo 权限，为了避免每次命令都输入`sudo`，可以把用户加入 Docker 用户组。
 
-```bash
+```
 # 创建docker用户组.
 sudo groupadd docker
 
@@ -169,7 +169,7 @@ $ sudo usermod -aG docker $USER
 
 Docker 是服务器----客户端架构。命令行运行`docker`命令的时候，需要本机有 Docker 服务。如果这项服务没有启动，可以用下面的命令启动。
 
-```bash
+```
 # service 命令的用法
 $ sudo service docker start
 
@@ -183,7 +183,7 @@ Docker 把应用程序及其依赖，打包在 image 文件里面。只有通过
 
 image 是二进制文件。实际开发中，一个 image 文件往往通过继承另一个 image 文件，加上一些个性化设置而生成。举例来说，你可以在 Ubuntu 的 image 基础上，往里面加入 Apache 服务器，形成你的 image。
 
-```bash
+```
 # 列出本机的所有 image 文件。
 $ docker image ls
 
@@ -201,13 +201,13 @@ image 文件是通用的，一台机器的 image 文件拷贝到另一台机器�
 
 打开`/etc/default/docker`文件（需要`root`权限），在文件的底部加上一行。
 
-```bash
+```
 DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"
 ```
 
 然后，重启 Docker 服务。
 
-```bash
+```
 $ sudo service docker restart
 ```
 
@@ -215,7 +215,7 @@ $ sudo service docker restart
 
 首先，运行下面的命令，将 image 文件从仓库抓取到本地。
 
-```bash
+```
 $ docker image pull library/hello-world
 ```
 
@@ -223,19 +223,19 @@ $ docker image pull library/hello-world
 
 由于 Docker 官方提供的 image 文件，都放在`library`组里面，所以它的是默认组，可以省略。因此，上面的命令可以写成下面这样。
 
-```bash
+```
 $ docker image pull hello-world
 ```
 
 抓取成功以后，就可以在本机看到这个 image 文件了。
 
-```bash
+```
 $ docker image ls
 ```
 
 现在，运行这个 image 文件。
 
-```bash
+```
 $ docker container run hello-world
 ```
 
@@ -245,7 +245,7 @@ $ docker container run hello-world
 
 如果运行成功，你会在屏幕上读到下面的输出。
 
-```bash
+```
 $ docker container run hello-world
 
 Hello from Docker!
@@ -258,13 +258,13 @@ This message shows that your installation appears to be working correctly.
 
 有些容器不会自动终止，因为提供的是服务。比如，安装运行 Ubuntu 的 image，就可以在命令行体验 Ubuntu 系统。
 
-```bash
+```
 $ docker container run -it ubuntu bash
 ```
 
 对于那些不会自动终止的容器，必须使用`docker container kill`命令手动终止。
 
-```bash
+```
 $ docker container kill [containID]
 ```
 
@@ -272,7 +272,7 @@ $ docker container kill [containID]
 
 image 文件生成的容器实例，本身也是一个文件，称为容器文件。也就是说，一旦容器生成，就会同时存在两个文件： image 文件和容器文件。而且关闭容器并不会删除容器文件，只是容器停止运行而已。
 
-```bash
+```
 # 列出本机正在运行的容器
 $ docker container ls
 
@@ -284,7 +284,7 @@ $ docker container ls --all
 
 终止运行的容器文件，依然会占据硬盘空间，可以使用`docker container rm`命令删除。
 
-```bash
+```
 $ docker container rm [containerID]
 ```
 
@@ -300,7 +300,7 @@ $ docker container rm [containerID]
 
 开始前，我们需要下载一个软件的源码做为制作Docker 容器的材料。我们以一个node项目为例，如下：
 
-```bash
+```
 $ git clone https://github.com/testpoo/test.git
 $ cd test
 ```
@@ -309,7 +309,7 @@ $ cd test
 
 首先，在项目的根目录下，新建一个文本文件`.dockerignore`，写入下面的内容。
 
-```bash
+```
 .git
 node_modules
 npm-debug.log
@@ -319,7 +319,7 @@ npm-debug.log
 
 然后，在项目的根目录下，新建一个文本文件 Dockerfile，写入下面的内容。
 
-```bash
+```
 FROM node:8.4
 COPY . /app
 WORKDIR /app
@@ -339,7 +339,7 @@ EXPOSE 3000
 
 有了 Dockerfile 文件以后，就可以使用`docker image build`命令创建 image 文件了。
 
-```bash
+```
 $ docker image build -t test .
 # 或者
 $ docker image build -t test:0.0.1 .
@@ -349,7 +349,7 @@ $ docker image build -t test:0.0.1 .
 
 如果运行成功，就可以看到新生成的 image 文件`test`了。
 
-```bash
+```
 $ docker image ls
 ```
 
@@ -357,7 +357,7 @@ $ docker image ls
 
 `docker container run`命令会从 image 文件生成容器。
 
-```bash
+```
 $ docker container run -p 8000:3000 -it test /bin/bash
 # 或者
 $ docker container run -p 8000:3000 -it test:0.0.1 /bin/bash
@@ -372,13 +372,13 @@ $ docker container run -p 8000:3000 -it test:0.0.1 /bin/bash
 
 如果一切正常，运行上面的命令以后，就会返回一个命令行提示符。
 
-```bash
+```
 root@66d80f4aaf1e:/app#
 ```
 
 这表示你已经在容器里面了，返回的提示符就是容器内部的 Shell 提示符。执行下面的命令。
 
-```bash
+```
 root@66d80f4aaf1e:/app# node demos/01.js
 ```
 
@@ -386,7 +386,7 @@ root@66d80f4aaf1e:/app# node demos/01.js
 
 现在，在容器的命令行，按下 Ctrl + c 停止 Node 进程，然后按下 Ctrl + d （或者输入 exit）退出容器。此外，也可以用`docker container kill`终止容器运行。
 
-```bash
+```
 # 在本机的另一个终端窗口，查出容器的 ID
 $ docker container ls
 
@@ -396,7 +396,7 @@ $ docker container kill [containerID]
 
 容器停止运行之后，并不会消失，用下面的命令删除容器文件。
 
-```bash
+```
 # 查出容器的 ID
 $ docker container ls --all
 
@@ -406,7 +406,7 @@ $ docker container rm [containerID]
 
 也可以使用`docker container run`命令的`--rm`参数，在容器终止运行后自动删除容器文件。
 
-```bash
+```
 $ docker container run --rm -p 8000:3000 -it test /bin/bash
 ```
 
@@ -414,7 +414,7 @@ $ docker container run --rm -p 8000:3000 -it test /bin/bash
 
 上一节的例子里面，容器启动以后，需要手动输入命令`node demos/01.js`。我们可以把这个命令写在 Dockerfile 里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
 
-```bash
+```
 FROM node:8.4
 COPY . /app
 WORKDIR /app
@@ -429,7 +429,7 @@ CMD node demos/01.js
 
 注意，指定了`CMD`命令以后，`docker container run`命令就不能附加命令了（比如前面的`/bin/bash`），否则它会覆盖`CMD`命令。现在，启动容器可以使用下面的命令。
 
-```bash
+```
 $ docker container run --rm -p 8000:3000 -it test:0.0.1
 ```
 
@@ -439,13 +439,13 @@ $ docker container run --rm -p 8000:3000 -it test:0.0.1
 
 首先，去 [hub.docker.com](https://hub.docker.com/) 或 [cloud.docker.com](https://cloud.docker.com/) 注册一个账户。然后，用下面的命令登录。
 
-```bash
+```
 $ docker login
 ```
 
 接着，为本地的 image 标注用户名和版本。
 
-```bash
+```
 $ docker image tag [imageName] [username]/[repository]:[tag]
 # 实例
 $ docker image tag test:0.0.1 testpoo/test:0.0.1
@@ -453,13 +453,13 @@ $ docker image tag test:0.0.1 testpoo/test:0.0.1
 
 也可以不标注用户名，重新构建一下 image 文件。
 
-```bash
+```
 $ docker image build -t [username]/[repository]:[tag] .
 ```
 
 最后，发布 image 文件。
 
-```bash
+```
 $ docker image push [username]/[repository]:[tag]
 ```
 
@@ -473,7 +473,7 @@ docker 的主要用法就是上面这些，此外还有几个命令，也非常�
 
 前面的`docker container run`命令是新建容器，每运行一次，就会新建一个容器。同样的命令运行两次，就会生成两个一模一样的容器文件。如果希望重复使用容器，就要使用`docker container start`命令，它用来启动已经生成、已经停止运行的容器文件。
 
-```bash
+```
 $ docker container start [containerID]
 ```
 
@@ -481,7 +481,7 @@ $ docker container start [containerID]
 
 前面的`docker container kill`命令终止容器运行，相当于向容器里面的主进程发出 SIGKILL 信号。而`docker container stop`命令也是用来终止容器运行，相当于向容器里面的主进程发出 SIGTERM 信号，然后过一段时间再发出 SIGKILL 信号。
 
-```bash
+```
 $ docker container stop [containerID]
 ```
 
@@ -491,7 +491,7 @@ $ docker container stop [containerID]
 
 `docker container logs`命令用来查看 docker 容器的输出，即容器里面 Shell 的标准输出。如果`docker run`命令运行容器的时候，没有使用`-it`参数，就要用这个命令查看输出。
 
-```bash
+```
 $ docker container logs [containerID]
 ```
 
@@ -499,7 +499,7 @@ $ docker container logs [containerID]
 
 `docker container exec`命令用于进入一个正在运行的 docker 容器。如果`docker run`命令运行容器的时候，没有使用`-it`参数，就要用这个命令进入容器。一旦进入了容器，就可以在容器的 Shell 执行命令了。
 
-```bash
+```
 $ docker container exec -it [containerID] /bin/bash
 ```
 
@@ -507,6 +507,6 @@ $ docker container exec -it [containerID] /bin/bash
 
 `docker container cp`命令用于从正在运行的 Docker 容器里面，将文件拷贝到本机。下面是拷贝到当前目录的写法。
 
-```bash
+```
 $ docker container cp [containID]:[/path/to/file] .
 ```

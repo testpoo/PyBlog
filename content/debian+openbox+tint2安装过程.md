@@ -45,18 +45,20 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 
 ### 7. 安装软件
 
-`apt install openbox xinit tint2 jgmenu sakura thunar feh fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman thunar-archive-plugin neofetch ristretto intel-microcode fonts-noto-cjk slock light`
+`apt install openbox xinit tint2 jgmenu sakura thunar feh fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman thunar-archive-plugin neofetch ristretto intel-microcode fonts-noto-cjk slock light libnotify-bin volumeicon-alsa`
 
 ```
-light-亮度
-slock-锁屏
-jgmenu-菜单
-neofetch-系统信息
-tint2-任务栏
-sakura-设置背景
-lxappearance-外观
-pulseaudio-声音驱动
-blueman-蓝牙
+light 亮度
+slock 锁屏
+jgmenu 菜单
+neofetch 系统信息
+tint2 任务栏
+sakura 设置背景
+lxappearance 外观
+pulseaudio 声音驱动
+blueman 蓝牙
+libnotify-bin 通知
+volumeicon-alsa 音量控制
 ```
 
 ### 8. 设置
@@ -64,11 +66,17 @@ blueman-蓝牙
 - openbox
 
 ```
+$ mkdir -p ~/.config/openbox
+$ cp /etc/xdg/openbox/{rc.xml,menu.xml,autostart,environment} ~/.config/openbox
+```
+
+```
 # autostart.sh
 
 tint2 &
 fcitx &
 blueman-applet &
+volumeicon &
 feh --bg-scale "/home/poo/.poo/bg.jpg" &
 ```
 ```
@@ -166,6 +174,18 @@ color_sep_fg         = #8fa1b3 40
 ```
 # 亮度
 echo "☀️$(light|cut --delimiter=. -f1)%"
+```
+```
+#!/bin/bash
+# 增加亮度
+light -A 5
+notify-send "当前亮度为: $(light|cut --delimiter=. -f1)%"
+```
+```
+#!/bin/bash
+# 减少亮度
+light -U 5
+notify-send "当前亮度为: $(light|cut --delimiter=. -f1)%"
 ```
 ```
 # 声音(volume.py)
