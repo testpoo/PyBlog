@@ -104,7 +104,7 @@ echo $(tty)
 ### 10. 触摸板修改
 
 ```
-/usr/share/X11/xrog.conf.d/40-libinput.conf
+/usr/share/X11/xorg.conf.d/40-libinput.conf
 
 Section "InputClass"
         Identifier "libinput touchpad catchall"
@@ -115,6 +115,9 @@ Section "InputClass"
         Option "Tapping" "on" # 触摸以点击
         Option "ClickMethod" "clickfinger" # 触摸板不再拥有中右键区域的区分，与之代替的是双指代表右键，三指代表中键。
         Option "NaturalScrolling" "true" # 自然滚动（反方向滚动）
+        Option "SendEventsMode" "disabled-on-external-mouse" # 当检测到 USB 鼠标时，它将禁用触摸板。
+        Option "DisableWhileTyping" "True" # 防止打字时误触触控板
+        Option "TappingDrag" "True" # 轻击后手指按住会使单个按钮关闭，此手指的所有动作都将转换为拖动动作。
 #        Option "ScrollMethod" "edge" # 边缘滚动页面
 EndSection
 ```
