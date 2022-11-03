@@ -24,7 +24,7 @@ sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
 - 窗口样式设置：设置-->窗口管理器-->样式+按钮布局
 - 窗口管理器微调：设置-->窗口管理器微调-->辅助功能  最大化窗口时隐藏标题
 - 主题/字体设置：外观-->样式+字体
-- 设置时钟格式：%A %F %H:%M 第%V周  %F%n%H:%M
+- 设置时钟格式：%A %F %H:%M 第%V周  %F%n%H:%M  %H:%M%n%Y/%m/%d
 
 ### 4. 图片路径
 
