@@ -113,7 +113,7 @@ style:
 #### 2.1. 触摸板修改
 
 ```
-sudo nano /usr/share/X11/xrog.conf.d/40-libinput.conf
+sudo nano /usr/share/X11/xorg.conf.d/40-libinput.conf
 
 Section "InputClass"
         Identifier "libinput touchpad catchall"
