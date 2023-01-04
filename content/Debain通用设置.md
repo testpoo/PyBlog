@@ -167,7 +167,7 @@ iface wlp1s0 inet dhcp
 编辑（不存在即新建）文件~/.bash_profile（在tty下登录是不会执行.bashrc的），新增一行内容如下：
 
 ```
-if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ];then`
+if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ];then
     startx
 fi
 # 查看Ctrl-Alt-F1对应的那个tty

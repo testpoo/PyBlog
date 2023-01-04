@@ -7,7 +7,7 @@ tag: openbox,tint2
 
 ### 1. 安装软件
 
-`apt install openbox xinit tint2 sakura thunar feh fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman thunar-archive-plugin neofetch ristretto intel-microcode fonts-noto-cjk slock light`
+`apt install openbox xinit tint2 sakura pcamnfm feh fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman neofetch intel-microcode fonts-noto-cjk slock light`
 
 ```
 light 亮度
@@ -50,6 +50,15 @@ fcitx &
 blueman-applet &
 #volumeicon &
 feh --bg-scale "/home/poo/.poo/bg.jpg" &
+```
+
+**feh定时更新背景**
+
+```
+while true; do
+  feh --bg-fill --no-fehbg --randomize ~/.feh/*
+  sleep 300
+done
 ```
 
 **添加快捷键**
@@ -649,7 +658,7 @@ taskbar_always_show_all_desktop_tasks = 0
 taskbar_name_padding = 6 3
 taskbar_name_background_id = 6
 taskbar_name_active_background_id = 7
-taskbar_name_font = 霞鹜文楷 Bold 11
+taskbar_name_font = Noto Sans CJK SC Bold 11
 taskbar_name_font_color = #222222 100
 taskbar_name_active_font_color = #222222 100
 taskbar_distribute_size = 1
@@ -664,7 +673,7 @@ task_centered = 0
 urgent_nb_of_blink = 100000
 task_maximum_size = 140 35
 task_padding = 4 3 4
-task_font = 霞鹜文楷 10
+task_font = Noto Sans CJK SC 10
 task_tooltip = 1
 task_thumbnail = 0
 task_thumbnail_size = 210
@@ -710,10 +719,10 @@ launcher_item_app = /usr/share/applications/sublime_text.desktop
 # Clock
 time1_format = %F
 time2_format = %H:%M
-time1_font = 霞鹜文楷 Bold 10
+time1_font = Noto Sans CJK SC Bold 10
 time1_timezone = 
 time2_timezone = 
-time2_font = 霞鹜文楷 9
+time2_font = Noto Sans CJK SC 9
 clock_font_color = #222222 100
 clock_padding = 1 0
 clock_background_id = 0
@@ -731,7 +740,7 @@ battery_tooltip = 1
 battery_low_status = 10
 battery_low_cmd = xmessage 'tint2: Battery low!'
 battery_full_cmd = 
-bat1_font = 霞鹜文楷 Bold 12
+bat1_font = Noto Sans CJK SC Bold 12
 bat2_font = sans 6
 battery_font_color = #222222 100
 bat1_format = ⚡%p
@@ -763,7 +772,7 @@ execp_rclick_command =
 execp_mclick_command = 
 execp_uwheel_command = 
 execp_dwheel_command = 
-execp_font = 霞鹜文楷 Bold 12
+execp_font = Noto Sans CJK SC Bold 12
 execp_font_color = #000000 100
 execp_padding = 0 0
 execp_background_id = 0
@@ -787,7 +796,7 @@ execp_rclick_command =
 execp_mclick_command = 
 execp_uwheel_command = 
 execp_dwheel_command = 
-execp_font = 霞鹜文楷 Bold 12
+execp_font = Noto Sans CJK SC Bold 12
 execp_font_color = #000000 100
 execp_padding = 0 0
 execp_background_id = 0
@@ -811,7 +820,7 @@ execp_rclick_command =
 execp_mclick_command = 
 execp_uwheel_command = 
 execp_dwheel_command = 
-execp_font = 霞鹜文楷 Bold 12
+execp_font = Noto Sans CJK SC Bold 12
 execp_font_color = #000000 100
 execp_padding = 0 0
 execp_background_id = 0
@@ -826,5 +835,5 @@ tooltip_hide_timeout = 0.1
 tooltip_padding = 2 2
 tooltip_background_id = 5
 tooltip_font_color = #222222 100
-tooltip_font = 霞鹜文楷 11
+tooltip_font = Noto Sans CJK SC 11
 ```
