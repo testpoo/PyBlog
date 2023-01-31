@@ -51,7 +51,6 @@ blueman-applet &
 #volumeicon &
 ```
 
-```
 
 **添加快捷键**
 
@@ -136,3 +135,7 @@ if network == '\n':
 else:
     print('📶Nokia')
 ```
+
+### 3. 详细配置文件
+
+`https://github.com/testpoo/obconfig`
