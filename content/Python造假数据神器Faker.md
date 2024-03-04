@@ -9,7 +9,7 @@ tag: faker
 
 Faker 是一个 Python 包，可以为您生成虚假数据。无论您是需要引导数据库，创建外观漂亮的 XML 文档，填写持久性来对其进行压力测试，还是匿名化从生产服务中获取的数据，Faker 都适合您。
 
-#### **1.1. 安装**
+#### 1.1. 安装
 
     pip install Faker
 
@@ -17,13 +17,13 @@ Faker 是一个 Python 包，可以为您生成虚假数据。无论您是需要
 
     (faker) E:\project\faker>faker -h
     usage: faker [-h] [--version] [-v] [-o output] [-l LOCALE] [-r REPEAT] [-s SEP] [--seed SEED] [-i [INCLUDE ...]] [fake] [fake argument ...]
-
+    
     faker version 23.2.1
-
+    
     positional arguments:
       fake                  name of the fake to generate output for (e.g. profile)
       fake argument         optional arguments to pass to the fake (e.g. the profile fake takes an optional list of comma separated field names as the first argument)
-
+    
     options:
       -h, --help            show this help message and exit
       --version             show program's version number and exit
@@ -37,33 +37,33 @@ Faker 是一个 Python 包，可以为您生成虚假数据。无论您是需要
       --seed SEED           specify a seed for the random generator so that results are repeatable. Also compatible with 'repeat' option
       -i [INCLUDE ...], --include [INCLUDE ...]
                             list of additional custom providers to user, given as the import path of the module containing your Provider class (not the provider class itself)
-
+    
     supported locales:
-
+    
       ar_AA, ar_AE, ar_BH, ar_EG, ar_JO, ar_PS, ar_SA, az_AZ, bg_BG, bn_BD, bs_BA, cs_CZ, da_DK, de, de_AT, de_CH, de_DE, dk_DK, el_CY, el_GR, en, en_AU, en_BD, en_CA, en_GB, en_IE, en_IN, en_NZ, en_PH, en_TH, en_US, es, es_AR, es_CA, es_CL, es_CO, es_ES, es_MX, et_EE, fa_IR, fi_FI, fil_PH, fr_BE, fr_CA, fr_CH, fr_FR, fr_QC, ga_IE, he_IL, hi_IN, hr_HR, hu_HU, hy_AM, id_ID, it_CH, it_IT, ja_JP, ka_GE, ko_KR, la, lb_LU, lt_LT, lv_LV, mt_MT, ne_NP, nl_BE, nl_NL, no_NO, or_IN, pl_PL, pt_BR, pt_PT, ro_RO, ru_RU, sk_SK, sl_SI, sq_AL, sv_SE, ta_IN, th, th_TH, tl_PH, tr_TR, tw_GH, uk_UA, vi_VN, zh_CN, zh_TW, zu_ZA
-
+    
       Faker can take a locale as an optional argument, to return localized data. If
       no locale argument is specified, the factory falls back to the user's OS
       locale as long as it is supported by at least one of the providers.
          - for this user, the default locale is en_US.
-
+    
       If the optional argument locale and/or user's default locale is not available
       for the specified provider, the factory falls back to faker's default locale,
       which is en_US.
-
+    
     examples:
-
+    
       $ faker address
       968 Bahringer Garden Apt. 722
       Kristinaland, NJ 09890
-
+    
       $ faker -l de_DE address
       Samira-Niemeier-Allee 56
       94812 Biedenkopf
-
+    
       $ faker profile ssn,birthdate
       {'ssn': u'628-10-1085', 'birthdate': '2008-03-29'}
-
+    
       $ faker -r=3 -s=";" name
       Willam Kertzmann;
       Josiah Maggio;
@@ -73,7 +73,7 @@ Faker 是一个 Python 包，可以为您生成虚假数据。无论您是需要
 
 faker官方文档：<https://faker.readthedocs.io/en/latest/index.html>
 
-### **2. 简单使用**
+### 2. 简单使用
 
     >>> from faker import Faker
     >>> fake = Faker(locale='zh_CN')
@@ -84,26 +84,26 @@ faker官方文档：<https://faker.readthedocs.io/en/latest/index.html>
 
 ### 3. 参数 locale
 
-参数为生成数据的文化选项（语种），默认为 en\_US，只有使用了相关文化，才能生成相对应的随机信息。
+参数为生成数据的文化选项（语种），默认为 en_US，只有使用了相关文化，才能生成相对应的随机信息。
 
-| 参数     | 说明     | 用法                      |
-| :----- | :----- | :---------------------- |
-| zh\_CN | 中文简体   | Faker(locale\='zh\_CN') |
-| zh\_TW | 中文繁体   | Faker(locale\='zh\_TW') |
-| en\_US | 英语（美国） | Faker(locale\='en\_US') |
-| en\_GB | 英语（英国） | Faker(locale\='en\_GB') |
-| de\_DE | 德语     | Faker(locale\='de\_DE') |
-| ja\_JP | 日语     | Faker(locale\='ja\_JP') |
-| ko\_KR | 韩语     | Faker(locale\='ko\_KR') |
-| fr\_FR | 法语     | Faker(locale\='fr\_FR') |
-| es\_ES | 西班牙语   | Faker(locale\='zh\_CN') |
-| ……     | ……     | ……                      |
+| 参数    | 说明     | 用法                    |
+|:----- |:------ |:--------------------- |
+| zh_CN | 中文简体   | Faker(locale='zh_CN') |
+| zh_TW | 中文繁体   | Faker(locale='zh_TW') |
+| en_US | 英语（美国） | Faker(locale='en_US') |
+| en_GB | 英语（英国） | Faker(locale='en_GB') |
+| de_DE | 德语     | Faker(locale='de_DE') |
+| ja_JP | 日语     | Faker(locale='ja_JP') |
+| ko_KR | 韩语     | Faker(locale='ko_KR') |
+| fr_FR | 法语     | Faker(locale='fr_FR') |
+| es_ES | 西班牙语   | Faker(locale='zh_CN') |
+| ……    | ……     | ……                    |
 
 还有很多其他的语言，部分列举
 
-### **4. 其他方法**
+### 4. 其他方法
 
-#### **4.1 地理信息类**
+#### 4.1 地理信息类
 
 ```Python
 city_suffix()：市，县
@@ -134,7 +134,7 @@ street_suffix()：街、路
 # 街 或 路
 ```
 
-#### **4.2 基础信息类**
+#### 4.2 基础信息类
 
 ```Python
 ssn()：生成身份证号
@@ -194,7 +194,7 @@ phonenumber_prefix()：随机生成手机号段，如139
 # 180
 ```
 
-#### **4.3 邮箱信息类**
+#### 4.3 邮箱信息类
 
 ```Cython
 ascii_company_email()：随机ASCII公司邮箱名
@@ -217,7 +217,7 @@ safe_email()：安全邮箱
 # wdu@example.org
 ```
 
-#### **4.4 网络基础信息类**
+#### 4.4 网络基础信息类
 
 ```Cython
 domain_name()：生成域名
@@ -248,7 +248,7 @@ image_url()：随机URL地址
 # https://picsum.photos/619/449
 ```
 
-#### **4.5 浏览器信息类**
+#### 4.5 浏览器信息类
 
 ```Cython
 chrome()：随机生成Chrome的浏览器user_agent信息
@@ -267,7 +267,7 @@ user_agent()：随机user_agent信息
 # Mozilla/5.0 (Windows; U; Windows 98; Win 9x 4.90) AppleWebKit/534.34.6 (KHTML, like Gecko) Version/5.1 Safari/534.34.6
 ```
 
-#### **4.6 数字信息**
+#### 4.6 数字信息
 
 ```Cython
 numerify()：三位随机数字
@@ -288,7 +288,7 @@ pydecimal()：随机Decimal数字（参考pyfloat参数）
 # 9371388754385663915393032330587677.707987943449603003369594742167786
 ```
 
-#### **4.7 文本加密类**
+#### 4.7 文本加密类
 
 ```Cython
 pystr()：随机字符串
@@ -410,10 +410,9 @@ profile()：随机生成档案信息
 # {'job': '高级建筑工程师/总工', 'company': '诺依曼软件传媒有限公司', 'ssn': '230822195904280066', 'residence': '湖南省玉梅县高明符路J座 227449', 'current_location': (Decimal('75.297849'), Decimal('-0.733280')), 'blood_group': 'A+', 'website': ['https://guiyingxiulan.cn/', 'http://yanxiuying.net/'], 'username': 'yangliu', 'name': '徐玉梅', 'sex': 'F', 'address': '甘肃省红霞市永川李路K座 215966', 'mail': 'wliang@hotmail.com', 'birthdate': datetime.date(1960, 11, 28)}
 simple_profile()：随机生成简单档案信息
 # {'username': 'qianghuang', 'name': '董阳', 'sex': 'F', 'address': '澳门特别行政区沈阳市东城东莞街n座 902934', 'mail': 'guiying78@hotmail.com', 'birthdate': datetime.date(1928, 10, 19)}
-
 ```
 
-### **5. 实战使用**
+### 5. 实战使用
 
 在数据库建一张表，通过Faker造数据，插入到表中。并且打印Faker造的数据。
 
@@ -422,7 +421,7 @@ simple_profile()：随机生成简单档案信息
 
 from faker import Faker
 import sqlite3
- 
+
 # 连接到SQLite数据库（如果不存在则创建）
 conn = sqlite3.connect('faker.db')
 cursor = conn.cursor()
@@ -442,17 +441,17 @@ for i in range(20):
     sql = """insert into faker_user(username,password,address) 
     values('%s','%s','%s')""" % (fake.name(), fake.password(special_chars=False), fake.address())
     cursor.execute(sql)
- 
+
 # 提交更改
 conn.commit()
- 
+
 # 查询数据
 select_data_query = 'SELECT * FROM faker_user'
 cursor.execute(select_data_query)
 result = cursor.fetchall()
 for row in result:
     print("姓名:{}|密码:{}|地址:{}".format(row[1], row[2], row[3]))
- 
+
 # 关闭连接
 cursor.close()
 conn.close()
@@ -482,4 +481,3 @@ conn.close()
 姓名:陆兰英|密码:7e6Q3nltOt|地址:山西省天津市高坪李路A座 605319
 姓名:杨杨|密码:84LWBXxhK1|地址:辽宁省宜都县徐汇邯郸路k座 372826
 ```
-
