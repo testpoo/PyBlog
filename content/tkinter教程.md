@@ -75,10 +75,6 @@ root_window.mainloop()
 |Scrollbar|滚动条|默认垂直方向，鼠标拖动改变数值，可以和 Text、Listbox、Canvas等控件配合使用|
 |Text|多行文本框|接收或输出多行文本内容|
 |Toplevel|子窗口|在创建一个独立于主窗口之外的子窗口，位于主窗口的上一层，可作为其他控件的容器|
-|PanedWindow|||
-|messagebox|||
-|LableFrame|||
-|Spinbox|||
 
 #### 控件基本属性
 
