@@ -45,7 +45,6 @@ lastBuildDate = str(lastBuildDate)[0:19]
 # 删除output中文件
 def delfile():
     filelist=[]
-    #rootdir="output"
     filelist=os.listdir(pushdir)
     for f in filelist:
         filepath = os.path.join( pushdir, f )
@@ -56,13 +55,8 @@ def delfile():
 
 # 获取内容
 def file_name(file_dir):
-    #for root, dirs, files in os.walk(file_dir):  
-        #print(root) #当前目录路径
-        #print(dirs) #当前路径下所有子目录
-        #print(files) #当前路径下所有非目录子文件
     for files in os.walk(file_dir): 
         files = files[2]
-        #files.reverse(key=file)
         return files
 
 # 生成markdown
@@ -94,7 +88,6 @@ def md(filename):
 
 # 生成文章
 def posts(articles):
-
     posts = []
     for article in articles:
         posts.append(article['title'])
@@ -120,7 +113,6 @@ def posts(articles):
 
 # 生成RSS
 def rss(articles):
-
     template = jinja_environment.get_template('rss.xml')
     if not os.path.exists(pushdir+"/"):
         os.makedirs(pushdir+"/")
@@ -130,7 +122,6 @@ def rss(articles):
 
 # 生成首页
 def home():
-
     template = jinja_environment.get_template('index.html')
     if not os.path.exists(pushdir+"/"):
         os.makedirs(pushdir+"/")
