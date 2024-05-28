@@ -8,7 +8,7 @@ tag: i3
 ### 1. 安装软件
 
 ```
-apt install i3 xinit sakura rofi thunar feh fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman thunar-archive-plugin deepin-screenshot neofetch ristretto intel-microcode fonts-noto-cjk
+apt install i3 xinit sakura rofi thunar feh fcitx-rime rime-data-wubi lxappearance xarchiver pulseaudio blueman thunar-archive-plugin deepin-screenshot neofetch ristretto intel-microcode fonts-noto-cjk
 
 # 安装xinit  X服务
 # i3 平铺式桌面管理器

@@ -7,7 +7,7 @@ tag: kde
 
 ### 1. 安装软件
 
-`sudo apt install intel-microcode fonts-noto-cjk arc-theme git fcitx-rime librime-data-wubi`
+`sudo apt install intel-microcode fonts-noto-cjk arc-theme git fcitx-rime rime-data-wubi`
 
 ### 2. 删除不需要软件
 

@@ -9,13 +9,12 @@ tag:软件, linux
 
 #### 1.1. 下载特殊版本链接
 
-- [无驱动稳定版debian-11.5.0-amd64-netinst.iso](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.5.0-amd64-netinst.iso)
+> 更新：2023 年 6 月 10 日： 从 Debian 12 (Bookworm) 开始，固件已包含在正常的 Debian 安装程序镜像中。用户无需再在此查找特殊版本。
 
-- [无驱动测试版debian-testing-amd64-netinst.iso](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/debian-testing-amd64-netinst.iso)
+- [稳定版](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/)
 
-- [有驱动稳定版firmware-11.5.0-amd64-netinst.iso](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/firmware-11.5.0-amd64-netinst.iso)
+- [测试版](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-cd/)
 
-- [有驱动测试版firmware-testing-amd64-netinst.iso](https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/weekly-builds/amd64/iso-cd/firmware-testing-amd64-netinst.iso)
 
 #### 1.2. 下载驱动
 
@@ -51,6 +50,8 @@ sudo update-grub，该命令将刚才的修改更新至 /boot/grub/grub.cfg 文�
 
 #### 1.7. 修改源
 
+<https://mirrors.tuna.tsinghua.edu.cn/help/debian/>
+
 ```
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
@@ -77,7 +78,7 @@ https://packages.debian.org/bookworm/firmware-misc-nonfree
 - fcitx-rime
 
 ```
-sudo apt install fcitx-rime librime-data-wubi
+sudo apt install fcitx-rime rime-data-wubi
 nano ~/.config/fcitx/rime/default.custom.yaml
 patch:
   "style/horizontal": true
@@ -92,7 +93,7 @@ patch:
 - ibus-rime
 
 ```
-sudo apt install ibus-rime librime-data-wubi
+sudo apt install ibus-rime rime-data-wubi
 nano ~/.config/ibus/rime/default.custom.yaml
 patch:
   schema_list:

@@ -31,6 +31,8 @@ iface wlp1s0 inet dhcp
 
 ### 2. 修改源
 
+<https://mirrors.tuna.tsinghua.edu.cn/help/debian/>
+
 ```
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
@@ -47,7 +49,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 
 ### 3. 安装软件
 
-`apt install openbox xinit tint2 sakura pcmanfm ristretto fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman sudo git intel-microcode fonts-noto-cjk slock light jgmenu chromium chromium-l10n webext-ublock-origin-chromium`
+`apt install openbox xinit tint2 sakura pcmanfm ristretto fcitx-rime rime-data-wubi lxappearance xarchiver pulseaudio blueman sudo git intel-microcode fonts-noto-cjk slock light jgmenu chromium chromium-l10n webext-ublock-origin-chromium`
 
 ```
 light 亮度
@@ -95,7 +97,7 @@ sudo update-grub，该命令将刚才的修改更新至 /boot/grub/grub.cfg 文�
 - fcitx-rime
 
 ```
-sudo apt install fcitx-rime librime-data-wubi
+sudo apt install fcitx-rime rime-data-wubi
 nano ~/.config/fcitx/rime/default.custom.yaml
 patch:
   "style/horizontal": true
@@ -110,7 +112,7 @@ patch:
 - ibus-rime
 
 ```
-sudo apt install ibus-rime librime-data-wubi
+sudo apt install ibus-rime rime-data-wubi
 nano ~/.config/ibus/rime/default.custom.yaml
 patch:
   schema_list:
