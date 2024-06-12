@@ -1,0 +1,320 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测试铺</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="http://127.0.0.1:8000/themes/img/favicon.ico">
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="http://127.0.0.1:8000">
+            <img src="http://127.0.0.1:8000/themes/img/title.jpg">
+            <div class="linkbutton testpoo">测试铺</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><label style="color: #ffba48"></label>&nbsp;python</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><label style="color: #ffba48"></label>&nbsp;linux</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><label style="color: #ffba48"></label>&nbsp;go</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><label style="color: #ffba48"></label>&nbsp;debian</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><label style="color: #ffba48"></label>&nbsp;笔记</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/常用链接.html"><label style="color: #ffba48"></label>&nbsp;常用链接</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><label style="color: #ffba48"></label>&nbsp;mysql</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/问题解决.html"><label style="color: #ffba48"></label>&nbsp;问题解决</a></li>
+            
+          </ul>
+        </div>
+        <div class="github"><a href="https://github.com/testpoo" target="_blank" title="GitHub:TestPoo"></a><a href="#" title="微信号：puyaweis"></a><a href="#" title="邮箱：pu_yawei@qq.com"></a><a href="http://127.0.0.1:8000/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：笔记</div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span><span>2022-06-21&nbsp;&nbsp;共1079个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span><span>2022-06-14&nbsp;&nbsp;共37890个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span><span>2022-05-24&nbsp;&nbsp;共6145个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span><span>2022-03-02&nbsp;&nbsp;共16064个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span><span>2021-12-22&nbsp;&nbsp;共46307个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span><span>2021-09-15&nbsp;&nbsp;共29722个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span><span>2020-04-03&nbsp;&nbsp;共9889个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span><span>2020-01-01&nbsp;&nbsp;共13069个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span><span>2019-10-11&nbsp;&nbsp;共3837个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span><span>1999-12-31&nbsp;&nbsp;共1544个字</span></a></li>
+            
+          </ul>
+        </div>
+        <div class="item-num">总共10项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>svn命令全解</span><span>一个80后老人，专注测试领域<br />最后更新于2024-06-11 16:54:06</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts"><div class="toc">
+<ul>
+<li><a href="#checkout">将文件checkout到本地</a></li>
+<li><a href="#_1">往版本库中添加新的文件</a></li>
+<li><a href="#_2">将改动的文件提交到版本库</a></li>
+<li><a href="#_3">加锁/解锁</a></li>
+<li><a href="#_4">更新到某个版本</a></li>
+<li><a href="#_5">查看文件或者目录状态</a></li>
+<li><a href="#_6">删除文件</a></li>
+<li><a href="#_7">查看日志</a></li>
+<li><a href="#_8">查看文件详细信息</a></li>
+<li><a href="#_9">比较差异</a></li>
+<li><a href="#_10">将两个版本的文件的差异合并到当前文件</a></li>
+<li><a href="#svn">SVN帮助</a></li>
+<li><a href="#_11">查看版本库下的文件和列表</a></li>
+<li><a href="#_12">创建纳入版本控制下的新目录</a></li>
+<li><a href="#_13">恢复本地修改</a></li>
+<li><a href="#url">代码库URL变更</a></li>
+<li><a href="#_14">解决冲突</a></li>
+<li><a href="#url_1">输出指定文件的URL内容</a></li>
+</ul>
+</div>
+<h4 id="checkout">将文件checkout到本地</h4>
+<pre class="codehilite"><code>svn checkout path(path是服务器的目录)
+
+例如 ：svn checkout svn://192.168.214.1/pro/domain
+</code></pre>
+
+<h4 id="_1">往版本库中添加新的文件</h4>
+<pre class="codehilite"><code>svn add filename
+
+例如：svn add test.cpp
+</code></pre>
+
+<h4 id="_2">将改动的文件提交到版本库</h4>
+<pre class="codehilite"><code>svn commit -m &quot;注释&quot; [-N] [--no-unlock] PATH(如果选择了保持锁，就使用--no-unlock开关)
+
+例如：svn commit -m &quot;注释&quot; test.cpp
+
+简写：svn ci
+</code></pre>
+
+<h4 id="_3">加锁/解锁</h4>
+<pre class="codehilite"><code>svn lock -m &quot;注释&quot; path
+
+例如: svn lock -m &quot;注释&quot; test.cpp
+
+svn unlock path
+</code></pre>
+
+<h4 id="_4">更新到某个版本</h4>
+<pre class="codehilite"><code>svn update -r 版本号 path
+
+svn update 更新当前目录以及子目录下的所有文件到最新版本
+
+svn upate -r 200 test.cpp 将版本库中的test.cpp还原到版本200
+
+简写 svn up
+</code></pre>
+
+<h4 id="_5">查看文件或者目录状态</h4>
+<pre class="codehilite"><code>（1）svn status path （显示目录下的文件和子目录下的文件状态,正常状态不显示）
+
+【?:不在svn控制中;M:内容被修改;C：发生冲突;A:预定义加入到版本库;K:被锁定】
+
+（2）svn status -v path （显示文件和子目录状态）
+
+注意：svn status、svn diff和svn revert这三条命令在没有网络情况下可以执行，因为svn在本地.svn中保留了本地版本原始拷贝。
+
+简写： svn st
+</code></pre>
+
+<h4 id="_6">删除文件</h4>
+<pre class="codehilite"><code>svn delete path -m &quot;注释&quot;
+
+例如: svn delete svn://192.168.####1/pro/domain/test.cpp -m &quot;delete test file&quot;
+
+或者直接svn delete test.php 然后再svn ci -m 'delete test file‘，推荐使用这种
+
+简写： svn (del、remove、rm)
+</code></pre>
+
+<h4 id="_7">查看日志</h4>
+<pre class="codehilite"><code>svn log path
+</code></pre>
+
+<h4 id="_8">查看文件详细信息</h4>
+<pre class="codehilite"><code>svn info path
+</code></pre>
+
+<h4 id="_9">比较差异</h4>
+<pre class="codehilite"><code>svn diff path（将修改的文件与基础版本比较）
+
+svn diff -r m:n （将修改的文件m版本和n版本比较）
+
+简写 svn di
+</code></pre>
+
+<h4 id="_10">将两个版本的文件的差异合并到当前文件</h4>
+<pre class="codehilite"><code>svn merge -r m:n path
+
+ 例如：svn merge -r 20:25 test.cpp（将版本20与25之间的差异合并到当前文件，但一般会发生冲突，需要处理一下）
+</code></pre>
+
+<h4 id="svn">SVN帮助</h4>
+<pre class="codehilite"><code>svn help
+
+以上为常用命令，下面为不常用命令
+</code></pre>
+
+<h4 id="_11">查看版本库下的文件和列表</h4>
+<pre class="codehilite"><code>svn list path （显示path目录下的所属于版本的文件和目录）
+
+简写: svn ls
+</code></pre>
+
+<h4 id="_12">创建纳入版本控制下的新目录</h4>
+<pre class="codehilite"><code>svn mkdir: 创建纳入版本控制下的新目录。
+
+用法: 1、mkdir PATH...
+         2、mkdir URL...
+创建版本控制的目录。
+1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增调度，以待下一次的提交。
+2、每个以URL指定的目录，都会透过立即提交于仓库中创建。在这两个情况下，所有的中间目录都必须事先存在。
+</code></pre>
+
+<h4 id="_13">恢复本地修改</h4>
+<pre class="codehilite"><code>svn revert：恢复原始未改变的工作副本文件（恢复大部分的本地修改）revert用法：revert path
+
+注意：本子命令不会存储网络，并且会解除冲突的情况。但它不会恢复被创建的目录
+</code></pre>
+
+<h4 id="url">代码库URL变更</h4>
+<pre class="codehilite"><code>svn switch(sw): 更新工作副本到不同的URL。
+
+用法 
+1、switch URL [PATH]
+
+2、switch --relocate FROM TO [PATH]
+
+1、更新工作副本，映射到一个新的URL，会将服务上的文件与本地文件合并。这是将工作副本对应到同一创库的某个分支或者标记的方法。
+
+2、改写工作副本URL元数据，以反映URL的变更，创库URL变动但工作副本仍旧对映同一创库的同一目录时使用该命令更新工作副本与创库的对应关系。
+</code></pre>
+
+<h4 id="_14">解决冲突</h4>
+<pre class="codehilite"><code>svn resolved：移除工作副本的目录或文件的“冲突”状态。
+
+用法 resolved path
+
+注意：本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的相关文件，然后让path可以再次提交。
+</code></pre>
+
+<h4 id="url_1">输出指定文件的URL内容</h4>
+<pre class="codehilite"><code>svn cat 目标[@版本] 如果指定了版本将从指定的版本开始查找。
+</code></pre></div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        
+        <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Jinja2简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python造假数据神器Faker.html"><span><label style="color: #38b6fd"></label>&nbsp;Python造假数据神器Faker</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/FastApi简析.html"><span><label style="color: #38b6fd"></label>&nbsp;FastApi简析</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><span><label style="color: #38b6fd"></label>&nbsp;go测试库apitest简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go入门.html"><span><label style="color: #38b6fd"></label>&nbsp;go入门</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/BeautifulSoup简介.html"><span><label style="color: #38b6fd"></label>&nbsp;BeautifulSoup简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/tkinter教程.html"><span><label style="color: #38b6fd"></label>&nbsp;tkinter教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/常用链接.html"><span><label style="color: #38b6fd"></label>&nbsp;常用链接</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python进阶.html"><span><label style="color: #38b6fd"></label>&nbsp;Python进阶</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python正则表达式.html"><span><label style="color: #38b6fd"></label>&nbsp;Python正则表达式</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/nose简介.html"><span><label style="color: #38b6fd"></label>&nbsp;nose简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+kde设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+kde设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+xfce设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+xfce设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python自动化之unittest.html"><span><label style="color: #38b6fd"></label>&nbsp;Python自动化之unittest</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+gnome设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+gnome设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+i3安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+i3安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/问题解决.html"><span><label style="color: #38b6fd"></label>&nbsp;问题解决</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/分分种学会python3.html"><span><label style="color: #38b6fd"></label>&nbsp;分分种学会python3</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Debain通用设置.html"><span><label style="color: #38b6fd"></label>&nbsp;Debain通用设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/python标准异常.html"><span><label style="color: #38b6fd"></label>&nbsp;python标准异常</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian命令apt和dpkg用法.html"><span><label style="color: #38b6fd"></label>&nbsp;debian命令apt和dpkg用法</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span></a></li>
+        
+      </ul>
+    </div>
+  </body>
+
+  </html>

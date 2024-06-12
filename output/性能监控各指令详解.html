@@ -1,0 +1,2036 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测试铺</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="http://127.0.0.1:8000/themes/img/favicon.ico">
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="http://127.0.0.1:8000">
+            <img src="http://127.0.0.1:8000/themes/img/title.jpg">
+            <div class="linkbutton testpoo">测试铺</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><label style="color: #ffba48"></label>&nbsp;python</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><label style="color: #ffba48"></label>&nbsp;linux</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><label style="color: #ffba48"></label>&nbsp;go</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><label style="color: #ffba48"></label>&nbsp;debian</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><label style="color: #ffba48"></label>&nbsp;笔记</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/常用链接.html"><label style="color: #ffba48"></label>&nbsp;常用链接</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><label style="color: #ffba48"></label>&nbsp;mysql</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/问题解决.html"><label style="color: #ffba48"></label>&nbsp;问题解决</a></li>
+            
+          </ul>
+        </div>
+        <div class="github"><a href="https://github.com/testpoo" target="_blank" title="GitHub:TestPoo"></a><a href="#" title="微信号：puyaweis"></a><a href="#" title="邮箱：pu_yawei@qq.com"></a><a href="http://127.0.0.1:8000/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：笔记</div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span><span>2022-06-21&nbsp;&nbsp;共1079个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span><span>2022-06-14&nbsp;&nbsp;共37890个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span><span>2022-05-24&nbsp;&nbsp;共6145个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span><span>2022-03-02&nbsp;&nbsp;共16064个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span><span>2021-12-22&nbsp;&nbsp;共46307个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span><span>2021-09-15&nbsp;&nbsp;共29722个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span><span>2020-04-03&nbsp;&nbsp;共9889个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span><span>2020-01-01&nbsp;&nbsp;共13069个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span><span>2019-10-11&nbsp;&nbsp;共3837个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span><span>1999-12-31&nbsp;&nbsp;共1544个字</span></a></li>
+            
+          </ul>
+        </div>
+        <div class="item-num">总共10项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>性能监控各指令详解</span><span>一个80后老人，专注测试领域<br />最后更新于2024-06-11 16:54:06</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts"><div class="toc">
+<ul>
+<li><a href="#_1">常用命令</a></li>
+<li><a href="#_2">命令详解</a><ul>
+<li><a href="#top">top</a><ul>
+<li><a href="#1">1. 指标详解</a></li>
+<li><a href="#2">2. 进程信息</a></li>
+<li><a href="#3-top">3. top命令的一些用法</a></li>
+</ul>
+</li>
+<li><a href="#uptime">uptime</a><ul>
+<li><a href="#1_1">1. 指标详解</a></li>
+<li><a href="#2-uptime">2. uptime命令的一些用法</a></li>
+</ul>
+</li>
+<li><a href="#vmstat">vmstat</a><ul>
+<li><a href="#1_2">1. 指标详解</a></li>
+<li><a href="#2_1">2. 常用参数</a></li>
+</ul>
+</li>
+<li><a href="#pidstat">pidstat</a><ul>
+<li><a href="#1_3">1. 指标详解</a></li>
+<li><a href="#2-pidstat">2. pidstat命令的一些用法</a></li>
+</ul>
+</li>
+<li><a href="#mpstat">mpstat</a><ul>
+<li><a href="#1_4">1. 指标详解</a></li>
+<li><a href="#2_2">2. 常用参数</a></li>
+</ul>
+</li>
+<li><a href="#iostat">iostat</a><ul>
+<li><a href="#1_5">1. 指标详解</a></li>
+<li><a href="#2_3">2. 常用参数</a></li>
+</ul>
+</li>
+<li><a href="#dstat">dstat</a><ul>
+<li><a href="#1_6">1. 指标详解</a></li>
+<li><a href="#2_4">2. 常用参数</a></li>
+</ul>
+</li>
+<li><a href="#free">free</a><ul>
+<li><a href="#1_7">1. 指标详解</a></li>
+<li><a href="#2-free">2. free命令的一些用法</a></li>
+</ul>
+</li>
+<li><a href="#perf">perf</a><ul>
+<li><a href="#1-perf">1. perf命令</a></li>
+<li><a href="#2_5">2. 全局性概况</a></li>
+<li><a href="#3">3. 常用命令</a></li>
+</ul>
+</li>
+<li><a href="#sar">sar</a><ul>
+<li><a href="#1_8">1. 指标详解</a></li>
+<li><a href="#2_6">2. 常用参数</a></li>
+</ul>
+</li>
+<li><a href="#execsnoop">execsnoop</a></li>
+<li><a href="#atop">atop</a><ul>
+<li><a href="#1_9">1. 指标详解</a></li>
+<li><a href="#2-atop">2. atop命令的一些用法</a></li>
+</ul>
+</li>
+<li><a href="#htop">htop</a><ul>
+<li><a href="#1-htop">1. htop命令优点</a></li>
+<li><a href="#2-htop">2. htop常用功能键</a></li>
+<li><a href="#3_1">3. 指标详解</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="_1">常用命令</h3>
+<ol>
+<li>常用的性能指标分析工具</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>性能指标</th>
+<th>工具</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平均负载</td>
+<td>uptime<br />top</td>
+<td>uptime最简单<br />top提供了更全的指标</td>
+</tr>
+<tr>
+<td>系统整体CPU使用率</td>
+<td>vmstat<br />mpstat<br />top<br />sar<br />/proc/stat</td>
+<td>top、vmstat、mpstat只可以动态查看，而sar还可以记录历史数据，/proc/stat是其他性能工具的来源</td>
+</tr>
+<tr>
+<td>进程CPU使用率</td>
+<td>top<br />pidstat<br />ps<br />htop<br />atop</td>
+<td>top和ps可以按CPU使用率给进程排序，而pidstat只显示实际用了CPU的进程，htop和atop以不同颜色显示更直观</td>
+</tr>
+<tr>
+<td>系统上下文切换</td>
+<td>vmstat</td>
+<td>除了上下文切换次数，还提供运行状态和不可中断状态进程的数量</td>
+</tr>
+<tr>
+<td>进程上下文切换</td>
+<td>pidstat</td>
+<td>注意加上-w选项</td>
+</tr>
+<tr>
+<td>软中断</td>
+<td>top<br />/proc/softirqs<br />mpstat</td>
+<td>top提供软中断CPU使用率。而/proc/softirqs和mpstat提供了各种软中断在每个CPU上运行的累计次数</td>
+</tr>
+<tr>
+<td>硬中断</td>
+<td>vmstat<br />/proc/interrupts</td>
+<td>vmstat提供总的中断次数，而/proc/interrupts提供各种中断在每个CPU上运行的累积次数</td>
+</tr>
+<tr>
+<td>网络</td>
+<td>dstat<br />sar<br />tcpdump</td>
+<td>dstat和sar提供总的网络接收和发送情况，而tcpdump则是动态抓取正在进行的网络通讯</td>
+</tr>
+<tr>
+<td>I/O</td>
+<td>dstat<br />sar<br />iostat</td>
+<td>dstat和sar都提供了I/O的整体情况</td>
+</tr>
+<tr>
+<td>CPU个数</td>
+<td>/proc/cpuinfo<br />lscpu</td>
+<td>lscpu更直观</td>
+</tr>
+<tr>
+<td>事件剖析</td>
+<td>perf<br />execsnoop</td>
+<td>perf可以用来分析CPU的缓存以及内核调用链，execsnoop用来监控短时进程</td>
+</tr>
+</tbody>
+</table>
+<p>附录：</p>
+<p>安装<code>mpstat sar pidstat</code>命令</p>
+<pre class="codehilite"><code>apt-get install sysstat
+</code></pre>
+
+<p>安装<code>execsnoop</code>命令</p>
+<pre class="codehilite"><code>git clone --depth 1 https://github.com/brendangregg/perf-tools
+</code></pre>
+
+<p>安装atop, htop命令</p>
+<pre class="codehilite"><code>apt insatll atop htop
+</code></pre>
+
+<p>安装dstat命令</p>
+<pre class="codehilite"><code>apt insatll dstat
+</code></pre>
+
+<h3 id="_2">命令详解</h3>
+<p>Linux系统查看命令详解，可能用man命令来看，比如man iostat这种格式。</p>
+<h4 id="top">top</h4>
+<p>top命令是Linux下常用的性能分析工具，能够实时显示系统中的资源占用状况</p>
+<h5 id="1">1. 指标详解</h5>
+<p>进入linux服务器，输入top命令，展示以下界面，各种进程是按照CPU的占用量来排序的：</p>
+<pre class="codehilite"><code>top - 14:01:50 up 5 days, 21:52,  1 user,  load average: 0.45, 0.49, 0.46
+Tasks: 258 total,   2 running, 256 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.9 us,  1.2 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem : 32782800 total, 12324952 free, 11637784 used,  8820064 buff/cache
+KiB Swap: 32948220 total, 32948220 free,        0 used. 20842336 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 4100 root      20   0 12.319g 1.958g  35072 S   1.7  6.3   8:43.25 java
+ 3610 root      20   0 11.759g 731148  30100 S   1.3  2.2   3:31.85 java
+ 3691 root      20   0 11.979g 0.996g  30356 S   1.3  3.2   4:26.58 java
+ 3794 root      20   0 3957140 415912  13960 S   1.3  1.3   3:33.77 java
+ 3403 root      20   0 11.803g 0.996g  30572 S   1.0  3.2   4:13.56 java
+ 3551 root      20   0 11.756g 828176  30900 S   1.0  2.5   3:28.33 java
+ 3962 root      20   0 11.902g 741900  34856 S   1.0  2.3   3:44.89 java
+ 1053 rabbitmq  20   0 3365540  90616   4696 S   0.7  0.3  54:54.88 beam.smp
+ 2219 mysql     20   0 12.168g 1.094g  10360 S   0.7  3.5  51:50.41 mysqld
+ 3874 root      20   0 11.641g 530360  29816 S   0.7  1.6   2:29.60 java
+   13 root      20   0       0      0      0 S   0.3  0.0   3:44.90 rcu_sched
+  478 root      20   0  237904  91436  88128 S   0.3  0.3  50:40.08 systemd-journal
+</code></pre>
+
+<p>显示信息可以分为两大块：</p>
+<p>（1）统计信息-前5行 </p>
+<p>（2）进程信息</p>
+<ul>
+<li>统计信息（统计信息-第1行）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>统计信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14:01:50</td>
+<td>当前时间</td>
+</tr>
+<tr>
+<td>up 5 days, 21:52</td>
+<td>系统运行时间，格式为天，时:分</td>
+</tr>
+<tr>
+<td>1 user</td>
+<td>当前登录用户数</td>
+</tr>
+<tr>
+<td>load average: 0.45, 0.49, 0.46</td>
+<td>系统在之前 1 分钟、5 分钟、15 分钟的平均负载。这个数一般认为不应该超过服务器 CPU 的核数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>进程信息（统计信息行）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>进程信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tasks: 258 total</td>
+<td>系统中的进程总数</td>
+</tr>
+<tr>
+<td>2 running</td>
+<td>正在运行的进程数</td>
+</tr>
+<tr>
+<td>256 sleeping</td>
+<td>睡眠的进程数</td>
+</tr>
+<tr>
+<td>0 stopped</td>
+<td>停止的进程数</td>
+</tr>
+<tr>
+<td>0 zombie</td>
+<td>僵尸进程数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>CPU信息（统计信息第3行）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>CPU信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.2% us</td>
+<td>用户空间占用CPU百分比</td>
+</tr>
+<tr>
+<td>0.0% sy</td>
+<td>内核空间占用CPU百分比</td>
+</tr>
+<tr>
+<td>0.0% ni</td>
+<td>用户进程空间内改变过优先级的进程占用CPU百分比</td>
+</tr>
+<tr>
+<td>99.7% id</td>
+<td>空闲CPU百分比</td>
+</tr>
+<tr>
+<td>0.0% wa</td>
+<td>等待IO的CPU时间百分比</td>
+</tr>
+<tr>
+<td>0.0% hi</td>
+<td>硬件中断时间百分比</td>
+</tr>
+<tr>
+<td>0.0% si</td>
+<td>软件中断时间百分比</td>
+</tr>
+<tr>
+<td>0.0% st</td>
+<td>st（steal time）意为虚拟时间百分比，就是当有虚拟机时，虚拟 CPU 等待实际 CPU 的时间百分比</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>物理内存信息区（统计信息第4行）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>物理内存信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16267716 total</td>
+<td>物理内存总量 KB</td>
+</tr>
+<tr>
+<td>9197036 free</td>
+<td>空闲内存总量</td>
+</tr>
+<tr>
+<td>4680308 used</td>
+<td>使用的物理内存总量</td>
+</tr>
+<tr>
+<td>2390188 buff/cache</td>
+<td>用作内核缓存的内存量</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>交换分区信息区（统计信息第5行）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>交换分区信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16777212 total</td>
+<td>交换分区（虚拟内存）的总大小</td>
+</tr>
+<tr>
+<td>16777212 free</td>
+<td>空闲交换分区的大小</td>
+</tr>
+<tr>
+<td>0 used</td>
+<td>已经使用的交换分区的大小</td>
+</tr>
+<tr>
+<td>11141172 avail Mem</td>
+<td>实际可用内存</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2">2. 进程信息</h5>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PID</td>
+<td>进程id</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>进程所有者的用户名</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>优先级</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>nice值。负值表示高优先级，正值表示低优先级</td>
+</tr>
+<tr>
+<td>VIRT</td>
+<td>进程虚拟内存的大小，</td>
+</tr>
+<tr>
+<td>RES</td>
+<td>常驻内存的大小，也就是进程实际使用的物理内存大小</td>
+</tr>
+<tr>
+<td>SHR</td>
+<td>共享内存的大小，比如与其他进程共同使用的共享、加载的动态链接库以及程序的代码段等，单位kb</td>
+</tr>
+<tr>
+<td>S</td>
+<td>进程状态。<br />D=不可中断的睡眠状态<br/>R=运行<br/>S=睡眠<br/>T=跟踪/停止<br/>Z=僵尸进程</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>上次更新到现在的CPU时间占用百分比</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>进程使用物理内存占系统总内存的百分比</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td>进程使用的CPU时间总计，单位1/100秒</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>命令名/命令行</td>
+</tr>
+</tbody>
+</table>
+<h5 id="3-top">3. top命令的一些用法</h5>
+<ul>
+<li>top命令常用参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>批处理。</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>显示完整的命令。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>表示top命令显示的页面更新一次的间隔，默认是 5 秒。</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>忽略失效过程。</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>保密模式。</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>累积模式。</td>
+</tr>
+<tr>
+<td>-i&lt;时间&gt;</td>
+<td>设置间隔时间。</td>
+</tr>
+<tr>
+<td>-u&lt;用户名&gt;</td>
+<td>指定用户名。</td>
+</tr>
+<tr>
+<td>-p&lt;进程号&gt;</td>
+<td>指定进程。</td>
+</tr>
+<tr>
+<td>-n&lt;次数&gt;</td>
+<td>循环显示的次数。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Linux top命令交互指令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>交互指令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?, h</td>
+<td>显示交互模式的帮助。</td>
+</tr>
+<tr>
+<td>P</td>
+<td>按照 CPU 的使用率排序，默认就是此选项。</td>
+</tr>
+<tr>
+<td>M</td>
+<td>按照内存的使用率排序。</td>
+</tr>
+<tr>
+<td>N</td>
+<td>按照 PID 排序。</td>
+</tr>
+<tr>
+<td>T</td>
+<td>按照 CPU 的累积运算时间排序，也就是按照 TIME+ 项排序。</td>
+</tr>
+<tr>
+<td>k</td>
+<td>按照 PID 给予某个进程一个信号。一般用于中止某个进程，信号 9 是强制中止的信号。</td>
+</tr>
+<tr>
+<td>r</td>
+<td>按照 PID 给某个进程重设优先级（Nice）值。</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出 top 命令。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>显示各个CPU的资源占用情况</li>
+</ul>
+<p>在top基本视图中，按键盘数字“1”，可监控每个逻辑CPU的状况：</p>
+<pre class="codehilite"><code>top - 14:33:51 up 5 days, 22:24,  1 user,  load average: 0.18, 0.24, 0.41
+Tasks: 259 total,   1 running, 258 sleeping,   0 stopped,   0 zombie
+%Cpu0  :  3.3 us,  1.3 sy,  0.0 ni, 95.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  2.0 us,  1.0 sy,  0.0 ni, 96.6 id,  0.3 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu2  :  3.0 us,  1.0 sy,  0.0 ni, 96.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu3  :  2.0 us,  1.0 sy,  0.0 ni, 97.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem : 32782800 total, 12410600 free, 11485304 used,  8886896 buff/cache
+KiB Swap: 32948220 total, 32948220 free,        0 used. 20994224 avail Mem
+</code></pre>
+
+<p>再次输入1，可回到之前的视图，按所有CPU平均值显示</p>
+<h4 id="uptime">uptime</h4>
+<p>uptime命令显示系统已经运行了多长时间，它依次显示下列信息：当前时间、系统已经运行了多长时间、有多少登录用户、系统在过去的1分钟、5分钟和15分钟内的平均负载。平均负载是指单位时间内，系统处于可运行状态和不可中断的平均进程数，也就是平均活跃进程数。</p>
+<pre class="codehilite"><code class="language-python"> 14:44:20 up 5 days, 22:35,  1 user,  load average: 0.13, 0.34, 0.40
+</code></pre>
+
+<h5 id="1_1">1. 指标详解</h5>
+<table>
+<thead>
+<tr>
+<th>统计信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14:44:20</td>
+<td>系统当前时间</td>
+</tr>
+<tr>
+<td>up 5 days, 22:35</td>
+<td>主机已运行时间,时间越大，说明你的机器越稳定。</td>
+</tr>
+<tr>
+<td>1 user</td>
+<td>用户连接数，是总连接数而不是用户数</td>
+</tr>
+<tr>
+<td>load average: 0.13, 0.34, 0.40</td>
+<td>系统平均负载，统计最近1，5，15分钟的系统平均负载</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-uptime">2. uptime命令的一些用法</h5>
+<p>watch -d uptime命令可持续观测系统负载情况，-d是高亮显示变化值</p>
+<pre class="codehilite"><code>wacth -d uptime
+Every 2.0s: uptime                                                                                                          
+
+ 14:45:03 up 5 days, 22:36,  1 user,  load average: 0.06, 0.29, 0.38
+</code></pre>
+
+<h4 id="vmstat">vmstat</h4>
+<p>vmstat命令可以展现给定时间间隔的服务器的状态值，包括服务器的CPU使用率，内存使用，虚拟内存交换情况，IO读写情况。相比top，可以看到整个机器的CPU、内存、IO的使用情况，而不是单单看到各个进程的CPU使用率和内存使用率（使用场景不一样）。</p>
+<h5 id="1_2">1. 指标详解</h5>
+<ul>
+<li>指标详情</li>
+</ul>
+<p>vmstat命令使用的一般格式为：vmstat 2 5，其中2表示每隔2秒，5表示采样次数，共打印5次信息。</p>
+<pre class="codehilite"><code>vmstat 2 5
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 12393280 659532 8275800    0    0     0    21    5   10  4  3 92  1  0
+ 0  0      0 12392696 659532 8275812    0    0     0    88 7264 16765  2  1 97  0  0
+ 0  0      0 12393100 659532 8275820    0    0     0   571 7361 16875  2  1 96  1  0
+ 2  0      0 12393212 659532 8275728    0    0     0     0 7650 17094  2  1 97  0  0
+ 0  0      0 12392668 659532 8275740    0    0     0    28 7431 16937  2  1 97  0  0
+</code></pre>
+
+<ul>
+<li>详细说明</li>
+</ul>
+<p><strong>procs</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>等待执行的任务数</td>
+<td>包括了ready和running的线程，展示了正在执行和等待cpu资源的任务个数。当这个值超过了cpu个数，就会出现cpu瓶颈</td>
+</tr>
+<tr>
+<td>b</td>
+<td>等待IO的进程数量</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>memory</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>swpd</td>
+<td>正在使用虚拟的内存大小，单位k</td>
+<td></td>
+</tr>
+<tr>
+<td>free</td>
+<td>空闲物理内存大小</td>
+<td></td>
+</tr>
+<tr>
+<td>buff</td>
+<td>已用的buff大小，对块设备的读写进行缓冲</td>
+<td></td>
+</tr>
+<tr>
+<td>cache</td>
+<td>已用的cache大小，文件系统的cache</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>swap</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>si</td>
+<td>每秒从交换区写入内存的大小（单位：kb/s）</td>
+<td></td>
+</tr>
+<tr>
+<td>so</td>
+<td>每秒从内存写到交换区的大小</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>io</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bi</td>
+<td>每秒读取的块数（读磁盘）</td>
+<td>块设备每秒接收的块数量，单位是block，这里的块设备是指系统上所有的磁盘和其他块设备，现在的Linux版本块的大小为1024bytes</td>
+</tr>
+<tr>
+<td>bo</td>
+<td>每秒写入的块数（写磁盘）</td>
+<td>块设备每秒发送的块数量，单位是block</td>
+</tr>
+</tbody>
+</table>
+<p><strong>system</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>in</td>
+<td>每秒中断数，包括时钟中断</td>
+<td>这两个值越大，会看到由内核消耗的cpu时间sy会越多</td>
+</tr>
+<tr>
+<td>cs</td>
+<td>每秒上下文切换数</td>
+<td>秒上下文切换次数，例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目</td>
+</tr>
+</tbody>
+</table>
+<p><strong>cpu（以百分比表示）</strong></p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>us</td>
+<td>用户进程执行消耗cpu时间(user time)百分比</td>
+<td>us的值比较高时，说明用户进程消耗的cpu时间多，但是如果长期超过50%的使用，那么我们就该考虑优化程序算法或其他措施了</td>
+</tr>
+<tr>
+<td>sy</td>
+<td>系统进程消耗cpu时间(system time)百分比</td>
+<td>sys的值过高时，说明系统内核消耗的cpu资源多，这个不是良性的表现，我们应该检查原因。这里us + sy的参考值为80%，如果us+sy 大于 80%说明可能存在CPU不足</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>空闲时间(包括IO等待时间)百分比</td>
+<td>一般来说 us+sy+id=100</td>
+</tr>
+<tr>
+<td>wa</td>
+<td>等待IO时间百分比</td>
+<td>wa过高时，说明io等待比较严重，这可能是由于磁盘大量随机访问造成的，也有可能是磁盘的带宽出现瓶颈。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2_1">2. 常用参数</h5>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示活动内页</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>显示启动后创建的进程总数</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示slab信息</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>头信息仅显示一次</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>以表格方式显示事件计数器和内存状态</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>报告磁盘状态</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示指定的硬盘分区状态</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>输出信息的单位。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pidstat">pidstat</h4>
+<p>pidstat主要用于监控全部或指定进程占用系统资源的情况，如CPU，内存、设备IO、任务切换、线程等。pidstat首次运行时显示自系统启动开始的各项统计信息，之后运行pidstat将显示自上次运行该命令以后的统计信息。用户可以通过指定统计的次数和时间来获得所需的统计信息。</p>
+<h5 id="1_3">1. 指标详解</h5>
+<p>直接执行pidstat，输出系统启动后所有活动进程的cpu统计信息</p>
+<pre class="codehilite"><code>Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:45:19 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:45:19 PM     0         1    0.07    0.45    0.00    0.07    0.52     0  systemd
+03:45:19 PM     0         2    0.00    0.00    0.00    0.00    0.00     0  kthreadd
+03:45:19 PM     0        12    0.01    0.00    0.00    0.04    0.01     0  ksoftirqd/0
+03:45:19 PM     0        13    0.01    0.02    0.00    0.08    0.03     0  rcu_sched
+03:45:19 PM     0        14    0.00    0.00    0.00    0.00    0.00     0  migration/0
+03:45:19 PM     0        17    0.14    0.00    0.00    0.00    0.14     1  migration/1
+03:45:19 PM     0        18    0.01    0.00    0.00    0.05    0.01     1  ksoftirqd/1
+03:45:19 PM     0        26    0.00    0.06    0.00    0.04    0.06     0  kworker/0:2-mpt_poll_0
+03:45:19 PM     0        30    0.00    0.00    0.00    0.01    0.01     1  kcompactd0
+03:45:19 PM     0        32    0.00    0.02    0.00    0.00    0.02     1  khugepaged
+03:45:19 PM     0        56    0.00    0.04    0.00    0.00    0.04     0  kworker/0:1H-kblockd
+03:45:19 PM     0       127    0.00    0.03    0.00    0.00    0.03     1  kworker/1:1H-kblockd
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>统计信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%usr</td>
+<td>用户空间CPU占用率</td>
+</tr>
+<tr>
+<td>%system</td>
+<td>内核空间CPU占用率</td>
+</tr>
+<tr>
+<td>%guest</td>
+<td>客户 CPU 使用率</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>总的cpu占用率</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>cpu编号信息</td>
+</tr>
+<tr>
+<td>Command</td>
+<td>拉起进程对应的命令</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-pidstat">2. pidstat命令的一些用法</h5>
+<ul>
+<li>指定采样周期和采样次数</li>
+</ul>
+<p>执行命令： pidstat 2 5；2表示每隔2s采样一次，5表示共采样5次；跟采样周期跟采样次数时，持续输出信息；也可只跟采样周期，测试时可持续观测</p>
+<pre class="codehilite"><code>Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:46:07 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:46:09 PM     0        26    0.00    0.50    0.00    0.00    0.50     0  kworker/0:2-events
+03:46:09 PM     0       445    0.50    0.00    0.00    0.00    0.50     1  vmtoolsd
+03:46:09 PM  1000       980    0.00    0.50    0.00    0.00    0.50     0  panel-8-pulseau
+03:46:09 PM     0      1573    0.00    0.50    0.00    0.00    0.50     1  kworker/1:0-events
+03:46:09 PM  1000      1580    0.00    0.50    0.00    0.00    0.50     0  pidstat
+
+03:46:09 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:46:11 PM     0       445    0.50    0.00    0.00    0.00    0.50     1  vmtoolsd
+03:46:11 PM  1000      1569    0.00    0.50    0.00    0.00    0.50     0  sshd
+
+03:46:11 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:46:13 PM  1000      1580    0.50    0.50    0.00    0.00    1.00     0  pidstat
+
+03:46:13 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:46:15 PM     0        13    0.00    0.50    0.00    0.00    0.50     1  rcu_sched
+03:46:15 PM     0       445    0.50    0.00    0.00    0.00    0.50     0  vmtoolsd
+03:46:15 PM  1000      1580    0.00    0.50    0.00    0.00    0.50     1  pidstat
+
+03:46:15 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:46:17 PM     0       445    0.00    0.50    0.00    0.00    0.50     1  vmtoolsd
+03:46:17 PM  1000       980    0.50    0.00    0.00    0.00    0.50     0  panel-8-pulseau
+03:46:17 PM     0      1573    0.00    0.50    0.00    0.00    0.50     1  kworker/1:0-events
+
+Average:      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+Average:        0        13    0.00    0.10    0.00    0.00    0.10     -  rcu_sched
+Average:        0        26    0.00    0.10    0.00    0.00    0.10     -  kworker/0:2-events
+Average:        0       445    0.30    0.10    0.00    0.00    0.40     -  vmtoolsd
+Average:     1000       980    0.10    0.10    0.00    0.00    0.20     -  panel-8-pulseau
+Average:     1000      1569    0.00    0.10    0.00    0.00    0.10     -  sshd
+Average:        0      1573    0.00    0.20    0.00    0.00    0.20     -  kworker/1:0-events
+Average:     1000      1580    0.10    0.30    0.00    0.00    0.40     -  pidstat
+</code></pre>
+
+<ul>
+<li>CPU使用情况统计(-u)</li>
+</ul>
+<p>命令格式：pidstat -u （后面可以跟间隔时间及采样次数）;使用-u选项，pidstat将显示各活动进程的cpu使用统计，执行”pidstat -u”与单独执行”pidstat”的效果一样。</p>
+<pre class="codehilite"><code>pidstat -u 1 3
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:47:47 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:47:48 PM  1000      1582    1.98    0.00    0.00    0.00    1.98     0  pidstat
+
+03:47:48 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:47:49 PM     0       445    1.00    0.00    0.00    0.00    1.00     0  vmtoolsd
+03:47:49 PM     0      1573    0.00    1.00    0.00    0.00    1.00     1  kworker/1:0-mm_percpu_wq
+
+03:47:49 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:47:50 PM  1000      1582    0.99    0.00    0.00    0.00    0.99     0  pidstat
+
+Average:      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+Average:        0       445    0.33    0.00    0.00    0.00    0.33     -  vmtoolsd
+Average:        0      1573    0.00    0.33    0.00    0.00    0.33     -  kworker/1:0-mm_percpu_wq
+Average:     1000      1582    0.99    0.00    0.00    0.00    0.99     -  pidstat
+</code></pre>
+
+<ul>
+<li>内存使用情况统计(-r)</li>
+</ul>
+<p>命令格式： pidstat -r 1</p>
+<p>使用-r选项，pidstat将显示各活动进程的内存使用统计</p>
+<p>输出的各指标详情：</p>
+<p>minflt/s：每秒次缺页错误次数(minor page faults)，次缺页错误次数意即虚拟内存地址映射成物理内存地址产生的page fault次数</p>
+<p>majflt/s：每秒主缺页错误次数(major page faults)，当虚拟内存地址映射成物理内存地址时，相应的page在swap中，这样的page fault为major page fault，一般在内存使用紧张时产生</p>
+<p>VSZ：该进程使用的虚拟内存(以kB为单位)</p>
+<p>RSS：该进程使用的物理内存(以kB为单位)</p>
+<p>%MEM：该进程使用内存的百分比</p>
+<p>Command：拉起进程对应的命令</p>
+<pre class="codehilite"><code>pidstat -r 1
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:49:39 PM   UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+03:49:40 PM     0       445      0.99      0.00  162680    6876   0.17  vmtoolsd
+</code></pre>
+
+<ul>
+<li>指定进程的信息(-p)</li>
+</ul>
+<p>命令格式： pidstat -p $pid 2 3</p>
+<p>使用-p选项，pidstat将显示制定进程的CPU使用统计</p>
+<pre class="codehilite"><code>pidstat -p 990 2 3
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:51:42 PM   UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+03:51:44 PM  1000       990    0.00    0.00    0.00    0.00    0.00     0  applet.py
+03:51:46 PM  1000       990    0.00    0.00    0.00    0.00    0.00     0  applet.py
+03:51:48 PM  1000       990    0.00    0.00    0.00    0.00    0.00     0  applet.py
+Average:     1000       990    0.00    0.00    0.00    0.00    0.00     -  applet.py
+</code></pre>
+
+<ul>
+<li>IO情况统计(-d)</li>
+</ul>
+<p>命令格式：pidstat -d 2 3</p>
+<p>使用-d选项，我们可以查看进程IO的统计信息</p>
+<p>输出的各指标详情：</p>
+<p>kB_rd/s: 每秒进程从磁盘读取的数据量(以kB为单位)</p>
+<p>kB_wr/s: 每秒进程向磁盘写的数据量(以kB为单位)</p>
+<p>Command: 拉起进程对应的命令</p>
+<pre class="codehilite"><code>pidstat -d 2 3
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:52:20 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+
+03:52:22 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+
+03:52:24 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+
+Average:      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+</code></pre>
+
+<ul>
+<li>查看进程上下文切换(-w)</li>
+</ul>
+<p>命令格式：pidstat -w 2 3</p>
+<p>使用-w选项，可以查看进程上下文切换情况，也可结合-p来查看指定进程的上下文切换情况</p>
+<p>输出的各项指标详情：</p>
+<p>cswch/s ，表示每秒自愿上下文切换的次数（是指进程无法获取所需资源，导致的上下文切换。比如说， I/O、内存等系统资源不足时，就会发生自愿上下文切换。）</p>
+<p>nvcswch/s ，表示每秒非自愿上下文切换的次数（是指进程由于时间片已到等原因，被系统强制调度，进而发生的上下文切换。比如说，大量进程都在争抢 CPU 时，就容易发生非自愿上下文切换）</p>
+<pre class="codehilite"><code>pidstat -w 2 3
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:53:19 PM   UID       PID   cswch/s nvcswch/s  Command
+03:53:21 PM     0        13      4.48      0.00  rcu_sched
+03:53:21 PM     0        14      0.50      0.00  migration/0
+03:53:21 PM     0        17      0.50      0.00  migration/1
+03:53:21 PM     0        26      4.48      0.00  kworker/0:2-events
+03:53:21 PM     0        30      1.49      0.00  kcompactd0
+03:53:21 PM     0       256      0.50      0.00  kworker/u256:26-flush-8:0
+03:53:21 PM     0       445     11.44      0.00  vmtoolsd
+03:53:21 PM     0       546      0.50      0.00  wpa_supplicant
+03:53:21 PM  1000       858      1.00      0.00  dbus-daemon
+03:53:21 PM  1000       905      0.50      0.00  ssh-agent
+03:53:21 PM  1000       980      1.99      0.00  panel-8-pulseau
+03:53:21 PM     0      1586      3.48      0.00  kworker/1:1-events
+03:53:21 PM  1000      1604      0.50      0.00  pidstat
+</code></pre>
+
+<ul>
+<li>查看线程上下文切换(-t)</li>
+</ul>
+<p>-wt参数表示输出线程的上下文切换指标，可显示当前进程的多个线程的上下文切换情况</p>
+<pre class="codehilite"><code>pidstat -wt -p 990 2
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+03:54:12 PM   UID      TGID       TID   cswch/s nvcswch/s  Command
+03:54:14 PM  1000       990         -      0.00      0.00  applet.py
+03:54:14 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:16 PM  1000       990         -      0.00      0.00  applet.py
+03:54:16 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:18 PM  1000       990         -      0.00      0.00  applet.py
+03:54:18 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:20 PM  1000       990         -      0.00      0.00  applet.py
+03:54:20 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:22 PM  1000       990         -      0.00      0.00  applet.py
+03:54:22 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:24 PM  1000       990         -      0.00      0.00  applet.py
+03:54:24 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:26 PM  1000       990         -      0.00      0.00  applet.py
+03:54:26 PM  1000         -       990      0.00      0.00  |__applet.py
+03:54:28 PM  1000       990         -      0.00      0.00  applet.py
+</code></pre>
+
+<h4 id="mpstat">mpstat</h4>
+<p>mpstat命令指令主要用于多CPU环境下，它显示各个可用CPU的状态。这些信息存放在<code>/proc/stat</code>文件中。在多CPUs系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息。</p>
+<h5 id="1_4">1. 指标详解</h5>
+<pre class="codehilite"><code>mpstat
+Linux 4.19.0-17-amd64 (debian)  08/23/2021      _x86_64_        (2 CPU)
+
+09:39:48 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+09:39:48 AM  all    0.18    0.00    0.64    0.08    0.00    0.14    0.00    0.00    0.00   98.95
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>统计信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>处理器编号。关键字all表示统计信息计算为所有处理器之间的平均值。</td>
+</tr>
+<tr>
+<td>%usr</td>
+<td>显示在用户级（应用程序）执行时发生的CPU利用率百分比。</td>
+</tr>
+<tr>
+<td>%nice</td>
+<td>显示以优先级较高的用户级别执行时发生的CPU利用率百分比。</td>
+</tr>
+<tr>
+<td>%sys</td>
+<td>显示在系统级（内核）执行时发生的CPU利用率百分比。请注意，这不包括维护硬件和软件的时间中断。</td>
+</tr>
+<tr>
+<td>%iowait</td>
+<td>显示系统具有未完成磁盘I / O请求的CPU或CPU空闲的时间百分比。</td>
+</tr>
+<tr>
+<td>%irq</td>
+<td>显示CPU或CPU用于服务硬件中断的时间百分比。</td>
+</tr>
+<tr>
+<td>%soft</td>
+<td>显示CPU或CPU用于服务软件中断的时间百分比。</td>
+</tr>
+<tr>
+<td>%steal</td>
+<td>显示虚拟CPU或CPU在管理程序为另一个虚拟处理器提供服务时非自愿等待的时间百分比。</td>
+</tr>
+<tr>
+<td>%guest</td>
+<td>显示CPU或CPU运行虚拟处理器所花费的时间百分比。</td>
+</tr>
+<tr>
+<td>%gnice</td>
+<td>显示CPU或CPU运行niced客户机所花费的时间百分比。</td>
+</tr>
+<tr>
+<td>%idle</td>
+<td>显示CPU或CPU空闲且系统没有未完成的磁盘I / O请求的时间百分比。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2_2">2. 常用参数</h5>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-P</td>
+<td>指定CPU编号</td>
+</tr>
+</tbody>
+</table>
+<p>每2秒产生一个报告，总共产生3个。</p>
+<pre class="codehilite"><code>mpstat -P ALL 2 3
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+04:29:11 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+04:29:13 PM  all    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+04:29:13 PM    0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+04:29:13 PM    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+04:29:13 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+04:29:15 PM  all    0.00    0.00    0.25    0.00    0.00    0.00    0.00    0.00    0.00   99.75
+04:29:15 PM    0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+04:29:15 PM    1    0.00    0.00    0.50    0.00    0.00    0.00    0.00    0.00    0.00   99.50
+
+04:29:15 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+04:29:17 PM  all    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+04:29:17 PM    0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+04:29:17 PM    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+Average:     all    0.00    0.00    0.08    0.00    0.00    0.00    0.00    0.00    0.00   99.92
+Average:       0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+Average:       1    0.00    0.00    0.17    0.00    0.00    0.00    0.00    0.00    0.00   99.83
+</code></pre>
+
+<h4 id="iostat">iostat</h4>
+<p>iostat命令被用于监视系统输入输出设备和CPU的使用情况。它的特点是汇报磁盘活动统计情况，同时也会汇报出CPU使用情况。</p>
+<h5 id="1_5">1. 指标详解</h5>
+<pre class="codehilite"><code>iostat
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.47    0.00    0.69    0.26    0.00   98.58
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_dscd/s    kB_read    kB_wrtn    kB_dscd
+sda              11.54       409.15        68.23         0.00     432195      72072          0
+sr0               0.01         0.00         0.00         0.00          2          0          0
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>标示</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device</td>
+<td>监测设备名称</td>
+</tr>
+<tr>
+<td>rrqm/s</td>
+<td>每秒需要读取需求的数量</td>
+</tr>
+<tr>
+<td>wrqm/s</td>
+<td>每秒需要写入需求的数量</td>
+</tr>
+<tr>
+<td>r/s</td>
+<td>每秒实际读取需求的数量</td>
+</tr>
+<tr>
+<td><a href="http://man.linuxde.net/w">w</a>/s</td>
+<td>每秒实际写入需求的数量</td>
+</tr>
+<tr>
+<td>rsec/s</td>
+<td>每秒读取区段的数量</td>
+</tr>
+<tr>
+<td>wsec/s</td>
+<td>每秒写入区段的数量</td>
+</tr>
+<tr>
+<td>rkB/s</td>
+<td>每秒实际读取的大小，单位为KB</td>
+</tr>
+<tr>
+<td>wkB/s</td>
+<td>每秒实际写入的大小，单位为KB</td>
+</tr>
+<tr>
+<td>avgrq-sz</td>
+<td>需求的平均大小区段</td>
+</tr>
+<tr>
+<td>avgqu-sz</td>
+<td>需求的平均队列长度</td>
+</tr>
+<tr>
+<td>await</td>
+<td>等待I/O平均的时间（milliseconds）</td>
+</tr>
+<tr>
+<td>svctm</td>
+<td>I/O需求完成的平均时间</td>
+</tr>
+<tr>
+<td>%util</td>
+<td>被I/O需求消耗的CPU百分比</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2_3">2. 常用参数</h5>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>仅显示CPU使用情况</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>仅显示设备利用率</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>显示状态以千字节每秒为单位，而不使用块每秒</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示状态以兆字节每秒为单位</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>仅显示块设备和所有被使用的其他分区的状态</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>显示每个报告产生时的时间</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>显示版号并退出</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>显示扩展状态</td>
+</tr>
+</tbody>
+</table>
+<p>1秒展示一次结果</p>
+<pre class="codehilite"><code>iostat -x 1
+Linux 5.10.0-8-amd64 (debian)   08/19/2021      _x86_64_        (2 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.47    0.00    0.68    0.25    0.00   98.59
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+sda              8.89    401.89     4.48  33.50    0.42    45.19    2.49     67.36     1.65  39.94    0.92    27.08    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.01   0.91
+sr0              0.01      0.00     0.00   0.00    1.40     0.20    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+</code></pre>
+
+<h4 id="dstat">dstat</h4>
+<p>dstat命令是一个用来替换vmstat、iostat、netstat、nfsstat和ifstat这些命令的工具，是一个全能系统信息统计工具。与sysstat相比，dstat拥有一个彩色的界面，在手动观察性能状况时，数据比较显眼容易观察；而且dstat支持即时刷新，譬如输入<code>dstat 3 5</code>即每三秒收集一次，共收集5次，但最新的数据都会每秒刷新显示。和sysstat相同的是，dstat也可以收集指定的性能资源，譬如<code>dstat -c</code>即显示CPU的使用情况。</p>
+<h5 id="1_6">1. 指标详解</h5>
+<pre class="codehilite"><code>dstat
+----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
+usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw
+  0   0  99   0   0   0|7706B  164k|   0     0 |   0     0 | 189   225
+  0   0 100   0   0   0|   0     0 |4436B  826B|   0     0 | 195   248
+  1   0  99   0   0   0|   0     0 |4744B  346B|   0     0 | 203   242
+  0   0 100   0   0   0|   0     0 |5080B  346B|   0     0 | 206   242
+  0   1  99   0   0   0|   0     0 |5458B  444B|   0     0 | 214   244
+  1   0  99   0   0   0|   0     0 |5080B  346B|   0     0 | 208   242
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>分组</th>
+<th>分组含义及子项字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU状态</td>
+<td>CPU的使用率。显示了用户占比，系统占比、空闲占比、等待占比、硬中断和软中断情况。</td>
+</tr>
+<tr>
+<td>磁盘统计</td>
+<td>磁盘的读写，分别显示磁盘的读、写总数。</td>
+</tr>
+<tr>
+<td>网络统计</td>
+<td>网络设备发送和接受的数据，分别显示的网络收、发数据总数。</td>
+</tr>
+<tr>
+<td>分页统计</td>
+<td>系统的分页活动。分别显示换入（in）和换出（out）。</td>
+</tr>
+<tr>
+<td>系统统计</td>
+<td>统计中断（int）和上下文切换（csw）。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2_4">2. 常用参数</h5>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>显示CPU系统占用，用户占用，空闲，等待，中断，软件中断等信息。</td>
+</tr>
+<tr>
+<td>-C</td>
+<td>当有多个CPU时候，此参数可按需分别显示cpu状态，例：-C 0,1 是显示cpu0和cpu1的信息。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示磁盘读写数据大小。</td>
+</tr>
+<tr>
+<td>-D hda,total</td>
+<td>include hda and total。</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示网络状态。</td>
+</tr>
+<tr>
+<td>-N eth1,total</td>
+<td>有多块网卡时，指定要显示的网卡。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示系统负载情况。</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示内存使用情况。</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>显示页面使用情况。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示进程状态。</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>显示交换分区使用情况。</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>类似D/N。</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>I/O请求情况。</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>系统状态。</td>
+</tr>
+<tr>
+<td>--ipc</td>
+<td>显示ipc消息队列，信号等信息。</td>
+</tr>
+<tr>
+<td>--socket</td>
+<td>用来显示tcp udp端口状态。</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>此为默认选项，等同于-cdngy。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>等同于 -pmgdsc -D total。</td>
+</tr>
+<tr>
+<td>--output 文件</td>
+<td>此选项也比较有用，可以把状态信息以csv的格式重定向到指定的文件中，以便日后查看。例：dstat --output /root/dstat.csv &amp; 此时让程序默默的在后台运行并把结果输出到/root/dstat.csv文件中。</td>
+</tr>
+</tbody>
+</table>
+<p>如想监控swap，process，sockets，filesystem并显示监控的时间：</p>
+<pre class="codehilite"><code>dstat -tsp --socket --fs
+----system---- ----swap--- ---procs--- ------sockets------ --filesystem-
+  date/time   | used  free|run blk new|tot tcp udp raw frg|files  inodes
+26-07 09:23:48|   0     0 |  0   0 0.0|104   8   5   0   0|  704   6488
+26-07 09:23:49|   0     0 |  0   0   0|104   8   5   0   0|  704   6488
+26-07 09:23:50|   0     0 |  0   0   0|104   8   5   0   0|  704   6489
+26-07 09:23:51|   0     0 |  0   0   0|104   8   5   0   0|  704   6489
+26-07 09:23:52|   0     0 |  0   0   0|104   8   5   0   0|  704   6489
+26-07 09:23:53|   0     0 |  0   0   0|104   8   5   0   0|  704   6489
+</code></pre>
+
+<p>若要将结果输出到文件可以加<code>--output filename</code>：</p>
+<pre class="codehilite"><code>dstat -tsp --socket --fs --output /tmp/ds.csv
+----system---- ----swap--- ---procs--- ------sockets------ --filesystem-
+  date/time   | used  free|run blk new|tot tcp udp raw frg|files  inodes
+26-07 09:25:31|   0     0 |  0   0 0.0|104   8   5   0   0|  736   6493
+26-07 09:25:32|   0     0 |  0   0   0|104   8   5   0   0|  736   6493
+26-07 09:25:33|   0     0 |  0   0   0|104   8   5   0   0|  736   6493
+26-07 09:25:34|   0     0 |  0   0   0|104   8   5   0   0|  736   6493
+26-07 09:25:35|   0     0 |  0   0   0|104   8   5   0   0|  736   6494
+26-07 09:25:36|   0     0 |  0   0   0|104   8   5   0   0|  736   6494
+</code></pre>
+
+<p>通过<code>dstat --list</code>可以查看dstat能使用的所有参数，其中上面internal是dstat本身自带的一些监控参数，下面<code>/usr/share/dstat</code>中是dstat的插件，这些插件可以扩展dstat的功能，如可以监控电源（battery）、mysql等。</p>
+<p>下面这些插件并不是都可以直接使用的，有的还依赖其他包，如想监控mysql，必须要装python连接mysql的一些包。</p>
+<pre class="codehilite"><code>dstat --list
+internal:
+        aio, cpu, cpu24, disk, disk24, disk24old, epoch, fs, int, int24, io, ipc, load, lock, mem, net, page, page24, proc, raw, socket, swap, swapold, sys, tcp, time, udp, unix, vm
+/usr/share/dstat:
+        battery, battery-remain, cpufreq, dbus, disk-util, fan, freespace, gpfs, gpfs-ops, helloworld, innodb-buffer, innodb-io, innodb-ops, lustre, memcache-hits, mysql-io, mysql-keys, mysql5-cmds, mysql5-conn, mysql5-io, mysql5-keys,
+        net-packets, nfs3, nfs3-ops, nfsd3, nfsd3-ops, ntp, postfix, power, proc-count, rpc, rpcd, sendmail, snooze, thermal, top-bio, top-cpu, top-cputime, top-cputime-avg, top-io, top-latency, top-latency-avg, top-mem, top-oom, utmp,
+        vm-memctl, vmk-hba, vmk-int, vmk-nic, vz-cpu, vz-io, vz-ubc, wifi
+</code></pre>
+
+<h4 id="free">free</h4>
+<p>free命令可以显示当前系统未使用的和已使用的内存数目，还可以显示被内核使用的内存缓冲区。</p>
+<h5 id="1_7">1. 指标详解</h5>
+<pre class="codehilite"><code>free
+               total        used        free      shared  buff/cache   available
+Mem:         3993720      549132     2950872       12320      493716     3201568
+Swap:         998396           0      998396
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>统计信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total</td>
+<td>总内存大小</td>
+</tr>
+<tr>
+<td>used</td>
+<td>已使用内存的大小，包含了共享内存</td>
+</tr>
+<tr>
+<td>free</td>
+<td>未使用内存的大小</td>
+</tr>
+<tr>
+<td>shared</td>
+<td>共享内存的大小</td>
+</tr>
+<tr>
+<td>buff/cache</td>
+<td>缓存和缓冲区的大小</td>
+</tr>
+<tr>
+<td>available</td>
+<td>新进程可用内存的大小；不仅包含未使用内存，还包括了可回收的缓存，所以一般会比未使用内存更大。不过，并不是所有缓存都可以回收，因为有些缓存可能正在使用中</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-free">2. free命令的一些用法</h5>
+<pre class="codehilite"><code>free -m
+              total        used        free      shared  buff/cache   available
+Mem:           1970         105        1770           3          94        1743
+Swap:           974           0         974
+</code></pre>
+
+<h4 id="perf">perf</h4>
+<p>perf是一款Linux性能分析工具。Linux性能计数器是一个新的基于内核的子系统，它提供一个性能分析框架，比如硬件（CPU、PMU(Performance Monitoring Unit)）功能和软件(软件计数器、tracepoint)功能。</p>
+<h5 id="1-perf">1. perf命令</h5>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>annotate</td>
+<td>解析perf record生成的perf.data文件，显示被注释的代码。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>archive</td>
+<td>根据数据文件记录的build-id，将所有被采样到的elf文件打包。利用此压缩包，可以再任何机器上分析数据文件中记录的采样数据。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>bench</td>
+<td>perf中内置的benchmark，目前包括两套针对调度器和内存管理子系统的benchmark。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>buildid-cache</td>
+<td>管理perf的buildid缓存，每个elf文件都有一个独一无二的buildid。buildid被perf用来关联性能数据与elf文件。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>buildid-list</td>
+<td>列出数据文件中记录的所有buildid。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>diff</td>
+<td>对比两个数据文件的差异。能够给出每个符号（函数）在热点分析上的具体差异。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>evlist</td>
+<td>列出数据文件perf.data中所有性能事件。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>inject</td>
+<td>该工具读取perf record工具记录的事件流，并将其定向到标准输出。在被分析代码中的任何一点，都可以向事件流中注入其它事件。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>kmem</td>
+<td>针对内核内存（slab）子系统进行追踪测量的工具</td>
+</tr>
+<tr>
+<td>10</td>
+<td>kvm</td>
+<td>用来追踪测试运行在KVM虚拟机上的Guest OS。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>list</td>
+<td>列出当前系统支持的所有性能事件。包括硬件性能事件、软件性能事件以及检查点。</td>
+</tr>
+<tr>
+<td>12</td>
+<td>lock</td>
+<td>分析内核中的锁信息，包括锁的争用情况，等待延迟等。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>mem</td>
+<td>内存存取情况</td>
+</tr>
+<tr>
+<td>14</td>
+<td>record</td>
+<td>收集采样信息，并将其记录在数据文件中。随后可通过其它工具对数据文件进行分析。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>report</td>
+<td>读取perf record创建的数据文件，并给出热点分析结果。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>sched</td>
+<td>针对调度器子系统的分析工具。</td>
+</tr>
+<tr>
+<td>17</td>
+<td>script</td>
+<td>执行perl或python写的功能扩展脚本、生成脚本框架、读取数据文件中的数据信息等。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>stat</td>
+<td>执行某个命令，收集特定进程的性能概况，包括CPI、Cache丢失率等。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>test</td>
+<td>perf对当前软硬件平台进行健全性测试，可用此工具测试当前的软硬件平台是否能支持perf的所有功能。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>timechart</td>
+<td>针对测试期间系统行为进行可视化的工具</td>
+</tr>
+<tr>
+<td>21</td>
+<td>top</td>
+<td>类似于linux的top命令，对系统性能进行实时分析。</td>
+</tr>
+<tr>
+<td>22</td>
+<td>trace</td>
+<td>关于syscall的工具。</td>
+</tr>
+<tr>
+<td>23</td>
+<td>probe</td>
+<td>用于定义动态检查点。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2_5">2. 全局性概况</h5>
+<blockquote>
+<p>perf list查看当前系统支持的性能事件；</p>
+<p>perf bench对系统性能进行摸底；</p>
+<p>perf test对系统进行健全性测试；</p>
+<p>perf stat对全局性能进行统计；</p>
+</blockquote>
+<p>全局细节：</p>
+<blockquote>
+<p>perf top可以实时查看当前系统进程函数占用率情况；</p>
+<p>perf probe可以自定义动态事件；</p>
+</blockquote>
+<p>特定功能分析：</p>
+<blockquote>
+<p>perf kmem针对slab子系统性能分析；</p>
+<p>perf kvm针对kvm虚拟化分析；</p>
+<p>perf lock分析锁性能；</p>
+<p>perf mem分析内存slab性能；</p>
+<p>perf sched分析内核调度器性能；</p>
+<p>perf trace记录系统调用轨迹；</p>
+</blockquote>
+<p>最常用功能perf record，可以系统全局，也可以具体到某个进程，更甚具体到某一进程某一事件；可宏观，也可以很微观。</p>
+<blockquote>
+<p>pref record记录信息到perf.data；</p>
+<p>perf report生成报告；</p>
+<p>perf diff对两个记录进行diff；</p>
+<p>perf evlist列出记录的性能事件；</p>
+<p>perf annotate显示perf.data函数代码；</p>
+<p>perf archive将相关符号打包，方便在其它机器进行分析；</p>
+<p>perf script将perf.data输出可读性文本；</p>
+</blockquote>
+<p>可视化工具perf timechart</p>
+<blockquote>
+<p>perf timechart record记录事件；</p>
+<p>perf timechart生成output.svg文档；</p>
+</blockquote>
+<h5 id="3">3. 常用命令</h5>
+<blockquote>
+<p>pef bench: perf中内置的benchmark，目前包括两套针对调度器和内存管理子系统的benchmark。</p>
+<p>pef list: 列出当前系统支持的所有性能事件。包括硬件性能事件、软件性能事件以及检查点。</p>
+<p>pef record: 收集采样信息，并将其记录在数据文件中。随后可通过其它工具对数据文件进行分析。</p>
+<p>pef report: 读取perf record创建的数据文件，并给出热点分析结果。</p>
+<p>pef sched: 针对调度器子系统的分析工具。</p>
+<p>pef stat: 执行某个命令，收集特定进程的性能概况，包括CPI、Cache丢失率等。</p>
+<p>pef timechart: 针对测试期间系统行为进行可视化的工具</p>
+<p>pef top: 类似于linux的top命令，对系统性能进行实时分析。</p>
+<p>pef trace: 关于syscall的工具。</p>
+<p>pef probe: 用于定义动态检查点。</p>
+</blockquote>
+<h4 id="sar">sar</h4>
+<p>sar命令是Linux下系统运行状态统计工具，它将指定的操作系统状态计数器显示到标准输出设备。sar工具将对系统当前的状态进行取样，然后通过计算数据和比例来表达系统的当前运行状态。它的特点是可以连续对系统取样，获得大量的取样数据。取样数据和分析的结果都可以存入文件，使用它时消耗的系统资源很小。</p>
+<h5 id="1_8">1. 指标详解</h5>
+<pre class="codehilite"><code>sar -u 1 3
+Linux 4.19.0-17-amd64 (debian)  08/23/2021      _x86_64_        (2 CPU)
+
+10:07:35 AM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+10:07:36 AM     all      0.00      0.00      0.51      0.00      0.00     99.49
+10:07:37 AM     all      0.50      0.00      0.00      0.50      0.00     98.99
+10:07:38 AM     all      0.00      0.00      0.00      0.00      0.00    100.00
+Average:        all      0.17      0.00      0.17      0.17      0.00     99.50
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>统计信息</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%user</td>
+<td>用户空间的CPU使用</td>
+</tr>
+<tr>
+<td>%nice</td>
+<td>改变过优先级的进程的CPU使用率</td>
+</tr>
+<tr>
+<td>%system</td>
+<td>内核空间的CPU使用率</td>
+</tr>
+<tr>
+<td>%iowait</td>
+<td>CPU等待IO的百分比</td>
+</tr>
+<tr>
+<td>%steal</td>
+<td>虚拟机的虚拟机CPU使用的CPU</td>
+</tr>
+<tr>
+<td>%idle</td>
+<td>空闲的CPU</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2_6">2. 常用参数</h5>
+<ul>
+<li>选项</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-A</td>
+<td>显示所有的报告信息</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>显示I/O速率</td>
+</tr>
+<tr>
+<td>-B</td>
+<td>显示换页状态</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>显示进程创建活动</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示每个块设备的状态</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>设置显示报告的结束时间</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>从指定文件提取报告</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>设状态信息刷新的间隔时间</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>报告每个CPU的状态</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>显示内存状态</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>显示CPU利用率</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示索引节点，文件和其他内核表的状态</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>显示交换分区状态</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>显示给定进程的状态</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>参数</li>
+<li>间隔时间：每次报告的间隔时间（秒）；</li>
+<li>次数：显示报告的次数。</li>
+</ul>
+<h4 id="execsnoop">execsnoop</h4>
+<p>execsnoop-专门用于为追踪短时进程（瞬时进程）设计的工具；它通过 ftrace 实时监控进程的 exec() 行为，并输出短时进程的基本信息，包括进程 PID、父进程 PID、命令行参数以及执行的结果。</p>
+<pre class="codehilite"><code>#./execsnoop
+59187  59186 /usr/local/bin/stress -t 1 -d 1
+59188  28775            &lt;...&gt;-59188 [000] d... 40067.137167: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59191  59188 /usr/local/bin/stress -t 1 -d 1
+59190  28778            &lt;...&gt;-59190 [003] d... 40067.138913: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59192  28776            &lt;...&gt;-59192 [003] d... 40067.139103: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59194  59192 /usr/local/bin/stress -t 1 -d 1
+59196  59190 /usr/local/bin/stress -t 1 -d 1
+59198  28770            &lt;...&gt;-59198 [001] d... 40067.145500: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59199  28779            &lt;...&gt;-59199 [001] d... 40067.146228: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59200  59198 /usr/local/bin/stress -t 1 -d 1
+59202  59199 /usr/local/bin/stress -t 1 -d 1
+59204  28778            &lt;...&gt;-59204 [002] d... 40067.155150: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59206  28775            &lt;...&gt;-59206 [001] d... 40067.157282: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59208  59206 /usr/local/bin/stress -t 1 -d 1
+59209  28770            &lt;...&gt;-59209 [003] d... 40067.158381: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+59205  59204 /usr/local/bin/stress -t 1 -d 1
+59207  28776            &lt;...&gt;-59207 [002] d... 40067.158882: execsnoop_sys_execve: (SyS_execve+0x0/0x30)
+</code></pre>
+
+<p>可以看到有大量的stress进程，不断的在启用，造成系统的负载和CPU使用率升高。</p>
+<h4 id="atop">atop</h4>
+<p>ATOP是一款用于观察Linux性能的ASCII全屏交互式工具。类似于top,每隔一段时间报告 <code>CPU，Memory，Disk，Network</code> 等硬件的性能信息，对于严重过载的资源会高亮显示。 除此之外，还包括进程级的相关统计信息。比如进程的CPU、内存、磁盘利用率，用户名，进程状态，启动时间，进程ID等。对于在上一个周期内退出的进程还会显示退出状态码。所有进程信息默认按CPU占用率降序排列。</p>
+<h5 id="1_9">1. 指标详解</h5>
+<p>使用<code>atop</code>就可以直接进行交互模式，默认情况下是每10秒更新，分别显示了进程数量、CPU使用率、负载、内存、SWAP、磁盘以及网卡等信息，所有的信息都在同一行上面展示。</p>
+<h5 id="2-atop">2. atop命令的一些用法</h5>
+<p><strong>有如下模式：</strong></p>
+<ul>
+<li>按 g 进入默认模式</li>
+<li>按 m 进入内存模式，详细显示子进程的内存使用的情况</li>
+<li>按 d 进入磁盘模式，详细显示子进程的磁盘读写的情况</li>
+<li>按 p 进入进程模式，显示进程所占用的数量、CPU、内存、磁盘读写，可以用来快速定位有异常的进程</li>
+<li>按 c 进入命令视图，该视图展示了与每个进程相对应的命令。</li>
+<li>按 u 查看用户占用资源情况</li>
+<li>按 P（大写）正则匹配，显示所有匹配到的进程</li>
+<li>按 n 进入</li>
+</ul>
+<p><strong>排序命令：</strong></p>
+<ul>
+<li>大写C，CPU排序</li>
+<li>大写M，内存排序</li>
+<li>大写D，磁盘排序</li>
+<li>大写A，智能排序</li>
+</ul>
+<p><strong>查看历史：</strong></p>
+<ul>
+<li>atop -b 15:30 -e 21:00 -r atop_20210822</li>
+</ul>
+<h4 id="htop">htop</h4>
+<p>htop是Linux系统下一个基本文本模式的、交互式的进程查看器，主要用于控制台或shell中，可以替代top，或者说是top的高级版。</p>
+<h5 id="1-htop">1. htop命令优点</h5>
+<pre class="codehilite"><code class="language-undefined">1) 快速查看关键性能统计数据，如CPU（多核布局）、内存/交换使用；
+2) 可以横向或纵向滚动浏览进程列表，以查看所有的进程和完整的命令行；
+3) 杀掉进程时可以直接选择而不需要输入进程号；
+4) 通过鼠标操作条目；
+5) 比top启动得更快
+</code></pre>
+
+<h5 id="2-htop">2. htop常用功能键</h5>
+<pre class="codehilite"><code class="language-bash">F1 : 查看htop使用说明
+F2 : 设置
+F3 : 搜索进程
+F4 : 过滤器，按关键字搜索
+F5 : 显示树形结构
+F6 : 选择排序方式
+F7 : 减少nice值，这样就可以提高对应进程的优先级
+F8 : 增加nice值，这样可以降低对应进程的优先级
+F9 : 杀掉选中的进程
+F10 : 退出htop
+
+/ : 搜索字符
+h : 显示帮助
+l ：显示进程打开的文件: 如果安装了lsof，按此键可以显示进程所打开的文件
+u ：显示所有用户，并可以选择某一特定用户的进程
+s : 将调用strace追踪进程的系统调用
+t : 显示树形结构
+
+H ：显示/隐藏用户线程
+I ：倒转排序顺序
+K ：显示/隐藏内核线程    
+M ：按内存占用排序
+P ：按CPU排序    
+T ：按运行时间排序
+
+上下键或PgUP, PgDn : 移动选中进程
+左右键或Home, End : 移动列表    
+Space(空格) : 标记/取消标记一个进程。命令可以作用于多个进程，例如 &quot;kill&quot;，将应用于所有已标记的进程
+</code></pre>
+
+<h5 id="3_1">3. 指标详解</h5>
+<p>最上面的三行，1~2 表示的是CPU的核数，本文中CPU是2核的。
+然后下面左边部分从上至下，分别为，内存、交换分区的使用情况
+右边部分为：Tasks为进程总数，当前运行的进程数、Load average为系统1分钟，5分钟，10分钟的平均负载情况、Uptime为系统运行的时间。</p>
+<p>指标区各指标解释：</p>
+<pre class="codehilite"><code>PID：进行的标识号
+USER：运行此进程的用户
+PRI：进程的优先级
+NI：进程的优先级别值，默认的为0，可以进行调整
+VIRT：进程占用的虚拟内存值
+RES：进程占用的物理内存值
+SHR：进程占用的共享内存值
+S：进程的运行状况，R表示正在运行、S表示休眠，等待唤醒、Z表示僵死状态
+%CPU：该进程占用的CPU使用率
+%MEM：该进程占用的物理内存和总内存的百分比
+TIME+：该进程启动后占用的总的CPU时间
+COMMAND：进程启动的启动命令名
+</code></pre></div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        
+        <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Jinja2简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python造假数据神器Faker.html"><span><label style="color: #38b6fd"></label>&nbsp;Python造假数据神器Faker</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/FastApi简析.html"><span><label style="color: #38b6fd"></label>&nbsp;FastApi简析</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><span><label style="color: #38b6fd"></label>&nbsp;go测试库apitest简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go入门.html"><span><label style="color: #38b6fd"></label>&nbsp;go入门</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/BeautifulSoup简介.html"><span><label style="color: #38b6fd"></label>&nbsp;BeautifulSoup简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/tkinter教程.html"><span><label style="color: #38b6fd"></label>&nbsp;tkinter教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/常用链接.html"><span><label style="color: #38b6fd"></label>&nbsp;常用链接</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python进阶.html"><span><label style="color: #38b6fd"></label>&nbsp;Python进阶</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python正则表达式.html"><span><label style="color: #38b6fd"></label>&nbsp;Python正则表达式</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/nose简介.html"><span><label style="color: #38b6fd"></label>&nbsp;nose简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+kde设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+kde设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+xfce设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+xfce设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python自动化之unittest.html"><span><label style="color: #38b6fd"></label>&nbsp;Python自动化之unittest</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+gnome设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+gnome设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+i3安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+i3安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/问题解决.html"><span><label style="color: #38b6fd"></label>&nbsp;问题解决</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/分分种学会python3.html"><span><label style="color: #38b6fd"></label>&nbsp;分分种学会python3</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Debain通用设置.html"><span><label style="color: #38b6fd"></label>&nbsp;Debain通用设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/python标准异常.html"><span><label style="color: #38b6fd"></label>&nbsp;python标准异常</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian命令apt和dpkg用法.html"><span><label style="color: #38b6fd"></label>&nbsp;debian命令apt和dpkg用法</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span></a></li>
+        
+      </ul>
+    </div>
+  </body>
+
+  </html>

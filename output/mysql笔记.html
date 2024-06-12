@@ -1,0 +1,314 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测试铺</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="http://127.0.0.1:8000/themes/img/favicon.ico">
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="http://127.0.0.1:8000">
+            <img src="http://127.0.0.1:8000/themes/img/title.jpg">
+            <div class="linkbutton testpoo">测试铺</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><label style="color: #ffba48"></label>&nbsp;python</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><label style="color: #ffba48"></label>&nbsp;linux</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><label style="color: #ffba48"></label>&nbsp;go</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><label style="color: #ffba48"></label>&nbsp;debian</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><label style="color: #ffba48"></label>&nbsp;笔记</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/常用链接.html"><label style="color: #ffba48"></label>&nbsp;常用链接</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><label style="color: #ffba48"></label>&nbsp;mysql</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/问题解决.html"><label style="color: #ffba48"></label>&nbsp;问题解决</a></li>
+            
+          </ul>
+        </div>
+        <div class="github"><a href="https://github.com/testpoo" target="_blank" title="GitHub:TestPoo"></a><a href="#" title="微信号：puyaweis"></a><a href="#" title="邮箱：pu_yawei@qq.com"></a><a href="http://127.0.0.1:8000/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：mysql</div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span><span>2022-04-18&nbsp;&nbsp;共48992个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span><span>2020.05.09&nbsp;&nbsp;共8129个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span><span>2019-10-11&nbsp;&nbsp;共4893个字</span></a></li>
+            
+          </ul>
+        </div>
+        <div class="item-num">总共3项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>mysql笔记</span><span>一个80后老人，专注测试领域<br />最后更新于2024-06-11 16:54:06</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts"><div class="toc">
+<ul>
+<li><a href="#_1">创建用户</a></li>
+<li><a href="#mysql">MYSQL配置</a></li>
+<li><a href="#_2">字段增加删除修改</a></li>
+<li><a href="#_3">替换特定字段的值</a></li>
+<li><a href="#_4">查找库中含有特定字段的表</a></li>
+<li><a href="#auto_increment">修改auto_increment</a></li>
+<li><a href="#foreign_key_checks">查询FOREIGN_KEY_CHECKS的值</a></li>
+<li><a href="#_5">备份数据库</a></li>
+<li><a href="#mysql_1">MYSQL卡死了就这样搞</a></li>
+<li><a href="#mysql_2">Mysql复制表结构、表数据的方法</a></li>
+<li><a href="#_6">导出表结构和数据</a></li>
+</ul>
+</div>
+<h3 id="_1">创建用户</h3>
+<p>非本地登录</p>
+<pre class="codehilite"><code>CREATE USER 'test'@'%' IDENTIFIED BY 'test';
+</code></pre>
+
+<p>本地登录</p>
+<pre class="codehilite"><code>CREATE USER 'test'@'127.0.0.1' IDENTIFIED BY 'test';
+CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';
+</code></pre>
+
+<p>创建数据库</p>
+<pre class="codehilite"><code>CREATE database testrcb default character set utf8 collate utf8_general_ci;
+</code></pre>
+
+<p>给用户授权</p>
+<pre class="codehilite"><code>grant select,delete,update,create,drop on testrcb.* to test@&quot;%&quot; identified by &quot;test&quot;; -- 增删改查
+grant all privileges on testrcb.* to test@localhost identified by 'test'; -- all
+</code></pre>
+
+<p>修改密码</p>
+<pre class="codehilite"><code>UPDATE mysql.user SET PASSWORD=PASSWORD('test') WHERE User = 'test'
+</code></pre>
+
+<h3 id="mysql">MYSQL配置</h3>
+<pre class="codehilite"><code>[mysql]
+
+# 设置mysql客户端默认字符集
+
+default-character-set=utf8 
+
+[mysqld]
+
+#设置3306端口
+port = 3306 
+
+# 设置mysql的安装目录
+basedir=C:\Program Files\MySQL\MySQL Server 5.6
+
+# 设置mysql数据库的数据的存放目录
+datadir=C:\Program Files\MySQL\MySQL Server 5.6\data
+
+# 允许最大连接数
+max_connections=200
+
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+Access denied for user 'test'@'localhost' (using password: YES)
+</code></pre>
+
+<h3 id="_2">字段增加删除修改</h3>
+<pre class="codehilite"><code>添加字段的语法：alter table tablename add (column datatype [default value][null/not null],….);
+修改字段的语法：alter table tablename modify (column datatype [default value][null/not null],….);
+删除字段的语法：alter table tablename drop (column);
+
+mysql修改字段类型：
+--能修改字段类型、类型长度、默认值、注释
+--对某字段进行修改
+ALTER  TABLE 表名 MODIFY COLUMN 字段名 新数据类型 新类型长度  新默认值  新注释; -- COLUMN可以省略
+alter  table table1 modify  column column1  decimal(10,1) DEFAULT NULL COMMENT '注释'; -- 正常，能修改字段类型、类型长度、默认值、注释
+
+mysql修改字段名：
+ALTER  TABLE 表名 CHANGE 旧字段名 新字段名 新数据类型;     
+alter  table table1 change column1 column1 varchar(100) DEFAULT 1.2 COMMENT '注释'; -- 正常，此时字段名称没有改变，能修改字段类型、类型长度、默认值、注释
+alter  table table1 change column1 column2 decimal(10,1) DEFAULT NULL COMMENT '注释' -- 正常，能修改字段名、字段类型、类型长度、默认值、注释
+alter  table table1 change column2 column1 decimal(10,1) DEFAULT NULL COMMENT '注释' -- 正常，能修改字段名、字段类型、类型长度、默认值、注释
+alter  table table1 change column1 column2; -- 报错  
+</code></pre>
+
+<h3 id="_3">替换特定字段的值</h3>
+<pre class="codehilite"><code>update hoyi_zfb_activity_enroll set shop_name = replace(shop_name,'Test',''); 
+</code></pre>
+
+<h3 id="_4">查找库中含有特定字段的表</h3>
+<pre class="codehilite"><code>SELECT * FROM information_schema.columns WHERE column_name='shop_name' AND table_schema = 'tyrcb14'; 
+SELECT * FROM information_schema.tables WHERE TABLE_NAME LIKE '%shop%' AND table_schema = 'tyrcb14'; 
+</code></pre>
+
+<h3 id="auto_increment">修改auto_increment</h3>
+<pre class="codehilite"><code>alter table hoyi_etc_order auto_increment=38;
+</code></pre>
+
+<h3 id="foreign_key_checks">查询FOREIGN_KEY_CHECKS的值</h3>
+<pre class="codehilite"><code>SELECT @@FOREIGN_KEY_CHECKS; 
+</code></pre>
+
+<h3 id="_5">备份数据库</h3>
+<pre class="codehilite"><code>mysqldump -utest -p123 --databases test  &gt; testdp.sql
+mysqldump -utest -p123 --databases test  &lt; testdp.sql
+</code></pre>
+
+<h3 id="mysql_1">MYSQL卡死了就这样搞</h3>
+<pre class="codehilite"><code>SHOW PROCESSLIST;
+SELECT * FROM information_schema.innodb_trx;
+SELECT * FROM  performance_schema.events_statements_current WHERE sql_text LIKE '%video%';
+KILL XXX;
+</code></pre>
+
+<h3 id="mysql_2">Mysql复制表结构、表数据的方法</h3>
+<pre class="codehilite"><code>1、复制表结构及数据到新表（不包含主键、索引、分区等）
+
+CREATE TABLE 新表 SELECT * FROM 旧表
+
+或 CREATE TABLE 新表 AS SELECT * FROM 旧表
+
+这种方法将旧表基本结构和数据复制到新表。
+
+不过这种方法的一个最不好的地方就是新表中没有了旧表的主键、索引、Extra（auto_increment，字符集编码及排序）、注释、分区等属性 以及触发器、外键等。
+
+2、只复制表结构到新表
+
+CREATE TABLE 新表 SELECT * FROM 旧表 WHERE 1=2 （只是第一种方式去除掉数据）
+
+CREATE TABLE 新表 LIKE 旧表
+
+这种方式的复制可以复制旧表的主键、索引、Extra（auto_increment，字符集编码及排序）、注释、分区等属性。但是不包含触发器、外键等
+
+3、复制旧表的数据到新表
+
+INSERT INTO 新表 SELECT * FROM 旧表
+
+INSERT INTO 新表(字段1,字段2,.......) SELECT 字段1,字段2,...... FROM 旧表
+
+上面两条语句的前提是新表已经存在
+
+4、复制表结构及数据到新表（包含主键、索引、分区等）
+
+结合上述第2、3点，即：
+
+先 CREATE TABLE 新表 LIKE 旧表
+
+然后 INSERT INTO 新表 SELECT * FROM 旧表
+</code></pre>
+
+<h3 id="_6">导出表结构和数据</h3>
+<pre class="codehilite"><code>1.导出结构不导出数据
+mysqldump -d 数据库名 -uroot -p &gt; xxx.sql
+
+2.导出数据不导出结构
+mysqldump -t 数据库名 -uroot -p &gt; xxx.sql
+
+3.导出数据和表结构
+mysqldump 数据库名 -uroot -p &gt; xxx.sql
+
+4.导出特定表的结构
+mysqldump -uroot -p -B数据库名 --table 表名 &gt; xxx.sql
+</code></pre></div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        
+        <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Jinja2简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python造假数据神器Faker.html"><span><label style="color: #38b6fd"></label>&nbsp;Python造假数据神器Faker</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/FastApi简析.html"><span><label style="color: #38b6fd"></label>&nbsp;FastApi简析</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><span><label style="color: #38b6fd"></label>&nbsp;go测试库apitest简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go入门.html"><span><label style="color: #38b6fd"></label>&nbsp;go入门</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/BeautifulSoup简介.html"><span><label style="color: #38b6fd"></label>&nbsp;BeautifulSoup简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/tkinter教程.html"><span><label style="color: #38b6fd"></label>&nbsp;tkinter教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/常用链接.html"><span><label style="color: #38b6fd"></label>&nbsp;常用链接</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python进阶.html"><span><label style="color: #38b6fd"></label>&nbsp;Python进阶</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python正则表达式.html"><span><label style="color: #38b6fd"></label>&nbsp;Python正则表达式</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/nose简介.html"><span><label style="color: #38b6fd"></label>&nbsp;nose简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+kde设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+kde设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+xfce设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+xfce设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python自动化之unittest.html"><span><label style="color: #38b6fd"></label>&nbsp;Python自动化之unittest</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+gnome设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+gnome设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+i3安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+i3安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/问题解决.html"><span><label style="color: #38b6fd"></label>&nbsp;问题解决</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/分分种学会python3.html"><span><label style="color: #38b6fd"></label>&nbsp;分分种学会python3</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Debain通用设置.html"><span><label style="color: #38b6fd"></label>&nbsp;Debain通用设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/python标准异常.html"><span><label style="color: #38b6fd"></label>&nbsp;python标准异常</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian命令apt和dpkg用法.html"><span><label style="color: #38b6fd"></label>&nbsp;debian命令apt和dpkg用法</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span></a></li>
+        
+      </ul>
+    </div>
+  </body>
+
+  </html>

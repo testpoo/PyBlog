@@ -1,0 +1,915 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测试铺</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="http://127.0.0.1:8000/themes/img/favicon.ico">
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="http://127.0.0.1:8000">
+            <img src="http://127.0.0.1:8000/themes/img/title.jpg">
+            <div class="linkbutton testpoo">测试铺</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><label style="color: #ffba48"></label>&nbsp;python</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><label style="color: #ffba48"></label>&nbsp;linux</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><label style="color: #ffba48"></label>&nbsp;go</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><label style="color: #ffba48"></label>&nbsp;debian</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><label style="color: #ffba48"></label>&nbsp;笔记</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/常用链接.html"><label style="color: #ffba48"></label>&nbsp;常用链接</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><label style="color: #ffba48"></label>&nbsp;mysql</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/问题解决.html"><label style="color: #ffba48"></label>&nbsp;问题解决</a></li>
+            
+          </ul>
+        </div>
+        <div class="github"><a href="https://github.com/testpoo" target="_blank" title="GitHub:TestPoo"></a><a href="#" title="微信号：puyaweis"></a><a href="#" title="邮箱：pu_yawei@qq.com"></a><a href="http://127.0.0.1:8000/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：linux</div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span><span>2024-02-29&nbsp;&nbsp;共18477个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span><span>2023-06-30&nbsp;&nbsp;共4575个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span><span>2022-04-18&nbsp;&nbsp;共14941个字</span></a></li>
+            
+          </ul>
+        </div>
+        <div class="item-num">总共3项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>shell简介</span><span>一个80后老人，专注测试领域<br />最后更新于2024-06-11 16:54:06</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts"><div class="toc">
+<ul>
+<li><a href="#_1">本文摘要</a></li>
+<li><a href="#shell">Shell编程概述</a></li>
+<li><a href="#shell_1">Shell 注释</a></li>
+<li><a href="#shell_2">Shell关键字</a></li>
+<li><a href="#shell_3">Shell变量</a><ul>
+<li><a href="#1">1. 用户自定义变量</a></li>
+<li><a href="#2">2. 预定义变量</a></li>
+<li><a href="#3">3. 环境变量</a></li>
+<li><a href="#4">4.字符串变量</a></li>
+<li><a href="#5">5. 数组</a></li>
+</ul>
+</li>
+<li><a href="#shell_4">Shell运算</a><ul>
+<li><a href="#1_1">1. 算数运算</a></li>
+<li><a href="#2_1">2. 数字关系运算符</a></li>
+<li><a href="#3_1">3. 字符串运算符</a></li>
+<li><a href="#4_1">4. 布尔运算符</a></li>
+<li><a href="#5_1">5. 逻辑运算符</a></li>
+<li><a href="#6">6. 文件运算符</a></li>
+</ul>
+</li>
+<li><a href="#shell_5">Shell语句</a><ul>
+<li><a href="#1-if">1. if语句</a></li>
+<li><a href="#2-case">2. case语句</a></li>
+<li><a href="#3-for">3. for循环</a></li>
+<li><a href="#4-while">4. while 循环</a></li>
+<li><a href="#5until">5.until 循环</a></li>
+<li><a href="#6-break">6. break</a></li>
+<li><a href="#7-continue">7. continue</a></li>
+</ul>
+</li>
+<li><a href="#shell_6">Shell 函数</a><ul>
+<li><a href="#1_2">1. 定义函数</a></li>
+<li><a href="#2_2">2. 调用函数</a></li>
+<li><a href="#3_2">3. 获取返回值</a></li>
+<li><a href="#4_2">4. 定义本地变量</a></li>
+</ul>
+</li>
+<li><a href="#_2">调试</a></li>
+<li><a href="#shell_7">Shell 易错点</a></li>
+</ul>
+</div>
+<h3 id="_1">本文摘要</h3>
+<p>本文主要介绍Linux Shell编程的基础知识，包含下面8个方面：</p>
+<ol>
+<li>
+<p>Shell编程概述</p>
+</li>
+<li>
+<p>Shell关键字</p>
+</li>
+<li>
+<p>Shell变量</p>
+</li>
+<li>
+<p>Shell运算</p>
+</li>
+<li>
+<p>Shell语句</p>
+</li>
+<li>
+<p>Shell函数</p>
+</li>
+<li>
+<p>Shell调试</p>
+</li>
+<li>
+<p>Shell易错点</p>
+</li>
+</ol>
+<h3 id="shell">Shell编程概述</h3>
+<p>在Linux下有一门脚本语言叫做：Shell脚本。Shell 是外壳的意思，就是操作系统的外壳。我们可以通过 Shell 命令来操作和控制系统，比如 Linux 中的 Shell 命令就包括 ls、cd、pwd等等，Shell 是一个命令解释器，它通过接受用户输入的 Shell 命令来启动、暂停、停止的运行或对计算机进行控制。</p>
+<p>Shell 是一个应用程序，它连接了用户和 Linux 内核，让用户能够更加高效、安全、低成本地使用 Linux 内核，这就是 Shell 的本质。</p>
+<p>Shell 本身并不是内核的一部分，它中是站在内核的基础上编写的一个应用程序。</p>
+<p>那什么是 Shell 脚本。Shell 脚本就是由 Shell 命令组成的执行文件，将一些命令整合到一个文件中，进行处理业务逻辑，脚本不用编译即可运行。它通过解释器运行，所以速度相对来主说比较慢。</p>
+<p>一个简单的hello.sh脚本像下面这样，第一行#！/bin/bash标识该脚本由哪个Shell解释：</p>
+<pre class="codehilite"><code class="language-shell">#!/bin/bash
+
+echo &quot;Hello World!&quot;
+</code></pre>
+
+<p><strong>赋予权限才可以执行</strong></p>
+<pre class="codehilite"><code class="language-shell"># 赋予可执行权限
+chmod +x hello.sh
+
+# 执行
+./hello.sh
+
+# 结果
+Hello World!
+</code></pre>
+
+<p>Shell的编写流程：</p>
+<ol>
+<li>
+<p>编写Shell脚本</p>
+</li>
+<li>
+<p>赋予可执行权限</p>
+</li>
+<li>
+<p>执行，调试</p>
+</li>
+</ol>
+<p>下面来介绍具体的用法。</p>
+<h3 id="shell_1">Shell 注释</h3>
+<ul>
+<li>单行注释：#</li>
+<li>多行注释：:,&lt;&lt;</li>
+</ul>
+<p>看个例子</p>
+<pre class="codehilite"><code class="language-shell"># 这个是单行注释
+</code></pre>
+
+<pre class="codehilite"><code class="language-shell">&lt;&lt;COMMENT
+    这个是多行注释
+    这个是多行注释
+    这个是多行注释
+COMMENT
+
+: '
+这个也是多行注释(: + 空格 + 单引号)
+这个也是多行注释(: + 空格 + 单引号)
+这个也是多行注释(: + 空格 + 单引号)
+'
+</code></pre>
+
+<h3 id="shell_2">Shell关键字</h3>
+<p>常用的关键字如下：</p>
+<ol>
+<li>
+<p>echo: 打印文字到屏幕</p>
+</li>
+<li>
+<p>exec: 执行另一个Shell脚本</p>
+</li>
+<li>
+<p>read: 读标准输入</p>
+</li>
+<li>
+<p>expr: 对整数型变量进行算术运算</p>
+</li>
+<li>
+<p>test: 用于测试变量是否相等、是否为空、文件类型等</p>
+</li>
+<li>
+<p>exit: 退出</p>
+</li>
+</ol>
+<p>看个例子：</p>
+<pre class="codehilite"><code class="language-shell">#!/bin/bash
+
+echo &quot;hello Shell&quot;
+
+# 读入变量
+read VAR
+echo &quot;VAE is $VAR&quot;
+
+# 计算变量
+expr $VAR -5
+
+# 测试字符串
+test &quot;Hello&quot;=&quot;Helloword&quot;
+
+# 测试整数
+test -d ./Android
+
+# 执行其他Shell脚本
+exec ./othershell.sh
+
+# 退出
+exit
+</code></pre>
+
+<p>运行前，你需要新建一个<code>othershell.sh</code>的文件，让它输出<code>I'm othershell</code>，并且中途需要一次输入，我这里输入的是10：</p>
+<pre class="codehilite"><code class="language-shell">Hello Shell
+10
+VAR is 10
+5
+I'm othershell
+</code></pre>
+
+<p>学习任何一门语言都要了解它的变量定义方法，Shell也不例外。</p>
+<h3 id="shell_3">Shell变量</h3>
+<p>Shell变量分为3种：</p>
+<ol>
+<li>
+<p>用户自定义变量</p>
+</li>
+<li>
+<p>预定义变量</p>
+</li>
+<li>
+<p>环境变量</p>
+</li>
+</ol>
+<p>定义变量需要注意下面2点：</p>
+<ol>
+<li>
+<p>等号前后不要有空格：NUM=10</p>
+</li>
+<li>
+<p>一般变量名用大写：M=1</p>
+</li>
+</ol>
+<p>使用$VAR调用变量：</p>
+<pre class="codehilite"><code class="language-shell">echo $VAR
+</code></pre>
+
+<h4 id="1">1. 用户自定义变量</h4>
+<p>这种变量只支持字符串类型，不支持其他字符，浮点等类型，常见有这3个前缀：</p>
+<ol>
+<li>
+<p>unset: 删除变量</p>
+</li>
+<li>
+<p>readonly: 标记只读变量</p>
+</li>
+<li>
+<p>export: 指定全局变量</p>
+</li>
+</ol>
+<p>一个例子：</p>
+<pre class="codehilite"><code class="language-shell">#!/bin/bash
+
+# 定义旁通变量
+CITY=SHENZHEN
+
+# 定义全局变量
+export NAME=cdeveloper
+
+# 定义只读变量
+readonly AGE=21
+
+# 打印变量的值
+echo $CITY
+</code></pre>
+
+<p>运维结果：</p>
+<pre class="codehilite"><code>SHENZHEN
+cdeveloper
+21
+</code></pre>
+
+<h4 id="2">2. 预定义变量</h4>
+<p>预定义变量常用来获取命令行的输入，有下面这些：</p>
+<ol>
+<li>$0: 脚本文件名</li>
+<li>$1-9: 第1-9命令行参数名</li>
+<li>$#: 命令行参数个数</li>
+<li>$@: 所有命令行参数</li>
+<li>$*: 所有命令行参数</li>
+<li>$?: 前一个命令的退出状态，可用于获取函数返回值</li>
+<li>\$$: 执行的进程ID</li>
+<li>$!: 后台运行的最后一个进程的ID</li>
+</ol>
+<p>一个例子：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+echo &quot;print $&quot;
+echo &quot;\$0 = $0&quot;
+echo &quot;\$1 = $1&quot;
+echo &quot;\$2 = $2&quot;
+echo &quot;\$# = $#&quot;
+echo &quot;\$@ = $@&quot;
+echo &quot;\$* = $*&quot;
+echo &quot;\$$ = $$&quot;
+echo &quot;\$? = $?&quot;
+</code></pre>
+
+<p>执行<code>./hello.sh 1 2 3 4 5</code>的结果：</p>
+<pre class="codehilite"><code>print $
+
+# 程序名
+$0 = ./hello.sh
+
+# 第一个参数
+$1 = 1
+
+# 第二个参数
+$2 = 2
+
+# 一共有5个参数
+$# = 5
+
+# 打印出所有参数
+$@ = 1 2 3 4 5
+
+# 打印出所有参数
+$* = 1 2 3 4 5
+
+# 进程ID
+$$ = 854
+
+# 之前没有执行其他命令或者函数
+$? = 0
+</code></pre>
+
+<h4 id="3">3. 环境变量</h4>
+<p>环境变量默认存在，常用的有下面这几个：</p>
+<ol>
+<li>HOME：用户主目录</li>
+<li>PATH：系统环境变量PATH</li>
+<li>TERM：当前终端</li>
+<li>UID: 当前用户ID</li>
+<li>PWD：当前工作目录，绝对路径</li>
+</ol>
+<p>还是看例子：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+echo &quot;print env&quot;
+
+echo $HOME
+echo $PATH
+echo $TERM
+echo $PWD
+echo $UID
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>print env
+
+# 当前主目录
+/home/poo
+
+# PATH环境变量
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+# 当前终端
+xterm
+
+# 当前目录
+/home/poo/poo
+
+# 用户ID
+1000
+</code></pre>
+
+<h4 id="4">4.字符串变量</h4>
+<p>1）单引号</p>
+<ul>
+<li>单引号变量var='test'，只能原样输出，变量无效</li>
+<li>单引号不能出现一个单独的单引号，转义也不可以</li>
+</ul>
+<p>2）双引号</p>
+<ul>
+<li>双引号变量<code>var="my name is ${name}"</code>，变量有效</li>
+<li>可以出现转义符</li>
+</ul>
+<p>3）拼接字符串</p>
+<ul>
+<li>中间无任何+,之类的字符</li>
+<li><code>name="this is"" my name";name="this is my name";name="this" is "my name"等效</code></li>
+<li><code>name='this is'' my name'; name='this is my name'; name='this' is 'my name' 等效</code></li>
+</ul>
+<p>4）获取字符串长度</p>
+<ul>
+<li>在${}中使用“#”获取长度</li>
+</ul>
+<p><code>name="test";
+  echo ${#name}; # 输出为4</code></p>
+<p>5）提取子字符串</p>
+<ul>
+<li>1:4 从第2个开始 往后截取4个字符</li>
+<li>::4 从第一个字符开始 往后截取4个字符</li>
+</ul>
+<p><code>name="this is my name";
+  echo ${name:1:4} #输出 is i
+  echo ${name::4} #输出 this</code></p>
+<h4 id="5">5. 数组</h4>
+<p>bash只支持一维数组，不支持多维数组</p>
+<ul>
+<li>定义数组：array_name=(li wang xiang zhang) （小括号做边界、使用空格分离）</li>
+<li>单独定义数组的元素： array_para[0]="w"; array_para[3]="s" （定义时下标不连续也可以）</li>
+<li>赋值数组元素：array_name[0]="zhao";</li>
+<li>获取数组元素：</li>
+</ul>
+<pre class="codehilite"><code>  array_name[0]=&quot;li&quot;
+  array_name[3]=&quot;zhang&quot;
+  echo ${array_name[0]} # 输出&quot;li&quot;
+  echo ${array_name[1]} # 输出&quot; &quot;
+  echo ${array_name[3]} # 输出&quot;zhang&quot;
+  echo ${array_name[@]} # 输出&quot;li zhang&quot; 输出数组所有元素，没有元素的下标省略
+  取得元素个数：${#array_name[@]} 或者 ${#array_name}
+  取得单个元素长度：${#array_name[1]}
+</code></pre>
+
+<p>Shell变量就介绍到这里，下面来介绍Shell的变量运算。</p>
+<h3 id="shell_4">Shell运算</h3>
+<h4 id="1_1">1. 算数运算</h4>
+<blockquote>
+<p>+ 、-、*、\ ： 乘号前必须加\进行转义才可以进行乘法运算</p>
+</blockquote>
+<p>我们经常需要在Shell脚本中计算，掌握基本的运算方法很有必要，下面就是4种比较常见的运算方法，功能都是将m + 1:</p>
+<ol>
+<li>m=$[m+1]</li>
+<li>m=`expr $m + 1` # 用``字符包起来</li>
+<li>let m=m+1</li>
+<li>m=$(( m + 1 ))</li>
+</ol>
+<p>来看一个实际的例子：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+m=1
+m=$[ m + 1 ]
+echo $m
+
+m=`expr $m + 1`
+echo $m
+
+# 注意：+ 号左右不要加空格
+let m=m+1
+echo $m
+
+m=$(( m + 1 ))
+echo $m
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>2
+3
+4
+5
+</code></pre>
+
+<h4 id="2_1">2. 数字关系运算符</h4>
+<blockquote>
+<p>关系运算符只支持数字，不支持字符串，除非字符串的值是数字。下面假定变量 a 为 10，变量 b 为 20</p>
+</blockquote>
+<ul>
+<li>-eq ：检测两个数是否相等，相等返回 true。 [ $a -eq $b ] 返回 false。</li>
+<li>-ne： 检测两个数是否不相等，不相等返回 true。 [ $a -ne $b ] 返回 true。</li>
+<li>-gt： 检测左边的数是否大于右边的，如果是，则返回 true。 [ $a -gt $b ] 返回 false。</li>
+<li>-lt ： 检测左边的数是否小于右边的，如果是，则返回 true。 [ $a -lt $b ] 返回 true。</li>
+<li>-ge： 检测左边的数是否大于等于右边的，如果是，则返回 true。 [ $a -ge $b ] 返回 false。</li>
+<li>-le ： 检测左边的数是否小于等于右边的，如果是，则返回 true。 [ $a -le $b ] 返回 true。</li>
+</ul>
+<h4 id="3_1">3. 字符串运算符</h4>
+<blockquote>
+<p>下表列出了常用的字符串运算符，假定变量 a 为 "abc"，变量 b 为 "efg"：</p>
+</blockquote>
+<ul>
+<li>= ：检测两个字符串是否相等，相等返回 true。 [ $a = $b ] 返回 false。</li>
+<li>!= ：检测两个字符串是否相等，不相等返回 true。 [ $a != $b ] 返回 true。</li>
+<li>-z ：检测字符串长度是否为0，为0返回 true。 [ -z $a ] 返回 false。</li>
+<li>-n ：检测字符串长度是否为0，不为0返回 true。 [ -n "$a" ] 返回 true。</li>
+<li>$ ：检测字符串是否为空，不为空返回 true。 [ $a ] 返回 true。</li>
+</ul>
+<h4 id="4_1">4. 布尔运算符</h4>
+<blockquote>
+<p>下表列出了常用的布尔运算符，假定变量 a 为 10，变量 b 为 20：</p>
+</blockquote>
+<ul>
+<li>! ：非运算，表达式为 true 则返回 false，否则返回 true。 [ ! false ] 返回 true。</li>
+<li>-o ：或运算，有一个表达式为 true 则返回 true。 [ $a -lt 20 -o $b -gt 100 ] 返回 true。</li>
+<li>-a ：与运算，两个表达式都为 true 才返回 true。 [ $a -lt 20 -a $b -gt 100 ] 返回 false。</li>
+</ul>
+<h4 id="5_1">5. 逻辑运算符</h4>
+<blockquote>
+<p>以下介绍 Shell 的逻辑运算符，假定变量 a 为 10，变量 b 为 20:</p>
+</blockquote>
+<ul>
+<li>&amp;&amp; ：逻辑的 AND [[ $a -lt 100 &amp;&amp; $b -gt 100 ]] 返回 false</li>
+<li>|| ：逻辑的 OR [[ $a -lt 100 || $b -gt 100 ]] 返回 true</li>
+</ul>
+<h4 id="6">6. 文件运算符</h4>
+<ul>
+<li>-b file ：检测文件是否是块设备文件，如果是，则返回 true。 [ -b $file ] 返回 false。</li>
+<li>-c file ：检测文件是否是字符设备文件，如果是，则返回 true。 [ -c $file ] 返回 false。</li>
+<li>-d file ：检测文件是否是目录，如果是，则返回 true。 [ -d $file ] 返回 false。</li>
+<li>-f file ：检测文件是否是普通文件（既不是目录，也不是设备文件），如果是，则返回 true。 [ -f $file ] 返回 true。</li>
+<li>-g file ：检测文件是否设置了 SGID 位，如果是，则返回 true。 [ -g $file ] 返回 false。</li>
+<li>-k file ：检测文件是否设置了粘着位(Sticky Bit)，如果是，则返回 true。 [ -k $file ] 返回 false。</li>
+<li>-p file ：检测文件是否是有名管道，如果是，则返回 true。 [ -p $file ] 返回 false。</li>
+<li>-u file ：检测文件是否设置了 SUID 位，如果是，则返回 true。 [ -u $file ] 返回 false。</li>
+<li>-r file ：检测文件是否可读，如果是，则返回 true。 [ -r $file ] 返回 true。</li>
+<li>-w file ：检测文件是否可写，如果是，则返回 true。 [ -w $file ] 返回 true。</li>
+<li>-x file ：检测文件是否可执行，如果是，则返回 true。 [ -x $file ] 返回 true。</li>
+<li>-s file ：检测文件是否为空（文件大小是否大于0），不为空返回 true。 [ -s $file ] 返回 true。</li>
+<li>-e file ：检测文件（包括目录）是否存在，如果是，则返回 true。 [ -e $file ] 返回 true。</li>
+</ul>
+<p>了解了基本的运算方法，下面进一步来学习shell的语句。</p>
+<h3 id="shell_5">Shell语句</h3>
+<p>Shell语句跟高级语言有些类似，也包括分支、跳转、循环，下面就带大家一个一个突破。</p>
+<h4 id="1-if">1. if语句</h4>
+<p>这个跟高级语言的<code>if - else - if</code>类似，只是格式有些不同而已，也来看个例子吧：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+read VAR
+
+# 下面这两种判断方法都可以，使用 [] 注意左右加空格
+# if test $VAR -eq 10
+if [ $VART -eq 10 ]
+then 
+    echo &quot;true&quot;
+else
+    echo &quot;false&quot;
+fi
+</code></pre>
+
+<h4 id="2-case">2. case语句</h4>
+<p>case语句有些复杂，要注意格式：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+read NAME
+# 格式有点复杂，一定要注意
+case $NAME in
+    &quot;Linux&quot;)
+        echo &quot;Linux&quot;
+        ;;
+    &quot;cdeveloper&quot;)
+        echo &quot;cdeveloper&quot;
+        ;;
+    *)
+        echo &quot;other&quot;
+        ;;
+esac
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code># 输入 Linux
+Linux
+Linux
+
+# 输入 cdeveloper
+cdeveloper
+cdeveloper
+
+# 输入其他的字段
+hello
+other
+</code></pre>
+
+<h4 id="3-for">3. for循环</h4>
+<p>这是一个for循环的使用例子，挺简单的，有点类似Python：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+# 普通 for 循环
+for ((i = 1; i &lt;= 3; i++))
+do
+    echo $i
+done
+
+# VAR 依次代表每个元素
+for VAR in 1 2 3
+do
+    echo $VAR
+done
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>1
+2
+3
+1
+2
+3
+</code></pre>
+
+<h4 id="4-while">4. while 循环</h4>
+<p>注意与 for 循环的区别：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+VAR=1
+
+# 如果 VAR 小于 10，就打印出来
+while [ $VAR -lt 10 ]
+do
+    echo $VAR
+    # VAR  自增 1
+    VAR=$[ $VAR + 1 ]
+done
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
+
+<h4 id="5until">5.until 循环</h4>
+<p>until 语句与上面的循环的不同点是它的结束条件为1：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+i=0
+
+# i 大于 5 时，循环结束
+until [[ &quot;$i&quot; -gt 5 ]]
+do
+    echo $i
+    i=$[ $i + 1 ]
+done
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>0
+1
+2
+3
+4
+5
+</code></pre>
+
+<h4 id="6-break">6. break</h4>
+<p>Shell 中的 <code>break</code> 用法与高级语言相同，都是跳出循环，来看个例子：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+for VAR in 1 2 3
+do
+# 如何 VAR 等于 2 就跳出循环
+    if [ $VAR -eq 2 ]
+    then
+        break
+    fi
+
+    echo $VAR
+done
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>1
+</code></pre>
+
+<h4 id="7-continue">7. continue</h4>
+<p><code>continue</code>用来跳过本次循环，进入下一次循环，再来看看上面的例子：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+for VAR in 1 2 3
+do
+# 如果 VAR 等于 2，就跳过，直接进入下一次 VAR = 3 的循环
+    if [ $VAR -eq 2 ]
+    then
+        continue
+    fi
+
+    echo $VAR
+done
+</code></pre>
+
+<p>运行结果：</p>
+<pre class="codehilite"><code>1
+3
+</code></pre>
+
+<p>下面介绍 Shell 编程中比较重要的函数，好像每种编程语言的函数都很重要。</p>
+<h3 id="shell_6">Shell 函数</h3>
+<p>函数可以用一句话解释：带有输入输出的具有一定功能的黑盒子，相信有过编程经验的同学不会陌生。那么，我们先来看看 Shell 中函数定义的格式。</p>
+<h4 id="1_2">1. 定义函数</h4>
+<p>有 2 种常见格式：</p>
+<pre class="codehilite"><code>function fun_name()
+{
+
+}
+
+fun_name()
+{
+
+}
+</code></pre>
+
+<p>例如：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+function hello_world()
+{
+    echo &quot;hello world fun&quot;
+    echo $1 $2
+    return 1
+}
+
+hello()
+{
+    echo &quot;hello fun&quot;
+}
+</code></pre>
+
+<h4 id="2_2">2. 调用函数</h4>
+<p>如何调用上面的 2 个函数</p>
+<pre class="codehilite"><code># 1. 直接用函数名调用 hello 函数
+hello
+
+# 2. 使用[函数名 函数参数]来传递参数
+hello_world 1 2
+
+# 3. 使用[FUN=`函数名 函数参数`]来间接调用
+FUN=`hello_world 1 2`
+echo $FUN
+</code></pre>
+
+<h4 id="3_2">3. 获取返回值</h4>
+<p>如何获取 <code>hello_world</code> 函数的返回值？还记得 <code>$?</code> 吗？</p>
+<pre class="codehilite"><code>hello_world 1 2
+# $? 可用于获取前一个函数的返回值，这里的结果是1
+echo $?
+</code></pre>
+
+<h4 id="4_2">4. 定义本地变量</h4>
+<p>使用 <code>local</code> 来在函数中定义本地变量：</p>
+<pre class="codehilite"><code>fun()
+{
+    local x=1
+    echo $x
+}
+</code></pre>
+
+<p>俗话说，程序 3 分靠写，7 分靠调，下面我们就来看看如何调试 Shell 程序。</p>
+<h3 id="_2">调试</h3>
+<p>使用下面的命令来检查是否有语法错误：</p>
+<pre class="codehilite"><code>sh -n script_name.sh
+</code></pre>
+
+<p>使用下面的命令来执行并调试 Shell 脚本：</p>
+<pre class="codehilite"><code>sh -x script_name.sh
+</code></pre>
+
+<p>来看个实际的例子，我们来调试下面这个 <code>test.sh</code> 程序：</p>
+<pre class="codehilite"><code>#!/bin/bash
+
+for VAR in 1 2 3
+do
+    if [ $VAR -eq 2 ]
+    then
+        continue
+    fi
+    echo $VAR
+done
+</code></pre>
+
+<p>首先检查有无语法错误：</p>
+<pre class="codehilite"><code>sh -n test.sh
+</code></pre>
+
+<p>没有输出，说明没有错误，开始实际高度：</p>
+<pre class="codehilite"><code>sh -x test.sh
+</code></pre>
+
+<p>调试结果如下：</p>
+<pre class="codehilite"><code>+ [ 1 -eq 2 ]
++ echo 1
+1
++ [ 2 -eq 2 ]
++ continue
++ [ 3 -eq 2 ]
++ echo 3
+3
+</code></pre>
+
+<p>其中<strong>带有 <code>+</code> 表示的是 Shell 调试器的输出，不带 <code>+</code> 表示我们程序的输出。</strong></p>
+<h3 id="shell_7">Shell 易错点</h3>
+<p>这里我总结了一些初学 Shell 编程容易犯的错误，大多都是语法错误：</p>
+<ol>
+<li><code>[]</code> 内不能嵌套 <code>()</code>，可以嵌套 <code>[]</code></li>
+<li><code>$[ val + 1 ]</code> 是变量加 1 的常用方法</li>
+<li><code>[]</code> 在测试或者计算中里面的内容最好都加空格</li>
+<li>单引号和双引号差不多，单引号更加严格，双引号可以嵌套单引号</li>
+<li>一定要注意语句的格式，例如缩进</li>
+</ol></div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        
+        <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Jinja2简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python造假数据神器Faker.html"><span><label style="color: #38b6fd"></label>&nbsp;Python造假数据神器Faker</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/FastApi简析.html"><span><label style="color: #38b6fd"></label>&nbsp;FastApi简析</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><span><label style="color: #38b6fd"></label>&nbsp;go测试库apitest简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go入门.html"><span><label style="color: #38b6fd"></label>&nbsp;go入门</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/BeautifulSoup简介.html"><span><label style="color: #38b6fd"></label>&nbsp;BeautifulSoup简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/tkinter教程.html"><span><label style="color: #38b6fd"></label>&nbsp;tkinter教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/常用链接.html"><span><label style="color: #38b6fd"></label>&nbsp;常用链接</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python进阶.html"><span><label style="color: #38b6fd"></label>&nbsp;Python进阶</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python正则表达式.html"><span><label style="color: #38b6fd"></label>&nbsp;Python正则表达式</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/nose简介.html"><span><label style="color: #38b6fd"></label>&nbsp;nose简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+kde设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+kde设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+xfce设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+xfce设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python自动化之unittest.html"><span><label style="color: #38b6fd"></label>&nbsp;Python自动化之unittest</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+gnome设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+gnome设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+i3安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+i3安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/问题解决.html"><span><label style="color: #38b6fd"></label>&nbsp;问题解决</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/分分种学会python3.html"><span><label style="color: #38b6fd"></label>&nbsp;分分种学会python3</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Debain通用设置.html"><span><label style="color: #38b6fd"></label>&nbsp;Debain通用设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/python标准异常.html"><span><label style="color: #38b6fd"></label>&nbsp;python标准异常</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian命令apt和dpkg用法.html"><span><label style="color: #38b6fd"></label>&nbsp;debian命令apt和dpkg用法</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span></a></li>
+        
+      </ul>
+    </div>
+  </body>
+
+  </html>

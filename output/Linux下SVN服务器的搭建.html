@@ -1,0 +1,522 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测试铺</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="http://127.0.0.1:8000/themes/img/favicon.ico">
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="http://127.0.0.1:8000">
+            <img src="http://127.0.0.1:8000/themes/img/title.jpg">
+            <div class="linkbutton testpoo">测试铺</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><label style="color: #ffba48"></label>&nbsp;python</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><label style="color: #ffba48"></label>&nbsp;linux</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><label style="color: #ffba48"></label>&nbsp;go</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><label style="color: #ffba48"></label>&nbsp;debian</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><label style="color: #ffba48"></label>&nbsp;笔记</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/常用链接.html"><label style="color: #ffba48"></label>&nbsp;常用链接</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><label style="color: #ffba48"></label>&nbsp;mysql</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/问题解决.html"><label style="color: #ffba48"></label>&nbsp;问题解决</a></li>
+            
+          </ul>
+        </div>
+        <div class="github"><a href="https://github.com/testpoo" target="_blank" title="GitHub:TestPoo"></a><a href="#" title="微信号：puyaweis"></a><a href="#" title="邮箱：pu_yawei@qq.com"></a><a href="http://127.0.0.1:8000/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：笔记</div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span><span>2022-06-21&nbsp;&nbsp;共1079个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span><span>2022-06-14&nbsp;&nbsp;共37890个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span><span>2022-05-24&nbsp;&nbsp;共6145个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span><span>2022-03-02&nbsp;&nbsp;共16064个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span><span>2021-12-22&nbsp;&nbsp;共46307个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span><span>2021-09-15&nbsp;&nbsp;共29722个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span><span>2020-04-03&nbsp;&nbsp;共9889个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span><span>2020-01-01&nbsp;&nbsp;共13069个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span><span>2019-10-11&nbsp;&nbsp;共3837个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span><span>1999-12-31&nbsp;&nbsp;共1544个字</span></a></li>
+            
+          </ul>
+        </div>
+        <div class="item-num">总共10项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>Linux下SVN服务器的搭建</span><span>一个80后老人，专注测试领域<br />最后更新于2024-06-11 16:54:06</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts"><div class="toc">
+<ul>
+<li><a href="#ubuntusvn">Ubuntu下SVN服务器的配置及搭建</a><ul>
+<li><a href="#svn">检查是否安装SVN</a></li>
+<li><a href="#svnsvn">配置svn并启动svn服务</a></li>
+<li><a href="#svn_1">检测svn服务是否正常启动</a></li>
+<li><a href="#svnadminsvn">使用svnadmin建立svn项目版本库</a></li>
+<li><a href="#testdoc">配置testdoc版本可的权限</a></li>
+<li><a href="#svn_2">为Svn版本库创建用户并授权访问指定项目版本库</a></li>
+<li><a href="#svn_3">重新启动svn服务进行验证</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="ubuntusvn">Ubuntu下SVN服务器的配置及搭建</h3>
+<p>SVN是Subversion的简称，是一个开放源代码的版本控制系统，相较于RCS、CVS，它采用了分支管理系统，它的设计目标就是取代CVS。互联网上很多版本控制服务已从CVS迁移到Subversion。说得简单一点SVN就是用于多个人共同开发同一个项目，共用资源的目的。</p>
+<h4 id="svn">检查是否安装SVN</h4>
+<pre class="codehilite"><code>dpkg --get-selections|grep 'subversion'
+</code></pre>
+
+<p>如果安装了，会有如下提示</p>
+<pre class="codehilite"><code>root@ubuntu:~$ dpkg --get-selections|grep 'subversion'
+subversion                                      install
+</code></pre>
+
+<p>如果没有安装，使用以下命令安装</p>
+<pre class="codehilite"><code>apt install subversion
+</code></pre>
+
+<h4 id="svnsvn">配置svn并启动svn服务</h4>
+<p>可以使用svnserve --help查看启动帮助</p>
+<pre class="codehilite"><code>root@ubuntu:~# svnserve --help
+usage: svnserve [-d | -i | -t | -X] [options]
+Subversion repository server.
+Type 'svnserve --version' to see the program version.
+
+Valid options:
+  -d [--daemon]            : 后台模式
+  -i [--inetd]             : inetd 模式
+  -t [--tunnel]            : 隧道模式
+  -X [--listen-once]       : 监听一次方式(调试用)
+  -r [--root] ARG          : 服务的根目录
+  -R [--read-only]         : 强制只读；覆盖版本库配置文件
+  --config-file ARG        : 从文件 ARG 读取配置
+  --listen-port ARG        : listen port. The default port is 3690.
+                             [mode: daemon, listen-once]
+  --listen-host ARG        : listen hostname or IP address
+                             By default svnserve listens on all addresses.
+                             [mode: daemon, listen-once]
+  -6 [--prefer-ipv6]       : 在使用主机名称监听时，首选 IPv6
+                             [默认首选 IPv4。不支持在守护进程模式中同时使用 IPv4
+                             和 IPv6。如果需要，请使用 inetd 模式或隧道模式。]
+  -c [--compression] ARG   : 用于网络传输的压缩级别
+                             [0 .. 不压缩, 5 .. 默认,
+                              9 .. 最大压缩]
+  -M [--memory-cache-size] ARG : size of the extra in-memory cache in MB used to
+                             minimize redundant operations.
+                             Default is 16.
+                             0 switches to dynamically sized caches.
+                             [used for FSFS and FSX repositories only]
+  --cache-txdeltas ARG     : enable or disable caching of deltas between older
+                             revisions.
+                             Default is yes.
+                             [used for FSFS and FSX repositories only]
+  --cache-fulltexts ARG    : enable or disable caching of file contents
+                             Default is yes.
+                             [used for FSFS and FSX repositories only]
+  --cache-revprops ARG     : enable or disable caching of revision properties.
+                             Consult the documentation before activating this.
+                             Default is no.
+                             [used for FSFS and FSX repositories only]
+  --client-speed ARG       : Optimize network handling based on the assumption
+                             that most clients are connected with a bitrate of
+                             ARG Mbit/s.
+                             Default is 0 (optimizations disabled).
+  --block-read ARG         : Parse and cache all data found in block instead
+                             of just the requested item.
+                             Default is no.
+                             [used for FSFS repositories in 1.9 format only]
+  -T [--threads]           : 使用线程代替进程 [方式: daemon]
+  --min-threads ARG        : Minimum number of server threads, even if idle.
+                             Capped to max-threads; minimum value is 0.
+                             Default is 1.
+                             [used only with --threads]
+  --max-threads ARG        : Maximum number of server threads, even if there
+                             are more connections.  Minimum value is 1.
+                             Default is 256.
+                             [used only with --threads]
+  --foreground             : 在前台运行(调试用)
+                             [方式: daemon]
+  --single-thread          : handle one connection at a time in the parent
+                             process (useful for debugging)
+  --log-file ARG           : svnserve 日志文件
+  --pid-file ARG           : 写进程 PID 到文件 ARG
+                             [方式: daemon, listen-once]
+  --tunnel-user ARG        : 隧道用户名(默认是当前UID对应的用户名)
+                             [方式: tunnel]
+  -h [--help]              : 显示本帮助
+  --virtual-host           : virtual host mode (look for repo in directory
+                             of provided hostname)
+  --version                : 显示程序版本信息
+  -q [--quiet]             : 在标准错误输出不显示进度 (仅错误)
+</code></pre>
+
+<p>指定svn的数据存储路径</p>
+<pre class="codehilite"><code>mkdir -p /home/poo/svn/data
+</code></pre>
+
+<p>指定svn的配置文件信息路径</p>
+<pre class="codehilite"><code>mkdir -p /home/poo/svn/passwd
+</code></pre>
+
+<p>启动svn服务</p>
+<pre class="codehilite"><code>svnserve -d -r /home/poo/svn/data
+</code></pre>
+
+<h4 id="svn_1">检测svn服务是否正常启动</h4>
+<p>第一通过进程检测</p>
+<pre class="codehilite"><code>root@ubuntu:~# ps -ef|grep svn
+root        76     1  0 21:15 ?        00:00:00 svnserve -d -r /home/poo/svn/data/
+root        78    52  0 21:15 tty1     00:00:00 grep --color=auto svn
+</code></pre>
+
+<p>第二通过端口3690检测</p>
+<pre class="codehilite"><code>netstat -lntup | grep 3690
+</code></pre>
+
+<p>第三通过文件检测</p>
+<pre class="codehilite"><code>lsof -i :3690
+</code></pre>
+
+<h4 id="svnadminsvn">使用svnadmin建立svn项目版本库</h4>
+<p>查看创建项目版本库命令</p>
+<pre class="codehilite"><code>svnadmin --help
+</code></pre>
+
+<pre class="codehilite"><code>root@ubuntu:~# svnadmin --help
+general usage: svnadmin SUBCOMMAND REPOS_PATH  [ARGS &amp; OPTIONS ...]
+Subversion repository administration tool.
+Type 'svnadmin help &lt;subcommand&gt;' for help on a specific subcommand.
+Type 'svnadmin --version' to see the program version and FS modules.
+
+Available subcommands:
+   crashtest
+   create
+   delrevprop
+   deltify
+   dump
+   freeze
+   help (?, h)
+   hotcopy
+   info
+   list-dblogs
+   list-unused-dblogs
+   load
+   lock
+   lslocks
+   lstxns
+   pack
+   recover
+   rmlocks
+   rmtxns
+   setlog
+   setrevprop
+   setuuid
+   unlock
+   upgrade
+   verify
+</code></pre>
+
+<pre class="codehilite"><code>svnadmin help create
+</code></pre>
+
+<pre class="codehilite"><code>root@ubuntu:~# svnadmin help create
+create: 用法: svnadmin create REPOS_PATH
+
+在 REPOS_PATH 创建一个新的空版本库。
+
+有效选项:
+  --bdb-txn-nosync         : 在提交事务时禁用fsync [BDB]
+  --bdb-log-keep           : 禁用自动删除日志文件 [BDB]
+  --config-dir ARG         : 从目录 ARG 读取用户配置文件
+  --fs-type ARG            : type of repository:
+                             'fsfs' (default), 'bdb' or 'fsx'
+                             CAUTION: FSX is for EXPERIMENTAL use only!
+  --compatible-version ARG : use repository format compatible with Subversion
+                             version ARG (&quot;1.5.5&quot;, &quot;1.7&quot;, etc.)
+  --pre-1.4-compatible     : 已经淘汰; 参见 --compatible-version
+  --pre-1.5-compatible     : 已经淘汰; 参见 --compatible-version
+  --pre-1.6-compatible     : 已经淘汰; 参见 --compatible-version
+</code></pre>
+
+<p>创建testdoc版本库</p>
+<pre class="codehilite"><code>root@ubuntu:~# svnadmin create /home/poo/svn/data/testdoc
+root@ubuntu:~# ll /home/poo/svn/data/testdoc/
+总用量 0
+drwxr-xr-x 0 root root 512 12月  9 21:26 conf/
+drwxr-sr-x 0 root root 512 12月  9 21:26 db/
+-r--r--r-- 1 root root   2 12月  9 21:26 format
+drwxr-xr-x 0 root root 512 12月  9 21:26 hooks/
+drwxr-xr-x 0 root root 512 12月  9 21:26 locks/
+-rw-r--r-- 1 root root 246 12月  9 21:26 README.txt
+</code></pre>
+
+<h4 id="testdoc">配置testdoc版本可的权限</h4>
+<p>进入testdoc版本库配置目录,并备份配置文件</p>
+<pre class="codehilite"><code>cd /home/poo/svn/data/testdoc/conf/
+cp -p svnserve.conf svnserve.conf.default
+</code></pre>
+
+<p>进行详细配置</p>
+<pre class="codehilite"><code>anon-access = none //禁止匿名访问
+auth-access = write //认证后有读的权限
+password-db = /home/poo/svn/passwd/passwd //指定密码文件
+authz-db = /home/poo/svn/passwd/authz //指定权限认证文件
+</code></pre>
+
+<p>svnserve.conf文件general的一部分</p>
+<pre class="codehilite"><code>[general]
+### The anon-access and auth-access options control access to the
+### repository for unauthenticated (a.k.a. anonymous) users and
+### authenticated users, respectively.
+### Valid values are &quot;write&quot;, &quot;read&quot;, and &quot;none&quot;.
+### Setting the value to &quot;none&quot; prohibits both reading and writing;
+### &quot;read&quot; allows read-only access, and &quot;write&quot; allows complete
+### read/write access to the repository.
+### The sample settings below are the defaults and specify that anonymous
+### users have read-only access to the repository, while authenticated
+### users have read and write access to the repository.
+anon-access = none
+auth-access = write
+### The password-db option controls the location of the password
+### database file.  Unless you specify a path starting with a /,
+### the file's location is relative to the directory containing
+### this configuration file.
+### If SASL is enabled (see below), this file will NOT be used.
+### Uncomment the line below to use the default password file.
+password-db = /home/poo/svn/passwd/passwd
+### The authz-db option controls the location of the authorization
+### rules for path-based access control.  Unless you specify a path
+### starting with a /, the file's location is relative to the
+### directory containing this file.  The specified path may be a
+### repository relative URL (^/) or an absolute file:// URL to a text
+### file in a Subversion repository.  If you don't specify an authz-db,
+### no path-based access control is done.
+### Uncomment the line below to use the default authorization file.
+authz-db = /home/poo/svn/passwdauthz
+</code></pre>
+
+<p>复制passwd和authz文件到passwd目录并修改权限</p>
+<pre class="codehilite"><code>cp -p passwd authz /home/poo/svn/passwd/
+cd /home/poo/svn/passwd/
+chmod 700 authz passwd
+</code></pre>
+
+<h4 id="svn_2">为Svn版本库创建用户并授权访问指定项目版本库</h4>
+<p>编辑passwd文件配置用户和密码</p>
+<pre class="codehilite"><code>vi passwd 
+xiaowei = 123456
+shenyi = 123456
+</code></pre>
+
+<p>passwd文件</p>
+<pre class="codehilite"><code>### This file is an example password file for svnserve.
+### Its format is similar to that of svnserve.conf. As shown in the
+### example below it contains one section labelled [users].
+### The name and password for each user follow, one account per line.
+
+[users]
+# harry = harryssecret
+# sally = sallyssecret
+
+# 等号前是用户名，后面是密码
+xiaowei = 123456
+shenyi = 123456
+
+# 测试账号
+test1 = 123456
+test2 = 123456
+test3 = 123456
+</code></pre>
+
+<p>编辑authz文件配置读取权限</p>
+<pre class="codehilite"><code>[&lt;版本库&gt;:/项目/目录]
+@&lt;用户组名&gt; = &lt;权限&gt;
+&lt;用户名&gt;  = &lt;权限&gt;
+</code></pre>
+
+<p>authz文件</p>
+<pre class="codehilite"><code>### This file is an example authorization file for svnserve.
+### Its format is identical to that of mod_authz_svn authorization
+### files.
+### As shown below each section defines authorizations for the path and
+### (optional) repository specified by the section name.
+### The authorizations follow. An authorization line can refer to:
+###  - a single user,
+###  - a group of users defined in a special [groups] section,
+###  - an alias defined in a special [aliases] section,
+###  - all authenticated users, using the '$authenticated' token,
+###  - only anonymous users, using the '$anonymous' token,
+###  - anyone, using the '*' wildcard.
+###
+### A match can be inverted by prefixing the rule with '~'. Rules can
+### grant read ('r') access, read-write ('rw') access, or no access
+### ('').
+
+[aliases]
+# joe = /C=XZ/ST=Dessert/L=Snake City/O=Snake Oil, Ltd./OU=Research Institute/CN=Joe Average
+
+[groups]
+# harry_and_sally = harry,sally
+# harry_sally_and_joe = harry,sally,&amp;joe
+# 这里可以定义组，多个用户这间用逗号隔开
+test = test1,test2,test3
+
+# [/foo/bar]
+# harry = rw
+# &amp;joe = r
+
+[testdoc:/]
+@test = rw
+xiaowei = rw
+shenyi = r
+</code></pre>
+
+<h4 id="svn_3">重新启动svn服务进行验证</h4>
+<p>杀死svn服务</p>
+<pre class="codehilite"><code>pkill svnserve
+</code></pre>
+
+<p>启动svn</p>
+<pre class="codehilite"><code>svnserve -d -r /home/poo/svn/data/
+</code></pre>
+
+<p>备注：修改passwd和authz文件不需要重启svn服务，而修改svnserve.conf则需要</p>
+<p>最后安装客户端进行testdoc的配置是否正确</p>
+<pre class="codehilite"><code>svn --username=xiaowei co svn://127.0.0.1/testdoc
+</code></pre>
+
+<pre class="codehilite"><code>root@ubuntu:# svn --username=xiaowei co svn://127.0.0.1/testdoc
+认证领域: &lt;svn://127.0.0.1:3690&gt; f36acfd9-8e0c-4973-bd35-44e75440e1c3
+“xiaowei”的密码: ******
+
+
+-----------------------------------------------------------------------
+注意!  你的密码，对于认证域:
+
+   &lt;svn://127.0.0.1:3690&gt; f36acfd9-8e0c-4973-bd35-44e75440e1c3
+
+只能明文保存在磁盘上!  如果可能的话，请考虑配置你的系统，让 Subversion
+可以保存加密后的密码。请参阅文档以获得详细信息。
+
+你可以通过在“/root/.subversion/servers”中设置选项“store-plaintext-passwords”为“yes”或“no”，
+来避免再次出现此警告。
+-----------------------------------------------------------------------
+保存未加密的密码(yes/no)? yes
+取出版本 0。
+</code></pre></div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        
+        <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Jinja2简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python造假数据神器Faker.html"><span><label style="color: #38b6fd"></label>&nbsp;Python造假数据神器Faker</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/FastApi简析.html"><span><label style="color: #38b6fd"></label>&nbsp;FastApi简析</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><span><label style="color: #38b6fd"></label>&nbsp;go测试库apitest简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go入门.html"><span><label style="color: #38b6fd"></label>&nbsp;go入门</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/BeautifulSoup简介.html"><span><label style="color: #38b6fd"></label>&nbsp;BeautifulSoup简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/tkinter教程.html"><span><label style="color: #38b6fd"></label>&nbsp;tkinter教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/常用链接.html"><span><label style="color: #38b6fd"></label>&nbsp;常用链接</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python进阶.html"><span><label style="color: #38b6fd"></label>&nbsp;Python进阶</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python正则表达式.html"><span><label style="color: #38b6fd"></label>&nbsp;Python正则表达式</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/nose简介.html"><span><label style="color: #38b6fd"></label>&nbsp;nose简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+kde设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+kde设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+xfce设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+xfce设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python自动化之unittest.html"><span><label style="color: #38b6fd"></label>&nbsp;Python自动化之unittest</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+gnome设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+gnome设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+i3安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+i3安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/问题解决.html"><span><label style="color: #38b6fd"></label>&nbsp;问题解决</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/分分种学会python3.html"><span><label style="color: #38b6fd"></label>&nbsp;分分种学会python3</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Debain通用设置.html"><span><label style="color: #38b6fd"></label>&nbsp;Debain通用设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/python标准异常.html"><span><label style="color: #38b6fd"></label>&nbsp;python标准异常</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian命令apt和dpkg用法.html"><span><label style="color: #38b6fd"></label>&nbsp;debian命令apt和dpkg用法</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span></a></li>
+        
+      </ul>
+    </div>
+  </body>
+
+  </html>

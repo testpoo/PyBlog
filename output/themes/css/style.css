@@ -1,0 +1,386 @@
+/* 通用 */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing:border-box;  
+    -moz-box-sizing:border-box; /* Firefox */  
+    -webkit-box-sizing:border-box; /* Safari */
+}
+
+@font-face {
+    font-family: 'testfont';
+    src: url('../fonts/fontawesome-webfont.eot');
+    src: url('../fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/fontawesome-webfont.woff') format('woff'),
+    url('../fonts/fontawesome-webfont.woff2') format('woff2'),
+    url('../fonts/FontAwesome.otf') format('otf'),
+    url('../fonts/fontawesome-webfont.ttf') format('truetype'),
+    url('../fonts/fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,body{
+    width: 100%;
+    height:100%;
+    font-size: 14px;
+    font-family: "Georgia","Arial","Microsoft YaHei","黑体","宋体",sans-serif,'testfont';
+}
+
+a { text-decoration: none; color: #000 }
+
+/*li {list-style-type:none;}*/
+
+::-webkit-scrollbar {
+  width: 5px;
+} /* 这是针对缺省样式 (必须的) */
+
+/*::-webkit-scrollbar-track {
+  background-color: #b46868;
+}*/ /* 滚动条的滑轨背景颜色 */
+
+::-webkit-scrollbar-thumb {
+  background-color: #e1e6ed; 
+} /* 滑块颜色 */
+
+/*::-webkit-scrollbar-button {
+  background-color: #7c2929;
+}*/ /* 滑轨两头的监听按钮颜色 */
+
+/*::-webkit-scrollbar-corner {
+  background-color: black;
+}*/ /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
+
+.mian {
+    height: 100%;
+    width: 100%;
+}
+
+.sider {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 501px;
+    height: 100%;
+    font-size: 16px;
+    border-right: 1px solid #eceff4;
+}
+
+.sider .categories {
+    float: left;
+    width: 200px;
+    height: 100%;
+    padding: 130px 0 60px 0;
+    color: #4e5a70;
+    background: #f9fafb;
+}
+
+.sider .categories .title {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 130px;
+    background-color: #f9fafb;
+}
+
+.sider .categories img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 10px 75px;;
+    text-align: center;
+}
+
+.sider .categories .testpoo {
+    width: 150px;
+    margin: 0 0 0 25px;
+    text-align: center;
+}
+
+.sider .categories .scrollheight {
+    height: calc(100vh - 182px);
+    overflow:auto;
+}
+
+.sider .categories .scrollheight a {
+    text-decoration: none;
+    color: #4e5a70
+}
+
+.sider .categories li {
+    height: 36px;
+    line-height: 36px;
+    list-style-type:none;
+}
+
+.sider .categories .github {
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    width: 200px;
+    height: 52px;
+    line-height: 52px;
+    background: #f9fafb;
+    border-top: 1px solid #eceff4;
+    text-align: center;
+    font-family: "testfont";
+    font-size: 24px;
+}
+
+.sider .categories .github a {
+    display: inline-block;
+    width: 40px;
+    text-decoration: none;
+    color: #4e5a70
+}
+
+.sider .articles {
+    float: left;
+    width: 300px;
+    height: 100%;
+    padding: 80px 0 40px 0;
+    color: #4e5a70;
+    background: #fff;
+}
+
+.sider .articles .category {
+    position: absolute;
+    top: 0;
+    height: 80px;
+    line-height: 80px;
+    width: 300px;
+    background: #fff;
+    padding: 0 50px;
+    color: #232d47;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    border-bottom: 1px solid #eceff4;
+    overflow: hidden;
+}
+
+.sider .articles .scrollheight {
+    height: calc(100vh - 111px);
+    overflow:auto;
+}
+
+.sider .articles .scrollheight ul {
+    padding: 0px;
+}
+
+.sider .articles .scrollheight a {
+    text-decoration: none;
+    color: #4e5a70
+}
+
+.sider .articles li {
+    width: 260px;
+    margin: 10px auto;
+    text-align: left;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #eceff4;
+    list-style-type:none;
+}
+
+.sider .articles li:hover {
+    background: #f9fafb;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.sider .articles li span{
+    display: block;
+    line-height: 30px;
+}
+
+.sider .articles li span:last-child{
+    font-size: 12px;
+    color: #a9b2c2;
+}
+
+.sider .articles .item-num {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    line-height: 30px;
+    padding-left: 20px;
+    font-size: 12px;
+    color: #7a8599;
+    border-top: 1px solid #f0f3f5;
+    box-sizing: border-box;
+    border-radius: 0 0 0 20px;
+    background: #fff;
+}
+
+.main {
+    padding-left: 501px;
+}
+
+.main .header {
+    height: 80px;
+    width: 100%;
+    line-height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #eceff4;
+}
+
+.main .header span:first-child{
+    float: left;
+    padding-left: 25px;
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.main .header span:last-child{
+    float: right;
+    padding: 15px 25px 15px 0px;
+    text-align: right;
+    color: #a9b2c2;
+    line-height: 25px;
+}
+
+.main .posts {
+    padding: 20px 200px;
+    line-height: 30px;
+    font-size: 16px;
+    height: calc(100vh - 80px);
+    overflow:auto;
+}
+
+.toc {
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    width: 300px;
+    padding-top: 20px;
+    height: calc(100vh - 111px);
+    background-color: #fff;
+    display: none;
+    overflow: auto;
+}
+
+#catalog {
+    position: absolute;
+    top: 0px;
+    left: 416px;
+    margin: 28px 10px;
+}
+
+.toc ul {
+    padding-right: 2em;
+}
+
+.toc li {
+    list-style-type: none;
+}
+
+.toc a {
+    text-decoration: none;
+    color: #4e5a70    
+}
+
+#catalog:checked~.posts>.toc{
+    display: block;
+}
+
+.nav {
+    display: none;
+}
+
+#nvacatalog {
+    display: none;
+}
+
+@media only screen and (max-width: 1600px) {
+    .main .posts {
+        padding: 20px 100px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    #nvacatalog {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .main .posts {
+        padding: 20px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    #nvacatalog {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .main .posts {
+        padding: 20px;
+    }
+
+    #catalog {
+        display: none;
+    }
+
+    .toc {
+        display: none;
+    }
+
+    .sider {
+        display: none;
+    }
+
+    .main {
+        padding-left: 0px;
+    }
+
+    .main .header span:last-child {
+        display: none;
+    }
+
+    .nav {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 80%;
+        height: 100%;
+        overflow:auto;
+        background: #f9fafb;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .nav ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .nav li {
+        line-height: 36px;
+        list-style-type: none;
+    }
+
+    .nav li a {
+        color: #4e5a70;
+    }
+
+    #nvacatalog {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin: 28px 10px;
+        display: block;
+    }
+
+    #nvacatalog:checked~.nav{
+        display: block;
+    }
+}

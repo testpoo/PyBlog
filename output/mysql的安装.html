@@ -1,0 +1,452 @@
+<!doctype html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>测试铺</title>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/xui.css">
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8000/themes/css/markdown.css">
+    <link rel="shortcut icon" type="image/ico" href="http://127.0.0.1:8000/themes/img/favicon.ico">
+  </head>
+
+  <body>
+    <div class="sider">
+      <div class="categories">
+        <div class="title">
+          <a href="http://127.0.0.1:8000">
+            <img src="http://127.0.0.1:8000/themes/img/title.jpg">
+            <div class="linkbutton testpoo">测试铺</div>
+          </a>
+        </div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><label style="color: #ffba48"></label>&nbsp;python</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><label style="color: #ffba48"></label>&nbsp;linux</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><label style="color: #ffba48"></label>&nbsp;go</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><label style="color: #ffba48"></label>&nbsp;debian</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/面试问答.html"><label style="color: #ffba48"></label>&nbsp;笔记</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/常用链接.html"><label style="color: #ffba48"></label>&nbsp;常用链接</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><label style="color: #ffba48"></label>&nbsp;mysql</a></li>
+            
+            <li><a href="http://127.0.0.1:8000/问题解决.html"><label style="color: #ffba48"></label>&nbsp;问题解决</a></li>
+            
+          </ul>
+        </div>
+        <div class="github"><a href="https://github.com/testpoo" target="_blank" title="GitHub:TestPoo"></a><a href="#" title="微信号：puyaweis"></a><a href="#" title="邮箱：pu_yawei@qq.com"></a><a href="http://127.0.0.1:8000/rss.xml" target="_blank"></a></div>
+      </div>
+      <div class="articles">
+        <div class="category">分类：mysql</div>
+        <div class="scrollheight">
+          <ul>
+            
+            <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span><span>2022-04-18&nbsp;&nbsp;共48992个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span><span>2020.05.09&nbsp;&nbsp;共8129个字</span></a></li>
+            
+            <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span><span>2019-10-11&nbsp;&nbsp;共4893个字</span></a></li>
+            
+          </ul>
+        </div>
+        <div class="item-num">总共3项</div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header"><span>mysql的安装</span><span>一个80后老人，专注测试领域<br />最后更新于2024-06-11 16:54:06</span></div>
+      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <div class="posts"><div class="toc">
+<ul>
+<li><a href="#mysql">Mysql的安装</a></li>
+<li><a href="#mysql_1">下载mysql安装包</a></li>
+<li><a href="#mariadb">删除mariadb</a></li>
+<li><a href="#_1">安装离线包</a></li>
+<li><a href="#mysql_2">创建mysql用户和组</a></li>
+<li><a href="#mysql_3">Mysql配置</a></li>
+<li><a href="#_2">服务启停</a></li>
+<li><a href="#_3">数据库操作</a></li>
+</ul>
+</div>
+<h3 id="mysql">Mysql的安装</h3>
+<p>以centos离线安装为例</p>
+<h3 id="mysql_1">下载mysql安装包</h3>
+<p>从Mysql官方网站内下载 <a href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+<p>选择以下版本进行安装</p>
+<pre class="codehilite"><code>Red Hat Enterprice Linux / Oracle Linux
+Red Hat Enterprice Linux 8 / Oracle Linux 8 (x86,64-bit)
+
+下载包信息：mysql-8.0.20-1.el8.x86_64.rpm-bundle.tar|8.0.20|650.2M    
+</code></pre>
+
+<h3 id="mariadb">删除mariadb</h3>
+<p>查看系统中是否存的mariadb，如果存在，将其删除，即可以如下操作：</p>
+<pre class="codehilite"><code>rpm -qa | grep mariadb
+# 如果有返回信息，说明存在mariadb，如下：
+mariadb-libs-5.5.56-2.el7.x86_64
+# 删除命令为：
+rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64
+</code></pre>
+
+<h3 id="_1">安装离线包</h3>
+<p>解压缩mysql离线安装包</p>
+<pre class="codehilite"><code>cd /home/test
+tar -xvf mysql-8.0.20-1.el8.x86_64.rpm-bundle.tar
+</code></pre>
+
+<p>解压缩之后，包含以下rpm包</p>
+<pre class="codehilite"><code>mysql-community-libs-8.0.20-1.el8.x86_64.rpm
+mysql-community-embedded-compat-8.0.20-1.el8.x86_64.rpm
+mysql-community-devel-8.0.20-1.el8.x86_64.rpm
+mysql-community-server-8.0.20-1.el8.x86_64.rpm
+mysql-community-libs-compat-8.0.20-1.el8.x86_64.rpm
+mysql-community-client-8.0.20-1.el8.x86_64.rpm
+mysql-community-common-8.0.20-1.el8.x86_64.rpm
+mysql-community-test-8.0.20-1.el8.x86_64.rpm
+</code></pre>
+
+<p>安装rmp包，逐个安装，命令如下：</p>
+<pre class="codehilite"><code># 必须安装
+rpm -ivh mysql-community-common-8.0.20-1.el8.x86_64.rpm
+rpm -ivh mysql-community-libs-8.0.20-1.el8.x86_64.rpm
+rpm -ivh mysql-community-client-8.0.20-1.el8.x86_64.rpm
+rpm -ivh mysql-community-server-8.0.20-1.el8.x86_64.rpm
+# 非必须安装
+rpm -ivh mysql-community-libs-compat-8.0.20-1.el8.x86_64.rpm
+rpm -ivh mysql-community-embedded-compat-8.0.20-1.el8.x86_64.rpm
+rpm -ivh mysql-community-devel-8.0.20-1.el8.x86_64.rpm
+rpm -ivh mysql-community-test-8.0.20-1.el8.x86_64.rpm
+
+注意：如果有依赖缺失的问题，请按照错误提示，自行安装缺失的依赖
+</code></pre>
+
+<h3 id="mysql_2">创建mysql用户和组</h3>
+<pre class="codehilite"><code>groupadd mysql
+useradd -g mysql mysql
+
+# 设置用户的密码
+passwd mysql
+</code></pre>
+
+<h3 id="mysql_3">Mysql配置</h3>
+<p>新建my.cnf文件</p>
+<pre class="codehilite"><code>touch /etc/my.cnf
+</code></pre>
+
+<p>配置文件内容</p>
+<pre class="codehilite"><code>[mysqld]
+########basic settings########
+federated
+user=mysql
+datadir = /data/mysql
+transaction_isolation = READ-COMMITTED
+explicit_defaults_for_timestamp = 1
+#bind-address = 0.0.0.0  # 表示允许任何主机登陆MySQL
+port = 3306
+socket = /tmp/mysql.sock
+federated
+########log settings##########
+log-bin=mysql-bin
+expire_logs_days = 5
+log-error = /data/mysql_log/error.log
+long_query_time = 10
+slow_query_log = 1
+slow_query_log_file = /data/mysql_log/slowquery.log
+log_throttle_queries_not_using_indexes = 10
+binlog_format=ROW
+########innodb settings########
+#索引和数据缓冲区大小，一般设置物理内存的60%-70%
+innodb_buffer_pool_size=6G
+innodb_buffer_pool_instances = 8
+innodb_buffer_pool_load_at_startup = 1
+innodb_buffer_pool_dump_at_shutdown = 1
+#innodb_page_size = 8192
+innodb_lock_wait_timeout = 50
+innodb_file_format = Barracuda
+innodb_file_format_max = Barracuda
+innodb_purge_threads = 4
+innodb_large_prefix = 1
+innodb_print_all_deadlocks = 1
+innodb_strict_mode = 1
+innodb_sort_buffer_size = 32M
+#默认值为 48M. 有很高写入吞吐量
+innodb_log_file_size=1G
+#InnoDB 存储引擎的事务日志所使用的缓冲区
+innodb_log_buffer_size = 16M
+innodb_flush_log_at_trx_commit=2
+#修改InnoDB为独立表空间模式,每个数据库的每个表都会生成一个数据空间
+innodb_file_per_table=1
+#限制Innodb能打开的表的数据
+#innodb_file_io_threads=4
+#5.6以后分为读和写，根据事务特性进行修改，原则为总数加起来&lt;=cpu个数*每个cpu核数
+innodb_read_io_threads=4
+innodb_write_io_threads=4
+#如果使用硬件RAID磁盘控制器, 需要设置为 O_DIRECT
+#innodb_flush_method=O_DIRECT
+#设置会影响InnoDB每秒在后台执行多少操作
+innodb_io_capacity=800
+[mysqld]
+########basic settings########
+federated
+user=mysql
+datadir = /data/mysql
+transaction_isolation = READ-COMMITTED
+explicit_defaults_for_timestamp = 1
+#bind-address = 0.0.0.0  # 表示允许任何主机登陆MySQL
+port = 3306
+socket = /tmp/mysql.sock
+federated
+########log settings##########
+log-bin=mysql-bin
+expire_logs_days = 5
+log-error = /data/mysql_log/error.log
+long_query_time = 10
+slow_query_log = 1
+slow_query_log_file = /data/mysql_log/slowquery.log
+log_throttle_queries_not_using_indexes = 10
+binlog_format=ROW
+########innodb settings########
+#索引和数据缓冲区大小，一般设置物理内存的60%-70%
+innodb_buffer_pool_size=6G
+innodb_buffer_pool_instances = 8
+innodb_buffer_pool_load_at_startup = 1
+innodb_buffer_pool_dump_at_shutdown = 1
+#innodb_page_size = 8192
+innodb_lock_wait_timeout = 50
+innodb_file_format = Barracuda
+innodb_file_format_max = Barracuda
+innodb_purge_threads = 4
+innodb_large_prefix = 1
+innodb_print_all_deadlocks = 1
+innodb_strict_mode = 1
+innodb_sort_buffer_size = 32M
+#默认值为 48M. 有很高写入吞吐量
+innodb_log_file_size=1G
+#InnoDB 存储引擎的事务日志所使用的缓冲区
+innodb_log_buffer_size = 16M
+#关键参数，0代表大约每秒写入到日志并同步到磁盘，数据库故障会丢失1秒左右事务数据。1为每执行一条SQL后写入到日志并同步到磁盘，I/O开销大，执行完SQL要等待日志读写，效率低。2代表只把日志写入到系统缓存区，再每秒同步到磁盘，效率很高，如果服&gt;务器故障，才会丢失事务数据。对数据安全性要求不是很高的推荐设置2，性能高，修改后效果明显。
+innodb_flush_log_at_trx_commit=2
+#修改InnoDB为独立表空间模式,每个数据库的每个表都会生成一个数据空间
+innodb_file_per_table=1
+#限制Innodb能打开的表的数据
+#innodb_file_io_threads=4
+#5.6以后分为读和写，根据事务特性进行修改，原则为总数加起来&lt;=cpu个数*每个cpu核数
+innodb_read_io_threads=4
+innodb_write_io_threads=4
+#如果使用硬件RAID磁盘控制器, 需要设置为 O_DIRECT
+#innodb_flush_method=O_DIRECT
+#设置会影响InnoDB每秒在后台执行多少操作
+innodb_io_capacity=800
+innodb_io_capacity_max=1000
+#这个参数必须要和innodb_io_capacity设置一样
+innodb_lru_scan_depth=800
+#限制了一次有多少线程能进入内核,0表示不限制进入内核的数量
+innodb_thread_concurrency = 32
+#除了缓存表数据和索引外,可以为操作所需的其他内部项分配缓存来提升InnoDB的性能,这些内存就可以通过此参数来分配
+innodb_additional_mem_pool_size=8M
+#修改为基于行的复制
+innodb_autoinc_lock_mode = 2
+
+secure_file_priv=&quot;&quot;
+##############cache#############
+max_allowed_packet = 2048M
+#内部内存临时表的最大值
+tmp_table_size=128M
+tmpdir = /data/mysql/mysql_tmp
+collation_server=utf8_general_ci
+character_set_server=utf8
+#即跳过外部锁定
+skip-external-locking
+skip-name-resolve
+#MySQL能暂存的连接数量(根据实际设置)
+back_log=1024
+#指定索引缓冲区的大小,只对MyISAM表起作用,这里写上也没有关系
+key_buffer_size=128M
+#这条指令限定用于每个数据库线程的栈大小
+thread_stack=256k
+#当一个查询不断地扫描某一个表,MySQL会为它分配一段内存缓冲区
+read_buffer_size=128M
+#线程缓存
+thread_cache_size=16
+#查询缓存大小
+query_cache_size=128M
+#内部内存临时表的最大值,每个线程都要分配
+max_heap_table_size=128M
+#将查询结果放入查询缓存中
+query_cache_limit = 3M
+query_cache_min_res_unit = 2k
+bulk_insert_buffer_size = 64M
+query_cache_type=1
+#代表在事务过程中容纳二进制日志SQL语句的缓存大小
+binlog_cache_size = 2M
+#同样是缓存表大小
+table_open_cache=128
+#缓存线程
+#thread_cache=16000
+#推荐设置为服务器 CPU核数的2倍
+thread_concurrency=16
+interactive_timeout=28800
+wait_timeout=28800
+#表和表联接的缓冲区的大小
+join_buffer_size = 32M
+#是一个connection级参数,在每个connection第一次需要使用这个buffer的时候,一次性分配设置的内存
+sort_buffer_size = 32M
+#随机读取数据缓冲区使用内存
+read_rnd_buffer_size = 32M
+group_concat_max_len = 102400 #你要的最大长度
+##################################################
+#connect 是一个MySQL中与安全有关的计数器值,它负责阻止过多尝试失败的客户端以防止暴力破解密码
+max-connect-errors=1000
+#连接数
+max-connections=1000
+##################################################
+#开启查询缓存
+explicit_defaults_for_timestamp=true
+###################################################
+[client]
+socket=/tmp/mysql.sock
+</code></pre>
+
+<h3 id="_2">服务启停</h3>
+<ul>
+<li>查看服务状态</li>
+</ul>
+<pre class="codehilite"><code>systemctl status mysqld
+</code></pre>
+
+<ul>
+<li>停止服务</li>
+</ul>
+<pre class="codehilite"><code>service mysqld stop
+</code></pre>
+
+<ul>
+<li>初始化数据库</li>
+</ul>
+<pre class="codehilite"><code>mysqld --initialize --console
+</code></pre>
+
+<ul>
+<li>目录授权</li>
+</ul>
+<pre class="codehilite"><code>chown -R mysql:mysql /var/lib/mysql/
+</code></pre>
+
+<ul>
+<li>启动mysql服务</li>
+</ul>
+<pre class="codehilite"><code>systemctl start mysqld
+systemctl status mysqld
+</code></pre>
+
+<h3 id="_3">数据库操作</h3>
+<ul>
+<li>查看临时密码：</li>
+</ul>
+<pre class="codehilite"><code>grep 'password' /var/log/mysqld.log |head -n 1
+</code></pre>
+
+<ul>
+<li>用临时密码登录数据库</li>
+</ul>
+<pre class="codehilite"><code>mysql -u root -p 回车键
+然后输入临时密码（输入时不会显示出来，输入完直接回车）
+</code></pre>
+
+<ul>
+<li>修改mysql密码</li>
+</ul>
+<pre class="codehilite"><code>alter USER 'root'@'localhost' IDENTIFIED BY '123456';
+</code></pre></div>
+    </div>
+    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <div class="nav">
+      <ul>
+        
+        <li><a href="http://127.0.0.1:8000/Jinja2简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Jinja2简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell三剑客简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell三剑客简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python造假数据神器Faker.html"><span><label style="color: #38b6fd"></label>&nbsp;Python造假数据神器Faker</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/FastApi简析.html"><span><label style="color: #38b6fd"></label>&nbsp;FastApi简析</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go测试库apitest简介.html"><span><label style="color: #38b6fd"></label>&nbsp;go测试库apitest简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/go入门.html"><span><label style="color: #38b6fd"></label>&nbsp;go入门</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Arch+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;Arch+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/BeautifulSoup简介.html"><span><label style="color: #38b6fd"></label>&nbsp;BeautifulSoup简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/tkinter教程.html"><span><label style="color: #38b6fd"></label>&nbsp;tkinter教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+openbox+tint2安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+openbox+tint2安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/面试问答.html"><span><label style="color: #38b6fd"></label>&nbsp;面试问答</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/UI自动化测试神器-Cypress.html"><span><label style="color: #38b6fd"></label>&nbsp;UI自动化测试神器-Cypress</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/如何用自动化测试搞垮团队.html"><span><label style="color: #38b6fd"></label>&nbsp;如何用自动化测试搞垮团队</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/常用链接.html"><span><label style="color: #38b6fd"></label>&nbsp;常用链接</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql函数汇总.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql函数汇总</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/shell简介.html"><span><label style="color: #38b6fd"></label>&nbsp;shell简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Docker入门教程.html"><span><label style="color: #38b6fd"></label>&nbsp;Docker入门教程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/性能监控各指令详解.html"><span><label style="color: #38b6fd"></label>&nbsp;性能监控各指令详解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python进阶.html"><span><label style="color: #38b6fd"></label>&nbsp;Python进阶</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Git简介.html"><span><label style="color: #38b6fd"></label>&nbsp;Git简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python正则表达式.html"><span><label style="color: #38b6fd"></label>&nbsp;Python正则表达式</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/nose简介.html"><span><label style="color: #38b6fd"></label>&nbsp;nose简介</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+kde设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+kde设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+xfce设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+xfce设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Python自动化之unittest.html"><span><label style="color: #38b6fd"></label>&nbsp;Python自动化之unittest</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+gnome设置.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+gnome设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian+i3安装过程.html"><span><label style="color: #38b6fd"></label>&nbsp;debian+i3安装过程</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql的安装.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql的安装</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/问题解决.html"><span><label style="color: #38b6fd"></label>&nbsp;问题解决</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/分分种学会python3.html"><span><label style="color: #38b6fd"></label>&nbsp;分分种学会python3</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Markdown笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;Markdown笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Linux下SVN服务器的搭建.html"><span><label style="color: #38b6fd"></label>&nbsp;Linux下SVN服务器的搭建</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/Debain通用设置.html"><span><label style="color: #38b6fd"></label>&nbsp;Debain通用设置</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/mysql笔记.html"><span><label style="color: #38b6fd"></label>&nbsp;mysql笔记</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/python标准异常.html"><span><label style="color: #38b6fd"></label>&nbsp;python标准异常</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/svn命令全解.html"><span><label style="color: #38b6fd"></label>&nbsp;svn命令全解</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/debian命令apt和dpkg用法.html"><span><label style="color: #38b6fd"></label>&nbsp;debian命令apt和dpkg用法</span></a></li>
+        
+        <li><a href="http://127.0.0.1:8000/关于我.html"><span><label style="color: #38b6fd"></label>&nbsp;关于我</span></a></li>
+        
+      </ul>
+    </div>
+  </body>
+
+  </html>
