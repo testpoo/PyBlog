@@ -7,11 +7,11 @@ tag: kde
 
 ### 1. 安装软件
 
-`sudo apt install intel-microcode fonts-noto-cjk arc-theme git fcitx-rime rime-data-wubi`
+`sudo apt install fonts-noto-cjk git fcitx5-rime rime-data-wubi`
 
 ### 2. 删除不需要软件
 
-`apt autoremove --purge kmail kaddressbook korganizer okular knotes akregator konqueror kwalletmanager k3b libreoffice*`
+`apt autoremove --purge kmail kaddressbook korganizer okular knotes akregator konqueror kwalletmanager k3b juk dragonplayer gimp imagemagick* kontrast kmenuedit qt5-style-kvantum kdeconnect* kmouth kmousetool kmag xterm`
 
 ### 3. 安装图标主题
 

@@ -14,8 +14,8 @@ import time
 ###############################
 #站名标题信息
 words = {
-    #"siteurl":"https://testpoo.github.io",
-    "siteurl":"http://127.0.0.1:8000",
+    "siteurl":"https://testpoo.github.io",
+    #"siteurl":"http://127.0.0.1:8000",
     "sitename":"测试铺",
     "keywords":"Poo's Notes",
     "description":"一个80后老人，专注测试领域",
