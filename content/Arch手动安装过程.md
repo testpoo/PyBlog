@@ -1,4 +1,4 @@
-title: Arch+openbox+tint2安装过程
+title: Arch手动安装过程
 date: 2023-06-30
 category: linux
 tag: openbox,tint2
