@@ -85,3 +85,14 @@ pacman-key --lsign-key "farseerfc@archlinux.org"
 - `pacman -Sw` 包名：只下载包，不安装。
 - `pacman -Sc`：清理未安装的包文件，包文件位于 `/var/cache/pacman/pkg/` 目录。
 - `pacman -Scc`：清理所有的缓存文件。
+
+### 6.安装软件
+
+```
+# 安装的软件
+pacman -S fcitx5-im fcitx5-rime rime-wubi git firefox packagekit-qt6 sweeper gwenview spectacle firefox-ublock-origin fuse2 speech-dispatcher wqy-zenhei
+
+# 向日葵启动前执行
+systemctl start runsunloginclient.service
+
+```
