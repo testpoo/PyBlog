@@ -7,7 +7,7 @@ tag: xfce
 
 ### 1. 安装软件
 
-`sudo apt install intel-microcode fonts-noto-cjk arc-theme git fcitx-rime rime-data-wubi gvfs-backends papirus-icon-theme blueman`
+`sudo apt install intel-microcode fonts-noto-cjk git fcitx5-rime rime-data-wubi gvfs-backends blueman`
 
 ### 2. 删除软件
 
