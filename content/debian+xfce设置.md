@@ -7,7 +7,7 @@ tag: xfce
 
 ### 1. 安装软件
 
-`sudo apt install intel-microcode fonts-noto-cjk git fcitx5-rime rime-data-wubi gvfs-backends blueman`
+`sudo apt install fonts-wqy-zenhei git fcitx5-rime rime-data-wubi gvfs-backends blueman xinput`
 
 ### 2. 删除软件
 
@@ -124,8 +124,8 @@ xfwm4-->vblank_mode=off
    background-image: linear-gradient(#e66465, #9198e5);
    color: #ffffff; }
 
-calendar.highlight { color: red; }
-calendar {padding: 0 10px; font-weight: bold;}
+calendar.highlight { color: #e95420; }
+calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;border: none;}
 ```
 
 ### 13. 安装xfce4-docklike-plugin
