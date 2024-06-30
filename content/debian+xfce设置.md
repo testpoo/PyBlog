@@ -7,7 +7,7 @@ tag: xfce
 
 ### 1. 安装软件
 
-`sudo apt install fonts-wqy-zenhei git fcitx5-rime rime-data-wubi gvfs-backends blueman xinput`
+`sudo apt install fonts-wqy-zenhei git fcitx5-rime rime-data-wubi gvfs-backends blueman xinput yaru-theme-gtk yaru-theme-icon`
 
 ### 2. 删除软件
 
@@ -25,6 +25,81 @@ sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
 - 主题/字体设置：外观-->样式+字体
 - 设置时钟格式：%A %F %H:%M 第%V周  %F%n%H:%M  %H:%M%n%Y/%m/%d
 
+#### 3.1 添加触摸板关启脚本
+
+本机快捷键Fn+F8==Super+Ctrl_L
+```
+#!/bin/sh
+
+dev_id=`xinput list | grep 'Touch[pP]ad' | sed -E 's/^.*id=([0-9]+).*$/\1/g'`
+dev_state=`xinput --list-props $dev_id | grep 'Device Enabled' | sed -E 's/^.*:.*([01]).*$/\1/g'`
+
+if [ $dev_state -eq 1 ]; then
+    xinput disable $dev_id
+    notify-send -i /home/poo/.poo/input-touchpad.png -t 1500 "触摸板已关闭"
+elif [ $dev_state -eq 0 ]; then
+    xinput enable $dev_id
+    notify-send -i /home/poo/.poo/input-touchpad.png -t 1500 "触摸板已开启"
+fi
+```
+
+#### 3.2 添加缺少的图标
+
+xfce菜单图标替换成`/usr/share/pixmaps/xfce4_xicon4.pngl`
+
+```
+#!/usr/bin/python3 env
+# coding=utf-8
+
+import os
+
+dirs = "/usr/share/icons/Yaru/"
+
+files = [["terminal-app.png","org.xfce.terminal.png"],
+["terminal-app.png","org.xfce.terminalemulator.png"],
+["filemanager-app.png","org.xfce.filemanager.png"],
+["webbrowser-app.png","org.xfce.webbrowser.png"],
+["edit-find.png","org.xfce.appfinder.png"],
+["mail-read.png","org.xfce.mailreader.png"],
+["filemanager-app.png","org.xfce.thunar.png"],
+["terminal-app.png","org.xfce.terminal-settings.png"],
+["terminal-app.png","org.xfce.terminal-settings.png"],
+["org.gnome.TextEditor.png","org.xfce.mousepad.png"],
+["system-monitor-app.png","org.xfce.taskmanager.png"],
+["session-properties.png","org.xfce.session.png"],
+["preferences-desktop-display.png","org.xfce.settings.display.png"],
+["user-desktop.png","org.xfce.xfdesktop.png"],
+["screenshot-app.png","org.xfce.screenshooter.png"],
+["preferences-system-power.png","org.xfce.powermanager.png"],
+["network-wired-offline-symbolic.svg","nm-device-wired.svg"],
+["network-wireless-disabled-symbolic.svg","nm-no-connection.svg"],
+["network-wireless-signal-none-symbolic.svg","nm-signal-00.svg"],
+["network-wireless-signal-none-secure-symbolic.svg","nm-signal-00-secure.svg"],
+["network-wireless-signal-weak-symbolic.svg","nm-signal-25.svg"],
+["network-wireless-signal-weak-secure-symbolic.svg","nm-signal-25-secure.svg"],
+["network-wireless-signal-ok-symbolic.svg","nm-signal-50.svg"],
+["network-wireless-signal-ok-secure-symbolic.svg","nm-signal-50-secure.svg"],
+["network-wireless-signal-good-symbolic.svg","nm-signal-75.svg"],
+["network-wireless-signal-good-secure-symbolic.svg","nm-signal-75-secure.svg"],
+["network-wireless-signal-excellent-symbolic.svg","nm-signal-100.svg"],
+["network-wireless-signal-excellent-secure-symbolic.svg","nm-signal-100-secure.svg"],
+["bluetooth.png","blueman.png"],
+["bluetooth-active-symbolic.svg","blueman-tray.svg"],
+["bluetooth-active-symbolic.svg","blueman-active.svg"],
+["bluetooth-disconnected-symbolic.svg","blueman-disabled.svg"],
+["gallery-app.png","org.xfce.ristretto.png"],
+["application-x-model.png","org.xfce.settings.appearance.png"]
+]
+
+for ofile,nfile in files:
+    temp =os.popen("find "+dirs+" -name "+ofile)
+    lists = [x.replace(ofile,'') for x in temp.read().split('\n')]
+    for li in lists:
+        if li != '' and os.path.exists(li+nfile) == False:
+            os.system("ln -s "+li+ofile+" "+li+nfile)
+os.system("gtk-update-icon-cache /usr/share/icons/Yaru")
+```
+
 ### 4. 图片路径
 
 ```
@@ -36,8 +111,8 @@ sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
 ```
 /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
-theme-name = Arc-Lighter
-icon-theme-name = Papirus-Light
+theme-name = Yaru
+icon-theme-name = Yaru
 font-name = Noto Sans Mono 11
 default-user-image = /usr/share/backgrounds/title.jpg
 clock-format = %A %F %H:%M 第%V周
@@ -143,5 +218,5 @@ apt install xfce4-dev-tools libglib2.0-dev libx11-dev build-essential libgtk-3-d
 ./autogen.sh --prefix=/home/poo/usr
 make
 sudo make install
-# 把usr复制到根目录下
+# 把usr复制到根目录下，目前有不显示中文的问题，原因还没有找到
 ```
