@@ -1,13 +1,6 @@
 #coding=utf-8
 
-import os
-import jinja2
-import markdown
-import copy
-import datetime
-import base64
-import shutil
-import time
+import os,jinja2,markdown,copy,datetime,base64,shutil,time
 
 ###############################
 #           配置参数
@@ -23,14 +16,11 @@ words = {
     "github":"https://github.com/testpoo",
     "mail":"pu_yawei@qq.com",
     "wechat":"puyaweis",
-    "jump":"关于我"
+    "about":"关于我"
 }
 
 #静态路径
-pushdir="output"  # 输出文件夹
-pulldir="content" # 输入文件夹
-src=r"static"
-dst=r"output/themes"
+postdir="content"
 static=r"static"
 output=r"output"
 
@@ -45,9 +35,9 @@ lastBuildDate = str(lastBuildDate)[0:19]
 # 删除output中文件
 def delfile():
     filelist=[]
-    filelist=os.listdir(pushdir)
+    filelist=os.listdir(output)
     for f in filelist:
-        filepath = os.path.join( pushdir, f )
+        filepath = os.path.join(output, f)
         if os.path.isfile(filepath):
             os.remove(filepath)
         elif os.path.isdir(filepath):
@@ -67,7 +57,7 @@ def md(filename):
     articles = []
     article = {}
     for i in range(len(filename)):
-        with open(pulldir+'/'+filename[i], "r", encoding='utf-8') as file:
+        with open(postdir+'/'+filename[i], "r", encoding='utf-8') as file:
             for file_line in file:
                 file_line = file_line.strip()
                 if file_line.lstrip().startswith('title'):
@@ -100,32 +90,32 @@ def posts(articles):
     template = jinja_environment.get_template('article.html')
     counts = len(articles)
     for i in range(counts):
-        if not os.path.exists(pushdir):
-            os.makedirs(pushdir)
+        if not os.path.exists(output):
+            os.makedirs(output)
         category = articles[i]['category']
         cate_posts = []
         for article in articles:
             if article['category'] == category:
                 cate_posts.append([article['title'],article['date'],article['content']])
-        f = open(pushdir+"/"+articles[i]['title']+".html", "w", encoding="utf-8")
+        f = open(output+"/"+articles[i]['title']+".html", "w", encoding="utf-8")
         f.write(template.render(article = articles[i],words=words,categories=categories,cate_posts=cate_posts,posts=posts,lastBuildDate=lastBuildDate))
         f.close()
 
 # 生成RSS
 def rss(articles):
     template = jinja_environment.get_template('rss.xml')
-    if not os.path.exists(pushdir+"/"):
-        os.makedirs(pushdir+"/")
-    f = open(pushdir+"/rss.xml", "w",encoding="utf-8")   
+    if not os.path.exists(output+"/"):
+        os.makedirs(output+"/")
+    f = open(output+"/rss.xml", "w",encoding="utf-8")   
     f.write(template.render(articles=articles,words=words,lastBuildDate=lastBuildDate))
     f.close()
 
 # 生成首页
 def home():
     template = jinja_environment.get_template('index.html')
-    if not os.path.exists(pushdir+"/"):
-        os.makedirs(pushdir+"/")
-    f = open(pushdir+"/index.html", "w",encoding="utf-8")   
+    if not os.path.exists(output+"/"):
+        os.makedirs(output+"/")
+    f = open(output+"/index.html", "w",encoding="utf-8")   
     f.write(template.render(words=words,lastBuildDate=lastBuildDate))
     f.close()
 
@@ -156,8 +146,8 @@ def copyFiles(src, dst):
 
 if __name__ == '__main__':
     delfile()
-    articles = md(file_name(pulldir))
+    articles = md(file_name(postdir))
     posts(articles)
     rss(articles)
     home()
-    copyFiles(src, dst)
+    copyFiles(static, output+"/themes")
