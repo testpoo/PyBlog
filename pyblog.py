@@ -11,7 +11,7 @@ words = {
     #"siteurl":"http://127.0.0.1:8000",
     "sitename":"测试铺",
     "keywords":"Poo's Notes",
-    "description":"一个80后老人，专注测试领域",
+    "description":"一个80后测试老人",
     "author":"TestPoo",
     "github":"https://github.com/testpoo",
     "mail":"pu_yawei@qq.com",

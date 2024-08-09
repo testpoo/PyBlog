@@ -11,6 +11,13 @@
     <link rel="shortcut icon" type="image/ico" href="{{ words.siteurl }}/themes/img/favicon.ico">
   </head>
 
+  {% if cate_posts|length == 1 %}
+  <style>
+    .toc {display: block;}
+    #catalog {display: none}
+  </style>
+  {% endif %}
+
   <body>
     <div class="sider">
       <div class="categories">
@@ -34,7 +41,7 @@
         <div class="scrollheight">
           <ul>
             {% for article in cate_posts %}
-            <li><a href="{{ words.siteurl }}/{{ article[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ article[0] }}</span><span>{{ article[1] }}&nbsp;&nbsp;共{{ article[2]|length }}个字</span></a></li>
+            <li><a href="{{ words.siteurl }}/{{ article[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ article[0] }}</span><span>{{ article[1] }}&nbsp;&nbsp;共{{ article[2]|length }}个字</span></a></li>
             {% endfor %}
           </ul>
         </div>
