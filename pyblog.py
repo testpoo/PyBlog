@@ -84,8 +84,15 @@ def posts(articles):
 
     categories = {}
     for category in articles:
-        if category['category'][0] not in categories.keys():
-            categories[category['category'][0]] = category['title']
+        element = category['category'][0]
+        count = categories.get(element, 0)
+        if count == 0:
+            count = 0
+            title = category['title']
+        else:
+            count = count[0] + 1
+            title = categories[element][1]
+        categories[element] = [count,title]
 
     template = jinja_environment.get_template('article.html')
     counts = len(articles)
@@ -96,7 +103,7 @@ def posts(articles):
         cate_posts = []
         for article in articles:
             if article['category'] == category:
-                cate_posts.append([article['title'],article['date'],article['content']])
+                cate_posts.append([article['title'],article['date'],article['content'],article['tag']])
         f = open(output+"/"+articles[i]['title']+".html", "w", encoding="utf-8")
         f.write(template.render(article = articles[i],words=words,categories=categories,cate_posts=cate_posts,posts=posts,lastBuildDate=lastBuildDate))
         f.close()

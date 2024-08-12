@@ -29,8 +29,8 @@
         </div>
         <div class="scrollheight">
           <ul>
-            {% for category,title in categories.items() %}
-            <li><a href="{{ words.siteurl }}/{{ title }}.html"><label style="color: #ffba48"></label>&nbsp;{{ category }}</a></li>
+            {% for category,content in categories.items() %}
+            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html">{% if content[0] != 0 %}<label style="color: #ffba48">{% else %}<label style="color: #38b6fd">{% endif %}</label>&nbsp;{{ category }}</a></li>
             {% endfor %}
           </ul>
         </div>
@@ -41,7 +41,7 @@
         <div class="scrollheight">
           <ul>
             {% for article in cate_posts %}
-            <li><a href="{{ words.siteurl }}/{{ article[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ article[0] }}</span><span>{{ article[1] }}&nbsp;&nbsp;共{{ article[2]|length }}个字</span></a></li>
+            <li><a href="{{ words.siteurl }}/{{ article[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ article[0] }}</span><span>{{ article[1] }}&nbsp;&nbsp;共{{ article[2]|length }}个字</span>{% for tag in article[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</a></li>
             {% endfor %}
           </ul>
         </div>
