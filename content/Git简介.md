@@ -1,6 +1,6 @@
 title: Git简介
 date: 2021-09-15
-category: 笔记
+category: 技术
 tag: git
 
 [TOC]

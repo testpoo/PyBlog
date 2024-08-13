@@ -1,7 +1,7 @@
 title:mysql笔记
 date:2019-10-11
-category:mysql
-tag:mysql, 笔记
+category: 技术
+tag:mysql
 
 [TOC]
 

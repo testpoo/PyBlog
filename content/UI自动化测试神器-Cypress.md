@@ -1,7 +1,7 @@
 title: UI自动化测试神器-Cypress
 date: 2022-06-14
-category: 笔记
-tag: Cypress
+category: 测试
+tag: Cypress, 自动化测试
 
 [TOC]
 

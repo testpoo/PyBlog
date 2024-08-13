@@ -1,7 +1,7 @@
 title:分分种学会python3
 date:2020-05-14
-category:python
-tag:python, 笔记
+category: 技术
+tag:python
 
 [TOC]
 

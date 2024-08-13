@@ -1,7 +1,7 @@
 title: Arch通过archinstall安装过程
 date: 2024-06-15
-category: linux
-tag: arch,archinstall
+category: 系统安装
+tag: linux, arch, archinstall
 
 [TOC]
 

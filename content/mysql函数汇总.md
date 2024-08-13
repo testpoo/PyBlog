@@ -1,6 +1,6 @@
 title: mysql函数汇总
 date: 2022-04-18
-category: mysql
+category: 技术
 tag: mysql
 
 [TOC]

@@ -1,7 +1,7 @@
 title: go测试库apitest简介
 date: 2023-08-23
-category: go
-tag: go apitest
+category: 测试
+tag: go, apitest
 
 ### 1. 开始
 

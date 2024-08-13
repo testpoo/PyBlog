@@ -15,6 +15,9 @@
   <style>
     .toc {display: block;}
     #catalog {display: none}
+    @media only screen and (max-width: 1000px) {
+      .toc {display: none}
+    }
   </style>
   {% endif %}
 
@@ -34,7 +37,7 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="github"><a href="{{ words.github }}" target="_blank" title="GitHub:{{ words.author }}"></a><a href="#" title="微信号：{{ words.wechat }}"></a><a href="#" title="邮箱：{{ words.mail }}"></a><a href="{{ words.siteurl }}/rss.xml" target="_blank"></a></div>
+        <div class="github"><a href="{{ words.github }}" target="_blank" title="GitHub:{{ words.github }}"></a><a href="#" title="微信号：{{ words.wechat }}"></a><a href="#" title="邮箱：{{ words.mail }}"></a><a href="{{ words.siteurl }}/rss.xml" target="_blank"></a></div>
       </div>
       <div class="articles">
         <div class="category">分类：{{ article.category[0] }}</div>
@@ -51,13 +54,22 @@
     <div class="main">
       <div class="header"><span>{{ article.title }}</span><span>{{ words.description }}<br />最后更新于{{ lastBuildDate }}</span></div>
       <input class="xswitch xonoff" type="checkbox" id="catalog">
-      <div class="posts">{{ article.content|safe }}</div>
+      <div class="posts">
+        {{ article.content|safe }}
+        <div class="copyright">
+          <ul>
+            <li>本文作者：{{ words.author }}</li>
+            <li>本文链接：<a href="{{ words.siteurl }}/{{ article.title }}.html">{{ words.siteurl }}/{{ article.title }}.html</a></li>
+            <li>版权声明：本铺所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans"> BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
     <div class="nav">
       <ul>
         {% for post in posts %}
-        <li><a href="{{ words.siteurl }}/{{ post }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ post }}</span></a></li>
+        <li><a href="{{ words.siteurl }}/{{ post }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ post }}</span></a></li>
         {% endfor %}
       </ul>
     </div>

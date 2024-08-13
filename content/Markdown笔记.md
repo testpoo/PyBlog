@@ -1,6 +1,6 @@
 title: Markdown笔记
 date: 2020-04-03
-category: 笔记
+category: 技术
 tag: markdown
 
 [TOC]

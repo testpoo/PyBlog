@@ -1,6 +1,6 @@
 title:python标准异常
 date:2019-10-11
-category:python
+category: 技术
 tag:python, 标准异常
 
 [TOC]

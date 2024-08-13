@@ -1,6 +1,6 @@
 title:svn命令全解
 date:2019-10-11
-category:笔记
+category: 技术
 tag:svn
 
 [TOC]

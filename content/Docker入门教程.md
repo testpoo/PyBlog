@@ -1,6 +1,6 @@
 title: Docker入门教程
 date: 2022-03-02
-category: 笔记
+category: 技术
 tag: docker
 
 [TOC]

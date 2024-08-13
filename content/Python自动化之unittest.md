@@ -1,7 +1,7 @@
 title: Python自动化之unittest
 date: 2021-04-21
-category: python
-tag: unittest
+category: 测试
+tag: python, unittest
 
 [TOC]
 

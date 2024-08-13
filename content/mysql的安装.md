@@ -1,7 +1,7 @@
 title:mysql的安装
 date:2020.05.09
-category:mysql
-tag:mysql安装
+category: 技术
+tag:mysql, 安装
 
 [TOC]
 

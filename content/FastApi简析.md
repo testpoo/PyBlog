@@ -1,7 +1,7 @@
 title: FastApi简析
 date: 2023-12-06
-category: python
-tag: FastApi
+category: 技术
+tag: FastApi, python
 
 # 1. 简介
 

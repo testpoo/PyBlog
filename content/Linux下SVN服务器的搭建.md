@@ -1,6 +1,6 @@
 title:Linux下SVN服务器的搭建
 date:2020-01-01
-category:笔记
+category: 技术
 tag:svn, linux
 
 [TOC]

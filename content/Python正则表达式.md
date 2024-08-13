@@ -1,7 +1,7 @@
 title: Python正则表达式
 date: 2021-06-23
-category: python
-tag: 正则表达式
+category: 技术
+tag: python, 正则表达式
 
 [TOC]
 

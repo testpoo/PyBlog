@@ -1,14 +1,13 @@
 title: Jinja2简介
 date: 2024-02-29
-category: python
-tag: Jinja2
+category: 测试
+tag: Jinja2, python
 
 [TOC]
 
 ### 1. 简介
 
 Jinja 是一个快速、表现力强、可扩展的模板引擎。模板中的特殊占位符允许编写类似 Python 语法的代码。然后将数据传递给模板，以渲染最终文档。
-
 
 
 特点：

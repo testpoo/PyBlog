@@ -1,7 +1,7 @@
 title: shell简介
 date: 2022-04-18
-category: linux
-tag: shell
+category: 技术
+tag: linux, shell
 
 [TOC]
 

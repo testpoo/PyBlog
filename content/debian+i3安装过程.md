@@ -1,7 +1,7 @@
 title: debian+i3安装过程
 date: 2021-04-08
-category: debian
-tag: i3
+category: 系统安装
+tag: debian, i3, linux
 
 [TOC]
 

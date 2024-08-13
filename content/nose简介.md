@@ -1,7 +1,7 @@
 title: nose简介
 date: 2021-06-04
-category: python
-tag: nose
+category: 测试
+tag: nose, python
 
 [TOC]
 

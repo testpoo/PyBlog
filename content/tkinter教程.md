@@ -1,6 +1,6 @@
 title: tkinter教程
 date: 2022-11-14
-category: python
+category: 技术
 tag: python,tkinter
 
 [TOC]

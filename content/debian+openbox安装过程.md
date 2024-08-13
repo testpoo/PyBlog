@@ -1,7 +1,7 @@
-title: debian+openbox+tint2安装过程
+title: debian+openbox安装过程
 date: 2022-07-18
-category: debian
-tag: openbox,tint2
+category: 系统安装
+tag: debian, openbox, tint2, linux
 
 [TOC]
 
@@ -158,7 +158,7 @@ sudo xrdb ~/.Xresources
 reboot
 ```
 
-### 9. 启动i3/OpenBox
+### 9. 启动OpenBox
 
 编辑（不存在即新建）文件~/.bash_profile（在tty下登录是不会执行.bashrc的），新增一行内容如下：
 

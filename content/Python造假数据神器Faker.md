@@ -1,7 +1,7 @@
 title: Python造假数据神器Faker
 date: 2024-02-27
-category: python
-tag: faker
+category: 测试
+tag: python, faker
 
 [TOC]
 

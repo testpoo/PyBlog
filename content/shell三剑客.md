@@ -1,7 +1,7 @@
 title: shell三剑客简介
 date: 2024-02-29
-category: linux
-tag: awk, grep, sed
+category: 技术
+tag: linux, awk, grep, sed
 
 [TOC]
 

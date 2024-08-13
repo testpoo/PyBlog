@@ -1,6 +1,6 @@
 title: Python进阶
 date: 2021-11-30
-category: python
+category: 技术
 tag: python
 
 [TOC]

@@ -1,6 +1,6 @@
 title: go入门
 date: 2023-08-15
-category: go
+category: 技术
 tag: go
 
 [TOC]
