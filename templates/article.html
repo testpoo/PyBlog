@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>{{ words.sitename }}</title>
     <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/style.css">
-    <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/xui.css">
     <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/markdown.css">
     <link rel="shortcut icon" type="image/ico" href="{{ words.siteurl }}/themes/img/favicon.ico">
   </head>
@@ -33,18 +32,18 @@
         <div class="scrollheight">
           <ul>
             {% for category,content in categories.items() %}
-            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html">{% if content[0] != 0 %}<label style="color: #ffba48">{% else %}<label style="color: #38b6fd">{% endif %}</label>&nbsp;{{ category }}</a></li>
+            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html"><label style="color: #38b6fd">{% if content[0] != 0 %}{% else %}{% endif %}</label>&nbsp;{{ category }}</a></li>
             {% endfor %}
           </ul>
         </div>
         <div class="github"><a href="{{ words.github }}" target="_blank" title="GitHub:{{ words.github }}"></a><a href="#" title="微信号：{{ words.wechat }}"></a><a href="#" title="邮箱：{{ words.mail }}"></a><a href="{{ words.siteurl }}/rss.xml" target="_blank"></a></div>
       </div>
       <div class="articles">
-        <div class="category">分类：{{ article.category[0] }}</div>
+        <div class="category"> {{ article.category[0] }}</div>
         <div class="scrollheight">
           <ul>
-            {% for article in cate_posts %}
-            <li><a href="{{ words.siteurl }}/{{ article[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ article[0] }}</span><span>{{ article[1] }}&nbsp;&nbsp;共{{ article[2]|length }}个字</span>{% for tag in article[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</a></li>
+            {% for post in cate_posts %}
+            <li {% if post[0] == article.title %}style="background: #f9fafb;border: 0px;"{% endif %}><a href="{{ words.siteurl }}/{{ post[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</a></li>
             {% endfor %}
           </ul>
         </div>

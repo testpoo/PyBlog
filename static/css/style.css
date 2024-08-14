@@ -225,11 +225,11 @@ hr {
     padding: 10px 0 10px 20px;
     border-bottom: 1px solid #eceff4;
     list-style-type:none;
+    border-radius: 10px;
 }
 
 .sider .articles li:hover {
     background: #f9fafb;
-    border-radius: 10px;
     border: 0px;
 }
 
