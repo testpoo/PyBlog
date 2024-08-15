@@ -27,7 +27,7 @@ html,body{
     font-family: "Georgia","Arial","Microsoft YaHei","黑体","宋体",sans-serif,'testfont';
 }
 
-a { text-decoration: none; color: #000 }
+a {text-decoration: none;}
 
 /*li {list-style-type:none;}*/
 
@@ -52,43 +52,91 @@ a { text-decoration: none; color: #000 }
 }*/ /* 横向滚动条和纵向滚动条相交处尖角的颜色 */
 
 /*链接按钮*/
-.linkbutton{display: inline-block;box-shadow: inset 0px 0px 2px #fff;-webkit-box-shadow: inset 0px 0px 2px #fff;-moz-box-shadow: inset 0px 0px 2px #fff; color: #fff;border: 1px solid #0e73e9;background-color: #0e73e9;border-radius: 5px;height: 38px;line-height: 38px;padding: 0 18px;margin: 10px 0px;cursor: pointer;font-size: 14px;}
-.linkbutton a {color: #fff;}
+.linkbutton {
+    display: inline-block;
+    box-shadow: inset 0px 0px 2px #fff;
+    -webkit-box-shadow: inset 0px 0px 2px #fff;
+    -moz-box-shadow: inset 0px 0px 2px #fff;
+    color: #fff;
+    border: 1px solid #0e73e9;
+    background-color: #0e73e9;
+    border-radius: 5px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    margin: 10px 0px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.linkbutton a {
+    color: #fff;
+}
 
 /*****开关*****/
-/*默认样式*/
-.xswitch {position:relative; -webkit-touch-callout:none; cursor:pointer; overflow:hidden; width:42px; height:24px; border:1px solid #dddddd; border-radius:13px; -webkit-appearance:none; -webkit-user-select:none; -webkit-box-sizing:border-box; box-sizing:border-box; background-color:#fff;}
-.xswitch:before {content:""; width:22px; height:22px; line-height:24px; text-transform:uppercase; position:absolute; top:0; left:0; border-radius:50%; -webkit-border-radius:50%; background-color:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.4); -webkit-box-sizing:border-box; box-sizing:border-box; -webkit-transition:0.2s ease-in; transition:0.2s ease-in; -webkit-transition-property:background-color,left; transition-property:background-color,left;}
-.xswitch:checked {border-color:#696969; background-color:#696969; color:#fff;}
-.xswitch:checked:before {left:20px;}
-.xswitch.xonoff {width:64px;}
-.xswitch.xonoff:before {content:"OFF"; text-indent:27px;}
-.xswitch.xonoff:checked:before {content:"ON"; left:40px; text-indent:-28px;}
+.pswitch {
+    position:relative;
+    -webkit-touch-callout:none;
+    cursor:pointer;
+    overflow:hidden;
+    width:42px;
+    height:24px;
+    border:1px solid #dddddd;
+    border-radius:13px;
+    -webkit-appearance:none;
+    -webkit-user-select:none;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    background-color:#fff;
+}
 
-/*自定义文字描述*/
-.xswitch-tip {display:inline-block; height:24px; position:relative; margin-bottom:10px;}
-.xswitch-tip:last-child {margin-bottom:0;}
-span.xswitch-tip {margin-bottom:0; margin-right:10px; vertical-align:top;}
-span.xswitch-tip:last-child {margin-right:0;}
-div.xswitch-tip {display:table;}
-.xswitch-tip label, .xswitch-tip span {height:24px; display:block;}
-.xswitch-tip span {font-size:12px; min-width:24px; text-align:center; line-height:24px; padding-left:28px; padding-right:12px; color:#999; position:relative; z-index:2; overflow-y:hidden;}
-.xswitch-tip span + span {display:none;}
-.xswitch-tip input[type="checkbox"] {position:absolute; z-index:-1; width:0; height:0; overflow:hidden; visibility:hidden; opacity:0;}
-.xswitch-tip label em {-webkit-box-sizing:border-box; box-sizing:border-box; -webkit-border-radius:10px; -moz-border-radius:10px; border-radius:15px; border:1px solid #ddd; position:absolute; top:0; left:0; width:100%; height:24px; z-index:1;}
-.xswitch-tip label em:after {content:""; display:block; width:22px; height:22px; border-radius:50%; background-color:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.4); position:absolute; top:0; left:0; -webkit-box-sizing:border-box; box-sizing:border-box;}
-.xswitch-tip label input[type="checkbox"]:checked + em {border-color:#696969; background-color:#696969;}
-.xswitch-tip label input[type="checkbox"]:checked + em:after {left:auto; right:0; background-color:#fff;}
-.xswitch-tip label input[type="checkbox"]:checked + em + span, .xswitch-tip label input[type="checkbox"]:checked + em + span + span {padding-left:12px; padding-right:28px; color:#fff;}
-.xswitch-tip label input[type="checkbox"]:checked + em + span {display:none;}
-.xswitch-tip label input[type="checkbox"]:checked + em + span + span {display:block;}
-.xswitch-tip label input[type="checkbox"]:checked + em + span:after {content:"ON";}
-.xswitch-tip span, .xswitch-tip label em, .xswitch-tip label em:after {-webkit-transition:0.2s ease-in; transition:0.2s ease-in; -webkit-transition-property:border-color,background-color; transition-property:border-color,background-color;}
-/*****开关*****/
+.pswitch:before {
+    content:"";
+    width:22px;
+    height:22px;
+    line-height:24px;
+    text-transform:uppercase;
+    position:absolute;
+    top:0;
+    left:0;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+    background-color:#fff;
+    box-shadow:0 1px 3px rgba(0,0,0,0.4);
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    -webkit-transition:0.2s ease-in;
+    transition:0.2s ease-in;
+    -webkit-transition-property:background-color,left;
+    transition-property:background-color,left;
+}
+
+.pswitch:checked {
+    border-color:#696969;
+    background-color:#696969;
+    color:#fff;
+}
+
+.pswitch:checked:before {
+    left:20px;
+}
+
+.pswitch.ponoff {
+    width:64px;
+}
+
+.pswitch.ponoff:before {
+    content:"OFF";
+    text-indent:27px;
+}
+
+.pswitch.ponoff:checked:before {
+    content:"ON";
+    left:40px;
+    text-indent:-28px;
+}
 
 hr {
-    border: 0;
-    padding: 3px;
     background: linear-gradient(135deg, red, orange,green, blue, purple);
     --mask-image: repeating-linear-gradient(135deg, #000 0px, #000 1px, transparent 1px, transparent 6px);
     -webkit-mask-image: var(--mask-image);
@@ -245,12 +293,16 @@ hr {
 
 .sider .articles li .tag {
     display: inline-block;
-    margin: 0px 5px;
+    margin: 0px 5px 0px 0px;
     padding: 5px;
     line-height: 16px;
     font-size: 12px;
     border-radius: 5px;
     background: #eee;
+}
+
+.sider .articles li .tag:last-child {
+    margin: 0px;
 }
 
 .sider .articles .item-num {

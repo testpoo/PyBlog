@@ -15,9 +15,9 @@ tag: debian, gnome, xfce, kde, linux
 
 附驱动下载地址（可选）：
 
-<https://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/firmware/bookworm/current/firmware.zip>
+- <https://mirrors.tuna.tsinghua.edu.cn/debian-nonfree/firmware/bookworm/current/firmware.zip>
 
-<https://packages.debian.org/bookworm/firmware-misc-nonfree>
+- <https://packages.debian.org/bookworm/firmware-misc-nonfree>
 
 ### 2. 制作自启动U盘
 

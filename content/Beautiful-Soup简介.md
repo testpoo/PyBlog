@@ -1,6 +1,6 @@
 title:Beautiful Soup简介
 date:2022-11-30
-category:测试
+category: 测试
 tag:Beautiful Soup, python
 
 [TOC]

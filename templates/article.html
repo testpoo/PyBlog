@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>{{ words.sitename }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/style.css">
     <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/markdown.css">
+    <link rel="stylesheet" type="text/css" href="{{ words.siteurl }}/themes/css/style.css">
     <link rel="shortcut icon" type="image/ico" href="{{ words.siteurl }}/themes/img/favicon.ico">
   </head>
 
@@ -43,7 +43,7 @@
         <div class="scrollheight">
           <ul>
             {% for post in cate_posts %}
-            <li {% if post[0] == article.title %}style="background: #f9fafb;border: 0px;"{% endif %}><a href="{{ words.siteurl }}/{{ post[0] }}.html"><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</a></li>
+            <a href="{{ words.siteurl }}/{{ post[0] }}.html"><li {% if post[0] == article.title %}style="background: #f9fafb;border: 0px;"{% endif %}><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</li></a>
             {% endfor %}
           </ul>
         </div>
@@ -52,7 +52,7 @@
     </div>
     <div class="main">
       <div class="header"><span>{{ article.title }}</span><span>{{ words.description }}<br />最后更新于{{ lastBuildDate }}</span></div>
-      <input class="xswitch xonoff" type="checkbox" id="catalog">
+      <input class="pswitch ponoff" type="checkbox" id="catalog">
       <div class="posts">
         {{ article.content|safe }}
         <div class="copyright">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <input class="xswitch xonoff" type="checkbox" id="nvacatalog">
+    <input class="pswitch ponoff" type="checkbox" id="nvacatalog">
     <div class="nav">
       <ul>
         {% for post in posts %}

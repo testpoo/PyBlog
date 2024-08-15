@@ -1,6 +1,6 @@
 title: Jinja2简介
 date: 2024-02-29
-category: 测试
+category: 技术
 tag: Jinja2, python
 
 [TOC]
