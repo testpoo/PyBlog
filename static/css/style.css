@@ -29,10 +29,9 @@ html,body{
 
 a {text-decoration: none;}
 
-/*li {list-style-type:none;}*/
-
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 } /* 这是针对缺省样式 (必须的) */
 
 /*::-webkit-scrollbar-track {
@@ -381,6 +380,10 @@ hr {
 .toc li {
     list-style-type: none;
     border-bottom: 1px dotted #bbb;
+}
+
+.toc li:last-child {
+    border: 0px;
 }
 
 .toc a {
