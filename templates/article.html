@@ -43,7 +43,7 @@
         <div class="scrollheight">
           <ul>
             {% for post in cate_posts %}
-            <a href="{{ words.siteurl }}/{{ post[0] }}.html"><li {% if post[0] == article.title %}style="background: #f9fafb;border: 0px;"{% endif %}><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</li></a>
+            <a href="{{ words.siteurl }}/{{ post[0] }}.html#current"><li {% if post[0] == article.title %}style="background: #f9fafb;border: 0px;" id="current"{% endif %}><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</li></a>
             {% endfor %}
           </ul>
         </div>
