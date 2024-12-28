@@ -303,7 +303,7 @@ sudo make install
 
 #### 9.1. 安装软件
 
-`sudo apt install fonts-noto-cjk git fcitx5-rime rime-data-wubi`
+`sudo apt install fonts-noto-cjk git fcitx5-rime rime-data-wubi plasma-calendar-addons`
 
 #### 9.2. 删除不需要软件
 
@@ -362,6 +362,18 @@ patch:
   "style/horizontal": true
   "menu/page_size": 5
 
+  schema_list:
+    - schema: wubi_pinyin
+    - schema: luna_pinyin_simp
+    - schema: wubi86
+```
+
+- fcitx5-rime
+
+```
+sudo apt install fcitx-rime rime-data-wubi
+nano ~/.local/share/fcitx5/rime/default.custom.yaml
+patch:
   schema_list:
     - schema: wubi_pinyin
     - schema: luna_pinyin_simp
