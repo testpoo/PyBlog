@@ -83,16 +83,18 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 
 ### 8. xfce桌面设置
 
-#### 8.1. 安装软件
-
-`sudo apt install fonts-wqy-zenhei git fcitx5-rime rime-data-wubi gvfs-backends blueman xinput yaru-theme-gtk yaru-theme-icon`
-
-#### 8.2. 删除软件
+#### 8.1. 删除软件
 
 ```
 # sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic --purge
-sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
+sudo apt autoremove libreoffice* exfalso quodlibet synaptic xfbrun --purge
 ```
+
+#### 8.2. 安装软件
+
+`sudo apt install fcitx5 git fcitx5-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager`
+
+安装图标 `https://github.com/vinceliuice/Qogir-icon-theme`
 
 #### 8.3. 设置
 
@@ -100,6 +102,7 @@ sudo apt autoremove libreoffice* exfalso quodlibet synaptic --purge
 - 窗口样式设置：设置-->窗口管理器-->样式+按钮布局
 - 窗口管理器微调：设置-->窗口管理器微调-->辅助功能  最大化窗口时隐藏标题
 - 窗口管理器微调：设置-->窗口管理器微调-->合成器  在dock窗口下显示阴影
+
 - 主题/字体设置：外观-->样式+字体
 - 设置时钟格式：%A %F %H:%M 第%V周  %F%n%H:%M  %H:%M%n%Y/%m/%d
 
@@ -123,7 +126,7 @@ fi
 
 #### 8.5 添加缺少的图标
 
-xfce菜单图标替换成`/usr/share/pixmaps/xfce4_xicon4.pngl`
+xfce菜单图标替换成`/usr/share/pixmaps/xfce4_xicon4.pngl`，如果使用`yaru-theme-icon`这个图标，需要使用下面的脚本对图标进行处理。
 
 ```
 #!/usr/bin/python3 env
@@ -279,24 +282,6 @@ xfwm4-->vblank_mode=off
 
 calendar.highlight { color: #e95420; }
 calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;border: none;}
-```
-
-#### 8.15. 安装xfce4-docklike-plugin
-
-- 安装xfce4-docklike-plugin合并启动器和窗口管理器
-
-```
-# 编译使用到的软件
-apt install xfce4-dev-tools libglib2.0-dev libx11-dev build-essential libgtk-3-dev pkg-config devhelp libwnck-3-dev libxfce4ui-2-dev libxfce4panel-2.0-dev
-```
-
-- 编译
-
-```
-./autogen.sh --prefix=/home/poo/usr
-make
-sudo make install
-# 把usr复制到根目录下，目前有不显示中文的问题，原因还没有找到
 ```
 
 ### 9. kde桌面设置
