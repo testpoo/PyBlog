@@ -5,6 +5,72 @@ tag:python
 
 [TOC]
 
+###  获取Linux程序名称/命令/图标/分类
+
+```
+path = "/usr/share/applications/"
+lists = [list for list in os.listdir(path) if len(list.split("."))>1 and list.split(".")[1] == "desktop"]
+apps = []
+for list in lists:
+    lines = open(path + list,"r").readlines()
+    dicts = {}
+    for line in lines:
+        if line.startswith("Name="):
+            dicts['Name'] = re.split("=|\n",line)[1]
+        elif line.startswith("Name[zh_CN]="):
+            dicts['NameCN'] = re.split("=|\n",line)[1]
+        elif line.startswith("Exec="):
+            dicts['Exec'] = re.sub(" %U| %F| %f| %u","",re.split("=|\n",line)[1])
+        elif line.startswith("Icon="):
+            dicts['Icon'] = re.split("=|\n",line)[1]
+        elif line.startswith("Categories="):
+            dicts['Categories'] = re.split("=|\n",line)[1]
+        elif line.startswith("[Desktop Action"):
+            break
+    if 'NameCN' in dicts:
+        dicts['Name'] = dicts['NameCN']
+        dicts.pop('NameCN')
+    if dicts != {} and 'Icon' in dicts:
+        apps.append(dicts)
+```
+<hr />
+###  获取Linux程序图标
+
+```
+# directries第一个元素是当前图标
+directries = ["/usr/share/icons/Yaru/48x48/","/usr/share/icons/gnome/48x48/","/usr/share/pixmaps/","/usr/share/icons/hicolor/scalable/","/usr/share/icons/hicolor/48x48/","/opt/"]
+
+def find_images_glob(self,directries,event=None):
+    image_paths={}
+    for directry in directries:
+        for dirpath, dirnames, filenames in os.walk(directry):
+            for app in apps:
+                if app['Icon']+".png" in filenames:
+                    if app['Icon']+".png" not in image_paths:
+                        image_paths[app['Icon']] = dirpath + "/" + app['Icon']+".png"
+                elif app['Icon']+".svg" in filenames:
+                    if app['Icon']+".svg" not in image_paths:
+                        image_paths[app['Icon']] = dirpath + "/" + app['Icon']+".svg"
+                elif len(app['Icon'].split("/"))>1:
+                    if app['Icon'].split("/")[-1] not in image_paths:
+                        image_paths[app['Icon'].split("/")[-1].split('.')[0]] = app['Icon']
+    return image_paths
+```
+<hr />
+###  如何确定在tkinter中单击了哪个按钮
+
+```
+方法1：
+from functools import partial
+
+for i in range(10):
+    btn = Button(frame,text="Button",command=partial(click, i))
+
+方法2：
+for i in range(10):
+    btn = Button(frame,text="Button",command=lambda i=i: click(i))
+```
+<hr />
 ###  python定时任务
 ```
 #!/usr/bin/env python
