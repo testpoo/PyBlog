@@ -65,7 +65,7 @@ docker node ls
 ```
 
 
-#### 6.安装mysql服务
+### 6.安装mysql服务
 
 ```
 # 添加清华源
@@ -131,11 +131,11 @@ docker service ps mysql-service
 
 同6.1
 
-7.2 创建网络(overlay)
+#### 7.2 创建网络(overlay)
 
 同6.2
 
-7.3 创建 MySQL Client 服务
+#### 7.3 创建 MySQL Client 服务
 
 在管理节点上执行以下命令来创建一个临时的 MySQL Client 服务，以连接到 MySQL 数据库：
 
