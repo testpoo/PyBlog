@@ -38,11 +38,11 @@ apt install docker-ce docker-ce-cli containerd.io -y
 ```
 docker swarm init --advertise-addr 192.168.214.34
 ===============================================================================
-Swarm initialized: current node (zsjzo4r1wt3e84bz7d6u5i5x4) is now a manager.
+Swarm initialized: current node (************************) is now a manager.
 
 To add a worker to this swarm, run the following command:
 
-    docker swarm join --token SWMTKN-1-340k5q3uyzcj83cbxvc5x9jb66q42r4pqub5zrbhkneopbdu3y-6u8c5jtvy0auqrg44onihxs11 192.168.214.34:2377
+    docker swarm join --token SWMTKN-1-************************************************ 192.168.214.34:2377
 
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
 ===============================================================================
@@ -51,7 +51,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 #### 5.2 添加工作节点
 
 ```
-docker swarm join --token SWMTKN-1-340k5q3uyzcj83cbxvc5x9jb66q42r4pqub5zrbhkneopbdu3y-6u8c5jtvy0auqrg44onihxs11 192.168.214.34:2377
+docker swarm join --token SWMTKN-1-************************************************ 192.168.214.34:2377
 
 重新加入swarm
 docker swarm join-token manager # 管理节点
