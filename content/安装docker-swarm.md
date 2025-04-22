@@ -1,4 +1,4 @@
-title:安装docker swarm
+title:安装docker-swarm
 date:2025-03-12
 category: 技术
 tag:docker swarm
@@ -175,5 +175,5 @@ docker service rm <服务 ID 或名称>
 ### 9. 进入docker
 
 ```
-dock exec -it <窗口 ID> bash
+docker exec -it <窗口 ID> bash
 ```
