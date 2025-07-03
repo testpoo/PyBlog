@@ -55,16 +55,16 @@ sudo update-grub，该命令将刚才的修改更新至 /boot/grub/grub.cfg 文�
 
 ```
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
-# deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
-# # deb-src https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ testing main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-updates main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-updates main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-backports main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-backports main contrib non-free non-free-firmware
+deb https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free non-free-firmware
+# deb https://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
+# # deb-src https://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
 ```
 
 ### 7. Gnome桌面设置
@@ -86,14 +86,12 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main 
 #### 8.1. 删除软件
 
 ```
-# sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic --purge
-sudo apt autoremove libreoffice* exfalso quodlibet synaptic xfburn --purge
-sudo apt autoremove xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin atril xfce4-genmon-plugin --purge
+sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic xfburn xterm xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin atril xfce4-genmon-plugin xsane --purge
 ```
 
 #### 8.2. 安装软件
 
-`sudo apt install fcitx5 git fcitx5-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager`
+`sudo apt install ibus git ibus-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager`
 
 安装图标 `https://github.com/vinceliuice/Qogir-icon-theme`
 
@@ -105,17 +103,19 @@ sudo apt autoremove xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-
 - 窗口管理器微调：设置-->窗口管理器微调-->合成器  在dock窗口下显示阴影
 
 - 主题/字体设置：外观-->样式+字体
-- 设置时钟格式：%A %F %H:%M 第%V周  %F%n%H:%M  %H:%M%n%Y/%m/%d
+- 设置时钟格式：%A %F %H:%M 第%V周 | %F%n%H:%M | %H:%M%n%Y/%m/%d
 
 #### 8.4 添加触摸板关启脚本
 
 本机快捷键Fn+F8==Super+Ctrl_L
 
+直接在键盘中设置该命令，直接打开关闭触摸板工具
 ```
 xfce4-mouse-settings --device="SYNA3602:00 093A:0255 Touchpad"
 xfce4-mouse-settings -d "SYNA3602:00 093A:0255 Touchpad"
 ```
 
+直接在键盘中设置该命令，直接关闭或启用触摸板，仅在X11下起作用
 ```
 #!/bin/sh
 
@@ -200,11 +200,11 @@ os.system("gtk-update-icon-cache /usr/share/icons/Yaru")
 /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
 theme-name = Yaru
-icon-theme-name = Yaru
-font-name = Noto Sans Mono 11
-default-user-image = /usr/share/backgrounds/title.jpg
+icon-theme-name = Qogir-icon
+font-name = Noto Sans Mono 10
+default-user-image = #distributor-logo
 clock-format = %A %F %H:%M 第%V周
-background = /usr/share/backgrounds/background.png
+background = /usr/share/desktop-base/active-theme/grub/grub-4x3.png
 xft-dpi = 120
 indicators = ~host;~spacer;~clock;~spacer;~a11y;~session;~power
 #hide-user-image = true
@@ -299,7 +299,7 @@ calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;b
 
 #### 9.2. 删除不需要软件
 
-`apt autoremove --purge kmail kaddressbook korganizer okular knotes akregator konqueror kwalletmanager k3b juk dragonplayer gimp imagemagick* kontrast kmenuedit qt5-style-kvantum kdeconnect* kmouth kmousetool kmag xterm`
+`apt autoremove --purge kmail kaddressbook korganizer okular akregator konqueror kwalletmanager k3b juk dragonplayer gimp imagemagick* kontrast kmenuedit qt5-style-kvantum kdeconnect* kmouth kmousetool kmag xterm`
 
 #### 9.3. 安装图标主题
 
@@ -321,7 +321,7 @@ calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;b
 
 #### 9.6. 解决无法更换头像
 
-- 这是账号服务的一个缺陷: 打开`sudo nano /usr/lib/systemd/system/accounts-daemon.service`文件，修改`PrivateTmp=true`为`PrivateTmp=false`，然后重启即可解决问题。
+- 这是账号服务的一个缺陷: 打开`sudo nano /usr/lib/systemd/system/accounts-daemon.service`文件，修改`PrivateTmp=true`为`PrivateTmp=false`，然后重启即可解决问题，这个问题已经不存在。
 
 #### 9.7. 修改设置
 
