@@ -1,7 +1,7 @@
 title: debian安装设置
-date: 2024-08-13
+date: 2025-09-28
 category: 系统安装
-tag: debian, gnome, xfce, kde, linux
+tag: gnome, xfce, kde, sway, labwc, wayfire
 
 [TOC]
 

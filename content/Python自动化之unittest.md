@@ -28,45 +28,45 @@ unittest 框架是 Python 自带的一个作为单元测试的测试框，相当
 1.py
 
 ```
-# coding=utf-8
+# coding=utf-8
 
-import unittest
+import unittest
 
-# 通过继承 unittest.TestCase 来实现用例
-class forTest(unittest.TestCase):
-    # 类的初始化
-    @classmethod
-    def setUpClass(cls):
-        print('class')
-    # 类的释放
-    @classmethod
-    def tearDownClass(cls):
-        print('tclass')
-        
-    # 测试用例初始化
-    def setUp(self):
-        print("setUp")
-    # 测试用例释放
-    def tearDown(self):
-        print("teadDown")
-    
-    # 测试用例
-    def test_a(self):
-        print("a")
-    # 测试用例
-    def test_b(self):
-        print("b")
-    
-    # 函数
-    def add(self, a, b):
-        return a + b
-    # 测试用例
-    def test_c(self):
-        c = self.add(1, 3)
-        print('c =', c)
-    
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+# 通过继承 unittest.TestCase 来实现用例
+class forTest(unittest.TestCase):
+    # 类的初始化
+    @classmethod
+    def setUpClass(cls):
+        print('class')
+    # 类的释放
+    @classmethod
+    def tearDownClass(cls):
+        print('tclass')
+        
+    # 测试用例初始化
+    def setUp(self):
+        print("setUp")
+    # 测试用例释放
+    def tearDown(self):
+        print("teadDown")
+    
+    # 测试用例
+    def test_a(self):
+        print("a")
+    # 测试用例
+    def test_b(self):
+        print("b")
+    
+    # 函数
+    def add(self, a, b):
+        return a + b
+    # 测试用例
+    def test_c(self):
+        c = self.add(1, 3)
+        print('c =', c)
+    
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 ```
 
 对上面的程序进行讲解：
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
 - 1 (默认模式): 非常类似静默模式 只是在每个成功的用例前面有个“.” 每个失败的用例前面有个“F”，每个跳过的案例前面有个“S”，每个预期失败真失败的案例前面有个“X”，每个预期失败却成功的案例前面有个“U”
 
-- 2 (详细模式):测试结果会显示每个测试用例的所有相关的信息 并且 你在命令行里加入不同的参数可以起到一样的效果
+- 2 (详细模式):测试结果会显示每个测试用例的所有相关的信息 并且 你在命令行里加入不同的参数可以起到一样的效果
 
 运行结果分析：
 
@@ -138,34 +138,34 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from selenium import webdriver
-import time
+import unittest
+from selenium import webdriver
+import time
 
-class forTest(unittest.TestCase):
-    # 测试用例初始化
-    # 打开谷歌浏览器，并进入百度
-    def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get('http://www.baidu.com')
-    # 测试用例释放
-    # 等待 3s，关闭浏览器
-    def tearDown(self):
-        time.sleep(3)
-        self.driver.quit()
- 
-    # 输入'苹果'，并点击搜索
-    def test_1(self):
-        self.driver.find_element_by_id('kw').send_keys('苹果')
-        self.driver.find_element_by_id('su').click()
- 
-    # 输入'香蕉'，并点击搜索
-    def test_2(self):
-        self.driver.find_element_by_id('kw').send_keys('香蕉')
-        self.driver.find_element_by_id('su').click()
- 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+class forTest(unittest.TestCase):
+    # 测试用例初始化
+    # 打开谷歌浏览器，并进入百度
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.get('http://www.baidu.com')
+    # 测试用例释放
+    # 等待 3s，关闭浏览器
+    def tearDown(self):
+        time.sleep(3)
+        self.driver.quit()
+ 
+    # 输入'苹果'，并点击搜索
+    def test_1(self):
+        self.driver.find_element_by_id('kw').send_keys('苹果')
+        self.driver.find_element_by_id('su').click()
+ 
+    # 输入'香蕉'，并点击搜索
+    def test_2(self):
+        self.driver.find_element_by_id('kw').send_keys('香蕉')
+        self.driver.find_element_by_id('su').click()
+ 
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
 ```
 
 上面的案例中，我们将打开谷歌浏览器，进入百度，放在 setUp 中，完成每个测试用例之前的初始化，浏览器的关闭放在tearDown 中，完成测试用例的释放
@@ -200,24 +200,24 @@ ddt 中最基本的应用；在 class 前定义 @ddt，用于表示要使用 ddt
 3.py
 
 ```
-# coding=utf-8
-import unittest
-from ddt import ddt
-from ddt import data    # 导入data
+# coding=utf-8
+import unittest
+from ddt import ddt
+from ddt import data    # 导入data
 
-# 类之前定义装饰器，表示在类中要使用ddt了
+# 类之前定义装饰器，表示在类中要使用ddt了
 @ddt
-class MyTestCase(unittest.TestCase):
-    def setUp(self):
-        print('\n{:=^20}'.format("测试开始"))
-    def tearDown(self):
-        print("{:=^20}".format('测试结束'))
-    # data用于设定参数
-    @data('苹果', '香蕉', '葡萄', '石榴')
-    def test_1(self, txt):
-        print(txt)
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        print('\n{:=^20}'.format("测试开始"))
+    def tearDown(self):
+        print("{:=^20}".format('测试结束'))
+    # data用于设定参数
+    @data('苹果', '香蕉', '葡萄', '石榴')
+    def test_1(self, txt):
+        print(txt)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
 ```
 
 运行结果：
@@ -256,25 +256,25 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from ddt import ddt
-from ddt import data
+import unittest
+from ddt import ddt
+from ddt import data
 
-# 类之前定义装饰器，表示在类中要使用ddt了
+# 类之前定义装饰器，表示在类中要使用ddt了
 @ddt
-class MyTestCase(unittest.TestCase):
-    def setUp(self):
-        print('\n{:=^20}'.format("测试开始"))
-    def tearDown(self):
-        print("{:=^20}".format('测试结束'))
- 
-    # data 用于设定参数，将包 ('苹果', '香蕉') 作为一个整体赋值给 txt
-    @data(('苹果', '香蕉'), ('葡萄', '石榴'))
-    def test_1(self, txt):
-        print(txt)
- 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        print('\n{:=^20}'.format("测试开始"))
+    def tearDown(self):
+        print("{:=^20}".format('测试结束'))
+ 
+    # data 用于设定参数，将包 ('苹果', '香蕉') 作为一个整体赋值给 txt
+    @data(('苹果', '香蕉'), ('葡萄', '石榴'))
+    def test_1(self, txt):
+        print(txt)
+ 
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
 ```
 
 运行结果如下：
@@ -303,26 +303,26 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from ddt import ddt
-from ddt import data
-from ddt import unpack # 导入unpack
+import unittest
+from ddt import ddt
+from ddt import data
+from ddt import unpack # 导入unpack
 
-# 类之前定义装饰器，表示在类中要使用ddt了
+# 类之前定义装饰器，表示在类中要使用ddt了
 @ddt
-class MyTestCase(unittest.TestCase):
-    def setUp(self):
-        print('\n{:=^20}'.format("测试开始"))
-    def tearDown(self):
-        print("{:=^20}".format('测试结束'))
-    @data(('苹果', '香蕉'), ('葡萄', '石榴'))
-    # 解包，将 ('苹果', '香蕉') 解包，'苹果' 赋值给 txt1，'香蕉'赋值给 txt2
-    @unpack
-    def test_3(self, txt1, txt2):
-        print(txt1)
-        print(txt2)
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        print('\n{:=^20}'.format("测试开始"))
+    def tearDown(self):
+        print("{:=^20}".format('测试结束'))
+    @data(('苹果', '香蕉'), ('葡萄', '石榴'))
+    # 解包，将 ('苹果', '香蕉') 解包，'苹果' 赋值给 txt1，'香蕉'赋值给 txt2
+    @unpack
+    def test_3(self, txt1, txt2):
+        print(txt1)
+        print(txt2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
 ```
 
 运行结果如下：
@@ -351,35 +351,35 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from ddt import ddt
-from ddt import data
-from ddt import unpack
+import unittest
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 
-def readFile():
-    params = []
-    file = open('6.ddt.txt', 'r', encoding = 'utf-8')
-    for line in file.readlines():
-        params.append(line.strip('\n').split(','))
-return params
+def readFile():
+    params = []
+    file = open('6.ddt.txt', 'r', encoding = 'utf-8')
+    for line in file.readlines():
+        params.append(line.strip('\n').split(','))
+return params
 
-# 类之前定义装饰器，表示在类中要使用ddt了
+# 类之前定义装饰器，表示在类中要使用ddt了
 @ddt
-class MyTestCase(unittest.TestCase):
-    def setUp(self) -> None:
-        print('{:=^20}'.format("测试开始"))
-    def tearDown(self) -> None:
-        print("{:=^20}".format('测试结束'))
+class MyTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        print('{:=^20}'.format("测试开始"))
+    def tearDown(self) -> None:
+        print("{:=^20}".format('测试结束'))
 
-    # 从文件中读取
-    @data(*readFile())
-    @unpack
-    def test_1(self, txt1, txt2):
-        print(txt1)
-        print(txt2)
+    # 从文件中读取
+    @data(*readFile())
+    @unpack
+    def test_1(self, txt1, txt2):
+        print(txt1)
+        print(txt2)
 
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
 ```
 
 6.ddt.txt 文件中的内如下：
@@ -419,30 +419,30 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from selenium import webdriver
-import time
-from ddt import ddt
-from ddt import data
-    
-# 在 class 前定义 @ddt，用于表示要使用 ddt 了
+import unittest
+from selenium import webdriver
+import time
+from ddt import ddt
+from ddt import data
+    
+# 在 class 前定义 @ddt，用于表示要使用 ddt 了
 @ddt
-class forTestTest(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.get('http://www.baidu.com')
-    def tearDown(self):
-        time.sleep(3)
-        self.driver.quit()
-        
-    # data 用于设定参数
-    @data('苹果', '香蕉', '石榴')
-    def test_1(self, txt):
-        self.driver.find_element_by_id('kw').send_keys(txt)
-        self.driver.find_element_by_id('su').click()
-    
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+class forTestTest(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+        self.driver.get('http://www.baidu.com')
+    def tearDown(self):
+        time.sleep(3)
+        self.driver.quit()
+        
+    # data 用于设定参数
+    @data('苹果', '香蕉', '石榴')
+    def test_1(self, txt):
+        self.driver.find_element_by_id('kw').send_keys(txt)
+        self.driver.find_element_by_id('su').click()
+    
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 ```
 
 运行结果，谷歌浏览器被打开三次，进入百度，分别输入 '苹果'，'香蕉'，'石榴'，每次浏览器关闭之后，才打开下一次，再进行搜索
@@ -467,39 +467,39 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from selenium import webdriver
-import time
-from ddt import ddt
-from ddt import data
-from ddt import unpack
-    
-def readFile():
-    params = []
-    file = open('8.ddt.txt', 'r', encoding = 'utf-8')
-    for line in file.readlines():
-        params.append(line.strip('\n').split(','))
-    return params
-    
+import unittest
+from selenium import webdriver
+import time
+from ddt import ddt
+from ddt import data
+from ddt import unpack
+    
+def readFile():
+    params = []
+    file = open('8.ddt.txt', 'r', encoding = 'utf-8')
+    for line in file.readlines():
+        params.append(line.strip('\n').split(','))
+    return params
+    
 @ddt
-class forTestTest(unittest.TestCase):
-    def setUp(self):
-        self.driver = webdriver.Chrome()
-    def tearDown(self):
-        time.sleep(3)
-        self.driver.quit()
-                    
-    # data 用于设定参数，表示参数由 readFile() 函数的返回值决定
-    # unpack 用于解析参数，例如将['http://www.baidu.com', '苹果'] 分别 赋值给 url 和 txt
-    @data(*readFile())
-    @unpack
-    def test_1(self, url, txt):
-        self.driver.get(url)
-        self.driver.find_element_by_id('kw').send_keys(txt)
-        self.driver.find_element_by_id('su').click()
-    
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+class forTestTest(unittest.TestCase):
+    def setUp(self):
+        self.driver = webdriver.Chrome()
+    def tearDown(self):
+        time.sleep(3)
+        self.driver.quit()
+                    
+    # data 用于设定参数，表示参数由 readFile() 函数的返回值决定
+    # unpack 用于解析参数，例如将['http://www.baidu.com', '苹果'] 分别 赋值给 url 和 txt
+    @data(*readFile())
+    @unpack
+    def test_1(self, url, txt):
+        self.driver.get(url)
+        self.driver.find_element_by_id('kw').send_keys(txt)
+        self.driver.find_element_by_id('su').click()
+    
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 ```
 
 8.ddt.txt 文件中的内容如下：
@@ -545,38 +545,38 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from ddt import ddt
-from ddt import data
-from ddt import unpack
+import unittest
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 
-def readFile():
-    params = []
-    file = open('9.ddt.txt', 'r', encoding = 'utf-8')
-    for line in file.readlines():
-        params.append(line.strip('\n').split(','))
-return params
+def readFile():
+    params = []
+    file = open('9.ddt.txt', 'r', encoding = 'utf-8')
+    for line in file.readlines():
+        params.append(line.strip('\n').split(','))
+return params
 
-# 类之前定义装饰器，表示在类中要使用ddt了
+# 类之前定义装饰器，表示在类中要使用ddt了
 @ddt
-class MyTestCase(unittest.TestCase):
-    def setUp(self) -> None:
-        print('\n{:=^20}'.format("测试开始"))
-    def tearDown(self) -> None:
-        print("{:=^20}".format('测试结束'))
-    
-    @data(*readFile())
-    @unpack
-    def test_yam(self, name, age):
-        # 获取参数name
-        print(name)
-        # 这里做断言，当断言不相等的时候返回 msg
-        self.assertEqual(name, '张三', msg = 'NotEqual')
-        # 获取为 text 的 value
-        print(age)
-    
-if __name__ == '__main__':
-    unittest.main(verbosity=2)
+class MyTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        print('\n{:=^20}'.format("测试开始"))
+    def tearDown(self) -> None:
+        print("{:=^20}".format('测试结束'))
+    
+    @data(*readFile())
+    @unpack
+    def test_yam(self, name, age):
+        # 获取参数name
+        print(name)
+        # 这里做断言，当断言不相等的时候返回 msg
+        self.assertEqual(name, '张三', msg = 'NotEqual')
+        # 获取为 text 的 value
+        print(age)
+    
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
 ```
 
 文件内容：
@@ -678,46 +678,46 @@ Skip用法：
 
 ```
 #coding=utf-8
-import unittest
-    
-class MyTestCase(unittest.TestCase):
-    def setUp(self):
-        pass
-    
-    def tearDown(self):
-        pass
-    
-    def test_1(self):
-        print('1')
-    
-    # 无条件跳过该条用例
-    @unittest.skip("不想运行")
-    def test_2(self):
-        print('2')
-    
-    # 有条件跳过操作，条件为True跳过
-    @unittest.skipIf(1 < 2, '1 < 2 为True，条件成立，跳过执行')
-    def test_3(self):
-        print('3')
-    
-    # 有条件执行跳过，条件为False跳过
-    @unittest.skipUnless(1 > 2, 'Unless的理由，条件为False，跳过执行')
-    def test_4(self):
-        print('4')
-    
-    # 标记该测试预期为失败 ，如果该测试方法运行失败，则该测试不算做失败
-    @unittest.expectedFailure
-    def test_5(self):
-        print('5')
-        self.assertEqual(4, 3, msg = 'Equal')
-    
-    @unittest.expectedFailure
-    def test_6(self):
-        print('6')
-        self.assertNotEqual(4, 3, msg = 'NotEqual')
-    
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+import unittest
+    
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        pass
+    
+    def tearDown(self):
+        pass
+    
+    def test_1(self):
+        print('1')
+    
+    # 无条件跳过该条用例
+    @unittest.skip("不想运行")
+    def test_2(self):
+        print('2')
+    
+    # 有条件跳过操作，条件为True跳过
+    @unittest.skipIf(1 < 2, '1 < 2 为True，条件成立，跳过执行')
+    def test_3(self):
+        print('3')
+    
+    # 有条件执行跳过，条件为False跳过
+    @unittest.skipUnless(1 > 2, 'Unless的理由，条件为False，跳过执行')
+    def test_4(self):
+        print('4')
+    
+    # 标记该测试预期为失败 ，如果该测试方法运行失败，则该测试不算做失败
+    @unittest.expectedFailure
+    def test_5(self):
+        print('5')
+        self.assertEqual(4, 3, msg = 'Equal')
+    
+    @unittest.expectedFailure
+    def test_6(self):
+        print('6')
+        self.assertNotEqual(4, 3, msg = 'NotEqual')
+    
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 ```
 
 执行结果如下，可以看到，test_2，test_3，test_4 跳过，test_5执行失败，但不算做失败
@@ -749,31 +749,31 @@ FAILED (skipped=3, expected failures=1, unexpected successes=1)
 testCase.py
 
 ```
-import unittest
-class MyTestCase(unittest.TestCase):
-    def setUp(self):
-        pass
-    
-    def tearDown(self):
-        pass
-        
-    def test_2(self):
-        print("2")
-        
-    def test_1(self):
-        print("1")
-    
-    def test_4(self):
-        print("4")
-    
-    def test_3(self):
-        print("3") 
-    
-    def test_5(self):
-        print("5")
-    
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+import unittest
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        pass
+    
+    def tearDown(self):
+        pass
+        
+    def test_2(self):
+        print("2")
+        
+    def test_1(self):
+        print("1")
+    
+    def test_4(self):
+        print("4")
+    
+    def test_3(self):
+        print("3") 
+    
+    def test_5(self):
+        print("5")
+    
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 ```
 
 运行结果：
@@ -798,17 +798,17 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from testCase import *
-    
-# 创建一个测试套件 list
-suite = unittest.TestSuite()
-# 方法一，添加测试用例（子元素）到测试套件（集合）
+import unittest
+from testCase import *
+    
+# 创建一个测试套件 list
+suite = unittest.TestSuite()
+# 方法一，添加测试用例（子元素）到测试套件（集合）
 suite.addTest(MyTestCase('test_3'))
 suite.addTest(MyTestCase("test_1"))
 suite.addTest(MyTestCase("test_5"))
 
-runner = unittest.TextTestRunner(verbosity=2)
+runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)
 ```
 
@@ -834,18 +834,18 @@ OK
 
 ```
 #coding=utf-8
-import unittest
-from testCase import *
+import unittest
+from testCase import *
 
-# 创建一个测试套件 list
-suite = unittest.TestSuite()
+# 创建一个测试套件 list
+suite = unittest.TestSuite()
 
-# 方法二，批量添加测试用例
-cases = [MyTestCase('test_3'), MyTestCase('test_1'), MyTestCase('test_5')]
+# 方法二，批量添加测试用例
+cases = [MyTestCase('test_3'), MyTestCase('test_1'), MyTestCase('test_5')]
 suite.addTests(cases)
 
-# 套件通过TextTestRunner对象运行，功能相当于unittest.main(verbosity=2)
-runner = unittest.TextTestRunner(verbosity=2)
+# 套件通过TextTestRunner对象运行，功能相当于unittest.main(verbosity=2)
+runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)
 ```
 
@@ -855,19 +855,19 @@ runner.run(suite)
 
 ```
 #coding=utf-8
-import unittest
-from testCase import *
+import unittest
+from testCase import *
 
-# 创建一个测试套件 list
-suite = unittest.TestSuite()
+# 创建一个测试套件 list
+suite = unittest.TestSuite()
 
-# 方法三，批量运行多个unittest类
-test_dir = './'
-# start_dir 参数指定文件路径，pattern 执行规则，'s*.py' 表示以 "s" 开头，".py" 的都加入测试套件中
-discover = unittest.defaultTestLoader.discover(start_dir = test_dir, pattern = 't*.py')
+# 方法三，批量运行多个unittest类
+test_dir = './'
+# start_dir 参数指定文件路径，pattern 执行规则，'s*.py' 表示以 "s" 开头，".py" 的都加入测试套件中
+discover = unittest.defaultTestLoader.discover(start_dir = test_dir, pattern = 't*.py')
 
-runner = unittest.TextTestRunner(verbosity=2)
-runner.run(discover) # 通过 run 函数运行测试用例
+runner = unittest.TextTestRunner(verbosity=2)
+runner.run(discover) # 通过 run 函数运行测试用例
 ```
 
 还可以执行类的名字，执行该类下面所有的测试用例，使用 loadTestsFromName 函数或者 loadTestsFromTestCase 都可以，案例如下：
@@ -876,17 +876,17 @@ runner.run(discover) # 通过 run 函数运行测试用例
 
 ```
 #coding=utf-8
-import unittest
-from testCase import *
+import unittest
+from testCase import *
 
-# 创建一个测试套件 list
-suite = unittest.TestSuite()
+# 创建一个测试套件 list
+suite = unittest.TestSuite()
 
-# 方法四，给出文件名和类名，就能测试所有的测试用例
+# 方法四，给出文件名和类名，就能测试所有的测试用例
 suite.addTests(unittest.TestLoader().loadTestsFromName('testCase.MyTestCase'))
 
-# 套件通过TextTestRunner对象运行，功能相当于unittest.main(verbosity=2)
-runner = unittest.TextTestRunner(verbosity=2)
+# 套件通过TextTestRunner对象运行，功能相当于unittest.main(verbosity=2)
+runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)
 ```
 
@@ -894,16 +894,16 @@ runner.run(suite)
 
 ```
 #coding=utf-8
-import unittest
-from testCase import *
+import unittest
+from testCase import *
 
-# 创建一个测试套件 list
-suite = unittest.TestSuite()
+# 创建一个测试套件 list
+suite = unittest.TestSuite()
 
-# 方法五，给出类名，就能测试所有的测试用例
+# 方法五，给出类名，就能测试所有的测试用例
 suite.addTests(unittest.TestLoader().loadTestsFromTestCase(MyTestCase))
-# 套件通过TextTestRunner对象运行，功能相当于unittest.main(verbosity=2)
-runner = unittest.TextTestRunner(verbosity=2)
+# 套件通过TextTestRunner对象运行，功能相当于unittest.main(verbosity=2)
+runner = unittest.TextTestRunner(verbosity=2)
 runner.run(suite)
 ```
 
@@ -934,62 +934,62 @@ runner.run(suite)
 testCase.py 文件
 
 ```
-import unittest
-class MyTestCase(unittest.TestCase):
-    def setUp(self) -> None:
-        pass
-    
-    def tearDown(self) -> None:
-        pass
-    
-    def test_2(self):
-        print("2")
-    
-    def test_1(self):
-        print("1")
-    
-    def test_4(self):
-        print("4")
-    
-    def test_3(self):
-        print("3")
-    
-    def test_5(self):
-        print("5")
-    
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+import unittest
+class MyTestCase(unittest.TestCase):
+    def setUp(self) -> None:
+        pass
+    
+    def tearDown(self) -> None:
+        pass
+    
+    def test_2(self):
+        print("2")
+    
+    def test_1(self):
+        print("1")
+    
+    def test_4(self):
+        print("4")
+    
+    def test_3(self):
+        print("3")
+    
+    def test_5(self):
+        print("5")
+    
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
 ```
 
 16.py
 
 ```
 #coding=utf-8
-import unittest
-from suite_case import MyTestCase
-from HTMLTestRunner import HTMLTestRunner
-import os
+import unittest
+from suite_case import MyTestCase
+from HTMLTestRunner import HTMLTestRunner
+import os
 
-suite = unittest.TestSuite()
+suite = unittest.TestSuite()
 
-report_path = './report/'
-report_file = report_path + 'report.html'
-# 路径不存在就创建一个文件夹
-if not os.path.exists(report_path):
-    os.mkdir(report_path)
+report_path = './report/'
+report_file = report_path + 'report.html'
+# 路径不存在就创建一个文件夹
+if not os.path.exists(report_path):
+    os.mkdir(report_path)
 else:
 pass
 
-report_name = '测试报告名称'
-report_title = '测试报告标题'
-report_desc = '测试报告描述'
-    
-with open(report_file, 'wb') as report:
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(MyTestCase))
-    # 套件结合 TextTestRunner 对象进行运行，相当于 unittest.mian()
-    # 如果结合 HTMLTestRunner 使用，则需要调用 HTMLTestRunner 中的运行器
-    runner = HTMLTestRunner(stream = report, title = report_title, description = report_desc)
-    runner.run(suite)
+report_name = '测试报告名称'
+report_title = '测试报告标题'
+report_desc = '测试报告描述'
+    
+with open(report_file, 'wb') as report:
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(MyTestCase))
+    # 套件结合 TextTestRunner 对象进行运行，相当于 unittest.mian()
+    # 如果结合 HTMLTestRunner 使用，则需要调用 HTMLTestRunner 中的运行器
+    runner = HTMLTestRunner(stream = report, title = report_title, description = report_desc)
+    runner.run(suite)
 ```
 
 运行 就会成成 report.html 文件，浏览器打开该文件，如下所示：

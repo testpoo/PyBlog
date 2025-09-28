@@ -1,7 +1,7 @@
 title: Arch通过archinstall安装过程
-date: 2024-06-15
+date: 2025-09-28
 category: 系统安装
-tag: linux, arch, archinstall
+tag: archinstall, kde, sway
 
 [TOC]
 

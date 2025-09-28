@@ -32,7 +32,7 @@
         <div class="scrollheight">
           <ul>
             {% for category,content in categories.items() %}
-            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html"><label style="color: #38b6fd">{% if content[0] != 0 %}{% else %}{% endif %}</label>&nbsp;{{ category }}</a></li>
+            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html" {% if category == article.category[0] %}style="color: #ff9023;"{% endif %}><label {% if category == article.category[0] %}style="color: #ff9023;"{% else %}style="color: #38b6fd"{% endif %}>{% if content[0] != 0 %}{% else %}{% endif %}</label>&nbsp;&nbsp;{{ category }}</a></li>
             {% endfor %}
           </ul>
         </div>
@@ -43,7 +43,7 @@
         <div class="scrollheight">
           <ul>
             {% for post in cate_posts %}
-            <a href="{{ words.siteurl }}/{{ post[0] }}.html#current"><li {% if post[0] == article.title %}style="background: #f9fafb;border: 0px;" id="current"{% endif %}><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</li></a>
+            <a href="{{ words.siteurl }}/{{ post[0] }}.html#current"><li {% if post[0] == article.title %}style="background: aliceblue;border: 0px;" id="current"{% endif %}><span><label style="color: #38b6fd"></label>&nbsp;{{ post[0] }}</span><span>{{ post[1] }}&nbsp;&nbsp;共{{ post[2]|length }}个字</span>{% for tag in post[3] %}<span class="tag">{{ tag }}</span>{% endfor %}</li></a>
             {% endfor %}
           </ul>
         </div>

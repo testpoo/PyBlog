@@ -1,7 +1,7 @@
 title: Arch手动安装过程
 date: 2023-06-30
 category: 系统安装
-tag: linux, arch
+tag: deep, xfce
 
 [TOC]
 
