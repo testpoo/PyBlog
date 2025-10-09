@@ -78,9 +78,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main c
 
 #### 7.2. 安装软件
 
-`sudo apt install ibus git ibus-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager xfce4-docklike-plugin`
+`sudo apt install ibus git ibus-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager xfce4-docklike-plugin pkexec pipewire-audio firefox-esr-l10n-zh-cn`
 
-安装图标 `https://github.com/vinceliuice/Qogir-icon-theme`
+可选图标 `https://github.com/vinceliuice/McMojave-circle`
 
 #### 7.3. 设置
 
@@ -112,7 +112,7 @@ icon-theme-name = Qogir-icon
 font-name = Noto Sans Mono 10
 default-user-image = #distributor-logo
 clock-format = %A %F %H:%M 第%V周
-background = /usr/share/desktop-base/active-theme/grub/grub-4x3.png
+background = /usr/share/backgrounds/background.png
 xft-dpi = 120
 indicators = ~host;~spacer;~clock;~spacer;~a11y;~session;~power
 #hide-user-image = true
@@ -128,13 +128,7 @@ xfce4-panel -q && GTK_DEBUG=interactive xfce4-panel
 重启xfce-panel:xfce4-panel -r
 ```
 
-#### 7.7. 修改grub背景
-
-```
-找到 /usr/share/desktop-base/active-theme/grub/grub-4x3.png 替换, 必须是png格式
-```
-
-#### 7.8. 添加右键
+#### 7.7. 添加右键
 
 ```
 ln -s %f 'Link to %n'
@@ -156,17 +150,13 @@ Search for Files
 搜索文件
 ```
 
-#### 7.9. thunar侧边栏添加位置
-
-- 点击文件右键`send to-->Side Panel`
-
-#### 8.10. 启动花屏
+#### 7.8. 启动花屏
 
 ```
 xfwm4-->vblank_mode=off
 ```
 
-#### 7.11. 添加gtk.css
+#### 7.9. 添加gtk.css
 
 - 路径`~/config/gtk3.0/gtk.css`
 
