@@ -42,6 +42,8 @@ sudo update-grub，该命令将刚才的修改更新至 /boot/grub/grub.cfg 文�
 
 <https://mirrors.tuna.tsinghua.edu.cn/help/debian/>
 
+- 传统格式（/etc/apt/sources.list）
+
 ```
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing main contrib non-free non-free-firmware
@@ -54,6 +56,36 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main c
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free non-free-firmware
 # deb https://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
 # # deb-src https://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
+```
+
+- DEB822 格式（/etc/apt/sources.list.d/debian.sources）
+
+```
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
+Suites: testing testing-updates testing-backports
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+# Types: deb-src
+# URIs: https://mirrors.tuna.tsinghua.edu.cn/debian
+# Suites: testing testing-updates testing-backports
+# Components: main contrib non-free non-free-firmware
+# Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
+Types: deb
+URIs: https://mirrors.tuna.tsinghua.edu.cn/debian-security
+Suites: testing-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+# Types: deb-src
+# URIs: https://mirrors.tuna.tsinghua.edu.cn/debian-security
+# Suites: testing-security
+# Components: main contrib non-free non-free-firmware
+# Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
 
 ### 6. Gnome桌面设置
@@ -363,7 +395,7 @@ profile nomad {
 
 #### 11.1. 安装wayfire及相关软件
 ```
-sudo apt install wayfire swaybg swayidle swaylock fcitx5 fcitx5-rime rime-data-wubi thunar xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk xfce4-terminal xfce4-appfinder seatd xwayland git brightnessctl firefox-esr mako-notifier
+sudo apt install wayfire swaybg swayidle swaylock fcitx5 fcitx5-rime rime-data-wubi thunar xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk xfce4-terminal xfce4-appfinder seatd xwayland git brightnessctl firefox-esr webext-ublock-origin-firefox firefox-esr-l10n-zh-cn mako-notifier grim wl-clipboard slurp libglib2.0-bin waybar chromium chromium-l10n
 ```
 
 #### 11.2. 启动wayfire

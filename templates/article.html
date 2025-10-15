@@ -32,7 +32,7 @@
         <div class="scrollheight">
           <ul>
             {% for category,content in categories.items() %}
-            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html" {% if category == article.category[0] %}style="color: #ff9023;"{% endif %}><label {% if category == article.category[0] %}style="color: #ff9023;"{% else %}style="color: #38b6fd"{% endif %}>{% if content[0] != 0 %}{% else %}{% endif %}</label>&nbsp;&nbsp;{{ category }}</a></li>
+            <li><a href="{{ words.siteurl }}/{{ content[1] }}.html" {% if category == article.category[0] %}style="color: #0e73e9;"{% endif %}><label {% if category == article.category[0] %}style="color: #0e73e9;"{% else %}style="color: #38b6fd"{% endif %}>{% if content[0] != 0 %}{% else %}{% endif %}</label>&nbsp;&nbsp;{{ category }}</a></li>
             {% endfor %}
           </ul>
         </div>
