@@ -5,9 +5,7 @@ tag: gnome, xfce, kde, sway, labwc, wayfire
 
 [TOC]
 
-### 1. 下载特殊版本链接
-
-> 2023 年 6 月 10 日： 从 Debian 12 (Bookworm) 开始，固件已包含在正常的 Debian 安装程序镜像中，用户无需再在此查找特殊版本。
+### 1. 下载链接
 
 - [稳定版：https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/)
 
@@ -32,6 +30,8 @@ reboot
 ### 4. 去掉debain开机启动项停留的5秒和电池的问题
 
 ```
+# 使用grup时使用，使用systemd-boot请忽略
+
 nano /etc/default/grub
 修改GRUB_TIMEOUT=5改为GRUB_TIMEOUT=0
 修改GRUB_CMDLINE_LINUX_DEFAULT="quiet" 加acpi=force
@@ -117,12 +117,17 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 #### 7.3. 设置
 
 - 快捷键设置:设置-->键盘-->应用程度快捷键
+
 - 窗口样式设置：设置-->窗口管理器-->样式+按钮布局
+
 - 窗口管理器微调：设置-->窗口管理器微调-->辅助功能  最大化窗口时隐藏标题
+
 - 窗口管理器微调：设置-->窗口管理器微调-->合成器  在dock窗口下显示阴影
 
 - 主题/字体设置：外观-->样式+字体
+
 - 设置时钟格式：%A %F %H:%M 第%V周 | %F%n%H:%M | %H:%M%n%Y/%m/%d
+
 
 #### 7.4. 添加触摸板关启脚本
 
