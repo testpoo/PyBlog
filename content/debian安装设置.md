@@ -328,42 +328,8 @@ XMODIFIERS="@im=fcitx"
 INPUT_METHOD=fcitx
 SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=fcitx
-```
-#### 10.5. 添加快捷键rc.xml
-```
-    <!--自定义-->
-    <keybind key="W-s">
-      <action name="Execute" command="wofi --show=drun --lines=6 --allow-images --prompt='请输入软件名称'" />
-    </keybind>
-    <keybind key="XF86AudioRaiseVolume">
-      <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ +5%" />
-    </keybind>
-    <keybind key="XF86AudioLowerVolume">
-      <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ -5%" />
-    </keybind>
-    <keybind key="XF86AudioMute">
-      <action name="Execute" command="pactl set-sink-mute @DEFAULT_SINK@ toggle" />
-    </keybind>
-    <keybind key="XF86AudioMicMute">
-      <action name="Execute" command="pactl set-source-mute @DEFAULT_SOURCE@ toggle" />
-    </keybind>
-    <keybind key="XF86MonBrightnessDown">
-      <action name="Execute" command="brightnessctl set 5%-" />
-    </keybind>
-    <keybind key="XF86MonBrightnessUp">
-      <action name="Execute" command="brightnessctl set 5%+" />
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute" command="wofi --show=drun -I --gtk-dark -x 0 -y 324 -W 300 -H 600 -p '请输入软件名称'" />
-    </keybind>
-    <keybind key="W-q">
-      <action name="Execute" command="firefox-esr" />
-    </keybind>
-    <keybind key="W-e">
-      <action name="Execute" command="thunar" />
-    </keybind>
-```    
-#### 10.6 开机启动设置
+```   
+#### 10.5 开机启动设置
 ```
 nano autostart
 
@@ -373,14 +339,14 @@ swaybg -i '/home/poo/图片/3.jpg' >/dev/null 2>&1 &
 fcitx5 >/dev/null 2>&1 &
 blueman-applet >/dev/null 2>&1 &
 ```
-#### 10.7. 设置终端(foot)字体大小
+#### 10.6. 设置终端(foot)字体大小
 ```
 cp -r /etc/foot/ ~/.config/foot/
 vi ~/.config/foot/foot.ini
 
 font=monospace:size=12
 ```
-#### 10.8. 设置kanshi
+#### 10.7. 设置kanshi
 ```
 mkdir -p ~/.config/kanshi
 nano config

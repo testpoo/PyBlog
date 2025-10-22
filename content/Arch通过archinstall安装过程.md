@@ -1,5 +1,5 @@
 title: Arch通过archinstall安装过程
-date: 2025-09-28
+date: 2025-10-22
 category: 系统安装
 tag: archinstall, kde, sway
 
@@ -142,15 +142,4 @@ cp -r /etc/foot/ ~/.config/foot/
 vi ~/.config/foot/foot.ini
 
 font=FreeMono:size=12
-```
-
-### 7.6.添加Arch Linux CN 软件仓库源
-
-```
-# 在/etc/pacman.conf文件最后面添加
-[archlinuxcn]
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-
-# 然后安装archlinuxcn-keyring
-pacman -Sy archlinuxcn-keyring
 ```

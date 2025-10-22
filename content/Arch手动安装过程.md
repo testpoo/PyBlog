@@ -1,5 +1,5 @@
 title: Arch手动安装过程
-date: 2023-06-30
+date: 2025-10-22
 category: 系统安装
 tag: deep, xfce
 
@@ -103,13 +103,7 @@ swapon /dev/sda3
 
 ### 6. 安装桌面/WM
 
-#### 6.1 安装openbox
-
-```
-pacman -S xorg-xinit install openbox obconf tint2 sakura pcmanfm ristretto fcitx-rime librime-data-wubi lxappearance xarchiver pulseaudio blueman sudo git intel-microcode fonts-noto-cjk slock light jgmenu chromium chromium-l10n webext-ublock-origin-chromium
-```
-
-#### 6.2 安装deepin
+#### 6.1 安装deepin
 
 ```
 pacman -S xorg-server lightdm networkmanager deepin deepin-extra
@@ -117,7 +111,7 @@ systemctl enable lightdm
 systemctl enable NetworkManager
 ```
 
-#### 6.3 安装xfce4
+#### 6.2 安装xfce4
 
 ```
 pacman -S xfce4 xfce4-goodies nano sudo lightdm lightdm-gtk-greeter networkmanager xf86-video-intel network-manager-applet alsa-utils pulseaudio pulseaudio-alsa pavucontrol
