@@ -306,7 +306,7 @@ font=monospace:size=12
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock kanshi fcitx5 fcitx5-rime rime-data-wubi thunar xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk foot xfce4-appfinder seatd xwayland git brightnessctl firefox-esr wlopm mako-notifier libglib2.0-bin waybar
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar gvfs xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk foot xfce4-appfinder seatd xwayland git brightnessctl firefox-esr wlopm mako-notifier libglib2.0-bin waybar webext-ublock-origin-firefox firefox-esr-l10n-zh-cn --no-install-recommends
 ```
 #### 10.2. 启动labwc
 ```
@@ -351,15 +351,10 @@ vi ~/.config/foot/foot.ini
 
 font=monospace:size=12
 ```
-#### 10.7. 设置kanshi
+#### 10.7. 设置wlr-randr
 ```
-mkdir -p ~/.config/kanshi
-nano config
-
 # 缩放1.25
-profile nomad {
-    output eDP-1 enable scale 1.25
-}
+wlr-ranr --output eDP-1 --scale 1.25
 ```
 
 ### 11. wayfire窗口管理器设置
