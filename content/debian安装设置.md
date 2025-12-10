@@ -30,7 +30,7 @@ reboot
 ### 4. 去掉debain开机启动项停留的5秒和电池的问题
 
 ```
-# 使用grup时使用，使用systemd-boot请忽略
+# 使用grub时使用，使用systemd-boot请忽略
 
 nano /etc/default/grub
 修改GRUB_TIMEOUT=5改为GRUB_TIMEOUT=0
