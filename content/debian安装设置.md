@@ -382,26 +382,6 @@ gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设
 
 # xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
 ```
-#### 2.4. 其他
-
-```
-# 启动pipewire
-systemctl --user status pipewire
-systemctl --user start pipewire
-
-# 通过wtype关联labwc root-menu，通过xfce启动器实现
-名称：程序菜单  命令：wtype -M logo -k p
-
-# 强制xfce4-panel所有插件以内部方式运行
-xfconf-query -c xfce4-panel -p /force-all-internal -t bool -s true --create
-
-# gtk程序添加最大化和最小化按钮，需要安装libglib2.0-bin
-gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"  # 添加最大化和最小化按钮
-gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主题
-gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
-
-# xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
-```
 
 ### 11. wayfire窗口管理器设置
 
@@ -424,7 +404,7 @@ fi
 cp /usr/share/wayfire/examples/wayfire.ini ~/.config/wayfire.ini
 ```
 
-### 11.4. 输入法环境变量设置
+#### 11.4. 输入法环境变量设置
 
 启用fcitx输入需要配置环境变量：
 
@@ -440,7 +420,7 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=fcitx
 ```
 
-### 11.5. 设置终端(foot)字体大小
+#### 11.5. 设置终端(foot)字体大小
 ```
 cp -r /etc/foot/ ~/.config/foot/
 vi ~/.config/foot/foot.ini
