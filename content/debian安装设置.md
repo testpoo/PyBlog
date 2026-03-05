@@ -1,5 +1,5 @@
 title: debian安装设置
-date: 2025-09-28
+date: 2026-03-05
 category: 系统安装
 tag: gnome, xfce, kde, sway, labwc, wayfire
 
@@ -271,7 +271,12 @@ calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;b
 
 #### 9.1. 安装Sway及相关软件
 ```
-sudo apt install fcitx5 fcitx5-rime rime-data-wubi thunar xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk sway swaybg swayidle swaylock foot wofi seatd xwayland grim git brightnessctl wl-clipboard slurp upower
+sudo apt install fcitx5 fcitx5-rime rime-data-wubi thunar xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk sway swaybg swayidle swaylock foot wofi xwayland grim git brightnessctl wl-clipboard slurp upower webext-ublock-origin-firefox firefox-esr firefox-esr-l10n-zh-cn libglib2.0-bin iwd papirus-icon-theme
+
+# wl-clipboard 剪切板
+# slurp 截图选框
+
+sudo apt autoremove --purge wpasupplicant
 ```
 
 #### 9.2. 启动Sway
@@ -306,7 +311,9 @@ font=monospace:size=12
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar gvfs xarchiver pipewire-audio blueman thunar-archive-plugin fonts-noto-cjk foot xfce4-appfinder seatd xwayland git brightnessctl firefox-esr wlopm mako-notifier libglib2.0-bin waybar webext-ublock-origin-firefox firefox-esr-l10n-zh-cn --no-install-recommends
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-appfinder xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier upower grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin amberol firefox-esr firefox-esr-l10n-zh-cn webext-ublock-origin-firefox papirus-icon-theme
+
+sudo apt autoremove --purge wpasupplicant
 ```
 #### 10.2. 启动labwc
 ```
@@ -355,6 +362,45 @@ font=monospace:size=12
 ```
 # 缩放1.25
 wlr-ranr --output eDP-1 --scale 1.25
+```
+#### 10.8. 其他
+```
+# 启动pipewire
+systemctl --user status pipewire
+systemctl --user start pipewire
+
+# 通过wtype关联labwc root-menu，通过xfce启动器实现
+名称：程序菜单  命令：wtype -M logo -k p
+
+# 强制xfce4-panel所有插件以内部方式运行
+xfconf-query -c xfce4-panel -p /force-all-internal -t bool -s true --create
+
+# gtk程序添加最大化和最小化按钮，需要安装libglib2.0-bin
+gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"  # 添加最大化和最小化按钮
+gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主题
+gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
+
+# xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
+```
+#### 2.4. 其他
+
+```
+# 启动pipewire
+systemctl --user status pipewire
+systemctl --user start pipewire
+
+# 通过wtype关联labwc root-menu，通过xfce启动器实现
+名称：程序菜单  命令：wtype -M logo -k p
+
+# 强制xfce4-panel所有插件以内部方式运行
+xfconf-query -c xfce4-panel -p /force-all-internal -t bool -s true --create
+
+# gtk程序添加最大化和最小化按钮，需要安装libglib2.0-bin
+gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"  # 添加最大化和最小化按钮
+gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主题
+gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
+
+# xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
 ```
 
 ### 11. wayfire窗口管理器设置
@@ -447,4 +493,29 @@ XMODIFIERS="@im=fcitx"
 INPUT_METHOD=fcitx
 SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=fcitx
+```
+
+- Chromium支持wayland并支持fcitx5
+
+```
+# 目前Chromium已经自动支持wayland和fcitx5，不再需要下面的语句，仅做留存
+--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3 --gtk-version=4
+```
+
+### 13. iwd无法联网
+
+```
+sudo nano /etc/iwd/main.conf
+
+[General]
+EnableNetworkConfiguration=true
+
+sudo systemctl enable iwd.service --now
+
+sudo nano /etc/resolv.conf
+
+nameserver 223.5.5.5
+nameserver 119.29.29.29
+
+systemctl restart iwd
 ```
