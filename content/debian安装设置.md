@@ -243,11 +243,7 @@ calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;b
 
 - 进入`kde-plasma-chili`目录，执行`cp -r kde-plasma-chili /usr/share/sddm/themes`命令
 
-#### 8.6. 解决无法更换头像
-
-- 这是账号服务的一个缺陷: 打开`sudo nano /usr/lib/systemd/system/accounts-daemon.service`文件，修改`PrivateTmp=true`为`PrivateTmp=false`，然后重启即可解决问题，这个问题已经不存在。
-
-#### 8.7. 修改设置
+#### 8.6. 修改设置
 
 - 桌面背景修改：设置-->更改壁纸-->壁纸类型：每日一图-->提供：必应
 
@@ -266,6 +262,14 @@ calendar {padding: 0 5px; font-weight: bold;border-radius: 5px;font-size: 14px;b
 - 触摸板设置：设置-->输入设备-->触摸板-->手指轻触
 
 - 绽放设置：设置-->显示器配置-->全局缩放率：125% 
+
+#### 8.7. 其他
+
+使用的桌面环境为KDE，使用Wayland会话，发行版为Debian，自带的Fcitx5后，每次Fcitx5启动时都会在右下角看到如下提示：检测到设置了 GTK_IM_MODULE 和 QT_IM_MODULE 而且 Wayland 输入法前端正在正常工作。推荐不设置 GTK_IM_MODULE 和 QT_IM_MODULE 从而使用 Wayland 输入法前端。更多信息请参见 https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma
+
+可供参考的文档：https://github.com/fcitx/fcitx/issues/422
+
+解决办法：sudo apt purge im-config
 
 ### 9. Sway窗口管理器设置
 
