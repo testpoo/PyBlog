@@ -315,9 +315,9 @@ font=monospace:size=12
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-appfinder xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier upower grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin amberol firefox-esr firefox-esr-l10n-zh-cn webext-ublock-origin-firefox papirus-icon-theme
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier upower grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin chromium chromium-l10n papirus-icon-theme
 
-sudo apt autoremove --purge wpasupplicant
+sudo apt autoremove --purge wpasupplicant vim-tiny vim-common
 ```
 #### 10.2. 启动labwc
 ```
@@ -327,47 +327,7 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
   exec labwc
 fi
 ```
-#### 10.3. 添加labwc配置文件
-```
-mkdir -p ~/.config/labwc
-cp /usr/share/doc/labwc/* ~/.config/labwc/
-```
-#### 10.4. 输入法环境变量设置
-启用fcitx输入需要配置环境变量：
-```
-nano ~/.config/labwc/environment
-
-XIM="fcitx"
-#GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS="@im=fcitx"
-INPUT_METHOD=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=fcitx
-```   
-#### 10.5 开机启动设置
-```
-nano autostart
-
-# 背景设置
-swaybg -i '/home/poo/图片/3.jpg' >/dev/null 2>&1 &
-
-fcitx5 >/dev/null 2>&1 &
-blueman-applet >/dev/null 2>&1 &
-```
-#### 10.6. 设置终端(foot)字体大小
-```
-cp -r /etc/foot/ ~/.config/foot/
-vi ~/.config/foot/foot.ini
-
-font=monospace:size=12
-```
-#### 10.7. 设置wlr-randr
-```
-# 缩放1.25
-wlr-ranr --output eDP-1 --scale 1.25
-```
-#### 10.8. 其他
+#### 10.3. 其他
 ```
 # 启动pipewire
 systemctl --user status pipewire
@@ -408,28 +368,12 @@ fi
 cp /usr/share/wayfire/examples/wayfire.ini ~/.config/wayfire.ini
 ```
 
-#### 11.4. 输入法环境变量设置
-
-启用fcitx输入需要配置环境变量：
-
+#### 11.4. 设置终端(foot)字体大小
 ```
-nano /etc/environment
+cp -r /etc/xdg/foot/ ~/.config/foot/
+nano ~/.config/foot/foot.ini
 
-XIM="fcitx"
-#GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS="@im=fcitx"
-INPUT_METHOD=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=fcitx
-```
-
-#### 11.5. 设置终端(foot)字体大小
-```
-cp -r /etc/foot/ ~/.config/foot/
-vi ~/.config/foot/foot.ini
-
-# 也可以直接在/etc/foot/foot.ini中修改
+# 也可以直接在/etc/xdg/foot/foot.ini中修改
 font=monospace:size=12
 ```
 
