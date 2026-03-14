@@ -30,7 +30,7 @@ reboot
 ### 4. 去掉debain开机启动项停留的5秒和电池的问题
 
 ```
-# 使用grub时使用，使用systemd-boot请忽略
+# 使用grub时使用，**使用systemd-boot请忽略**
 
 nano /etc/default/grub
 修改GRUB_TIMEOUT=5改为GRUB_TIMEOUT=0
@@ -293,32 +293,24 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
 fi
 ```
 
-#### 9.3. 配置sway
-
-```
-mkdir -p ~/.config/sway
-cp /etc/sway/config ~/.config/sway/
-
-# 编辑~/.config/sway
-```
-
-#### 9.4. 设置终端(foot)字体大小
-
-```
-cp -r /etc/foot/ ~/.config/foot/
-vi ~/.config/foot/foot.ini
-
-font=monospace:size=12
-```
-
 ### 10. labwc窗口管理器设置
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier upower grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin chromium chromium-l10n papirus-icon-theme
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier upower grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin papirus-icon-theme
 
 sudo apt autoremove --purge wpasupplicant vim-tiny vim-common
 ```
+
+需要安装google-chrome，在/etc/apt/sources.list.d/google-chrome.sources文件中添加以下内容：
+```
+Types: deb
+URIs: https://dl.google.com/linux/chrome/deb/
+Suites: stable
+Components: main
+Signed-By: /etc/apt/trusted.gpg.d/google-chrome.gpg
+```
+
 #### 10.2. 启动labwc
 ```
 # 编辑 ~/.profile加入以下内容即可：
