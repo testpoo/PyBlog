@@ -5,6 +5,22 @@ tag:python
 
 [TOC]
 
+###  图片文本化
+```
+import base64
+
+# 你的 SVG 文件路径
+svg_path = "music.svg"
+
+# 转 Base64
+with open(svg_path, "rb") as f:
+    base64_str = base64.b64encode(f.read()).decode("utf-8")
+
+# 输出最终可以用在 CSS 里的字符串
+css_bg = f'("data:image/svg+xml;base64,{base64_str}")'
+print(css_bg)
+```
+<hr />
 ###  获取Linux程序名称/命令/图标/分类
 
 ```
