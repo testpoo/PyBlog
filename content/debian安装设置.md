@@ -112,7 +112,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 `sudo apt install ibus git ibus-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager xfce4-docklike-plugin pkexec pipewire-audio firefox-esr-l10n-zh-cn`
 
-可选图标 `https://github.com/vinceliuice/McMojave-circle`
+可选图标 `https://github.com/vinceliuice/McMojave-circle`  `https://github.com/yeyushengfan258/Reversal-icon-theme.git`
 
 #### 7.3. 设置
 
@@ -128,6 +128,9 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 - 设置时钟格式：%A %F %H:%M 第%V周 | %F%n%H:%M | %H:%M%n%Y/%m/%d
 
+- 窗体居中：设置-->窗口管理器微调-->放置-->触发智能放置的窗口大小  拉到最大
+
+- 右上角不显示图标：打开/usr/share/themes/Yaru/xfwm4/themerc  修改show_app_icon=true
 
 #### 7.4. 添加触摸板关启脚本
 
@@ -145,7 +148,7 @@ xfce4-mouse-settings -d "SYNA3602:00 093A:0255 Touchpad"
 /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
 theme-name = Yaru
-icon-theme-name = Qogir-icon
+icon-theme-name = Reversal-blue-light
 font-name = Noto Sans Mono 10
 default-user-image = #distributor-logo
 clock-format = %A %F %H:%M 第%V周
