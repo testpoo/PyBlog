@@ -106,11 +106,11 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 #### 7.1. 删除软件
 
-`sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic xfburn xterm xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin atril xfce4-genmon-plugin xsane --purge`
+`sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic xfburn xterm xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin atril xfce4-genmon-plugin xsane tango-icon-theme vim-tiny --purge`
 
 #### 7.2. 安装软件
 
-`sudo apt install ibus git ibus-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager xfce4-docklike-plugin pkexec pipewire-audio firefox-esr-l10n-zh-cn`
+`sudo apt install git fcitx5 fcitx5-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager xfce4-docklike-plugin pkexec pipewire-audio firefox-esr-l10n-zh-cn`
 
 可选图标 `https://github.com/vinceliuice/McMojave-circle`  `https://github.com/yeyushengfan258/Reversal-icon-theme.git`
 
