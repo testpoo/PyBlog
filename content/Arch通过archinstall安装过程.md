@@ -43,43 +43,15 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 pacman -Sy archlinuxcn-keyring
 ```
 
-### 5.pacman命令
+### 5. 安装xfce
 
-`pacman` 是 `Arch Linux` 的包管理器。它将一个简单的二进制包格式和易用的构建系统结合了起来。不管软件包是来自官方的 `Arch` 库还是用户自己创建，`pacman` 都能方便得管理。
+```
+# 安装的软件
+sudo pacman -S light-locker firefox libreoffice-fresh libreoffice-fresh-zh-cn gst-plugins-good git firefox-ublock-origin fcitx5 fcitx5-rime rime-wubi
 
-#### 5.1.更新系统
-
-在 `Archlinux` 中，使用一条命令即可对整个系统进行更新：`pacman -Syu`
-
-如果你已经使用 `pacman -Sy` 将本地的包数据库与远程的仓库进行了同步，也可以只执行：`pacman -Su`
-
-#### 5.2.安装包
-
-- `pacman -S` 包名：例如，执行 `pacman -S firefox` 将安装 `Firefox`。你也可以同时安装多个包，只需以空格分隔包名即可。
-- `pacman -Sy` 包名：与上面命令不同的是，该命令将在同步包数据库后再执行安装。
-- `pacman -Sv` 包名：在显示一些操作信息后执行安装。
-- `pacman -U` 包名：安装本地包，其扩展名为 pkg.tar.gz。
-- `pacman -U http://www.example.com/repo/example.pkg.tar.xz` 安装一个远程包（不在 `pacman` 配置的源里面）
-
-#### 5.3.删除包
-
-- `pacman -R` 包名：该命令将只删除包，保留其全部已经安装的依赖关系
-- `pacman -Rs` 包名：在删除包的同时，删除其所有没有被其他已安装软件包使用的依赖关系
-- `pacman -Rsc` 包名：在删除包的同时，删除所有依赖这个软件包的程序
-- `pacman -Rd` 包名：在删除包时不检查依赖。
-
-#### 5.4.搜索包
-
-- `pacman -Ss` 关键字：在仓库中搜索含关键字的包。
-- `pacman -Qs` 关键字： 搜索已安装的包。
-- `pacman -Qi` 包名：查看有关包的详尽信息。
-- `pacman -Ql` 包名：列出该包的文件。
-
-#### 5.5.其他用法
-
-- `pacman -Sw` 包名：只下载包，不安装。
-- `pacman -Sc`：清理未安装的包文件，包文件位于 `/var/cache/pacman/pkg/` 目录。
-- `pacman -Scc`：清理所有的缓存文件。
+# 卸载的软件
+sudo pacman -Rns htop xfburn vim parole xfce4-sensors xfce4-notes xfce4-dict xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-screensaver xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-eyes-plugin xfce4-mount-plugin xfce4-mpc-plugin xfce4-time-out-plugin
+```
 
 ### 6.安装KDE
 
@@ -231,3 +203,41 @@ fc-match -a | grep Mono  # 等线字体
 # libreoffice打开提示错误，加载libswlo.so失败，使用下面的命令查找缺失的程序，然后安装
 ldd /usr/lib/libreoffice/program/libswlo.so | grep "not found"
 ```
+
+### 9.pacman命令
+
+`pacman` 是 `Arch Linux` 的包管理器。它将一个简单的二进制包格式和易用的构建系统结合了起来。不管软件包是来自官方的 `Arch` 库还是用户自己创建，`pacman` 都能方便得管理。
+
+#### 9.1.更新系统
+
+在 `Archlinux` 中，使用一条命令即可对整个系统进行更新：`pacman -Syu`
+
+如果你已经使用 `pacman -Sy` 将本地的包数据库与远程的仓库进行了同步，也可以只执行：`pacman -Su`
+
+#### 9.2.安装包
+
+- `pacman -S` 包名：例如，执行 `pacman -S firefox` 将安装 `Firefox`。你也可以同时安装多个包，只需以空格分隔包名即可。
+- `pacman -Sy` 包名：与上面命令不同的是，该命令将在同步包数据库后再执行安装。
+- `pacman -Sv` 包名：在显示一些操作信息后执行安装。
+- `pacman -U` 包名：安装本地包，其扩展名为 pkg.tar.gz。
+- `pacman -U http://www.example.com/repo/example.pkg.tar.xz` 安装一个远程包（不在 `pacman` 配置的源里面）
+
+#### 9.3.删除包
+
+- `pacman -R` 包名：该命令将只删除包，保留其全部已经安装的依赖关系
+- `pacman -Rs` 包名：在删除包的同时，删除其所有没有被其他已安装软件包使用的依赖关系
+- `pacman -Rsc` 包名：在删除包的同时，删除所有依赖这个软件包的程序
+- `pacman -Rd` 包名：在删除包时不检查依赖。
+
+#### 9.4.搜索包
+
+- `pacman -Ss` 关键字：在仓库中搜索含关键字的包。
+- `pacman -Qs` 关键字： 搜索已安装的包。
+- `pacman -Qi` 包名：查看有关包的详尽信息。
+- `pacman -Ql` 包名：列出该包的文件。
+
+#### 9.5.其他用法
+
+- `pacman -Sw` 包名：只下载包，不安装。
+- `pacman -Sc`：清理未安装的包文件，包文件位于 `/var/cache/pacman/pkg/` 目录。
+- `pacman -Scc`：清理所有的缓存文件。
