@@ -49,7 +49,7 @@ pacman -Sy archlinuxcn-keyring
 
 ```
 # 安装的软件
-sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin ibus-rime rime-wubi blueman tela-circle-icon-theme-blue
+sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin ibus-rime rime-wubi blueman qogir-icon-theme-git
 
 # PooMusic需要
 gst-plugins-good python-mutagen
@@ -79,6 +79,21 @@ XMODIFIERS="@im=ibus"
 INPUT_METHOD=ibus
 SDL_IM_MODULE=ibus
 GLFW_IM_MODULE=ibus
+```
+
+#### 5.3. Lightdm配置
+
+`sudo nano /etc/lightdm/lightdm-gtk-greeter.conf`
+
+```
+icon-theme-name = Qogir-Light
+font-name = WenQuanYi Zen Hei Mono 10
+default-user-image = #distributor-logo-archlinux
+clock-format = %A %F %H:%M 第%V周
+background = /usr/share/backgrounds/background.png
+xft-dpi = 120
+indicators = ~host;~spacer;~clock;~spacer;~a11y;~session;~power
+#hide-user-image = true
 ```
 
 ### 6.安装KDE
