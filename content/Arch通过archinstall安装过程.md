@@ -49,7 +49,7 @@ pacman -Sy archlinuxcn-keyring
 
 ```
 # 安装的软件
-sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin fcitx5 fcitx5-rime rime-wubi blueman
+sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin ibus-rime rime-wubi blueman tela-circle-icon-theme-blue
 
 # PooMusic需要
 gst-plugins-good python-mutagen
@@ -66,17 +66,19 @@ sudo pacman -Rns htop xfburn vim parole xfce4-sensors-plugin xfce4-notes-plugin 
 
 #### 5.2. 输入法环境变量设置
 
+添加ibus登录时启动：`ibus-daemon -rxRd`
+
 启用fcitx输入需要配置环境变量：
 ```
 nano /etc/environment
 
-XIM="fcitx"
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
-XMODIFIERS="@im=fcitx"
-INPUT_METHOD=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=fcitx
+XIM="ibus"
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS="@im=ibus"
+INPUT_METHOD=ibus
+SDL_IM_MODULE=ibus
+GLFW_IM_MODULE=ibus
 ```
 
 ### 6.安装KDE
