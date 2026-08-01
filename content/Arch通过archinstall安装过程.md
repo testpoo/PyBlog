@@ -48,17 +48,14 @@ pacman -Sy archlinuxcn-keyring
 #### 5.1. 安装xfce及相关软件
 
 ```
-# 安装的软件
-sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin ibus-rime rime-wubi blueman qogir-icon-theme-git
+# 安装的软件 sublime需要fcitx5-gtk
+sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin fcitx5 fcitx5-gtk fcitx5-rime rime-wubi blueman qogir-icon-theme-git wqy-zenhei
 
 # PooMusic需要
 gst-plugins-good python-mutagen
 
 # 微信需要
 xcb-util-image xcb-util-renderutil xcb-util-wm
-
-# Motrix需要
-fuse2
 
 # 卸载的软件
 sudo pacman -Rns htop xfburn vim parole xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-eyes-plugin xfce4-mount-plugin xfce4-mpc-plugin xfce4-time-out-plugin
@@ -72,13 +69,13 @@ sudo pacman -Rns htop xfburn vim parole xfce4-sensors-plugin xfce4-notes-plugin 
 ```
 nano /etc/environment
 
-XIM="ibus"
-GTK_IM_MODULE=ibus
-QT_IM_MODULE=ibus
-XMODIFIERS="@im=ibus"
-INPUT_METHOD=ibus
-SDL_IM_MODULE=ibus
-GLFW_IM_MODULE=ibus
+XIM="fcitx"
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS="@im=fcitx"
+INPUT_METHOD=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=fcitx
 ```
 
 #### 5.3. Lightdm配置
