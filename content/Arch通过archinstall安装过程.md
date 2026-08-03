@@ -1,7 +1,7 @@
 title: Arch通过archinstall安装过程
-date: 2026-06-30
+date: 2026-08-03
 category: 系统安装
-tag: archinstall, kde, sway, labwc
+tag: xfce, kde, sway, labwc
 
 [TOC]
 
@@ -20,19 +20,12 @@ tag: archinstall, kde, sway, labwc
 ```
 # 根据提示安装系统
 archinstall
+
+# 如果执行速度慢，可以换源
+reflector -c China -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
-### 3.安装aur软件
-
-```
-aur地址：https://aur.archlinux.org/packages
-
-git clone [package URL]
-cd [package name]
-makepkg -si
-```
-
-### 4.添加Arch Linux CN 软件仓库源
+### 3.添加Arch Linux CN 软件仓库源
 
 ```
 # 在/etc/pacman.conf文件最后面添加
@@ -43,13 +36,13 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 pacman -Sy archlinuxcn-keyring
 ```
 
-### 5. 安装xfce
+### 4. 安装xfce
 
-#### 5.1. 安装xfce及相关软件
+#### 4.1. 安装xfce及相关软件
 
 ```
-# 安装的软件 sublime需要fcitx5-gtk
-sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin fcitx5 fcitx5-gtk fcitx5-rime rime-wubi blueman qogir-icon-theme-git wqy-zenhei
+# 安装的软件
+sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin fcitx5 fcitx5-rime rime-wubi blueman qogir-icon-theme-git wqy-zenhei
 
 # PooMusic需要
 gst-plugins-good python-mutagen
@@ -57,13 +50,32 @@ gst-plugins-good python-mutagen
 # 微信需要
 xcb-util-image xcb-util-renderutil xcb-util-wm
 
+# sublime输入需要
+fcitx5-gtk
+
 # 卸载的软件
 sudo pacman -Rns htop xfburn vim parole xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-eyes-plugin xfce4-mount-plugin xfce4-mpc-plugin xfce4-time-out-plugin
 ```
 
-#### 5.2. 输入法环境变量设置
+#### 4.2. 输入法环境变量设置
+
+**ibus**
 
 添加ibus登录时启动：`ibus-daemon -rxRd`
+
+```
+nano /etc/environment
+
+XIM="ibus"
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS="@im=ibus"
+INPUT_METHOD=ibus
+SDL_IM_MODULE=ibus
+GLFW_IM_MODULE=ibus
+```
+
+**fcitx**
 
 启用fcitx输入需要配置环境变量：
 ```
@@ -78,7 +90,7 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=fcitx
 ```
 
-#### 5.3. Lightdm配置
+#### 4.3. Lightdm配置
 
 `sudo nano /etc/lightdm/lightdm-gtk-greeter.conf`
 
@@ -93,7 +105,7 @@ indicators = ~host;~spacer;~clock;~spacer;~a11y;~session;~power
 #hide-user-image = true
 ```
 
-### 6.安装KDE
+### 5.安装KDE
 
 ```
 # 安装的软件
@@ -101,12 +113,11 @@ pacman -S fcitx5-im fcitx5-rime rime-wubi git firefox packagekit-qt6 sweeper gwe
 
 # 向日葵启动前执行
 systemctl start runsunloginclient.service
-
 ```
 
-### 7. 安装Sway
+### 6. 安装Sway
 
-#### 7.1. 安装Sway及相关软件
+#### 6.1. 安装Sway及相关软件
 ```
 # 通过arch安装sway
 
@@ -115,7 +126,7 @@ sudo pacman -S thunar chromium gvfs fcitx5 fcitx5-rime xarchiver git upower blue
 sudo pacman -Rns lightdm lightdm-gtk-greeter htop smartmontools vim waybar wget wireless_tools wpa_supplicant pavucontrol wmenu
 ```
 
-#### 7.2. 输入法环境变量设置
+#### 6.2. 输入法环境变量设置
 
 启用fcitx输入需要配置环境变量：
 ```
@@ -130,7 +141,7 @@ SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=fcitx
 ```
 
-#### 7.3. 启动Sway
+#### 6.3. 启动Sway
 
 ```
 # 编辑 ~/.bash_profile加入以下内容即可：
@@ -138,7 +149,7 @@ GLFW_IM_MODULE=fcitx
 [ "$(tty)" = "/dev/tty1" ] && exec sway
 ```
 
-#### 7.4. 配置sway
+#### 6.4. 配置sway
 
 ```
 mkdir -p ~/.config/sway
@@ -147,7 +158,7 @@ cp /etc/sway/config ~/.config/sway/
 # 编辑~/.config/sway
 ```
 
-#### 7.5. 设置终端(foot)字体大小
+#### 6.5. 设置终端(foot)字体大小
 
 ```
 cp -r /etc/foot/ ~/.config/foot/
@@ -156,9 +167,9 @@ vi ~/.config/foot/foot.ini
 font=FreeMono:size=12
 ```
 
-### 8. 安装Labwc
+### 7. 安装Labwc
 
-#### 8.1 安装Labwc及相关软件
+#### 7.1 安装Labwc及相关软件
 
 ```
 sudo pacman -S chromium thunar gvfs xarchiver thunar-archive-plugin xfce4-panel xfce4-genmon-plugin foot fcitx5 fcitx5-rime rime-wubi git blueman wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako upower grim slurp wtype
@@ -169,7 +180,7 @@ cmus libmad fuse xcb-util-image tela-circle-icon-theme-blue
 sudo pacman -Rns alacritty htop smartmontools vim wget wireless_tools wpa_supplicant lightdm lightdm-gtk-greeter
 ```
 
-#### 8.2. 启动Labwc
+#### 7.2. 启动Labwc
 
 ```
 # 编辑 ~/.bash_profile加入以下内容即可：
@@ -177,7 +188,7 @@ sudo pacman -Rns alacritty htop smartmontools vim wget wireless_tools wpa_suppli
 [ "$(tty)" = "/dev/tty1" ] && exec labwc
 ```
 
-#### 8.3.设置 Fcitx5 初始配置
+#### 7.3.设置 Fcitx5 初始配置
 
 配置 Group 直接启动 fcitx5 是只有西文键盘的，把下面的内容粘贴到 ~/.config/fcitx5/profile
 ```
@@ -200,7 +211,7 @@ Layout=
 ```
 DefaultIM=xx 为设置默认输入法，后面的Group中的Name为具体的输入法名字，按0，1，2……这样的编号排序，修改文件时，在要fcitx5关闭状态下，否则修改不生效。
 
-#### 8.4. iwd无法联网
+#### 7.4. iwd无法联网
 
 ```
 sudo nano /etc/iwd/main.conf
@@ -213,7 +224,7 @@ sudo systemctl enable systemd-resolved.service --now
 systemctl restart iwd
 ```
 
-#### 8.5. 其他
+#### 7.5. 其他
 
 ```
 # 若 polkit 未安装在您的系统上，并且您想使用 seatd 来替代，请将您添加到 seat 用户组并启用/启动 seatd.service，然后重新登录。
@@ -242,6 +253,16 @@ fc-match -a | grep Mono  # 等线字体
 # libreoffice问题
 # libreoffice打开提示错误，加载libswlo.so失败，使用下面的命令查找缺失的程序，然后安装
 ldd /usr/lib/libreoffice/program/libswlo.so | grep "not found"
+```
+
+### 8.安装aur软件
+
+```
+aur地址：https://aur.archlinux.org/packages
+
+git clone [package URL]
+cd [package name]
+makepkg -si
 ```
 
 ### 9.pacman命令
