@@ -106,13 +106,25 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 #### 7.1. 删除软件
 
-`sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic xfburn xterm xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin atril xfce4-genmon-plugin xsane tango-icon-theme vim-tiny --purge`
+`sudo apt autoremove libreoffice* exfalso parole quodlibet synaptic xfburn xterm xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-sensors-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin atril xfce4-genmon-plugin xsane tango-icon-theme vim-tiny ukui-polkit --purge`
 
 #### 7.2. 安装软件
 
-`sudo apt install git fcitx5 fcitx5-rime rime-data-wubi gvfs-backends blueman yaru-theme-gtk fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager xfce4-docklike-plugin pkexec pipewire-audio firefox-esr-l10n-zh-cn`
+`sudo apt install git fcitx5 fcitx5-rime rime-data-wubi gvfs-backends blueman fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager pkexec pipewire-audio firefox-esr-l10n-zh-cn papirus-icon-theme zram-tools`
 
 可选图标 `https://github.com/vinceliuice/McMojave-circle`  `https://github.com/yeyushengfan258/Reversal-icon-theme.git`
+
+- 配置zram
+
+```
+# 安装zram
+sudo apt install zram-tools
+# 配置zram
+sudo nano /etc/default/zramswap
+# 查看
+sudo swapon --show
+sudo zramctl
+```
 
 #### 7.3. 设置
 
@@ -147,10 +159,10 @@ xfce4-mouse-settings -d "SYNA3602:00 093A:0255 Touchpad"
 ```
 /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
-theme-name = Yaru
-icon-theme-name = Reversal-blue-light
+#theme-name = Yaru
+icon-theme-name = Papirus-Light
 font-name = Noto Sans Mono 10
-default-user-image = #distributor-logo
+default-user-image = #distributor-logo-debian
 clock-format = %A %F %H:%M 第%V周
 background = /usr/share/backgrounds/background.png
 xft-dpi = 120

@@ -36,7 +36,8 @@ lastBuildDate = str(lastBuildDate)[0:19]
 # 删除output中文件
 def delfile():
     filelist=[]
-    filelist=os.listdir(output)
+    if os.path.exists(output):
+        filelist=os.listdir(output)
     for f in filelist:
         filepath = os.path.join(output, f)
         if os.path.isfile(filepath):
