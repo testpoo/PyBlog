@@ -114,18 +114,6 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 可选图标 `https://github.com/vinceliuice/McMojave-circle`  `https://github.com/yeyushengfan258/Reversal-icon-theme.git`
 
-- 配置zram
-
-```
-# 安装zram
-sudo apt install zram-tools
-# 配置zram
-sudo nano /etc/default/zramswap
-# 查看
-sudo swapon --show
-sudo zramctl
-```
-
 #### 7.3. 设置
 
 - 快捷键设置:设置-->键盘-->应用程度快捷键
@@ -312,7 +300,7 @@ fi
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier upower grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin papirus-icon-theme
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin webext-ublock-origin-firefox zram-tools upower
 
 sudo apt autoremove --purge wpasupplicant vim-tiny vim-common
 ```
@@ -453,4 +441,17 @@ nameserver 223.5.5.5
 nameserver 119.29.29.29
 
 systemctl restart iwd
+```
+### 13. 配置zram
+
+- 不用swap，改用zram
+
+```
+# 安装zram
+sudo apt install zram-tools
+# 配置zram
+sudo nano /etc/default/zramswap
+# 查看
+sudo swapon --show
+sudo zramctl
 ```
