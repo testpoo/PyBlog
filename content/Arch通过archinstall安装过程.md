@@ -66,13 +66,9 @@ sudo pacman -Rns htop xfburn vim parole xfce4-sensors-plugin xfce4-notes-plugin 
 ```
 nano /etc/environment
 
-XIM="ibus"
 GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus
 XMODIFIERS="@im=ibus"
-INPUT_METHOD=ibus
-SDL_IM_MODULE=ibus
-GLFW_IM_MODULE=ibus
 ```
 
 **fcitx**
@@ -81,13 +77,9 @@ GLFW_IM_MODULE=ibus
 ```
 nano /etc/environment
 
-XIM="fcitx"
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS="@im=fcitx"
-INPUT_METHOD=fcitx
-SDL_IM_MODULE=fcitx
-GLFW_IM_MODULE=fcitx
 ```
 
 #### 4.3. Lightdm配置
