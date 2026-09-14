@@ -42,7 +42,7 @@ pacman -Sy archlinuxcn-keyring
 
 ```
 # 安装的软件
-sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin fcitx5 fcitx5-rime rime-wubi blueman qogir-icon-theme-git wqy-zenhei
+sudo pacman -S firefox libreoffice-fresh libreoffice-fresh-zh-cn git firefox-ublock-origin fcitx5 fcitx5-rime rime-wubi blueman qogir-icon-theme-git wqy-zenhei xfce4-docklike-plugin
 
 # PooMusic需要
 gst-plugins-good python-mutagen
@@ -51,7 +51,7 @@ gst-plugins-good python-mutagen
 xcb-util-image xcb-util-renderutil xcb-util-wm
 
 # sublime输入需要
-fcitx5-gtk
+fcitx5-gtk fcitx5-qt
 
 # 卸载的软件
 sudo pacman -Rns htop xfburn vim parole xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-sensors-plugin xfce4-notes-plugin xfce4-dict xfce4-whiskermenu-plugin xfce4-weather-plugin xfce4-wavelan-plugin xfce4-verve-plugin xfce4-timer-plugin xfce4-smartbookmark-plugin xfce4-cpufreq-plugin xfce4-cpugraph-plugin xfce4-diskperf-plugin xfce4-battery-plugin xfce4-systemload-plugin xfce4-xkb-plugin xfce4-netload-plugin xfce4-mailwatch-plugin xfce4-clipman-plugin xfce4-fsguard-plugin xfce4-genmon-plugin xfce4-eyes-plugin xfce4-mount-plugin xfce4-mpc-plugin xfce4-time-out-plugin
@@ -95,6 +95,17 @@ background = /usr/share/backgrounds/background.png
 xft-dpi = 120
 indicators = ~host;~spacer;~clock;~spacer;~a11y;~session;~power
 #hide-user-image = true
+```
+
+#### 4.4. 添加gtk.css
+
+- 路径`~/config/gtk-3.0/gtk.css`
+
+```
+#docklike-plugin button {
+    padding-left: 2px;
+    padding-right: 2px;
+}
 ```
 
 ### 5.安装KDE
