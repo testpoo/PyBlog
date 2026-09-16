@@ -1,5 +1,5 @@
 title: debian安装设置
-date: 2026-03-05
+date: 2026-09-16
 category: 系统安装
 tag: gnome, xfce, kde, sway, labwc, wayfire
 
@@ -54,8 +54,6 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-backports main contrib 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ testing-backports main contrib non-free non-free-firmware
 deb https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free non-free-firmware
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security testing-security main contrib non-free non-free-firmware
-# deb https://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
-# # deb-src https://security.debian.org/debian-security testing-security main contrib non-free non-free-firmware
 ```
 
 - DEB822 格式（/etc/apt/sources.list.d/debian.sources）
@@ -110,9 +108,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 #### 7.2. 安装软件
 
-`sudo apt install git fcitx5 fcitx5-rime rime-data-wubi gvfs-backends blueman fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager pkexec pipewire-audio firefox-esr-l10n-zh-cn papirus-icon-theme zram-tools`
-
-可选图标 `https://github.com/vinceliuice/McMojave-circle`  `https://github.com/yeyushengfan258/Reversal-icon-theme.git`
+`sudo apt install git fcitx5 fcitx5-rime rime-data-wubi gvfs-backends blueman fonts-noto-cjk webext-ublock-origin-firefox ristretto xfce4-screenshooter xfce4-taskmanager pkexec pipewire-audio firefox-esr-l10n-zh-cn elementary-xfce-icon-theme zram-tools`
 
 #### 7.3. 设置
 
@@ -145,19 +141,19 @@ xfce4-mouse-settings -d "SYNA3602:00 093A:0255 Touchpad"
 #### 7.5. lightdm设置
 
 ```
-/etc/lightdm/lightdm-gtk-greeter.conf
+sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
 #theme-name = Yaru
-icon-theme-name = Papirus-Light
+icon-theme-name = elementary-xfce
 font-name = Noto Sans Mono 10
-default-user-image = #distributor-logo-debian
+default-user-image = #debian-logo
 clock-format = %A %F %H:%M 第%V周
 background = /usr/share/backgrounds/background.png
 xft-dpi = 120
 indicators = ~host;~spacer;~clock;~spacer;~a11y;~session;~power
 #hide-user-image = true
 
-/etc/lightdm/lightdm.conf
+sudo nano /etc/lightdm/lightdm.conf
 greeter-hide-users=false 前的#去掉
 ```
 
@@ -198,7 +194,7 @@ xfwm4-->vblank_mode=off
 
 #### 7.9. 添加gtk.css
 
-- 路径`~/config/gtk3.0/gtk.css`
+- 路径`nano ~/config/gtk3.0/gtk.css`
 
 ```
 #pulseaudio-button image,#xfce4-power-manager-plugin image,#xfce4-notification-plugin image{
