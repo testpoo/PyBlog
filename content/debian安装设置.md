@@ -296,9 +296,12 @@ fi
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin webext-ublock-origin-firefox zram-tools upower
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin webext-ublock-origin-firefox zram-tools libnotify-bin upower
 
-sudo apt autoremove --purge wpasupplicant vim-tiny vim-common
+sudo apt autoremove --purge wpasupplicant vim-tiny vim-common fcitx5-config-qt
+
+# PooMusic
+sudo apt install gstreamer1.0-plugins-good python3-gst-1.0 python3-mutage
 ```
 
 需要安装google-chrome，在/etc/apt/sources.list.d/google-chrome.sources文件中添加以下内容：
