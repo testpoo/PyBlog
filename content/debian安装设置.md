@@ -296,7 +296,7 @@ fi
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin webext-ublock-origin-firefox zram-tools libnotify-bin upower
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme upower
 
 sudo apt autoremove --purge wpasupplicant vim-tiny vim-common fcitx5-config-qt
 
@@ -339,6 +339,11 @@ gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主�
 gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
 
 # xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
+
+# 禁用声卡
+/home/poo/.local/state/wireplumber/default-profile
+[default-profile]
+alsa_card.pci-0000_00_1f.3=off
 ```
 
 ### 11. wayfire窗口管理器设置
