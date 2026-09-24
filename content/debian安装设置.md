@@ -339,11 +339,22 @@ gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主�
 gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
 
 # xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
+# xfce4-genmon-plugin css tag
+genmon_box（容器）、genmon_image（图标）、genmon_value（纯文本）、genmon_valuebutton（可点击文本）、genmon_label（按钮里的文字）、genmon_bar（进度条）
 
 # 禁用声卡
 /home/poo/.local/state/wireplumber/default-profile
 [default-profile]
 alsa_card.pci-0000_00_1f.3=off
+
+# 替换thunar自带的设为壁纸
+# 删除原来的设为壁纸
+sudo mv /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper.so /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper.so.bak
+
+# thunar: 编辑-->配置自定义动作
+名称：设为壁纸
+命令：/home/poo/.config/labwc/change-swaybg.py %f
+图标：preferences-desktop-wallpaper
 ```
 
 ### 11. wayfire窗口管理器设置
