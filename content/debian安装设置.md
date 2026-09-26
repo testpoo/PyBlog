@@ -353,8 +353,14 @@ sudo mv /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper.so /usr/lib/x86_64-
 
 # thunar: 编辑-->配置自定义动作
 名称：设为壁纸
-命令：/home/poo/.config/labwc/change-swaybg.py %f
+命令：/home/poo/.config/labwc/settings.sh change-swaybg %f
 图标：preferences-desktop-wallpaper
+
+# 一般监视器
+/home/poo/.config/labwc/settings.sh system
+/home/poo/.config/labwc/settings.sh network
+/home/poo/.config/labwc/settings.sh volume
+/home/poo/.config/labwc/settings.sh showdesktop
 ```
 
 ### 11. wayfire窗口管理器设置
