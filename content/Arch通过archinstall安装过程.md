@@ -1,5 +1,5 @@
 title: Arch通过archinstall安装过程
-date: 2026-08-03
+date: 2026-10-15
 category: 系统安装
 tag: xfce, kde, sway, labwc
 
@@ -164,7 +164,7 @@ cp /etc/sway/config ~/.config/sway/
 #### 6.5. 设置终端(foot)字体大小
 
 ```
-cp -r /etc/foot/ ~/.config/foot/
+cp -r /etc/xdg/foot/foot.ini ~/.config/foot/
 vi ~/.config/foot/foot.ini
 
 font=FreeMono:size=12
@@ -175,12 +175,13 @@ font=FreeMono:size=12
 #### 7.1 安装Labwc及相关软件
 
 ```
-sudo pacman -S chromium thunar gvfs xarchiver thunar-archive-plugin xfce4-panel xfce4-genmon-plugin foot fcitx5 fcitx5-rime rime-wubi git blueman wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako upower grim slurp wtype
+sudo pacman -S firefox thunar gvfs xarchiver thunar-archive-plugin foot fcitx5 fcitx5-rime rime-wubi git wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako grim slurp bluetui tela-circle-icon-theme-blue wtype gtk-layer-shell upower
 
-# 可选:cmus mp3插件, Motrix需要, 微信需要, 图标
-cmus libmad fuse xcb-util-image tela-circle-icon-theme-blue
+PooMusic: python-mutagen gst-plugins-good
+WeChat: xcb-util-image
+窗口表列: 需要wlrctl
 
-sudo pacman -Rns alacritty htop smartmontools vim wget wireless_tools wpa_supplicant lightdm lightdm-gtk-greeter
+sudo pacman -Rns alacritty htop smartmontools vim wget lightdm lightdm-gtk-greeter
 ```
 
 #### 7.2. 启动Labwc
@@ -217,6 +218,7 @@ DefaultIM=xx 为设置默认输入法，后面的Group中的Name为具体的输�
 #### 7.4. iwd无法联网
 
 ```
+# 当前不需要设置了，可以直接使用
 sudo nano /etc/iwd/main.conf
 
 [General]
@@ -230,32 +232,26 @@ systemctl restart iwd
 #### 7.5. 其他
 
 ```
-# 若 polkit 未安装在您的系统上，并且您想使用 seatd 来替代，请将您添加到 seat 用户组并启用/启动 seatd.service，然后重新登录。
-sudo systemctl enable seatd --now
-sudo usermod -aG seat poo
+# 禁用声卡
+/home/poo/.local/state/wireplumber/default-profile
+[default-profile]
+alsa_card.pci-0000_00_1f.3=off
 
-# 通过wtype关联labwc root-menu，通过xfce启动器实现
-名称：Arch程序菜单  命令：wtype -M logo -k s
+# 替换thunar自带的设为壁纸
+# 删除原来的设为壁纸
+sudo mv /usr/lib/thunarx-3/thunar-wallpaper-plugin.so /usr/lib/thunarx-3/thunar-wallpaper-plugin.so.bak
 
-# 强制xfce4-panel所有插件以内部方式运行
-xfconf-query -c xfce4-panel -p /force-all-internal -t bool -s true --create
+# thunar: 编辑-->配置自定义动作
+名称：设为壁纸
+命令：/home/poo/.config/labwc/settings.sh change-swaybg %f
+图标：preferences-desktop-wallpaper
 
-# 安装Motrix appimage包，需要安装依赖 fuse；安装微信appimage包，需要安装依赖xcb-util-image。
-
-# libreoffice 护眼色：C7EDCC
-
-# 解决 Chromium 浏览器卡顿缓慢的问题（在抖音和B站放视频页面卡住），禁用GPU加速：
-1. 打开 Chromium 浏览器，进入“设置 → 系统”，将 使用图形加速功能 的选项关闭掉，重启浏览器。如果设置后卡顿已有明显改善，那么就此搞定，不然继续第二步。
-2. 在地址栏上输入：chrome://flags/ 回车，在顶部搜索栏中搜索“gpu”，列表中找到：“GPU rasterization”(GPU 渲染) 以及 “Accelerated 2D canvas”(2D 图形加速) 两项，将它们都设为“Disabled”禁用即可。点击右下角的“ReLaunch”重启浏览器。
+# libreoffice 护眼色：#C7EDCC
 
 # 查字体
 fc-list :lang=zh
 fc-match
 fc-match -a | grep Mono  # 等线字体
-
-# libreoffice问题
-# libreoffice打开提示错误，加载libswlo.so失败，使用下面的命令查找缺失的程序，然后安装
-ldd /usr/lib/libreoffice/program/libswlo.so | grep "not found"
 ```
 
 ### 8.安装aur软件
