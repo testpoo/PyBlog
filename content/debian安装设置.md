@@ -1,5 +1,5 @@
 title: debian安装设置
-date: 2026-09-16
+date: 2026-10-21
 category: 系统安装
 tag: gnome, xfce, kde, sway, labwc, wayfire
 
@@ -296,7 +296,7 @@ fi
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-terminal xfce4-panel xfce4-genmon-plugin xarchiver pipewire-audio blueman fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme upower
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xarchiver pipewire-audio bluetooth fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin firefox-esr webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme libgtk-layer-shell0 wlrctl libreoffice libreoffice-gtk3 libreoffice-l10n-zh-cn upower
 
 sudo apt autoremove --purge wpasupplicant vim-tiny vim-common fcitx5-config-qt
 
@@ -330,12 +330,10 @@ systemctl --user start pipewire
 # 通过wtype关联labwc root-menu，通过xfce启动器实现
 名称：程序菜单  命令：wtype -M logo -k p
 
-# 强制xfce4-panel所有插件以内部方式运行
-xfconf-query -c xfce4-panel -p /force-all-internal -t bool -s true --create
-
 # gtk程序添加最大化和最小化按钮，需要安装libglib2.0-bin
 gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"  # 添加最大化和最小化按钮
 gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主题
+gsettings set org.gnome.desktop.interface font-name "字体名称"  # 设置字体
 gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
 
 # xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
