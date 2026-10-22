@@ -296,21 +296,15 @@ fi
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xarchiver pipewire-audio bluetooth fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin firefox-esr webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme libgtk-layer-shell0 wlrctl libreoffice libreoffice-gtk3 libreoffice-l10n-zh-cn upower
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xarchiver pipewire-audio bluez fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin firefox-esr webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme  wlrctl libreoffice libreoffice-gtk3 libreoffice-l10n-zh-cn upower
 
 sudo apt autoremove --purge wpasupplicant vim-tiny vim-common fcitx5-config-qt
 
 # PooMusic
-sudo apt install gstreamer1.0-plugins-good python3-gst-1.0 python3-mutage
-```
+sudo apt install gstreamer1.0-plugins-good python3-gst-1.0 python3-mutagen
 
-需要安装google-chrome，在/etc/apt/sources.list.d/google-chrome.sources文件中添加以下内容：
-```
-Types: deb
-URIs: https://dl.google.com/linux/chrome/deb/
-Suites: stable
-Components: main
-Signed-By: /etc/apt/trusted.gpg.d/google-chrome.gpg
+# topbar
+sudo apt install gir1.2-gtklayershell-0.1 gir1.2-gtk-3.0
 ```
 
 #### 10.2. 启动labwc
@@ -323,9 +317,21 @@ fi
 ```
 #### 10.3. 其他
 ```
-# 启动pipewire
-systemctl --user status pipewire
-systemctl --user start pipewire
+# 禁用声卡
+/home/poo/.local/state/wireplumber/default-profile
+[default-profile]
+alsa_card.pci-0000_00_1f.3=off
+
+# 替换thunar自带的设为壁纸
+# 删除原来的设为壁纸
+sudo mv /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper-plugin.so /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper-plugin.so.bak
+
+# thunar: 编辑-->配置自定义动作
+名称：设为壁纸
+命令：/home/poo/.config/labwc/settings.sh change-swaybg %f
+图标：preferences-desktop-wallpaper
+
+# libreoffice 护眼色：#C7EDCC
 
 # 通过wtype关联labwc root-menu，通过xfce启动器实现
 名称：程序菜单  命令：wtype -M logo -k p
@@ -336,29 +342,13 @@ gsettings set org.gnome.desktop.interface gtk-theme "主题名称"  # 设置主�
 gsettings set org.gnome.desktop.interface font-name "字体名称"  # 设置字体
 gsettings set org.gnome.desktop.interface icon-theme "图标主题名称"  # 设置图标
 
+# 启动pipewire
+systemctl --user status pipewire
+systemctl --user start pipewire
+
 # xfce4-genmon-plugin稳定版是4.1.1, 4.2以后才支持<css>标签，目前只支持gtk.css中书写， 所以强制在稳定版本中安装4.3
 # xfce4-genmon-plugin css tag
 genmon_box（容器）、genmon_image（图标）、genmon_value（纯文本）、genmon_valuebutton（可点击文本）、genmon_label（按钮里的文字）、genmon_bar（进度条）
-
-# 禁用声卡
-/home/poo/.local/state/wireplumber/default-profile
-[default-profile]
-alsa_card.pci-0000_00_1f.3=off
-
-# 替换thunar自带的设为壁纸
-# 删除原来的设为壁纸
-sudo mv /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper.so /usr/lib/x86_64-linux-gnu/thunarx-3/thunar-wallpaper.so.bak
-
-# thunar: 编辑-->配置自定义动作
-名称：设为壁纸
-命令：/home/poo/.config/labwc/settings.sh change-swaybg %f
-图标：preferences-desktop-wallpaper
-
-# 一般监视器
-/home/poo/.config/labwc/settings.sh system
-/home/poo/.config/labwc/settings.sh network
-/home/poo/.config/labwc/settings.sh volume
-/home/poo/.config/labwc/settings.sh showdesktop
 ```
 
 ### 11. wayfire窗口管理器设置
