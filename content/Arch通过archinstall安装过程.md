@@ -175,7 +175,7 @@ font=FreeMono:size=12
 #### 7.1 安装Labwc及相关软件
 
 ```
-sudo pacman -S firefox thunar gvfs xarchiver thunar-archive-plugin foot fcitx5 fcitx5-rime rime-wubi git wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako grim slurp bluetui tela-circle-icon-theme-blue wtype gtk-layer-shell upower
+sudo pacman -S firefox firefox-ublock-origin thunar gvfs xarchiver thunar-archive-plugin foot fcitx5 fcitx5-rime rime-wubi git wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako grim slurp tela-circle-icon-theme-blue upower
 
 PooMusic: python-mutagen gst-plugins-good
 WeChat: xcb-util-image
