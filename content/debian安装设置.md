@@ -296,7 +296,7 @@ fi
 
 #### 10.1. 安装labwc及相关软件
 ```
-sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin foot xarchiver pipewire-audio bluez fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin firefox-esr webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme  wlrctl libreoffice libreoffice-gtk3 libreoffice-l10n-zh-cn upower
+sudo apt install labwc swaybg swayidle swaylock wlr-randr fcitx5 fcitx5-rime rime-data-wubi thunar thunar-archive-plugin xfce4-panel xfce4-appfinder xfce4-terminal xarchiver pipewire-audio bluez fonts-noto-cjk git brightnessctl wlopm mako-notifier grim slurp wl-clipboard wtype iwd ristretto libglib2.0-bin firefox-esr webext-ublock-origin-firefox zram-tools libnotify-bin elementary-xfce-icon-theme wlrctl libreoffice libreoffice-gtk3 libreoffice-l10n-zh-cn upower
 
 sudo apt autoremove --purge wpasupplicant vim-tiny vim-common fcitx5-config-qt
 
