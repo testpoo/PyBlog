@@ -1,5 +1,5 @@
 title: Arch通过archinstall安装过程
-date: 2026-10-15
+date: 2026-10-30
 category: 系统安装
 tag: xfce, kde, sway, labwc
 
@@ -179,7 +179,6 @@ sudo pacman -S firefox firefox-ublock-origin thunar gvfs xarchiver thunar-archiv
 
 PooMusic: python-mutagen gst-plugins-good
 WeChat: xcb-util-image
-窗口表列: 需要wlrctl
 
 sudo pacman -Rns alacritty htop smartmontools vim wget lightdm lightdm-gtk-greeter
 ```
@@ -266,38 +265,66 @@ makepkg -si
 
 ### 9.pacman命令
 
-`pacman` 是 `Arch Linux` 的包管理器。它将一个简单的二进制包格式和易用的构建系统结合了起来。不管软件包是来自官方的 `Arch` 库还是用户自己创建，`pacman` 都能方便得管理。
+`pacman` 是 `Arch Linux` 的包管理器。
 
-#### 9.1.更新系统
+#### 9.1.系统更新
 
-在 `Archlinux` 中，使用一条命令即可对整个系统进行更新：`pacman -Syu`
+```
+# 更新所有已安装的软件包
+sudo pacman -Syu
 
-如果你已经使用 `pacman -Sy` 将本地的包数据库与远程的仓库进行了同步，也可以只执行：`pacman -Su`
+# 仅更新软件包数据库(不实际更新软件)
+sudo pacman -Sy
+```
 
-#### 9.2.安装包
+#### 9.2.软件包安装
 
-- `pacman -S` 包名：例如，执行 `pacman -S firefox` 将安装 `Firefox`。你也可以同时安装多个包，只需以空格分隔包名即可。
-- `pacman -Sy` 包名：与上面命令不同的是，该命令将在同步包数据库后再执行安装。
-- `pacman -Sv` 包名：在显示一些操作信息后执行安装。
-- `pacman -U` 包名：安装本地包，其扩展名为 pkg.tar.gz。
-- `pacman -U http://www.example.com/repo/example.pkg.tar.xz` 安装一个远程包（不在 `pacman` 配置的源里面）
+```
+# 安装单个软件包
+sudo pacman -S 包名
 
-#### 9.3.删除包
+# 安装多个软件包
+sudo pacman -S 包名1 包名2 包名3
 
-- `pacman -R` 包名：该命令将只删除包，保留其全部已经安装的依赖关系
-- `pacman -Rs` 包名：在删除包的同时，删除其所有没有被其他已安装软件包使用的依赖关系
-- `pacman -Rsc` 包名：在删除包的同时，删除所有依赖这个软件包的程序
-- `pacman -Rd` 包名：在删除包时不检查依赖。
+# 安装本地软件包文件(不处理依赖)
+sudo pacman -U /路径/到/包名.pkg.tar.zst
+```
 
-#### 9.4.搜索包
+#### 9.3.软件包删除
 
-- `pacman -Ss` 关键字：在仓库中搜索含关键字的包。
-- `pacman -Qs` 关键字： 搜索已安装的包。
-- `pacman -Qi` 包名：查看有关包的详尽信息。
-- `pacman -Ql` 包名：列出该包的文件。
+```
+# 删除软件包但保留其依赖
+sudo pacman -R 包名
 
-#### 9.5.其他用法
+# 删除软件包及其不再需要的依赖
+sudo pacman -Rs 包名
 
-- `pacman -Sw` 包名：只下载包，不安装。
-- `pacman -Sc`：清理未安装的包文件，包文件位于 `/var/cache/pacman/pkg/` 目录。
-- `pacman -Scc`：清理所有的缓存文件。
+# 删除软件包及其所有配置文件
+sudo pacman -Rns 包名
+```
+
+#### 9.4.软件包查询
+
+```
+# 搜索软件包(名称和描述)
+pacman -Ss 关键词
+
+# 列出已安装的软件包
+pacman -Q
+
+# 查询某个文件属于哪个软件包
+pacman -Qo /路径/到/文件
+
+# 显示软件包详细信息
+pacman -Qi 包名
+```
+
+#### 9.5.清理缓存
+
+```
+# 清理未安装软件包的缓存
+sudo pacman -Sc
+
+# 清理所有软件包的缓存(包括已安装的)
+sudo pacman -Scc
+```
