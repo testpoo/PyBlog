@@ -28,12 +28,12 @@ reflector -c China -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 ### 3.添加Arch Linux CN 软件仓库源
 
 ```
-# 在/etc/pacman.conf文件最后面添加
+# 在 sudo nano /etc/pacman.conf文件最后面添加
 [archlinuxcn]
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
 # 然后安装archlinuxcn-keyring
-pacman -Sy archlinuxcn-keyring
+sudo pacman -Sy archlinuxcn-keyring
 ```
 
 ### 4. 安装xfce
@@ -175,10 +175,11 @@ font=FreeMono:size=12
 #### 7.1 安装Labwc及相关软件
 
 ```
-sudo pacman -S firefox firefox-ublock-origin thunar gvfs xarchiver thunar-archive-plugin xfce4-panel xfce4-appfinder xfce4-terminal fcitx5 fcitx5-rime rime-wubi git wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako grim slurp qogir-icon-theme-git upower
+sudo pacman -S firefox firefox-ublock-origin thunar gvfs xarchiver thunar-archive-plugin foot fcitx5 fcitx5-rime rime-wubi git wl-clipboard ristretto libreoffice-fresh libreoffice-fresh-zh-cn man-db 7zip swaybg swayidle swaylock wlr-randr brightnessctl wlopm mako grim slurp colloid-icon-theme-git upower
 
 PooMusic: python-mutagen gst-plugins-good
 WeChat: xcb-util-image
+topbar: gtk-layer-shell python-gobject
 
 sudo pacman -Rns alacritty htop smartmontools vim wget lightdm lightdm-gtk-greeter
 ```
